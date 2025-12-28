@@ -1,0 +1,156 @@
+{
+  "title": "Einrichtung",
+  "welcome": {
+    "title": "Willkommen bei ZeitPal",
+    "subtitle": "Ihre All-in-One Urlaubsverwaltung",
+    "setupTime": "Die Einrichtung dauert etwa 3 Minuten",
+    "getStarted": "Los geht's",
+    "features": {
+      "trackLeave": {
+        "title": "Alle Abwesenheitsarten",
+        "description": "Urlaub, Krankheit, Elternzeit und mehr"
+      },
+      "teamCalendar": {
+        "title": "Team-Kalender",
+        "description": "Sehen Sie, wer abwesend ist, und planen Sie die Vertretung"
+      },
+      "approvals": {
+        "title": "Genehmigungsworkflows",
+        "description": "Konfigurierbare Genehmigungsketten für Ihre Organisation"
+      },
+      "holidays": {
+        "title": "Feiertage berücksichtigt",
+        "description": "Automatische Erkennung der Feiertage nach Region"
+      }
+    }
+  },
+  "profile": {
+    "title": "Ihr Profil",
+    "description": "Lassen Sie uns Ihre Erfahrung personalisieren",
+    "fullName": "Vollständiger Name",
+    "fullNamePlaceholder": "Max Mustermann",
+    "fullNameHelp": "Wie sollen wir Sie ansprechen?",
+    "timezone": "Zeitzone",
+    "timezoneHelp": "Dies stellt sicher, dass Datum und Uhrzeit korrekt angezeigt werden",
+    "language": "Bevorzugte Sprache",
+    "changeLater": "Sie können diese Einstellungen jederzeit auf Ihrer Profilseite ändern."
+  },
+  "organization": {
+    "title": "Benennen Sie Ihre Organisation",
+    "description": "Dies ist der Arbeitsbereich Ihres Unternehmens in ZeitPal",
+    "name": "Organisationsname",
+    "namePlaceholder": "Acme GmbH",
+    "nameHelp": "Ihr Firmen- oder Teamname",
+    "url": "Ihre eindeutige URL",
+    "urlPlaceholder": "acme-gmbh",
+    "urlHelp": "Teilen Sie diesen Link mit Ihren Teammitgliedern",
+    "changeLater": "Der Name und die URL Ihrer Organisation können später in den Einstellungen geändert werden."
+  },
+  "location": {
+    "title": "Ihr Standort",
+    "description": "Dies bestimmt die Feiertage für Ihr Team",
+    "country": "Land",
+    "countryHelp": "Wo hat Ihre Organisation ihren Sitz?",
+    "region": "Bundesland / Region",
+    "regionHelp": {
+      "DE": "Jedes Bundesland hat unterschiedliche Feiertage",
+      "default": "Regionale Feiertage können variieren"
+    },
+    "regionLabels": {
+      "DE": "Bundesland",
+      "AT": "Bundesland",
+      "CH": "Kanton",
+      "default": "Region"
+    }
+  },
+  "policy": {
+    "title": "Urlaubsrichtlinie",
+    "description": "Legen Sie die Standard-Urlaubsrichtlinie Ihrer Organisation fest",
+    "vacationDays": "Jährliche Urlaubstage (Standard)",
+    "vacationDaysHelp": "Dies ist der Standard für neue Mitarbeiter. Sie können pro Mitarbeiter anpassen.",
+    "vacationDaysMinimum": "Mindestens {{days}} Tage erforderlich",
+    "carryover": "Urlaubsübertrag erlauben",
+    "carryoverDescription": "Mitarbeiter können nicht genommene Urlaubstage ins nächste Jahr übertragen",
+    "carryoverMaxDays": "Maximale Übertragstage",
+    "carryoverExpiry": "Übertrag verfällt am",
+    "configLater": "Sie können später weitere Einstellungen konfigurieren: Krankmeldungsanforderungen, Genehmigungsworkflows und benutzerdefinierte Abwesenheitsarten."
+  },
+  "team": {
+    "title": "Erstellen Sie Ihr erstes Team",
+    "description": "Teams helfen bei der Organisation von Urlaubskalendern und Genehmigungen",
+    "name": "Teamname",
+    "namePlaceholder": "z.B. Entwicklung",
+    "nameHelp": "Wie soll dieses Team heißen?",
+    "color": "Teamfarbe",
+    "colorHelp": "Diese Farbe wird im Team-Kalender verwendet",
+    "suggestions": "Häufige Teamnamen",
+    "configLater": "Sie können später weitere Teams erstellen und Teammitglieder in den Einstellungen organisieren."
+  },
+  "invite": {
+    "title": "Teammitglieder einladen",
+    "description": "Laden Sie Ihre Kollegen ein, Ihrer Organisation beizutreten",
+    "email": "E-Mail",
+    "emailPlaceholder": "kollege@firma.de",
+    "role": "Rolle",
+    "addAnother": "Weitere hinzufügen",
+    "rolePermissions": "Rollenberechtigungen",
+    "inviteNote": "Eingeladene erhalten eine E-Mail mit einem Link, um Ihrer Organisation beizutreten. Sie können jederzeit weitere Teammitglieder einladen.",
+    "roles": {
+      "employee": {
+        "label": "Mitarbeiter",
+        "description": "Kann Urlaub beantragen und eigenen Kontostand einsehen"
+      },
+      "manager": {
+        "label": "Manager",
+        "description": "Kann Teamanträge genehmigen"
+      },
+      "hr": {
+        "label": "HR",
+        "description": "Kann alle Abwesenheiten und Kontostände verwalten"
+      },
+      "admin": {
+        "label": "Admin",
+        "description": "Vollständiger Zugriff einschließlich Einstellungen"
+      }
+    }
+  },
+  "complete": {
+    "title": "Alles erledigt!",
+    "subtitle": "Ihre Organisation ist einsatzbereit",
+    "summary": "Zusammenfassung",
+    "organization": "Organisation",
+    "location": "Standort",
+    "vacationDays": "Urlaubstage",
+    "team": "Team",
+    "invites": "Einladungen",
+    "skipped": "Übersprungen",
+    "notCreated": "Nicht erstellt",
+    "none": "Keine",
+    "daysPerYear": "{{days}} Tage/Jahr",
+    "teamMembers": "{{count}} Teammitglied",
+    "teamMembers_plural": "{{count}} Teammitglieder",
+    "goToDashboard": "Zum Dashboard",
+    "configureLeaveTypes": "Abwesenheitsarten konfigurieren",
+    "inviteMore": "Weitere Mitglieder einladen",
+    "creating": "Erstelle Ihre Organisation..."
+  },
+  "navigation": {
+    "back": "Zurück",
+    "continue": "Weiter",
+    "skip": "Jetzt überspringen",
+    "pleaseWait": "Bitte warten..."
+  },
+  "steps": {
+    "welcome": "Willkommen",
+    "profile": "Profil",
+    "organization": "Organisation",
+    "location": "Standort",
+    "policy": "Richtlinie",
+    "team": "Team",
+    "invite": "Einladen",
+    "complete": "Fertig"
+  },
+  "progress": {
+    "stepOf": "Schritt {{current}} von {{total}}"
+  }
+}

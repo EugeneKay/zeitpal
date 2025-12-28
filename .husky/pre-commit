@@ -1,0 +1,136 @@
+#!/bin/sh
+
+# Secret Detection Pre-Commit Hook
+# Prevents committing files that may contain secrets
+
+echo "🔍 Checking for secrets in staged files..."
+
+# Get list of staged files (excluding deleted files)
+STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM)
+
+if [ -z "$STAGED_FILES" ]; then
+    echo "✅ No staged files to check"
+    exit 0
+fi
+
+# Define patterns to detect secrets
+# Each pattern is on a new line for readability
+SECRET_PATTERNS=(
+    # AWS
+    'AKIA[0-9A-Z]{16}'
+    'aws_secret_access_key\s*=\s*["\047][A-Za-z0-9/+=]{40}["\047]'
+
+    # Private Keys
+    '-----BEGIN (RSA |DSA |EC |OPENSSH |PGP )?PRIVATE KEY( BLOCK)?-----'
+
+    # Generic API Keys and Tokens
+    '[aA][pP][iI]_?[kK][eE][yY]\s*[:=]\s*["\047][A-Za-z0-9_\-]{20,}["\047]'
+    '[aA][pP][iI]_?[sS][eE][cC][rR][eE][tT]\s*[:=]\s*["\047][A-Za-z0-9_\-]{20,}["\047]'
+    '[sS][eE][cC][rR][eE][tT]_?[kK][eE][yY]\s*[:=]\s*["\047][A-Za-z0-9_\-]{20,}["\047]'
+
+    # Supabase (this project uses Supabase)
+    'sb[op]_[A-Za-z0-9]{20,}'
+    'service_role\s*[:=]\s*["\047]eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+["\047]'
+
+    # JWT Tokens
+    'eyJ[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}'
+
+    # Generic secrets/passwords in config
+    '[pP][aA][sS][sS][wW][oO][rR][dD]\s*[:=]\s*["\047][^"\047]{8,}["\047]'
+
+    # Database URLs with passwords
+    '(mysql|postgres|postgresql|mongodb|redis):\/\/[^:]+:[^@]+@'
+
+    # GitHub/GitLab tokens
+    'gh[pousr]_[A-Za-z0-9_]{36,}'
+    'glpat-[A-Za-z0-9\-]{20,}'
+
+    # Slack tokens
+    'xox[baprs]-[A-Za-z0-9\-]{10,}'
+
+    # Stripe
+    'sk_live_[A-Za-z0-9]{24,}'
+    'sk_test_[A-Za-z0-9]{24,}'
+    'rk_live_[A-Za-z0-9]{24,}'
+
+    # SendGrid
+    'SG\.[A-Za-z0-9_\-]{22}\.[A-Za-z0-9_\-]{43}'
+
+    # Twilio
+    'SK[A-Za-z0-9]{32}'
+
+    # OpenAI
+    'sk-[A-Za-z0-9]{48}'
+
+    # Anthropic
+    'sk-ant-[A-Za-z0-9\-]{40,}'
+
+    # Google
+    'AIza[A-Za-z0-9_\-]{35}'
+
+    # Cloudflare
+    'cloudflare.*["\047][A-Za-z0-9_\-]{37}["\047]'
+)
+
+# Files to ignore (typically example/template files)
+IGNORE_PATTERNS=(
+    '\.example$'
+    '\.sample$'
+    '\.template$'
+    '\.md$'
+    'package-lock\.json$'
+    'pnpm-lock\.yaml$'
+    'yarn\.lock$'
+)
+
+SECRETS_FOUND=0
+FINDINGS=""
+
+for FILE in $STAGED_FILES; do
+    # Skip if file doesn't exist (was deleted)
+    if [ ! -f "$FILE" ]; then
+        continue
+    fi
+
+    # Skip ignored file patterns
+    SKIP=0
+    for IGNORE in "${IGNORE_PATTERNS[@]}"; do
+        if echo "$FILE" | grep -qE "$IGNORE"; then
+            SKIP=1
+            break
+        fi
+    done
+
+    if [ $SKIP -eq 1 ]; then
+        continue
+    fi
+
+    # Check for each secret pattern
+    for PATTERN in "${SECRET_PATTERNS[@]}"; do
+        # Get the staged content of the file
+        MATCHES=$(git show ":$FILE" 2>/dev/null | grep -nE "$PATTERN" 2>/dev/null || true)
+
+        if [ -n "$MATCHES" ]; then
+            SECRETS_FOUND=1
+            FINDINGS="$FINDINGS\n❌ Potential secret found in $FILE:\n$MATCHES\n"
+        fi
+    done
+done
+
+if [ $SECRETS_FOUND -eq 1 ]; then
+    echo ""
+    echo "🚨 COMMIT BLOCKED: Potential secrets detected!"
+    echo "================================================"
+    echo -e "$FINDINGS"
+    echo "================================================"
+    echo ""
+    echo "If these are false positives, you can:"
+    echo "  1. Add the file to .gitignore"
+    echo "  2. Use environment variables instead of hardcoding"
+    echo "  3. Skip this hook with: git commit --no-verify (not recommended)"
+    echo ""
+    exit 1
+fi
+
+echo "✅ No secrets detected in staged files"
+exit 0

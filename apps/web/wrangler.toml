@@ -1,0 +1,47 @@
+name = "zeitpal"
+compatibility_date = "2024-12-01"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = ".vercel/output/static"
+
+# D1 Database binding
+[[d1_databases]]
+binding = "DB"
+database_name = "zeitpal-db"
+database_id = "48f4f916-91ca-4ada-8d0f-34eb9f4123fe"
+
+# R2 Storage binding for file uploads (sick notes, etc.)
+[[r2_buckets]]
+binding = "R2"
+bucket_name = "zeitpal-storage"
+
+# Environment variables
+[vars]
+NEXT_PUBLIC_SITE_URL = "https://zeitpal.de"
+NEXT_PUBLIC_PRODUCT_NAME = "ZeitPal"
+NEXT_PUBLIC_SITE_TITLE = "ZeitPal - Urlaubsverwaltung, die einfach funktioniert"
+NEXT_PUBLIC_SITE_DESCRIPTION = "ZeitPal macht Urlaubsplanung, Krankmeldungen und Abwesenheitsmanagement zum Kinderspiel. DSGVO-konform, Made in Germany. Kostenlos für kleine Teams."
+NEXT_PUBLIC_DEFAULT_LOCALE = "en"
+NEXT_PUBLIC_DEFAULT_THEME_MODE = "light"
+NEXT_PUBLIC_THEME_COLOR = "#ffffff"
+NEXT_PUBLIC_THEME_COLOR_DARK = "#0a0a0a"
+NEXT_PUBLIC_AUTH_MAGIC_LINK = "true"
+NEXT_PUBLIC_DISPLAY_TERMS_AND_CONDITIONS_CHECKBOX = "true"
+NEXT_PUBLIC_LOCALES_PATH = "apps/web/public/locales"
+NEXT_PUBLIC_ENABLE_THEME_TOGGLE = "true"
+NEXT_PUBLIC_LANGUAGE_PRIORITY = "application"
+NEXT_PUBLIC_ENABLE_PERSONAL_ACCOUNT_DELETION = "true"
+MAILGUN_DOMAIN = "mg.zeitpal.com"
+AUTH_EMAIL_FROM = "ZeitPal <noreply@zeitpal.de>"
+
+# Secrets (set via `wrangler secret put` or Cloudflare dashboard):
+# - AUTH_SECRET
+# - AUTH_GOOGLE_ID
+# - AUTH_GOOGLE_SECRET
+# - AUTH_MICROSOFT_ENTRA_ID_ID
+# - AUTH_MICROSOFT_ENTRA_ID_SECRET
+# - AUTH_MICROSOFT_ENTRA_ID_TENANT_ID
+# - MAILGUN_API_KEY
+
+# Observability (logs and traces in Cloudflare dashboard)
+[observability]
+enabled = true

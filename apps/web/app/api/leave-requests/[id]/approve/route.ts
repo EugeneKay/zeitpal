@@ -1,0 +1,150 @@
+import { NextRequest } from 'next/server';
+
+import { getRequestContext } from '@cloudflare/next-on-pages';
+import { z } from 'zod';
+
+import { auth } from '~/lib/auth/auth';
+import {
+  success,
+  unauthorized,
+  forbidden,
+  notFound,
+  badRequest,
+  validationError,
+} from '~/lib/api/responses';
+
+export const runtime = 'edge';
+
+const approveSchema = z.object({
+  comment: z.string().max(500).optional(),
+});
+
+interface RouteParams {
+  params: Promise<{ id: string }>;
+}
+
+/**
+ * POST /api/leave-requests/[id]/approve
+ * Approve a leave request
+ */
+export async function POST(request: NextRequest, { params }: RouteParams) {
+  const session = await auth();
+
+  if (!session?.user?.id) {
+    return unauthorized();
+  }
+
+  const { id } = await params;
+  const body = await request.json().catch(() => ({}));
+  const parsed = approveSchema.safeParse(body);
+
+  if (!parsed.success) {
+    return validationError(parsed.error.flatten());
+  }
+
+  const { comment } = parsed.data;
+  const { env } = getRequestContext();
+  const db = env.DB;
+
+  // Get current user's membership
+  const currentMembership = await db
+    .prepare(
+      `SELECT organization_id, role FROM organization_members
+       WHERE user_id = ? AND status = 'active'
+       LIMIT 1`
+    )
+    .bind(session.user.id)
+    .first<{ organization_id: string; role: string }>();
+
+  if (!currentMembership) {
+    return forbidden('Not a member of any organization');
+  }
+
+  // Only admins and managers can approve
+  if (currentMembership.role !== 'admin' && currentMembership.role !== 'manager') {
+    return forbidden('Only admins and managers can approve leave requests');
+  }
+
+  // Get the leave request
+  const leaveRequest = await db
+    .prepare(
+      `SELECT lr.*, u.name as user_name
+       FROM leave_requests lr
+       JOIN users u ON lr.user_id = u.id
+       WHERE lr.id = ?`
+    )
+    .bind(id)
+    .first<Record<string, unknown>>();
+
+  if (!leaveRequest) {
+    return notFound('Leave request not found');
+  }
+
+  // Verify same organization
+  if (leaveRequest.organization_id !== currentMembership.organization_id) {
+    return forbidden('Cannot approve leave requests from other organizations');
+  }
+
+  // Can only approve pending requests
+  if (leaveRequest.status !== 'pending') {
+    return badRequest('Can only approve pending leave requests');
+  }
+
+  // Cannot approve your own request
+  if (leaveRequest.user_id === session.user.id) {
+    return badRequest('Cannot approve your own leave request');
+  }
+
+  const now = new Date().toISOString();
+  const approvalId = crypto.randomUUID();
+
+  // Create approval record and update leave request in a batch
+  await db.batch([
+    // Create approval record
+    db
+      .prepare(
+        `INSERT INTO leave_approvals (
+          id, leave_request_id, approver_id, action, comment, created_at
+        ) VALUES (?, ?, ?, 'approved', ?, ?)`
+      )
+      .bind(approvalId, id, session.user.id, comment || null, now),
+
+    // Update leave request status
+    db
+      .prepare(
+        `UPDATE leave_requests SET status = 'approved', updated_at = ? WHERE id = ?`
+      )
+      .bind(now, id),
+
+    // Update leave balance - deduct from pending and add to used
+    db
+      .prepare(
+        `UPDATE leave_balances
+         SET pending = pending - ?,
+             used = used + ?,
+             updated_at = ?
+         WHERE organization_id = ?
+           AND user_id = ?
+           AND leave_type_id = ?
+           AND year = ?`
+      )
+      .bind(
+        leaveRequest.work_days,
+        leaveRequest.work_days,
+        now,
+        leaveRequest.organization_id,
+        leaveRequest.user_id,
+        leaveRequest.leave_type_id,
+        new Date(leaveRequest.start_date as string).getFullYear()
+      ),
+  ]);
+
+  // TODO: Send notification to the user
+
+  return success({
+    id,
+    status: 'approved',
+    approvedBy: session.user.id,
+    approvedAt: now,
+  });
+}
