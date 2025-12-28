@@ -106,7 +106,7 @@ export default function OrganizationPage() {
                 <FormLabel>Organization Name</FormLabel>
                 <FormControl>
                   <Input
-                    placeholder="Acme GmbH"
+                    placeholder=""
                     {...field}
                     onChange={(e) => handleNameChange(e.target.value)}
                   />
@@ -131,7 +131,7 @@ export default function OrganizationPage() {
                       zeitpal.de/
                     </span>
                     <Input
-                      placeholder="acme-gmbh"
+                      placeholder=""
                       className="rounded-l-none"
                       {...field}
                     />

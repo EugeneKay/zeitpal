@@ -48,11 +48,11 @@ const organizationSchema = z.object({
 
 type OrganizationFormData = z.infer<typeof organizationSchema>;
 
-// Mock data - will be replaced with React Query
+// TODO: Replace with React Query - load from API
 const mockOrganization = {
-  name: 'Acme Corp',
-  slug: 'acme-corp',
-  bundesland: 'BY' as Bundesland,
+  name: '',
+  slug: '',
+  bundesland: '' as Bundesland,
   defaultVacationDays: 30,
   carryoverEnabled: true,
   carryoverMaxDays: 5,

@@ -190,7 +190,7 @@ export function CreateOrgWizard() {
                     <FormControl>
                       <Input
                         {...field}
-                        placeholder="Acme Corp"
+                        placeholder=""
                         onChange={(e) => handleNameChange(e.target.value)}
                       />
                     </FormControl>
@@ -206,7 +206,7 @@ export function CreateOrgWizard() {
                   <FormItem>
                     <FormLabel>URL Slug</FormLabel>
                     <FormControl>
-                      <Input {...field} placeholder="acme-corp" />
+                      <Input {...field} placeholder="" />
                     </FormControl>
                     <FormDescription>
                       Your organization URL: zeitpal.de/{field.value || 'your-org'}
