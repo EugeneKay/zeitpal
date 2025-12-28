@@ -9,10 +9,9 @@ const defaultLanguage = process.env.NEXT_PUBLIC_DEFAULT_LOCALE ?? 'en';
 
 /**
  * The list of supported languages.
- * By default, only the default language is supported.
- * Add more languages here if needed.
+ * English first (default), German second.
  */
-export const languages: string[] = [defaultLanguage];
+export const languages: string[] = ['en', 'de'];
 
 /**
  * The name of the cookie that stores the selected language.
@@ -32,6 +31,8 @@ export const defaultI18nNamespaces = [
   'teams',
   'billing',
   'marketing',
+  'leave',
+  'admin',
 ];
 
 /**

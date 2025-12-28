@@ -1,4 +1,4 @@
-import type { JwtPayload } from '@supabase/supabase-js';
+import type { User } from 'next-auth';
 
 import { Header } from '@kit/ui/marketing';
 
@@ -7,7 +7,7 @@ import { AppLogo } from '~/components/app-logo';
 import { SiteHeaderAccountSection } from './site-header-account-section';
 import { SiteNavigation } from './site-navigation';
 
-export function SiteHeader(props: { user?: JwtPayload | null }) {
+export function SiteHeader(props: { user?: User | null }) {
   return (
     <Header
       logo={<AppLogo />}

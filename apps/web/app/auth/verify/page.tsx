@@ -1,52 +1,46 @@
-import { redirect } from 'next/navigation';
+import Link from 'next/link';
 
-import { MultiFactorChallengeContainer } from '@kit/auth/mfa';
-import { checkRequiresMultiFactorAuthentication } from '@kit/supabase/check-requires-mfa';
-import { getSupabaseServerClient } from '@kit/supabase/server-client';
+import { Mail } from 'lucide-react';
+
+import { Button } from '@kit/ui/button';
+import { Trans } from '@kit/ui/trans';
 
 import pathsConfig from '~/config/paths.config';
 import { createI18nServerInstance } from '~/lib/i18n/i18n.server';
 import { withI18n } from '~/lib/i18n/with-i18n';
 
-interface Props {
-  searchParams: Promise<{
-    next?: string;
-  }>;
-}
-
 export const generateMetadata = async () => {
   const i18n = await createI18nServerInstance();
 
   return {
-    title: i18n.t('auth:signIn'),
+    title: i18n.t('auth:verifyEmail'),
   };
 };
 
-async function VerifyPage(props: Props) {
-  const client = getSupabaseServerClient();
-
-  const { data } = await client.auth.getClaims();
-
-  if (!data?.claims) {
-    redirect(pathsConfig.auth.signIn);
-  }
-
-  const needsMfa = await checkRequiresMultiFactorAuthentication(client);
-
-  if (!needsMfa) {
-    redirect(pathsConfig.auth.signIn);
-  }
-
-  const nextPath = (await props.searchParams).next;
-  const redirectPath = nextPath ?? pathsConfig.app.home;
-
+async function VerifyPage() {
   return (
-    <MultiFactorChallengeContainer
-      userId={data.claims.sub}
-      paths={{
-        redirectPath,
-      }}
-    />
+    <div className="flex flex-col items-center space-y-6 text-center">
+      <div className="rounded-full bg-primary/10 p-4">
+        <Mail className="h-8 w-8 text-primary" />
+      </div>
+
+      <div className="space-y-2">
+        <h1 className="text-2xl font-semibold">
+          <Trans i18nKey={'auth:checkYourEmail'} />
+        </h1>
+        <p className="text-muted-foreground">
+          <Trans i18nKey={'auth:checkYourEmailDescription'} />
+        </p>
+      </div>
+
+      <div className="flex flex-col gap-2 w-full">
+        <Button asChild variant="outline">
+          <Link href={pathsConfig.auth.signIn}>
+            <Trans i18nKey={'auth:backToSignIn'} />
+          </Link>
+        </Button>
+      </div>
+    </div>
   );
 }
 

@@ -1,4 +1,4 @@
-import type { JwtPayload } from '@supabase/supabase-js';
+import type { User } from 'next-auth';
 
 import {
   Sidebar,
@@ -11,11 +11,14 @@ import {
 import { AppLogo } from '~/components/app-logo';
 import { ProfileAccountDropdownContainer } from '~/components/personal-account-dropdown-container';
 import { navigationConfig } from '~/config/navigation.config';
-import { Tables } from '~/lib/database.types';
 
 export function HomeSidebar(props: {
-  account?: Tables<'accounts'>;
-  user: JwtPayload;
+  account?: {
+    id: string | null;
+    name: string | null;
+    picture_url: string | null;
+  };
+  user: User;
 }) {
   return (
     <Sidebar collapsible={'icon'}>

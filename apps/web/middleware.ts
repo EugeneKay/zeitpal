@@ -2,9 +2,7 @@ import type { NextRequest } from 'next/server';
 import { NextResponse, URLPattern } from 'next/server';
 
 import { CsrfError, createCsrfProtect } from '@edge-csrf/nextjs';
-
-import { checkRequiresMultiFactorAuthentication } from '@kit/supabase/check-requires-mfa';
-import { createMiddlewareClient } from '@kit/supabase/middleware-client';
+import { getToken } from 'next-auth/jwt';
 
 import appConfig from '~/config/app.config';
 import pathsConfig from '~/config/paths.config';
@@ -13,21 +11,31 @@ const CSRF_SECRET_COOKIE = 'csrfSecret';
 const NEXT_ACTION_HEADER = 'next-action';
 
 export const config = {
-  matcher: ['/((?!_next/static|_next/image|images|locales|assets|api/*).*)'],
+  matcher: ['/((?!_next/static|_next/image|images|locales|assets|api/auth|api/onboarding).*)'],
 };
 
-const getUser = (request: NextRequest, response: NextResponse) => {
-  const supabase = createMiddlewareClient(request, response);
+/**
+ * Get the authenticated user from the JWT token
+ */
+async function getUser(request: NextRequest) {
+  try {
+    const token = await getToken({
+      req: request,
+      secret: process.env.AUTH_SECRET,
+    });
 
-  return supabase.auth.getClaims();
-};
+    return token;
+  } catch {
+    return null;
+  }
+}
 
 export async function middleware(request: NextRequest) {
   const response = NextResponse.next();
 
   // set a unique request ID for each request
   // this helps us log and trace requests
-  setRequestId(request);
+  setRequestId(response);
 
   // apply CSRF protection for mutating requests
   const csrfResponse = await withCsrfMiddleware(request, response);
@@ -94,6 +102,7 @@ function isServerAction(request: NextRequest) {
 
   return headers.has(NEXT_ACTION_HEADER);
 }
+
 /**
  * Define URL patterns and their corresponding handlers.
  */
@@ -102,10 +111,10 @@ function getPatterns() {
     {
       pattern: new URLPattern({ pathname: '/auth/*?' }),
       handler: async (req: NextRequest, res: NextResponse) => {
-        const { data } = await getUser(req, res);
+        const token = await getUser(req);
 
         // the user is logged out, so we don't need to do anything
-        if (!data?.claims) {
+        if (!token) {
           return;
         }
 
@@ -124,30 +133,41 @@ function getPatterns() {
     {
       pattern: new URLPattern({ pathname: '/home/*?' }),
       handler: async (req: NextRequest, res: NextResponse) => {
-        const { data } = await getUser(req, res);
+        const token = await getUser(req);
 
         const origin = req.nextUrl.origin;
         const next = req.nextUrl.pathname;
 
         // If user is not logged in, redirect to sign in page.
-        if (!data?.claims) {
+        if (!token) {
           const signIn = pathsConfig.auth.signIn;
           const redirectPath = `${signIn}?next=${next}`;
 
           return NextResponse.redirect(new URL(redirectPath, origin).href);
         }
 
-        const supabase = createMiddlewareClient(req, res);
+        // Note: Onboarding completion check is done in the home layout/page
+        // using server-side database queries, not in middleware.
+        // This avoids the complexity of database access in edge middleware.
+        return;
+      },
+    },
+    {
+      pattern: new URLPattern({ pathname: '/onboarding/*?' }),
+      handler: async (req: NextRequest, res: NextResponse) => {
+        const token = await getUser(req);
 
-        const requiresMultiFactorAuthentication =
-          await checkRequiresMultiFactorAuthentication(supabase);
+        const origin = req.nextUrl.origin;
 
-        // If user requires multi-factor authentication, redirect to MFA page.
-        if (requiresMultiFactorAuthentication) {
+        // If user is not logged in, redirect to sign in page.
+        if (!token) {
           return NextResponse.redirect(
-            new URL(pathsConfig.auth.verifyMfa, origin).href,
+            new URL(pathsConfig.auth.signIn, origin).href,
           );
         }
+
+        // User is authenticated, allow access to onboarding
+        return;
       },
     },
   ];
@@ -172,8 +192,8 @@ function matchUrlPattern(url: string) {
 
 /**
  * Set a unique request ID for each request.
- * @param request
+ * @param response
  */
-function setRequestId(request: Request) {
-  request.headers.set('x-correlation-id', crypto.randomUUID());
+function setRequestId(response: NextResponse) {
+  response.headers.set('x-correlation-id', crypto.randomUUID());
 }

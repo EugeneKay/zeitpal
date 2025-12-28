@@ -1,17 +1,14 @@
-import { getSupabaseServerClient } from '@kit/supabase/server-client';
-
 import { SiteFooter } from '~/(marketing)/_components/site-footer';
 import { SiteHeader } from '~/(marketing)/_components/site-header';
+import { auth } from '~/lib/auth/auth';
 import { withI18n } from '~/lib/i18n/with-i18n';
 
 async function SiteLayout(props: React.PropsWithChildren) {
-  const client = getSupabaseServerClient();
-
-  const { data } = await client.auth.getClaims();
+  const session = await auth();
 
   return (
     <div className={'flex min-h-[100vh] flex-col'}>
-      <SiteHeader user={data?.claims} />
+      <SiteHeader user={session?.user ?? null} />
 
       {props.children}
 

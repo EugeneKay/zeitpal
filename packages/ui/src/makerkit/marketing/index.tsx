@@ -13,3 +13,12 @@ export * from './feature-card';
 export * from './newsletter-signup';
 export * from './newsletter-signup-container';
 export * from './coming-soon';
+
+// New marketing components
+export * from './pricing-card';
+export * from './testimonial-card';
+export * from './stats-section';
+export * from './trust-badges';
+export * from './faq-accordion';
+export * from './logo-cloud';
+export * from './cta-section';

@@ -56,14 +56,26 @@
   "newVersionSubmitButton": "Reload and Update",
   "back": "Back",
   "routes": {
-    "home": "Home",
+    "home": "Dashboard",
     "account": "Account",
     "members": "Members",
     "billing": "Billing",
     "dashboard": "Dashboard",
     "settings": "Settings",
     "profile": "Profile",
-    "application": "Application"
+    "application": "Application",
+    "leave": "My Leave",
+    "calendar": "Team Calendar",
+    "approvals": "Approvals",
+    "team": "Team",
+    "admin": "Administration",
+    "organization": "Organization",
+    "teams": "Teams",
+    "leaveTypes": "Leave Types",
+    "policies": "Policies",
+    "holidays": "Holidays",
+    "approvalRules": "Approval Rules",
+    "reports": "Reports"
   },
   "roles": {
     "owner": {

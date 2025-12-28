@@ -3,8 +3,8 @@
 import Link from 'next/link';
 
 import { LogOut, Menu } from 'lucide-react';
+import { signOut } from 'next-auth/react';
 
-import { useSignOut } from '@kit/supabase/hooks/use-sign-out';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -22,7 +22,6 @@ import { navigationConfig } from '~/config/navigation.config';
  * @constructor
  */
 export function HomeMobileNavigation() {
-  const signOut = useSignOut();
 
   const Links = navigationConfig.routes.map((item, index) => {
     if ('children' in item) {
@@ -54,7 +53,7 @@ export function HomeMobileNavigation() {
 
         <DropdownMenuSeparator />
 
-        <SignOutDropdownItem onSignOut={() => signOut.mutateAsync()} />
+        <SignOutDropdownItem onSignOut={() => signOut({ callbackUrl: '/' })} />
       </DropdownMenuContent>
     </DropdownMenu>
   );

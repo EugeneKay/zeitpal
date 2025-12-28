@@ -37,12 +37,22 @@ const links: Record<
     path: string;
   }
 > = {
-  /*
-    FAQ: {
-      label: 'marketing:faq',
-      path: '/faq',
-    },
-     */
+  Features: {
+    label: 'marketing:features',
+    path: '/features',
+  },
+  Pricing: {
+    label: 'marketing:pricing',
+    path: '/pricing',
+  },
+  Customers: {
+    label: 'marketing:customers',
+    path: '/kunden',
+  },
+  FAQ: {
+    label: 'marketing:faq',
+    path: '/faq',
+  },
 };
 
 export function SiteNavigation() {

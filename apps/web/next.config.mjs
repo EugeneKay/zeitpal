@@ -1,5 +1,6 @@
+import { setupDevPlatform } from '@cloudflare/next-on-pages/next-dev';
+
 const IS_PRODUCTION = process.env.NODE_ENV === 'production';
-const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const ENABLE_REACT_COMPILER = process.env.ENABLE_REACT_COMPILER === 'true';
 
 const INTERNAL_PACKAGES = [
@@ -7,10 +8,14 @@ const INTERNAL_PACKAGES = [
   '@kit/auth',
   '@kit/accounts',
   '@kit/shared',
-  '@kit/supabase',
   '@kit/i18n',
   '@kit/next',
 ];
+
+// Setup Cloudflare bindings for local development
+if (process.env.NODE_ENV === 'development') {
+  await setupDevPlatform();
+}
 
 /** @type {import('next').NextConfig} */
 const config = {
@@ -62,14 +67,12 @@ function getRemotePatterns() {
   /** @type {import('next').NextConfig['remotePatterns']} */
   const remotePatterns = [];
 
-  if (SUPABASE_URL) {
-    const hostname = new URL(SUPABASE_URL).hostname;
-
-    remotePatterns.push({
-      protocol: 'https',
-      hostname,
-    });
-  }
+  // Add any external image hosts here
+  // Example:
+  // remotePatterns.push({
+  //   protocol: 'https',
+  //   hostname: 'example.com',
+  // });
 
   return IS_PRODUCTION
     ? remotePatterns

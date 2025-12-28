@@ -1,16 +1,13 @@
-import { NextRequest, NextResponse } from 'next/server';
-
-import { createAuthCallbackService } from '@kit/supabase/auth';
-import { getSupabaseServerClient } from '@kit/supabase/server-client';
+import { redirect } from 'next/navigation';
 
 import pathsConfig from '~/config/paths.config';
 
-export async function GET(request: NextRequest) {
-  const service = createAuthCallbackService(getSupabaseServerClient());
-
-  const url = await service.verifyTokenHash(request, {
-    redirectPath: pathsConfig.app.home,
-  });
-
-  return NextResponse.redirect(url);
+/**
+ * Auth confirm route
+ *
+ * NextAuth handles email verification automatically.
+ * This route exists for backwards compatibility and redirects to the app home.
+ */
+export async function GET() {
+  return redirect(pathsConfig.app.home);
 }

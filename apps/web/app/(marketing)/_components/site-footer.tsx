@@ -20,20 +20,66 @@ export function SiteFooter() {
       }
       sections={[
         {
-          heading: 'Get Started',
+          heading: <Trans i18nKey="marketing:footer.product" />,
           links: [
             {
-              href: '/auth/sign-in',
-              label: <Trans i18nKey="auth:signIn" />,
+              href: '/features',
+              label: <Trans i18nKey="marketing:features" />,
             },
             {
-              href: '/auth/sign-up',
-              label: <Trans i18nKey="auth:signUp" />,
+              href: '/pricing',
+              label: <Trans i18nKey="marketing:pricing" />,
+            },
+            {
+              href: '/demo',
+              label: <Trans i18nKey="marketing:demo" />,
+            },
+            {
+              href: '/faq',
+              label: <Trans i18nKey="marketing:faq" />,
             },
           ],
         },
         {
-          heading: <Trans i18nKey="marketing:legal" />,
+          heading: <Trans i18nKey="marketing:footer.solutions" />,
+          links: [
+            {
+              href: '/urlaubsverwaltung',
+              label: 'Urlaubsverwaltung',
+            },
+            {
+              href: '/abwesenheitsmanagement',
+              label: 'Abwesenheitsmanagement',
+            },
+            {
+              href: '/fuer-startups',
+              label: 'Für Startups',
+            },
+            {
+              href: '/fuer-mittelstand',
+              label: 'Für Mittelstand',
+            },
+          ],
+        },
+        {
+          heading: <Trans i18nKey="marketing:footer.company" />,
+          links: [
+            {
+              href: '/about',
+              label: <Trans i18nKey="marketing:about" />,
+            },
+            {
+              href: '/kunden',
+              label: <Trans i18nKey="marketing:customers" />,
+            },
+            {
+              href: '/contact',
+              label: <Trans i18nKey="marketing:contact" />,
+            },
+          ],
+        },
+        {
+          heading: <Trans i18nKey="marketing:footer.legal" />,
           links: [
             {
               href: '/terms-of-service',
@@ -46,6 +92,10 @@ export function SiteFooter() {
             {
               href: '/cookie-policy',
               label: <Trans i18nKey="marketing:cookiePolicy" />,
+            },
+            {
+              href: '/imprint',
+              label: <Trans i18nKey="marketing:imprint" />,
             },
           ],
         },

@@ -29,7 +29,8 @@
     "supabase:web:start": "pnpm --filter web supabase:start",
     "supabase:web:stop": "pnpm --filter web supabase:stop",
     "supabase:web:typegen": "pnpm --filter web supabase:typegen",
-    "supabase:web:reset": "pnpm --filter web supabase:reset"
+    "supabase:web:reset": "pnpm --filter web supabase:reset",
+    "prepare": "husky"
   },
   "prettier": "@kit/prettier-config",
   "packageManager": "pnpm@10.18.2",
@@ -42,6 +43,7 @@
     "@manypkg/cli": "^0.25.1",
     "@turbo/gen": "^2.5.8",
     "cross-env": "^10.1.0",
+    "husky": "^9.1.7",
     "prettier": "^3.6.2",
     "turbo": "2.5.8",
     "typescript": "^5.9.3"

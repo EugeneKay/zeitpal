@@ -1,17 +1,13 @@
 import { redirect } from 'next/navigation';
-import type { NextRequest } from 'next/server';
-
-import { createAuthCallbackService } from '@kit/supabase/auth';
-import { getSupabaseServerClient } from '@kit/supabase/server-client';
 
 import pathsConfig from '~/config/paths.config';
 
-export async function GET(request: NextRequest) {
-  const service = createAuthCallbackService(getSupabaseServerClient());
-
-  const { nextPath } = await service.exchangeCodeForSession(request, {
-    redirectPath: pathsConfig.app.home,
-  });
-
-  return redirect(nextPath);
+/**
+ * Auth callback route
+ *
+ * NextAuth handles callbacks automatically via /api/auth/callback/[provider].
+ * This route exists for backwards compatibility and redirects to the app home.
+ */
+export async function GET() {
+  return redirect(pathsConfig.app.home);
 }
