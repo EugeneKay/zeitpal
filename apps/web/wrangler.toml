@@ -31,7 +31,7 @@ NEXT_PUBLIC_ENABLE_THEME_TOGGLE = "true"
 NEXT_PUBLIC_LANGUAGE_PRIORITY = "application"
 NEXT_PUBLIC_ENABLE_PERSONAL_ACCOUNT_DELETION = "true"
 MAILGUN_DOMAIN = "mg.zeitpal.com"
-AUTH_EMAIL_FROM = "ZeitPal <noreply@zeitpal.com>"
+AUTH_EMAIL_FROM = "ZeitPal <hello@mg.zeitpal.com>"
 
 # Secrets (set via `wrangler secret put` or Cloudflare dashboard):
 # - AUTH_SECRET

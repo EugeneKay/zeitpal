@@ -39,6 +39,15 @@ import pathsConfig from '~/config/paths.config';
 import { useLeaveTypes, useHolidays, useCreateLeaveRequest } from '~/lib/hooks';
 import { calculateWorkDays } from '~/lib/utils/leave-calculations';
 
+interface LeaveRequestFormProps {
+  /** Called when the form is successfully submitted. If provided, the form won't navigate away. */
+  onSuccess?: () => void;
+  /** Called when the cancel button is clicked. If provided, uses this instead of router.back() */
+  onCancel?: () => void;
+  /** Whether to show the form in a compact mode (no Card wrapper) */
+  compact?: boolean;
+}
+
 const formSchema = z.object({
   leaveTypeId: z.string().min(1, 'Please select a leave type'),
   startDate: z.date({ required_error: 'Start date is required' }),
@@ -56,7 +65,7 @@ const formSchema = z.object({
 
 type FormData = z.infer<typeof formSchema>;
 
-export function LeaveRequestForm() {
+export function LeaveRequestForm({ onSuccess, onCancel, compact = false }: LeaveRequestFormProps) {
   const router = useRouter();
 
   // Fetch leave types and holidays from API
@@ -106,9 +115,22 @@ export function LeaveRequestForm() {
       });
 
       toast.success('Leave request submitted successfully');
-      router.push(pathsConfig.app.leave);
+
+      if (onSuccess) {
+        onSuccess();
+      } else {
+        router.push(pathsConfig.app.leave);
+      }
     } catch (error) {
       toast.error(error instanceof Error ? error.message : 'Failed to submit leave request');
+    }
+  };
+
+  const handleCancel = () => {
+    if (onCancel) {
+      onCancel();
+    } else {
+      router.back();
     }
   };
 
@@ -121,38 +143,44 @@ export function LeaveRequestForm() {
     format(watchStartDate, 'yyyy-MM-dd') === format(watchEndDate, 'yyyy-MM-dd');
 
   if (isLoading) {
-    return (
-      <Card>
-        <CardContent className="space-y-6 pt-6">
+    const loadingSkeleton = (
+      <div className="space-y-6">
+        <div className="space-y-2">
+          <Skeleton className="h-4 w-24" />
+          <Skeleton className="h-10 w-full" />
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2">
           <div className="space-y-2">
-            <Skeleton className="h-4 w-24" />
+            <Skeleton className="h-4 w-20" />
             <Skeleton className="h-10 w-full" />
           </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="space-y-2">
-              <Skeleton className="h-4 w-20" />
-              <Skeleton className="h-10 w-full" />
-            </div>
-            <div className="space-y-2">
-              <Skeleton className="h-4 w-20" />
-              <Skeleton className="h-10 w-full" />
-            </div>
-          </div>
           <div className="space-y-2">
-            <Skeleton className="h-4 w-16" />
-            <Skeleton className="h-24 w-full" />
+            <Skeleton className="h-4 w-20" />
+            <Skeleton className="h-10 w-full" />
           </div>
-        </CardContent>
+        </div>
+        <div className="space-y-2">
+          <Skeleton className="h-4 w-16" />
+          <Skeleton className="h-24 w-full" />
+        </div>
+      </div>
+    );
+
+    if (compact) {
+      return loadingSkeleton;
+    }
+
+    return (
+      <Card>
+        <CardContent className="pt-6">{loadingSkeleton}</CardContent>
       </Card>
     );
   }
 
-  return (
-    <Card>
-      <CardContent className="pt-6">
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-            {/* Leave Type */}
+  const formContent = (
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+        {/* Leave Type */}
             <FormField
               control={form.control}
               name="leaveTypeId"
@@ -415,29 +443,37 @@ export function LeaveRequestForm() {
               )}
             />
 
-            {/* Actions */}
-            <div className="flex justify-end gap-3">
-              <Button
-                type="button"
-                variant="outline"
-                onClick={() => router.back()}
-              >
-                <Trans i18nKey="leave:request.cancel" />
-              </Button>
-              <Button type="submit" disabled={isSubmitting}>
-                {isSubmitting ? (
-                  <>
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    Submitting...
-                  </>
-                ) : (
-                  <Trans i18nKey="leave:request.submit" />
-                )}
-              </Button>
-            </div>
-          </form>
-        </Form>
-      </CardContent>
+        {/* Actions */}
+        <div className="flex justify-end gap-3">
+          <Button
+            type="button"
+            variant="outline"
+            onClick={handleCancel}
+          >
+            <Trans i18nKey="leave:request.cancel" />
+          </Button>
+          <Button type="submit" disabled={isSubmitting}>
+            {isSubmitting ? (
+              <>
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                Submitting...
+              </>
+            ) : (
+              <Trans i18nKey="leave:request.submit" />
+            )}
+          </Button>
+        </div>
+      </form>
+    </Form>
+  );
+
+  if (compact) {
+    return formContent;
+  }
+
+  return (
+    <Card>
+      <CardContent className="pt-6">{formContent}</CardContent>
     </Card>
   );
 }

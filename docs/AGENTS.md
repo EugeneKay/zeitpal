@@ -407,6 +407,27 @@ if (!leaveRequest) {
 }
 ```
 
+### CSRF Protection (Client Requests)
+
+```typescript
+// ✅ ALWAYS include CSRF token for mutating requests
+// Preferred: use apiFetch wrapper (adds x-csrf-token automatically)
+await apiFetch('/api/teams', {
+  method: 'POST',
+  body: JSON.stringify(payload),
+});
+
+// If you must use fetch directly:
+await fetch('/api/teams', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'x-csrf-token': getCsrfToken(),
+  },
+  body: JSON.stringify(payload),
+});
+```
+
 ### Environment Files
 
 **Never commit `.env` files to version control.** These files contain secrets and credentials.

@@ -126,7 +126,7 @@ export async function PATCH(request: NextRequest, { params }: RouteParams) {
         u.id as user_id,
         u.name as user_name,
         u.email as user_email,
-        u.avatar_url as user_avatar_url
+        u.image as user_avatar_url
       FROM organization_members om
       JOIN users u ON om.user_id = u.id
       WHERE om.id = ?`

@@ -1,11 +1,23 @@
 'use client';
 
+import { useState } from 'react';
+
 import Link from 'next/link';
 
 import { format } from 'date-fns';
 import { MoreHorizontal } from 'lucide-react';
 import { toast } from 'sonner';
 
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from '@kit/ui/alert-dialog';
 import { Badge } from '@kit/ui/badge';
 import { Button } from '@kit/ui/button';
 import { Card, CardContent } from '@kit/ui/card';
@@ -77,24 +89,46 @@ export function LeaveRequestsList() {
   const withdrawRequest = useWithdrawLeaveRequest();
   const cancelRequest = useCancelLeaveRequest();
 
+  // Confirmation dialog state
+  const [withdrawingRequest, setWithdrawingRequest] = useState<{
+    id: string;
+    leaveType: string;
+    dateRange: string;
+  } | null>(null);
+  const [cancellingRequest, setCancellingRequest] = useState<{
+    id: string;
+    leaveType: string;
+    dateRange: string;
+  } | null>(null);
+
   const requests = data?.data || [];
 
-  const handleWithdraw = async (requestId: string) => {
+  const handleWithdraw = async () => {
+    if (!withdrawingRequest) return;
     try {
-      await withdrawRequest.mutateAsync(requestId);
+      await withdrawRequest.mutateAsync(withdrawingRequest.id);
       toast.success('Leave request withdrawn');
+      setWithdrawingRequest(null);
     } catch (error) {
       toast.error(error instanceof Error ? error.message : 'Failed to withdraw request');
     }
   };
 
-  const handleCancel = async (requestId: string) => {
+  const handleCancel = async () => {
+    if (!cancellingRequest) return;
     try {
-      await cancelRequest.mutateAsync(requestId);
+      await cancelRequest.mutateAsync(cancellingRequest.id);
       toast.success('Leave request cancelled');
+      setCancellingRequest(null);
     } catch (error) {
       toast.error(error instanceof Error ? error.message : 'Failed to cancel request');
     }
+  };
+
+  const getDateRange = (startDate: string, endDate: string) => {
+    const start = format(new Date(startDate), 'MMM d, yyyy');
+    const end = format(new Date(endDate), 'MMM d, yyyy');
+    return startDate === endDate ? start : `${start} - ${end}`;
   };
 
   if (isLoading) {
@@ -134,12 +168,8 @@ export function LeaveRequestsList() {
           </TableHeader>
           <TableBody>
             {requests.map((request) => {
-              const startDate = format(new Date(request.startDate), 'MMM d, yyyy');
-              const endDate = format(new Date(request.endDate), 'MMM d, yyyy');
-              const dateRange =
-                request.startDate === request.endDate
-                  ? startDate
-                  : `${startDate} - ${endDate}`;
+              const dateRange = getDateRange(request.startDate, request.endDate);
+              const leaveTypeName = request.leaveType?.code || 'unknown';
 
               return (
                 <TableRow key={request.id}>
@@ -149,7 +179,7 @@ export function LeaveRequestsList() {
                         className="h-2 w-2 rounded-full"
                         style={{ backgroundColor: request.leaveType?.color || '#6B7280' }}
                       />
-                      <Trans i18nKey={`leave:types.${request.leaveType?.code || 'unknown'}`} />
+                      <Trans i18nKey={`leave:types.${leaveTypeName}`} />
                     </div>
                   </TableCell>
                   <TableCell>{dateRange}</TableCell>
@@ -176,12 +206,24 @@ export function LeaveRequestsList() {
                           </Link>
                         </DropdownMenuItem>
                         {request.status === 'pending' && (
-                          <DropdownMenuItem onClick={() => handleWithdraw(request.id)}>
+                          <DropdownMenuItem
+                            onClick={() => setWithdrawingRequest({
+                              id: request.id,
+                              leaveType: leaveTypeName,
+                              dateRange,
+                            })}
+                          >
                             <Trans i18nKey="leave:detail.withdraw" />
                           </DropdownMenuItem>
                         )}
                         {request.status === 'approved' && (
-                          <DropdownMenuItem onClick={() => handleCancel(request.id)}>
+                          <DropdownMenuItem
+                            onClick={() => setCancellingRequest({
+                              id: request.id,
+                              leaveType: leaveTypeName,
+                              dateRange,
+                            })}
+                          >
                             <Trans i18nKey="leave:detail.cancel" />
                           </DropdownMenuItem>
                         )}
@@ -194,6 +236,86 @@ export function LeaveRequestsList() {
           </TableBody>
         </Table>
       </CardContent>
+
+      {/* Withdraw Request Confirmation Dialog */}
+      <AlertDialog
+        open={!!withdrawingRequest}
+        onOpenChange={(open) => !open && setWithdrawingRequest(null)}
+      >
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>
+              <Trans i18nKey="leave:withdrawDialog.title" defaults="Withdraw Leave Request" />
+            </AlertDialogTitle>
+            <AlertDialogDescription>
+              <Trans
+                i18nKey="leave:withdrawDialog.description"
+                defaults="Are you sure you want to withdraw this {leaveType} request for {dateRange}? This action cannot be undone."
+                values={{
+                  leaveType: withdrawingRequest?.leaveType || '',
+                  dateRange: withdrawingRequest?.dateRange || '',
+                }}
+              />
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel disabled={withdrawRequest.isPending}>
+              <Trans i18nKey="common:cancel" defaults="Cancel" />
+            </AlertDialogCancel>
+            <AlertDialogAction
+              onClick={handleWithdraw}
+              disabled={withdrawRequest.isPending}
+              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+            >
+              {withdrawRequest.isPending ? (
+                <Trans i18nKey="leave:withdrawDialog.withdrawing" defaults="Withdrawing..." />
+              ) : (
+                <Trans i18nKey="leave:withdrawDialog.withdraw" defaults="Withdraw Request" />
+              )}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
+      {/* Cancel Request Confirmation Dialog */}
+      <AlertDialog
+        open={!!cancellingRequest}
+        onOpenChange={(open) => !open && setCancellingRequest(null)}
+      >
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>
+              <Trans i18nKey="leave:cancelDialog.title" defaults="Cancel Approved Leave" />
+            </AlertDialogTitle>
+            <AlertDialogDescription>
+              <Trans
+                i18nKey="leave:cancelDialog.description"
+                defaults="Are you sure you want to cancel this approved {leaveType} leave for {dateRange}? Your manager will be notified and the days will be returned to your balance."
+                values={{
+                  leaveType: cancellingRequest?.leaveType || '',
+                  dateRange: cancellingRequest?.dateRange || '',
+                }}
+              />
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel disabled={cancelRequest.isPending}>
+              <Trans i18nKey="common:keepLeave" defaults="Keep Leave" />
+            </AlertDialogCancel>
+            <AlertDialogAction
+              onClick={handleCancel}
+              disabled={cancelRequest.isPending}
+              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+            >
+              {cancelRequest.isPending ? (
+                <Trans i18nKey="leave:cancelDialog.cancelling" defaults="Cancelling..." />
+              ) : (
+                <Trans i18nKey="leave:cancelDialog.cancel" defaults="Cancel Leave" />
+              )}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </Card>
   );
 }

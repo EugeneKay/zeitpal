@@ -12,6 +12,7 @@ import {
   badRequest,
   validationError,
 } from '~/lib/api/responses';
+import { sendLeaveRequestRejectedEmail } from '~/lib/emails';
 
 export const runtime = 'edge';
 
@@ -137,7 +138,37 @@ export async function POST(request: NextRequest, { params }: RouteParams) {
       ),
   ]);
 
-  // TODO: Send notification to the user with rejection reason
+  // Get additional data for email
+  const leaveType = await db
+    .prepare('SELECT code, name_en, name_de FROM leave_types WHERE id = ?')
+    .bind(leaveRequest.leave_type_id)
+    .first<{ code: string; name_en: string; name_de: string }>();
+
+  const employee = await db
+    .prepare('SELECT name, email FROM users WHERE id = ?')
+    .bind(leaveRequest.user_id)
+    .first<{ name: string; email: string }>();
+
+  const rejecter = await db
+    .prepare('SELECT name FROM users WHERE id = ?')
+    .bind(session.user.id)
+    .first<{ name: string }>();
+
+  // Send rejection notification email to employee
+  if (employee && leaveType && rejecter) {
+    sendLeaveRequestRejectedEmail(env, {
+      employeeName: employee.name || employee.email,
+      employeeEmail: employee.email,
+      leaveType: leaveType.name_en,
+      startDate: leaveRequest.start_date as string,
+      endDate: leaveRequest.end_date as string,
+      workDays: leaveRequest.work_days as number,
+      approverName: rejecter.name,
+      rejectionReason: reason,
+    }).catch((error) => {
+      console.error('Failed to send rejection email:', error);
+    });
+  }
 
   return success({
     id,

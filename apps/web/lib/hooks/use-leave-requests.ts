@@ -15,6 +15,36 @@ interface LeaveRequestsResponse {
   };
 }
 
+interface LeaveRequestDetailApproval {
+  id: string;
+  action: string;
+  comment: string | null;
+  createdAt: string;
+  approver: {
+    id: string;
+    name: string | null;
+  };
+}
+
+interface LeaveRequestDetailResponse {
+  data: Omit<LeaveRequest, 'user' | 'leaveType' | 'approvals'> & {
+    user: {
+      id: string;
+      name: string | null;
+      email: string;
+      avatarUrl: string | null;
+    };
+    leaveType: {
+      id: string;
+      code: string;
+      nameEn: string;
+      nameDe: string;
+      color: string;
+    };
+    approvals: LeaveRequestDetailApproval[];
+  };
+}
+
 interface UseLeaveRequestsOptions {
   userId?: string;
   status?: LeaveRequestStatus | LeaveRequestStatus[];
@@ -37,6 +67,19 @@ interface UpdateLeaveRequestInput {
   id: string;
   status?: LeaveRequestStatus;
   reason?: string;
+}
+
+async function fetchLeaveRequest(id: string): Promise<LeaveRequestDetailResponse> {
+  const response = await fetch(`/api/leave-requests/${id}`);
+
+  if (!response.ok) {
+    if (response.status === 404) {
+      throw new Error('Leave request not found');
+    }
+    throw new Error('Failed to fetch leave request');
+  }
+
+  return response.json();
 }
 
 async function fetchLeaveRequests(
@@ -128,6 +171,15 @@ async function withdrawLeaveRequest(id: string): Promise<LeaveRequest> {
 
 async function cancelLeaveRequest(id: string): Promise<LeaveRequest> {
   return updateLeaveRequest({ id, status: 'cancelled' });
+}
+
+export function useLeaveRequest(id: string | undefined) {
+  return useQuery({
+    queryKey: ['leave-request', id],
+    queryFn: () => fetchLeaveRequest(id!),
+    enabled: !!id,
+    staleTime: 1 * 60 * 1000, // 1 minute
+  });
 }
 
 export function useLeaveRequests(options: UseLeaveRequestsOptions = {}) {

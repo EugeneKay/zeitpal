@@ -16,6 +16,8 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { z } from 'zod';
 
+import { getCsrfToken } from '~/lib/utils/csrf';
+
 import {
   AlertDialog,
   AlertDialogAction,
@@ -246,7 +248,10 @@ export function ApprovalRulesManagement() {
 
       const response = await fetch(url, {
         method,
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'x-csrf-token': getCsrfToken(),
+        },
         body: JSON.stringify(payload),
       });
 
@@ -277,6 +282,9 @@ export function ApprovalRulesManagement() {
     try {
       const response = await fetch(`/api/approval-rules/${deletingRule.id}`, {
         method: 'DELETE',
+        headers: {
+          'x-csrf-token': getCsrfToken(),
+        },
       });
 
       if (!response.ok) {
@@ -298,7 +306,10 @@ export function ApprovalRulesManagement() {
     try {
       const response = await fetch(`/api/approval-rules/${rule.id}`, {
         method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'x-csrf-token': getCsrfToken(),
+        },
         body: JSON.stringify({ isActive: !rule.isActive }),
       });
 

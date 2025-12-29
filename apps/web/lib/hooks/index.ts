@@ -13,6 +13,7 @@ export { useLeaveTypes } from './use-leave-types';
 
 // Leave Requests
 export {
+  useLeaveRequest,
   useLeaveRequests,
   useMyLeaveRequests,
   usePendingApprovals,

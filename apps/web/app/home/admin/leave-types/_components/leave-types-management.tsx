@@ -5,11 +5,22 @@ import { useEffect, useState } from 'react';
 import { AlertCircle, Calendar, Check, Plus, X } from 'lucide-react';
 
 import { Alert, AlertDescription } from '@kit/ui/alert';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from '@kit/ui/alert-dialog';
 import { Badge } from '@kit/ui/badge';
 import { Button } from '@kit/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@kit/ui/card';
 import { Skeleton } from '@kit/ui/skeleton';
 import { Switch } from '@kit/ui/switch';
+import { Trans } from '@kit/ui/trans';
 
 import { apiFetch } from '~/lib/utils/csrf';
 
@@ -40,6 +51,9 @@ export function LeaveTypesManagement() {
   const [updateError, setUpdateError] = useState<string | null>(null);
   const [updatingIds, setUpdatingIds] = useState<Set<string>>(new Set());
 
+  // Toggle confirmation state
+  const [togglingLeaveType, setTogglingLeaveType] = useState<LeaveType | null>(null);
+
   useEffect(() => {
     async function fetchLeaveTypes() {
       try {
@@ -59,9 +73,17 @@ export function LeaveTypesManagement() {
     fetchLeaveTypes();
   }, []);
 
-  async function handleToggleActive(id: string, currentStatus: boolean) {
+  function openToggleConfirmation(leaveType: LeaveType) {
+    setTogglingLeaveType(leaveType);
+  }
+
+  async function handleConfirmToggle() {
+    if (!togglingLeaveType) return;
+
+    const { id, isActive: currentStatus } = togglingLeaveType;
     setUpdatingIds((prev) => new Set(prev).add(id));
     setUpdateError(null);
+    setTogglingLeaveType(null);
 
     const { error } = await apiFetch('/api/leave-types', {
       method: 'PATCH',
@@ -226,13 +248,13 @@ export function LeaveTypesManagement() {
               )}
 
               <div className="flex items-center justify-between pt-2 border-t">
-                <span className="text-sm text-muted-foreground">Active</span>
+                <span className="text-sm text-muted-foreground">
+                  <Trans i18nKey="admin:leaveTypes.active" defaults="Active" />
+                </span>
                 <Switch
                   checked={leaveType.isActive}
                   disabled={updatingIds.has(leaveType.id)}
-                  onCheckedChange={() =>
-                    handleToggleActive(leaveType.id, leaveType.isActive)
-                  }
+                  onCheckedChange={() => openToggleConfirmation(leaveType)}
                 />
               </div>
             </CardContent>
@@ -244,13 +266,81 @@ export function LeaveTypesManagement() {
         <Card>
           <CardContent className="py-10 text-center">
             <Calendar className="mx-auto h-12 w-12 text-muted-foreground" />
-            <h3 className="mt-4 text-lg font-semibold">No Leave Types</h3>
+            <h3 className="mt-4 text-lg font-semibold">
+              <Trans i18nKey="admin:leaveTypes.noTypes" defaults="No Leave Types" />
+            </h3>
             <p className="text-muted-foreground">
-              Leave types will appear here once the system is configured.
+              <Trans
+                i18nKey="admin:leaveTypes.noTypesDescription"
+                defaults="Leave types will appear here once the system is configured."
+              />
             </p>
           </CardContent>
         </Card>
       )}
+
+      {/* Toggle Active Confirmation Dialog */}
+      <AlertDialog
+        open={!!togglingLeaveType}
+        onOpenChange={(open) => !open && setTogglingLeaveType(null)}
+      >
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>
+              {togglingLeaveType?.isActive ? (
+                <Trans
+                  i18nKey="admin:leaveTypes.deactivateDialog.title"
+                  defaults="Deactivate Leave Type"
+                />
+              ) : (
+                <Trans
+                  i18nKey="admin:leaveTypes.activateDialog.title"
+                  defaults="Activate Leave Type"
+                />
+              )}
+            </AlertDialogTitle>
+            <AlertDialogDescription>
+              {togglingLeaveType?.isActive ? (
+                <Trans
+                  i18nKey="admin:leaveTypes.deactivateDialog.description"
+                  defaults="Are you sure you want to deactivate '{leaveTypeName}'? Employees will no longer be able to request this leave type. Existing requests will not be affected."
+                  values={{ leaveTypeName: togglingLeaveType?.nameEn || '' }}
+                />
+              ) : (
+                <Trans
+                  i18nKey="admin:leaveTypes.activateDialog.description"
+                  defaults="Are you sure you want to activate '{leaveTypeName}'? Employees will be able to request this leave type."
+                  values={{ leaveTypeName: togglingLeaveType?.nameEn || '' }}
+                />
+              )}
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>
+              <Trans i18nKey="common:cancel" defaults="Cancel" />
+            </AlertDialogCancel>
+            <AlertDialogAction
+              onClick={handleConfirmToggle}
+              className={togglingLeaveType?.isActive
+                ? "bg-destructive text-destructive-foreground hover:bg-destructive/90"
+                : ""
+              }
+            >
+              {togglingLeaveType?.isActive ? (
+                <Trans
+                  i18nKey="admin:leaveTypes.deactivateDialog.confirm"
+                  defaults="Deactivate"
+                />
+              ) : (
+                <Trans
+                  i18nKey="admin:leaveTypes.activateDialog.confirm"
+                  defaults="Activate"
+                />
+              )}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 }

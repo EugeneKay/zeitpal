@@ -68,11 +68,6 @@ const routes = [
         Icon: <UserPlus className={iconClasses} />,
       },
       {
-        label: 'common:routes.teams',
-        path: pathsConfig.app.adminTeams,
-        Icon: <Users className={iconClasses} />,
-      },
-      {
         label: 'common:routes.leaveTypes',
         path: pathsConfig.app.adminLeaveTypes,
         Icon: <Palmtree className={iconClasses} />,

@@ -1,15 +1,9 @@
-import Link from 'next/link';
-
-import { Plus } from 'lucide-react';
-
-import { Button } from '@kit/ui/button';
 import { PageBody, PageHeader } from '@kit/ui/page';
 import { Trans } from '@kit/ui/trans';
 
-import pathsConfig from '~/config/paths.config';
-
 import { LeaveBalanceOverview } from '../_components/leave-balance-overview';
 import { LeaveRequestsList } from './_components/leave-requests-list';
+import { NewLeaveRequestDialog } from './_components/new-leave-request-dialog';
 
 export const runtime = 'edge';
 
@@ -20,12 +14,7 @@ export default function LeavePage() {
         title={<Trans i18nKey="leave:title" />}
         description={<Trans i18nKey="leave:description" />}
       >
-        <Button asChild>
-          <Link href={pathsConfig.app.leaveRequest}>
-            <Plus className="mr-2 h-4 w-4" />
-            <Trans i18nKey="leave:dashboard.newRequest" />
-          </Link>
-        </Button>
+        <NewLeaveRequestDialog />
       </PageHeader>
 
       <PageBody>

@@ -1,0 +1,15 @@
+{
+  "name": "product-hunt",
+  "version": "1.0.0",
+  "description": "This folder contains all the materials needed for the ZeitPal Product Hunt launch.",
+  "main": "capture-screenshots.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^24.34.0"
+  }
+}

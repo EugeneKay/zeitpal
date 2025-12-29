@@ -12,6 +12,7 @@ import {
   validationError,
 } from '~/lib/api/responses';
 import { calculateWorkDays } from '~/lib/utils/leave-calculations';
+import { sendLeaveRequestSubmittedEmail } from '~/lib/emails';
 
 export const runtime = 'edge';
 
@@ -276,8 +277,50 @@ export async function POST(request: NextRequest) {
     )
     .run();
 
-  // TODO: Create approval records based on approval rules
-  // TODO: Send notification email to approver
+  // Get leave type details for email
+  const leaveType = await db
+    .prepare('SELECT code, name_en, name_de FROM leave_types WHERE id = ?')
+    .bind(leaveTypeId)
+    .first<{ code: string; name_en: string; name_de: string }>();
+
+  // Get user's name for email
+  const user = await db
+    .prepare('SELECT name, email FROM users WHERE id = ?')
+    .bind(session.user.id)
+    .first<{ name: string; email: string }>();
+
+  // Get all admins and managers to notify about this request
+  const approvers = await db
+    .prepare(
+      `SELECT u.email, u.name FROM organization_members om
+       JOIN users u ON om.user_id = u.id
+       WHERE om.organization_id = ?
+       AND om.status = 'active'
+       AND om.role IN ('admin', 'manager')
+       AND om.user_id != ?`
+    )
+    .bind(organizationId, session.user.id)
+    .all<{ email: string; name: string }>();
+
+  // Send notification emails to all approvers (non-blocking)
+  if (user && leaveType && approvers.results.length > 0) {
+    const emailPromises = approvers.results.map((approver: { email: string; name: string }) =>
+      sendLeaveRequestSubmittedEmail(env, approver.email, {
+        employeeName: user.name || user.email,
+        employeeEmail: user.email,
+        leaveType: leaveType.name_en,
+        startDate,
+        endDate,
+        workDays,
+        reason: reason || undefined,
+      }).catch((error) => {
+        console.error(`Failed to send email to ${approver.email}:`, error);
+      })
+    );
+
+    // Fire and forget - don't block the response
+    Promise.all(emailPromises).catch(() => {});
+  }
 
   return created({ id, status: 'pending', workDays });
 }

@@ -58,14 +58,14 @@ export async function GET(request: NextRequest) {
         u.id as user_id,
         u.name as user_name,
         u.email as user_email,
-        u.avatar_url as user_avatar_url,
+        u.image as user_avatar_url,
         GROUP_CONCAT(t.name) as team_names
       FROM organization_members om
       JOIN users u ON om.user_id = u.id
       LEFT JOIN team_members tm ON om.user_id = tm.user_id
       LEFT JOIN teams t ON tm.team_id = t.id AND t.organization_id = om.organization_id
       WHERE om.organization_id = ? AND om.status = 'active'
-      GROUP BY om.id, om.role, om.status, om.joined_at, u.id, u.name, u.email, u.avatar_url
+      GROUP BY om.id, om.role, om.status, om.joined_at, u.id, u.name, u.email, u.image
       ORDER BY om.role, u.name`
     )
     .bind(membership.organization_id)

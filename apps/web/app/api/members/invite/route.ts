@@ -11,6 +11,8 @@ import {
   conflict,
   validationError,
 } from '~/lib/api/responses';
+import { sendMemberInvitationEmail } from '~/lib/emails';
+import { getSiteUrl } from '~/lib/services/email.service';
 
 export const runtime = 'edge';
 
@@ -117,16 +119,40 @@ export async function POST(request: NextRequest) {
     )
     .run();
 
-  // TODO: Send invite email with token
-  // For now, we'll return the invite details
-  // In production, this would trigger an email via Mailgun
+  // Get organization name and inviter name for email
+  const organization = await db
+    .prepare('SELECT name FROM organizations WHERE id = ?')
+    .bind(membership.organization_id)
+    .first<{ name: string }>();
+
+  const inviter = await db
+    .prepare('SELECT name, email FROM users WHERE id = ?')
+    .bind(session.user.id)
+    .first<{ name: string; email: string }>();
+
+  const siteUrl = getSiteUrl();
+  const inviteUrl = `${siteUrl}/invite/${token}`;
+
+  // Send invite email
+  if (organization?.name && inviter) {
+    sendMemberInvitationEmail(env, {
+      inviteeName: email.split('@')[0] ?? email, // Use email prefix as name
+      inviteeEmail: email,
+      organizationName: organization.name,
+      inviterName: inviter.name || inviter.email,
+      role,
+      inviteUrl,
+      expiresAt,
+    }).catch((error) => {
+      console.error('Failed to send invitation email:', error);
+    });
+  }
 
   return created({
     id: inviteId,
     email,
     role,
     expiresAt,
-    // Include token for development/testing - remove in production
     inviteUrl: `/invite/${token}`,
   });
 }

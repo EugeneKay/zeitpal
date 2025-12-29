@@ -23,7 +23,6 @@ const PathsSchema = z.object({
     // Admin routes
     adminOrganization: z.string().min(1),
     adminMembers: z.string().min(1),
-    adminTeams: z.string().min(1),
     adminLeaveTypes: z.string().min(1),
     adminPolicies: z.string().min(1),
     adminHolidays: z.string().min(1),
@@ -63,7 +62,6 @@ const pathsConfig = PathsSchema.parse({
     // Admin routes
     adminOrganization: '/home/admin/organization',
     adminMembers: '/home/admin/members',
-    adminTeams: '/home/admin/teams',
     adminLeaveTypes: '/home/admin/leave-types',
     adminPolicies: '/home/admin/policies',
     adminHolidays: '/home/admin/holidays',

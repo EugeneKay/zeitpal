@@ -1,6 +1,4 @@
 import type { EmailConfig } from 'next-auth/providers/email';
-import FormData from 'form-data';
-import Mailgun from 'mailgun.js';
 
 /**
  * Email templates for magic link authentication
@@ -146,26 +144,37 @@ export function MailgunProvider(options: {
       url,
       provider: { from },
     }) {
-      const mailgun = new Mailgun(FormData);
-      const mg = mailgun.client({
-        username: 'api',
-        key: options.apiKey,
-      });
-
       const siteName = process.env.NEXT_PUBLIC_PRODUCT_NAME ?? 'ZeitPal';
       const defaultLocale = process.env.NEXT_PUBLIC_DEFAULT_LOCALE ?? 'en';
       const locale = (defaultLocale === 'de' ? 'de' : 'en') as 'en' | 'de';
 
       const t = emailTemplates[locale];
+      const fromAddress = from ?? options.from ?? 'ZeitPal <noreply@zeitpal.com>';
+
+      // Use native fetch for edge runtime compatibility
+      const apiUrl = `https://api.eu.mailgun.net/v3/${options.domain}/messages`;
+
+      const formData = new FormData();
+      formData.append('from', fromAddress);
+      formData.append('to', email);
+      formData.append('subject', t.subject(siteName));
+      formData.append('text', t.textEmail(siteName, url));
+      formData.append('html', generateHtmlEmail(siteName, url, locale));
 
       try {
-        await mg.messages.create(options.domain, {
-          from: from ?? options.from ?? 'ZeitPal <noreply@zeitpal.com>',
-          to: email,
-          subject: t.subject(siteName),
-          text: t.textEmail(siteName, url),
-          html: generateHtmlEmail(siteName, url, locale),
+        const response = await fetch(apiUrl, {
+          method: 'POST',
+          headers: {
+            Authorization: `Basic ${btoa(`api:${options.apiKey}`)}`,
+          },
+          body: formData,
         });
+
+        if (!response.ok) {
+          const errorText = await response.text();
+          console.error('Mailgun API error:', response.status, errorText);
+          throw new Error(`Mailgun API error: ${response.status}`);
+        }
       } catch (error) {
         console.error('Mailgun send error:', error);
         throw new Error('Failed to send verification email');

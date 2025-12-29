@@ -2,6 +2,7 @@ import { PageBody, PageHeader } from '@kit/ui/page';
 import { Trans } from '@kit/ui/trans';
 
 import { TeamMembersList } from './_components/team-members-list';
+import { TeamsManagement } from './_components/teams-management';
 
 export const runtime = 'edge';
 
@@ -14,7 +15,18 @@ export default function TeamPage() {
       />
 
       <PageBody>
-        <TeamMembersList />
+        <div className="grid gap-6">
+          <section>
+            <TeamsManagement />
+          </section>
+
+          <section>
+            <h2 className="mb-4 text-lg font-semibold">
+              <Trans i18nKey="common:accountMembers" defaults="Team Members" />
+            </h2>
+            <TeamMembersList />
+          </section>
+        </div>
       </PageBody>
     </>
   );

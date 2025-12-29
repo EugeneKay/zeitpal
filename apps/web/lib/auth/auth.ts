@@ -2,7 +2,9 @@ import NextAuth from 'next-auth';
 import { D1Adapter } from '@auth/d1-adapter';
 import { getOptionalRequestContext } from '@cloudflare/next-on-pages';
 
-import { authConfig } from './auth.config';
+import { getAuthConfig } from './auth.config';
+
+type AuthEnv = Record<string, string | undefined>;
 
 /**
  * Initialize NextAuth with D1 database adapter
@@ -21,18 +23,27 @@ function getAuth() {
   // so we need to catch that and fall back to the JWT-only setup
   try {
     const ctx = getOptionalRequestContext();
+    const env = (ctx?.env ?? process.env) as AuthEnv;
+    const authConfig = getAuthConfig(env);
 
     if (ctx?.env?.DB) {
       // Edge runtime with D1 database - all providers available
       return NextAuth({
         ...authConfig,
         adapter: D1Adapter(ctx.env.DB),
-        secret: ctx.env.AUTH_SECRET ?? process.env.AUTH_SECRET,
+        secret:
+          env.AUTH_SECRET ??
+          env.NEXTAUTH_SECRET ??
+          process.env.AUTH_SECRET ??
+          process.env.NEXTAUTH_SECRET,
       });
     }
   } catch {
     // Not in edge runtime - fall through to Node.js setup
   }
+
+  const env = process.env as AuthEnv;
+  const authConfig = getAuthConfig(env);
 
   // Node.js runtime (development) - no D1 adapter
   // Sessions are stored in JWT only
@@ -48,7 +59,11 @@ function getAuth() {
   return NextAuth({
     ...authConfig,
     providers: oauthOnlyProviders,
-    secret: process.env.AUTH_SECRET,
+    secret:
+      env.AUTH_SECRET ??
+      env.NEXTAUTH_SECRET ??
+      process.env.AUTH_SECRET ??
+      process.env.NEXTAUTH_SECRET,
   });
 }
 

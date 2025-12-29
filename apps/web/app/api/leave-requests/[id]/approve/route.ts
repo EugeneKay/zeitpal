@@ -12,6 +12,10 @@ import {
   badRequest,
   validationError,
 } from '~/lib/api/responses';
+import {
+  sendLeaveRequestApprovedEmail,
+  sendTeamAbsenceNotificationEmail,
+} from '~/lib/emails';
 
 export const runtime = 'edge';
 
@@ -139,7 +143,74 @@ export async function POST(request: NextRequest, { params }: RouteParams) {
       ),
   ]);
 
-  // TODO: Send notification to the user
+  // Get additional data for emails
+  const leaveType = await db
+    .prepare('SELECT code, name_en, name_de FROM leave_types WHERE id = ?')
+    .bind(leaveRequest.leave_type_id)
+    .first<{ code: string; name_en: string; name_de: string }>();
+
+  const employee = await db
+    .prepare('SELECT name, email FROM users WHERE id = ?')
+    .bind(leaveRequest.user_id)
+    .first<{ name: string; email: string }>();
+
+  const approver = await db
+    .prepare('SELECT name FROM users WHERE id = ?')
+    .bind(session.user.id)
+    .first<{ name: string }>();
+
+  // Send approval notification email to employee
+  if (employee && leaveType && approver) {
+    sendLeaveRequestApprovedEmail(env, {
+      employeeName: employee.name || employee.email,
+      employeeEmail: employee.email,
+      leaveType: leaveType.name_en,
+      startDate: leaveRequest.start_date as string,
+      endDate: leaveRequest.end_date as string,
+      workDays: leaveRequest.work_days as number,
+      approverName: approver.name,
+      comment: comment || undefined,
+    }).catch((error) => {
+      console.error('Failed to send approval email:', error);
+    });
+
+    // Send team absence notifications to team members
+    const teamMembers = await db
+      .prepare(
+        `SELECT DISTINCT u.email, u.name, t.name as team_name
+         FROM team_members tm
+         JOIN teams t ON tm.team_id = t.id
+         JOIN team_members tm2 ON tm.team_id = tm2.team_id
+         JOIN users u ON tm2.user_id = u.id
+         WHERE tm.user_id = ?
+         AND tm2.user_id != ?
+         AND t.organization_id = ?`
+      )
+      .bind(
+        leaveRequest.user_id,
+        leaveRequest.user_id,
+        leaveRequest.organization_id
+      )
+      .all<{ email: string; name: string; team_name: string }>();
+
+    if (teamMembers.results.length > 0) {
+      const teamEmailPromises = teamMembers.results.map((member: { email: string; name: string; team_name: string }) =>
+        sendTeamAbsenceNotificationEmail(env, {
+          recipientName: member.name || member.email,
+          recipientEmail: member.email,
+          employeeName: employee.name || employee.email,
+          leaveType: leaveType.name_en,
+          startDate: leaveRequest.start_date as string,
+          endDate: leaveRequest.end_date as string,
+          teamName: member.team_name,
+        }).catch((error) => {
+          console.error(`Failed to send team notification to ${member.email}:`, error);
+        })
+      );
+
+      Promise.all(teamEmailPromises).catch(() => {});
+    }
+  }
 
   return success({
     id,

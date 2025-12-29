@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZeitPal - Team Calendar</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            purple: {
+              50: '#faf5ff', 100: '#f3e8ff', 200: '#e9d5ff', 300: '#d8b4fe',
+              400: '#c084fc', 500: '#a855f7', 600: '#9333ea', 700: '#7c3aed',
+              800: '#6b21a8', 900: '#581c87',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    * { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
+    .gradient-bg {
+      background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 30%, #ffffff 70%, #faf5ff 100%);
+    }
+    .pulse-slow { animation: pulse 3s ease-in-out infinite; }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+  </style>
+</head>
+<body class="gradient-bg m-0 p-0">
+  <div style="width: 1920px; height: 1440px;" class="relative overflow-hidden flex flex-col items-center justify-center">
+
+    <!-- Background -->
+    <div class="absolute top-20 left-20 w-[700px] h-[700px] bg-purple-200/40 rounded-full blur-[120px]"></div>
+    <div class="absolute bottom-20 right-20 w-[500px] h-[500px] bg-blue-200/30 rounded-full blur-[100px]"></div>
+
+    <!-- Content -->
+    <div class="relative z-10 text-center mb-10">
+      <!-- Logo -->
+      <div class="flex items-center justify-center gap-4 mb-10">
+        <svg width="56" height="56" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="20" stroke="#9333ea" stroke-width="3" fill="none"/>
+          <circle cx="24" cy="24" r="16" fill="#f3e8ff"/>
+          <path d="M24 12V24L32 28" stroke="#9333ea" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="24" cy="8" r="2" fill="#a855f7"/>
+          <circle cx="40" cy="24" r="2" fill="#a855f7"/>
+          <circle cx="24" cy="40" r="2" fill="#a855f7"/>
+          <circle cx="8" cy="24" r="2" fill="#a855f7"/>
+        </svg>
+        <span class="text-3xl font-bold">
+          <span class="text-purple-700">Zeit</span><span class="text-purple-500">Pal</span>
+        </span>
+      </div>
+
+      <h1 class="text-6xl font-extrabold text-gray-900 leading-tight mb-4">
+        See Who's Out <span class="text-purple-600">At a Glance</span>
+      </h1>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        Visual team calendar shows all absences. Avoid scheduling conflicts and plan better.
+      </p>
+    </div>
+
+    <!-- Calendar Visualization -->
+    <div class="relative z-10 bg-white rounded-3xl shadow-2xl border border-purple-100 p-6" style="width: 1400px;">
+      <!-- Calendar Header -->
+      <div class="flex items-center justify-between mb-8">
+        <div class="flex items-center gap-4">
+          <h2 class="text-3xl font-bold text-gray-900">January 2025</h2>
+          <button class="px-4 py-2 bg-purple-100 text-purple-700 rounded-lg font-semibold">Today</button>
+        </div>
+        <div class="flex items-center gap-8">
+          <div class="flex items-center gap-2">
+            <div class="w-4 h-4 rounded bg-blue-500"></div>
+            <span class="text-gray-600">Vacation</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="w-4 h-4 rounded bg-red-500"></div>
+            <span class="text-gray-600">Sick Leave</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="w-4 h-4 rounded bg-amber-200 border border-amber-300"></div>
+            <span class="text-gray-600">Holiday</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="w-4 h-4 rounded bg-gray-200"></div>
+            <span class="text-gray-600">Weekend</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Calendar Grid -->
+      <div class="grid grid-cols-7 gap-2">
+        <!-- Headers -->
+        <div class="text-center py-3 text-gray-500 font-semibold">Mon</div>
+        <div class="text-center py-3 text-gray-500 font-semibold">Tue</div>
+        <div class="text-center py-3 text-gray-500 font-semibold">Wed</div>
+        <div class="text-center py-3 text-gray-500 font-semibold">Thu</div>
+        <div class="text-center py-3 text-gray-500 font-semibold">Fri</div>
+        <div class="text-center py-3 text-gray-400 font-semibold">Sat</div>
+        <div class="text-center py-3 text-gray-400 font-semibold">Sun</div>
+
+        <!-- Week 1 -->
+        <div class="bg-gray-50 rounded-xl p-3 min-h-[100px]"><span class="text-gray-400 text-sm">30</span></div>
+        <div class="bg-gray-50 rounded-xl p-3 min-h-[100px]"><span class="text-gray-400 text-sm">31</span></div>
+        <div class="bg-amber-50 border-2 border-amber-200 rounded-xl p-3 min-h-[100px]">
+          <span class="text-gray-900 font-semibold">1</span>
+          <p class="text-xs text-amber-700 mt-1">New Year</p>
+        </div>
+        <div class="bg-white border border-gray-100 rounded-xl p-3 min-h-[100px]">
+          <span class="text-gray-900">2</span>
+          <div class="mt-2 flex items-center gap-1 px-2 py-1 bg-blue-500 rounded text-white text-xs">
+            <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-[10px]">MK</span>
+            Maria
+          </div>
+        </div>
+        <div class="bg-white border border-gray-100 rounded-xl p-3 min-h-[100px]">
+          <span class="text-gray-900">3</span>
+          <div class="mt-2 space-y-1">
+            <div class="flex items-center gap-1 px-2 py-1 bg-blue-500 rounded text-white text-xs">
+              <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-[10px]">MK</span>
+              Maria
+            </div>
+            <div class="flex items-center gap-1 px-2 py-1 bg-red-500 rounded text-white text-xs">
+              <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-[10px]">AS</span>
+              Anna
+            </div>
+          </div>
+        </div>
+        <div class="bg-gray-100 rounded-xl p-3 min-h-[100px]"><span class="text-gray-400">4</span></div>
+        <div class="bg-gray-100 rounded-xl p-3 min-h-[100px]"><span class="text-gray-400">5</span></div>
+
+        <!-- Week 2 -->
+        <div class="bg-amber-50 border-2 border-amber-200 rounded-xl p-3 min-h-[100px]">
+          <span class="text-gray-900 font-semibold">6</span>
+          <p class="text-xs text-amber-700 mt-1">Epiphany</p>
+        </div>
+        <div class="bg-white border border-gray-100 rounded-xl p-3 min-h-[100px]"><span class="text-gray-900">7</span></div>
+        <div class="bg-white border border-gray-100 rounded-xl p-3 min-h-[100px]">
+          <span class="text-gray-900">8</span>
+          <div class="mt-2 flex items-center gap-1 px-2 py-1 bg-blue-500 rounded text-white text-xs">
+            <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-[10px]">LB</span>
+            Lisa
+          </div>
+        </div>
+        <div class="bg-white border border-gray-100 rounded-xl p-3 min-h-[100px]">
+          <span class="text-gray-900">9</span>
+          <div class="mt-2 flex items-center gap-1 px-2 py-1 bg-blue-500 rounded text-white text-xs">
+            <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-[10px]">LB</span>
+            Lisa
+          </div>
+        </div>
+        <div class="bg-white border border-gray-100 rounded-xl p-3 min-h-[100px]">
+          <span class="text-gray-900">10</span>
+          <div class="mt-2 flex items-center gap-1 px-2 py-1 bg-blue-500 rounded text-white text-xs">
+            <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-[10px]">LB</span>
+            Lisa
+          </div>
+        </div>
+        <div class="bg-gray-100 rounded-xl p-3 min-h-[100px]"><span class="text-gray-400">11</span></div>
+        <div class="bg-gray-100 rounded-xl p-3 min-h-[100px]"><span class="text-gray-400">12</span></div>
+
+        <!-- Week 3 -->
+        <div class="bg-white border border-gray-100 rounded-xl p-3 min-h-[100px]"><span class="text-gray-900">13</span></div>
+        <div class="bg-white border border-gray-100 rounded-xl p-3 min-h-[100px]"><span class="text-gray-900">14</span></div>
+        <div class="bg-purple-50 border-2 border-purple-300 rounded-xl p-3 min-h-[100px]">
+          <span class="w-7 h-7 rounded-full bg-purple-600 text-white flex items-center justify-center font-bold">15</span>
+          <div class="mt-2 flex items-center gap-1 px-2 py-1 bg-blue-500 rounded text-white text-xs pulse-slow">
+            <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-[10px]">TM</span>
+            Thomas
+          </div>
+        </div>
+        <div class="bg-white border border-gray-100 rounded-xl p-3 min-h-[100px]">
+          <span class="text-gray-900">16</span>
+          <div class="mt-2 space-y-1">
+            <div class="flex items-center gap-1 px-2 py-1 bg-blue-500 rounded text-white text-xs">
+              <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-[10px]">TM</span>
+              Thomas
+            </div>
+            <div class="flex items-center gap-1 px-2 py-1 bg-amber-500 rounded text-white text-xs">
+              <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-[10px]">JW</span>
+              Jan
+            </div>
+          </div>
+        </div>
+        <div class="bg-white border border-gray-100 rounded-xl p-3 min-h-[100px]">
+          <span class="text-gray-900">17</span>
+          <div class="mt-2 space-y-1">
+            <div class="flex items-center gap-1 px-2 py-1 bg-blue-500 rounded text-white text-xs">
+              <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-[10px]">TM</span>
+              Thomas
+            </div>
+            <div class="flex items-center gap-1 px-2 py-1 bg-amber-500 rounded text-white text-xs">
+              <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-[10px]">JW</span>
+              Jan
+            </div>
+          </div>
+        </div>
+        <div class="bg-gray-100 rounded-xl p-3 min-h-[100px]"><span class="text-gray-400">18</span></div>
+        <div class="bg-gray-100 rounded-xl p-3 min-h-[100px]"><span class="text-gray-400">19</span></div>
+      </div>
+    </div>
+
+    <!-- Bottom Features -->
+    <div class="relative z-10 flex gap-8 mt-8">
+      <div class="flex items-center gap-4 bg-white/80 backdrop-blur px-6 py-4 rounded-2xl shadow-lg">
+        <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center">
+          <svg class="w-7 h-7 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+        </div>
+        <div>
+          <p class="font-bold text-gray-900 text-lg">Team Overview</p>
+          <p class="text-gray-500">See all team members</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-4 bg-white/80 backdrop-blur px-6 py-4 rounded-2xl shadow-lg">
+        <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center">
+          <svg class="w-7 h-7 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </div>
+        <div>
+          <p class="font-bold text-gray-900 text-lg">Conflict Alerts</p>
+          <p class="text-gray-500">Avoid double-booking</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-4 bg-white/80 backdrop-blur px-6 py-4 rounded-2xl shadow-lg">
+        <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center">
+          <svg class="w-7 h-7 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"/>
+          </svg>
+        </div>
+        <div>
+          <p class="font-bold text-gray-900 text-lg">Public Holidays</p>
+          <p class="text-gray-500">16 German states supported</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

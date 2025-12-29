@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZeitPal - One-Click Approvals</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            purple: {
+              50: '#faf5ff', 100: '#f3e8ff', 200: '#e9d5ff', 300: '#d8b4fe',
+              400: '#c084fc', 500: '#a855f7', 600: '#9333ea', 700: '#7c3aed',
+              800: '#6b21a8', 900: '#581c87',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    * { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
+    .gradient-bg {
+      background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 30%, #ffffff 70%, #faf5ff 100%);
+    }
+    .slide-in {
+      animation: slideIn 0.5s ease-out forwards;
+      opacity: 0;
+    }
+    .slide-in:nth-child(1) { animation-delay: 0.1s; }
+    .slide-in:nth-child(2) { animation-delay: 0.2s; }
+    .slide-in:nth-child(3) { animation-delay: 0.3s; }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    .pulse-green { animation: pulseGreen 2s ease-in-out infinite; }
+    @keyframes pulseGreen {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+      50% { box-shadow: 0 0 0 15px rgba(34, 197, 94, 0); }
+    }
+  </style>
+</head>
+<body class="gradient-bg m-0 p-0">
+  <div style="width: 1920px; height: 1440px;" class="relative overflow-hidden flex flex-col items-center justify-center">
+
+    <!-- Background -->
+    <div class="absolute top-0 right-0 w-[700px] h-[700px] bg-emerald-200/30 rounded-full blur-[120px]"></div>
+    <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-purple-200/40 rounded-full blur-[100px]"></div>
+
+    <!-- Content -->
+    <div class="relative z-10 text-center mb-16">
+      <!-- Logo -->
+      <div class="flex items-center justify-center gap-4 mb-10">
+        <svg width="56" height="56" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="20" stroke="#9333ea" stroke-width="3" fill="none"/>
+          <circle cx="24" cy="24" r="16" fill="#f3e8ff"/>
+          <path d="M24 12V24L32 28" stroke="#9333ea" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="24" cy="8" r="2" fill="#a855f7"/>
+          <circle cx="40" cy="24" r="2" fill="#a855f7"/>
+          <circle cx="24" cy="40" r="2" fill="#a855f7"/>
+          <circle cx="8" cy="24" r="2" fill="#a855f7"/>
+        </svg>
+        <span class="text-3xl font-bold">
+          <span class="text-purple-700">Zeit</span><span class="text-purple-500">Pal</span>
+        </span>
+      </div>
+
+      <h1 class="text-6xl font-extrabold text-gray-900 leading-tight mb-5">
+        One-Click <span class="text-purple-600">Approvals</span>
+      </h1>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        Review and approve leave requests instantly. Keep your team moving without bottlenecks.
+      </p>
+    </div>
+
+    <!-- Approval Cards -->
+    <div class="relative z-10 flex gap-6 mb-12">
+      <!-- Request 1 -->
+      <div class="slide-in bg-white rounded-2xl shadow-2xl border border-purple-100 p-6 w-[380px]">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-16 h-16 rounded-2xl bg-blue-500 flex items-center justify-center text-white font-bold text-xl">MK</div>
+          <div class="flex-1">
+            <h3 class="text-xl font-bold text-gray-900">Maria Kowalski</h3>
+            <p class="text-gray-500">Product Manager</p>
+          </div>
+          <span class="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-sm font-semibold">Pending</span>
+        </div>
+        <div class="bg-gray-50 rounded-2xl p-5 mb-6">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-4 h-4 rounded-full bg-blue-500"></div>
+            <span class="font-semibold text-gray-900">Vacation</span>
+          </div>
+          <p class="text-gray-600 mb-2">Jan 15 - Jan 17, 2025</p>
+          <p class="text-2xl font-bold text-gray-900">3 days</p>
+        </div>
+        <div class="flex gap-3">
+          <button class="flex-1 py-4 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-xl flex items-center justify-center gap-2 transition-colors pulse-green">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+            </svg>
+            Approve
+          </button>
+          <button class="flex-1 py-4 bg-red-500 hover:bg-red-600 text-white font-bold rounded-xl flex items-center justify-center gap-2 transition-colors">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+            Reject
+          </button>
+        </div>
+      </div>
+
+      <!-- Request 2 -->
+      <div class="slide-in bg-white rounded-2xl shadow-2xl border border-purple-100 p-6 w-[380px]">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-16 h-16 rounded-2xl bg-purple-500 flex items-center justify-center text-white font-bold text-xl">LB</div>
+          <div class="flex-1">
+            <h3 class="text-xl font-bold text-gray-900">Lisa Bauer</h3>
+            <p class="text-gray-500">UX Designer</p>
+          </div>
+          <span class="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-sm font-semibold">Pending</span>
+        </div>
+        <div class="bg-gray-50 rounded-2xl p-5 mb-6">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-4 h-4 rounded-full bg-blue-500"></div>
+            <span class="font-semibold text-gray-900">Vacation</span>
+          </div>
+          <p class="text-gray-600 mb-2">Jan 8 - Jan 10, 2025</p>
+          <p class="text-2xl font-bold text-gray-900">3 days</p>
+        </div>
+        <div class="flex gap-3">
+          <button class="flex-1 py-4 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-xl flex items-center justify-center gap-2 transition-colors">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+            </svg>
+            Approve
+          </button>
+          <button class="flex-1 py-4 bg-red-500 hover:bg-red-600 text-white font-bold rounded-xl flex items-center justify-center gap-2 transition-colors">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+            Reject
+          </button>
+        </div>
+      </div>
+
+      <!-- Request 3 -->
+      <div class="slide-in bg-white rounded-2xl shadow-2xl border border-purple-100 p-6 w-[380px]">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-16 h-16 rounded-2xl bg-amber-500 flex items-center justify-center text-white font-bold text-xl">JW</div>
+          <div class="flex-1">
+            <h3 class="text-xl font-bold text-gray-900">Jan Weber</h3>
+            <p class="text-gray-500">Developer</p>
+          </div>
+          <span class="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-sm font-semibold">Pending</span>
+        </div>
+        <div class="bg-gray-50 rounded-2xl p-5 mb-6">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-4 h-4 rounded-full bg-amber-500"></div>
+            <span class="font-semibold text-gray-900">Child Sick Leave</span>
+          </div>
+          <p class="text-gray-600 mb-2">Jan 16 - Jan 17, 2025</p>
+          <p class="text-2xl font-bold text-gray-900">2 days</p>
+        </div>
+        <div class="flex gap-3">
+          <button class="flex-1 py-4 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-xl flex items-center justify-center gap-2 transition-colors">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+            </svg>
+            Approve
+          </button>
+          <button class="flex-1 py-4 bg-red-500 hover:bg-red-600 text-white font-bold rounded-xl flex items-center justify-center gap-2 transition-colors">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+            Reject
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Features -->
+    <div class="relative z-10 flex gap-6">
+      <div class="flex items-center gap-3 bg-white/80 backdrop-blur px-5 py-4 rounded-2xl shadow-lg">
+        <div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center">
+          <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+          </svg>
+        </div>
+        <div>
+          <p class="font-bold text-gray-900">Instant Notifications</p>
+          <p class="text-gray-500 text-sm">Email & Slack alerts</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3 bg-white/80 backdrop-blur px-5 py-4 rounded-2xl shadow-lg">
+        <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
+          <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+          </svg>
+        </div>
+        <div>
+          <p class="font-bold text-gray-900">Bulk Actions</p>
+          <p class="text-gray-500 text-sm">Approve multiple at once</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3 bg-white/80 backdrop-blur px-5 py-4 rounded-2xl shadow-lg">
+        <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+          <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+        </div>
+        <div>
+          <p class="font-bold text-gray-900">Full History</p>
+          <p class="text-gray-500 text-sm">Complete audit trail</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3 bg-white/80 backdrop-blur px-5 py-4 rounded-2xl shadow-lg">
+        <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center">
+          <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </div>
+        <div>
+          <p class="font-bold text-gray-900">2.1 Day Avg</p>
+          <p class="text-gray-500 text-sm">Response time</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

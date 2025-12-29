@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server';
 import { getOptionalRequestContext } from '@cloudflare/next-on-pages';
 
 /**
- * Check which auth providers are available in the current runtime
+ * Check which auth providers are available in the current runtime.
  *
  * Email providers (magic link) require a D1 database adapter,
  * which is only available in Cloudflare edge runtime.

@@ -19,7 +19,7 @@ export function SignInForm() {
 
   // Check if email provider is available on mount
   useEffect(() => {
-    fetch('/api/auth/providers')
+    fetch('/api/auth/provider-availability')
       .then((res) => res.json())
       .then((data) => setEmailAvailable(data.emailAvailable))
       .catch(() => setEmailAvailable(false));

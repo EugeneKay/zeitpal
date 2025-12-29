@@ -21,6 +21,7 @@ function SidebarLogo() {
 
   return (
     <AppLogo
+      href="/home"
       className={isCollapsed ? 'h-8 w-8' : 'max-w-full'}
       iconOnly={isCollapsed}
     />

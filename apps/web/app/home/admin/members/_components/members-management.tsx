@@ -10,6 +10,16 @@ import { Badge } from '@kit/ui/badge';
 import { Button } from '@kit/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@kit/ui/card';
 import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from '@kit/ui/alert-dialog';
+import {
   Dialog,
   DialogContent,
   DialogDescription,
@@ -86,6 +96,20 @@ export function MembersManagement() {
   const [inviteRole, setInviteRole] = useState<OrganizationRole>('member');
   const [isInviting, setIsInviting] = useState(false);
 
+  // Member removal confirmation state
+  const [removingMember, setRemovingMember] = useState<{
+    id: string;
+    name: string;
+  } | null>(null);
+  const [isRemovingMember, setIsRemovingMember] = useState(false);
+
+  // Cancel invite confirmation state
+  const [cancellingInvite, setCancellingInvite] = useState<{
+    id: string;
+    email: string;
+  } | null>(null);
+  const [isCancellingInvite, setIsCancellingInvite] = useState(false);
+
   const handleInvite = async () => {
     setIsInviting(true);
     try {
@@ -105,14 +129,30 @@ export function MembersManagement() {
     console.log('Changing role:', { memberId, newRole });
   };
 
-  const handleRemoveMember = async (memberId: string) => {
-    // TODO: Implement API call
-    console.log('Removing member:', memberId);
+  const handleRemoveMember = async () => {
+    if (!removingMember) return;
+    setIsRemovingMember(true);
+    try {
+      // TODO: Implement API call
+      console.log('Removing member:', removingMember.id);
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      setRemovingMember(null);
+    } finally {
+      setIsRemovingMember(false);
+    }
   };
 
-  const handleCancelInvite = async (inviteId: string) => {
-    // TODO: Implement API call
-    console.log('Cancelling invite:', inviteId);
+  const handleCancelInvite = async () => {
+    if (!cancellingInvite) return;
+    setIsCancellingInvite(true);
+    try {
+      // TODO: Implement API call
+      console.log('Cancelling invite:', cancellingInvite.id);
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      setCancellingInvite(null);
+    } finally {
+      setIsCancellingInvite(false);
+    }
   };
 
   return (
@@ -245,7 +285,7 @@ export function MembersManagement() {
                       <Button
                         variant="ghost"
                         size="sm"
-                        onClick={() => handleCancelInvite(invite.id)}
+                        onClick={() => setCancellingInvite({ id: invite.id, email: invite.email })}
                       >
                         <Trans i18nKey="common:cancel" />
                       </Button>
@@ -353,7 +393,7 @@ export function MembersManagement() {
                         <DropdownMenuSeparator />
                         <DropdownMenuItem
                           className="text-destructive"
-                          onClick={() => handleRemoveMember(member.id)}
+                          onClick={() => setRemovingMember({ id: member.id, name: member.user.name })}
                         >
                           <UserMinus className="mr-2 h-4 w-4" />
                           <Trans i18nKey="admin:members.actions.remove" />
@@ -367,6 +407,80 @@ export function MembersManagement() {
           </Table>
         </CardContent>
       </Card>
+
+      {/* Remove Member Confirmation Dialog */}
+      <AlertDialog
+        open={!!removingMember}
+        onOpenChange={(open) => !open && setRemovingMember(null)}
+      >
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>
+              <Trans i18nKey="admin:members.removeDialog.title" defaults="Remove Member" />
+            </AlertDialogTitle>
+            <AlertDialogDescription>
+              <Trans
+                i18nKey="admin:members.removeDialog.description"
+                defaults="Are you sure you want to remove {name} from this organization? This action cannot be undone."
+                values={{ name: removingMember?.name || 'this member' }}
+              />
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel disabled={isRemovingMember}>
+              <Trans i18nKey="common:cancel" defaults="Cancel" />
+            </AlertDialogCancel>
+            <AlertDialogAction
+              onClick={handleRemoveMember}
+              disabled={isRemovingMember}
+              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+            >
+              {isRemovingMember ? (
+                <Trans i18nKey="admin:members.removeDialog.removing" defaults="Removing..." />
+              ) : (
+                <Trans i18nKey="admin:members.removeDialog.remove" defaults="Remove Member" />
+              )}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
+      {/* Cancel Invite Confirmation Dialog */}
+      <AlertDialog
+        open={!!cancellingInvite}
+        onOpenChange={(open) => !open && setCancellingInvite(null)}
+      >
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>
+              <Trans i18nKey="admin:members.cancelInviteDialog.title" defaults="Cancel Invitation" />
+            </AlertDialogTitle>
+            <AlertDialogDescription>
+              <Trans
+                i18nKey="admin:members.cancelInviteDialog.description"
+                defaults="Are you sure you want to cancel the invitation for {email}? They will no longer be able to join using this invite."
+                values={{ email: cancellingInvite?.email || '' }}
+              />
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel disabled={isCancellingInvite}>
+              <Trans i18nKey="common:keepInvite" defaults="Keep Invite" />
+            </AlertDialogCancel>
+            <AlertDialogAction
+              onClick={handleCancelInvite}
+              disabled={isCancellingInvite}
+              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+            >
+              {isCancellingInvite ? (
+                <Trans i18nKey="admin:members.cancelInviteDialog.cancelling" defaults="Cancelling..." />
+              ) : (
+                <Trans i18nKey="admin:members.cancelInviteDialog.cancel" defaults="Cancel Invite" />
+              )}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 }

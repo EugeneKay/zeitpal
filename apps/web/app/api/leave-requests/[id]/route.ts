@@ -78,7 +78,7 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
         lr.*,
         u.name as user_name,
         u.email as user_email,
-        u.avatar_url as user_avatar_url,
+        u.image as user_avatar_url,
         lt.code as leave_type_code,
         lt.name_en as leave_type_name_en,
         lt.name_de as leave_type_name_de,

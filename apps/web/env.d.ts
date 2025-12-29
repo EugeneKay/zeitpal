@@ -10,6 +10,7 @@ declare global {
     NEXT_PUBLIC_DEFAULT_LOCALE: string;
     MAILGUN_API_KEY: string;
     MAILGUN_DOMAIN: string;
+    AUTH_EMAIL_FROM: string;
   }
 
   namespace NodeJS {

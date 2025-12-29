@@ -1,12 +1,14 @@
 'use client';
 
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Building2 } from 'lucide-react';
+import { Building2, CheckCircle2, Loader2, XCircle } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
+import { cn } from '@kit/ui/utils';
 import {
   Form,
   FormControl,
@@ -34,9 +36,14 @@ const organizationSchema = z.object({
 
 type OrganizationFormData = z.infer<typeof organizationSchema>;
 
+type SlugAvailability = 'idle' | 'checking' | 'available' | 'taken';
+
 export default function OrganizationPage() {
   const router = useRouter();
   const { state, updateData, goToStep, markStepCompleted } = useOnboarding();
+  const [slugAvailability, setSlugAvailability] = useState<SlugAvailability>('idle');
+  const checkTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const lastCheckedSlug = useRef<string>('');
 
   const form = useForm<OrganizationFormData>({
     resolver: zodResolver(organizationSchema),
@@ -46,6 +53,78 @@ export default function OrganizationPage() {
     },
     mode: 'onChange',
   });
+
+  // Check slug availability with debounce
+  const checkSlugAvailability = useCallback(async (slug: string) => {
+    if (!slug || slug.length < 2) {
+      setSlugAvailability('idle');
+      return;
+    }
+
+    // Skip if we already checked this slug
+    if (lastCheckedSlug.current === slug) {
+      return;
+    }
+
+    setSlugAvailability('checking');
+
+    try {
+      const response = await fetch('/api/organizations/check-slug', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ slug }),
+      });
+
+      const data = await response.json();
+      lastCheckedSlug.current = slug;
+
+      if (data.available) {
+        setSlugAvailability('available');
+      } else {
+        setSlugAvailability('taken');
+        form.setError('organizationSlug', {
+          type: 'manual',
+          message: 'This URL is already taken. Please choose a different one.',
+        });
+      }
+    } catch {
+      setSlugAvailability('idle');
+    }
+  }, [form]);
+
+  // Debounced slug check
+  const debouncedCheckSlug = useCallback((slug: string) => {
+    if (checkTimeoutRef.current) {
+      clearTimeout(checkTimeoutRef.current);
+    }
+
+    // Clear error when user starts typing
+    if (slugAvailability === 'taken') {
+      form.clearErrors('organizationSlug');
+    }
+    setSlugAvailability('idle');
+
+    checkTimeoutRef.current = setTimeout(() => {
+      checkSlugAvailability(slug);
+    }, 500);
+  }, [checkSlugAvailability, form, slugAvailability]);
+
+  // Clean up timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (checkTimeoutRef.current) {
+        clearTimeout(checkTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  // Check initial slug if present
+  useEffect(() => {
+    const initialSlug = state.data.organizationSlug;
+    if (initialSlug && initialSlug.length >= 2) {
+      checkSlugAvailability(initialSlug);
+    }
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Auto-generate slug from name
   const handleNameChange = (value: string) => {
@@ -64,12 +143,33 @@ export default function OrganizationPage() {
         .replace(/[^a-z0-9]+/g, '-')
         .replace(/^-|-$/g, '');
       form.setValue('organizationSlug', newSlug, { shouldValidate: true });
+      debouncedCheckSlug(newSlug);
     }
+  };
+
+  // Handle manual slug changes
+  const handleSlugChange = (value: string) => {
+    form.setValue('organizationSlug', value, { shouldValidate: true });
+    debouncedCheckSlug(value);
   };
 
   const handleNext = async () => {
     const isValid = await form.trigger();
     if (!isValid) return;
+
+    // Prevent proceeding if slug is taken or still checking
+    if (slugAvailability === 'taken') {
+      form.setError('organizationSlug', {
+        type: 'manual',
+        message: 'This URL is already taken. Please choose a different one.',
+      });
+      return;
+    }
+
+    if (slugAvailability === 'checking') {
+      // Wait for the check to complete
+      return;
+    }
 
     const values = form.getValues();
     updateData({
@@ -130,11 +230,31 @@ export default function OrganizationPage() {
                     <span className="inline-flex h-10 items-center rounded-l-md border border-r-0 bg-muted px-3 text-sm text-muted-foreground">
                       zeitpal.com/
                     </span>
-                    <Input
-                      placeholder=""
-                      className="rounded-l-none"
-                      {...field}
-                    />
+                    <div className="relative flex-1">
+                      <Input
+                        placeholder=""
+                        className={cn(
+                          "rounded-l-none pr-10",
+                          slugAvailability === 'taken' && "border-destructive focus-visible:ring-destructive",
+                          slugAvailability === 'available' && "border-green-500 focus-visible:ring-green-500"
+                        )}
+                        {...field}
+                        onChange={(e) => handleSlugChange(e.target.value)}
+                      />
+                      {field.value && field.value.length >= 2 && (
+                        <div className="absolute right-3 top-1/2 -translate-y-1/2">
+                          {slugAvailability === 'checking' && (
+                            <Loader2 className="h-4 w-4 animate-spin text-muted-foreground" />
+                          )}
+                          {slugAvailability === 'available' && (
+                            <CheckCircle2 className="h-4 w-4 text-green-500" />
+                          )}
+                          {slugAvailability === 'taken' && (
+                            <XCircle className="h-4 w-4 text-destructive" />
+                          )}
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </FormControl>
                 <FormDescription>
