@@ -1,7 +1,4 @@
-'use client';
-
 import Link from 'next/link';
-import { use } from 'react';
 
 import { ArrowLeft } from 'lucide-react';
 
@@ -13,12 +10,14 @@ import pathsConfig from '~/config/paths.config';
 
 import { LeaveRequestDetail } from './_components/leave-request-detail';
 
+export const runtime = 'edge';
+
 interface LeaveRequestDetailPageProps {
   params: Promise<{ id: string }>;
 }
 
-export default function LeaveRequestDetailPage({ params }: LeaveRequestDetailPageProps) {
-  const { id } = use(params);
+export default async function LeaveRequestDetailPage({ params }: LeaveRequestDetailPageProps) {
+  const { id } = await params;
 
   return (
     <>
