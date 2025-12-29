@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server';
 
-import { getRequestContext } from '@cloudflare/next-on-pages';
+import { getCloudflareContext } from '@opennextjs/cloudflare';
 
 import { auth } from '~/lib/auth/auth';
 import { badRequest, success, unauthorized } from '~/lib/api/responses';
@@ -18,7 +18,7 @@ export async function GET(request: NextRequest) {
     return unauthorized();
   }
 
-  const { env } = getRequestContext();
+  const { env } = getCloudflareContext();
   const db = env.DB;
 
   // Get user's organization
@@ -82,7 +82,7 @@ export async function PATCH(request: NextRequest) {
       return unauthorized('Not authenticated');
     }
 
-    const { env } = getRequestContext();
+    const { env } = getCloudflareContext();
     const db = env.DB;
 
     // Get user's organization and check admin status

@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server';
 
-import { getRequestContext } from '@cloudflare/next-on-pages';
+import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { z } from 'zod';
 
 import { auth } from '~/lib/auth/auth';
@@ -47,7 +47,7 @@ export async function GET(request: NextRequest) {
   }
 
   const { year, startDate, endDate, teamId, leaveTypeId } = query.data;
-  const { env } = getRequestContext();
+  const { env } = getCloudflareContext();
   const db = env.DB;
 
   // Get user's organization membership and verify role

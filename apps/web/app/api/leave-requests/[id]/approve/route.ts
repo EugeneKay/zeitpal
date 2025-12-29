@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server';
 
-import { getRequestContext } from '@cloudflare/next-on-pages';
+import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { z } from 'zod';
 
 import { auth } from '~/lib/auth/auth';
@@ -47,7 +47,7 @@ export async function POST(request: NextRequest, { params }: RouteParams) {
   }
 
   const { comment } = parsed.data;
-  const { env } = getRequestContext();
+  const { env } = getCloudflareContext();
   const db = env.DB;
 
   // Get current user's membership

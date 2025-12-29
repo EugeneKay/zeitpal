@@ -1,7 +1,12 @@
+#:schema node_modules/wrangler/config-schema.json
+
 name = "zeitpal"
+main = ".open-next/worker.js"
 compatibility_date = "2024-12-01"
 compatibility_flags = ["nodejs_compat"]
-pages_build_output_dir = ".vercel/output/static"
+
+# Static assets configuration
+assets = { directory = ".open-next/assets", binding = "ASSETS" }
 
 # D1 Database binding
 [[d1_databases]]
@@ -13,6 +18,15 @@ database_id = "48f4f916-91ca-4ada-8d0f-34eb9f4123fe"
 [[r2_buckets]]
 binding = "R2"
 bucket_name = "zeitpal-storage"
+
+# Observability (logs and traces in Cloudflare dashboard)
+[observability]
+enabled = true
+
+[observability.logs]
+enabled = true
+head_sampling_rate = 1
+invocation_logs = true
 
 # Environment variables
 [vars]
@@ -41,7 +55,3 @@ AUTH_EMAIL_FROM = "ZeitPal <hello@mg.zeitpal.com>"
 # - AUTH_MICROSOFT_ENTRA_ID_SECRET
 # - AUTH_MICROSOFT_ENTRA_ID_TENANT_ID
 # - MAILGUN_API_KEY
-
-# Observability (logs and traces in Cloudflare dashboard)
-[observability]
-enabled = true

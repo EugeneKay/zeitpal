@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server';
 
-import { getRequestContext } from '@cloudflare/next-on-pages';
+import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { z } from 'zod';
 
 import { auth } from '~/lib/auth/auth';
@@ -40,7 +40,7 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
   }
 
   const { id } = await params;
-  const { env } = getRequestContext();
+  const { env } = getCloudflareContext();
   const db = env.DB;
 
   const holiday = await db
@@ -77,7 +77,7 @@ export async function PUT(request: NextRequest, { params }: RouteParams) {
   }
 
   const { id } = await params;
-  const { env } = getRequestContext();
+  const { env } = getCloudflareContext();
   const db = env.DB;
 
   // Get user's organization membership and verify role
@@ -193,7 +193,7 @@ export async function DELETE(request: NextRequest, { params }: RouteParams) {
   }
 
   const { id } = await params;
-  const { env } = getRequestContext();
+  const { env } = getCloudflareContext();
   const db = env.DB;
 
   // Get user's organization membership and verify role

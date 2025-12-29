@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server';
 
-import { getRequestContext } from '@cloudflare/next-on-pages';
+import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { z } from 'zod';
 
 import { auth } from '~/lib/auth/auth';
@@ -50,7 +50,7 @@ export async function GET(_: NextRequest) {
     return unauthorized();
   }
 
-  const { env } = getRequestContext();
+  const { env } = getCloudflareContext();
   const db = env.DB;
 
   const membership = await db
@@ -112,7 +112,7 @@ export async function POST(request: NextRequest) {
     return unauthorized();
   }
 
-  const { env } = getRequestContext();
+  const { env } = getCloudflareContext();
   const db = env.DB;
 
   const membership = await db

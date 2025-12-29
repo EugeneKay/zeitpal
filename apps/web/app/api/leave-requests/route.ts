@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server';
 
-import { getRequestContext } from '@cloudflare/next-on-pages';
+import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { z } from 'zod';
 
 import { auth } from '~/lib/auth/auth';
@@ -40,7 +40,7 @@ export async function GET(request: NextRequest) {
     return unauthorized();
   }
 
-  const { env } = getRequestContext();
+  const { env } = getCloudflareContext();
   const db = env.DB;
 
   const searchParams = request.nextUrl.searchParams;
@@ -155,7 +155,7 @@ export async function POST(request: NextRequest) {
   const { leaveTypeId, startDate, endDate, startHalfDay, endHalfDay, reason } =
     parsed.data;
 
-  const { env } = getRequestContext();
+  const { env } = getCloudflareContext();
   const db = env.DB;
 
   // Get user's organization

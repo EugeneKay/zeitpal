@@ -1,136 +1,251 @@
 #!/bin/sh
 
-# Secret Detection Pre-Commit Hook
-# Prevents committing files that may contain secrets
+# Pre-Commit Hook for ZeitPal
+# Runs multiple checks to prevent deployment-breaking issues
 
-echo "🔍 Checking for secrets in staged files..."
+echo ""
+echo "========================================"
+echo "Running pre-commit checks..."
+echo "========================================"
+echo ""
+
+# Track if any check fails
+CHECKS_PASSED=1
+
+# =========================================
+# 1. SECRET DETECTION
+# =========================================
+echo "🔍 [1/4] Checking for secrets in staged files..."
 
 # Get list of staged files (excluding deleted files)
 STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM)
 
 if [ -z "$STAGED_FILES" ]; then
     echo "✅ No staged files to check"
-    exit 0
+else
+    # Define patterns to detect secrets
+    SECRET_PATTERNS=(
+        # AWS
+        'AKIA[0-9A-Z]{16}'
+        'aws_secret_access_key\s*=\s*["\047][A-Za-z0-9/+=]{40}["\047]'
+
+        # Private Keys
+        '-----BEGIN (RSA |DSA |EC |OPENSSH |PGP )?PRIVATE KEY( BLOCK)?-----'
+
+        # Generic API Keys and Tokens
+        '[aA][pP][iI]_?[kK][eE][yY]\s*[:=]\s*["\047][A-Za-z0-9_\-]{20,}["\047]'
+        '[aA][pP][iI]_?[sS][eE][cC][rR][eE][tT]\s*[:=]\s*["\047][A-Za-z0-9_\-]{20,}["\047]'
+        '[sS][eE][cC][rR][eE][tT]_?[kK][eE][yY]\s*[:=]\s*["\047][A-Za-z0-9_\-]{20,}["\047]'
+
+        # Supabase
+        'sb[op]_[A-Za-z0-9]{20,}'
+        'service_role\s*[:=]\s*["\047]eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+["\047]'
+
+        # JWT Tokens
+        'eyJ[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}'
+
+        # Generic secrets/passwords in config
+        '[pP][aA][sS][sS][wW][oO][rR][dD]\s*[:=]\s*["\047][^"\047]{8,}["\047]'
+
+        # Database URLs with passwords
+        '(mysql|postgres|postgresql|mongodb|redis):\/\/[^:]+:[^@]+@'
+
+        # GitHub/GitLab tokens
+        'gh[pousr]_[A-Za-z0-9_]{36,}'
+        'glpat-[A-Za-z0-9\-]{20,}'
+
+        # Slack tokens
+        'xox[baprs]-[A-Za-z0-9\-]{10,}'
+
+        # Stripe
+        'sk_live_[A-Za-z0-9]{24,}'
+        'sk_test_[A-Za-z0-9]{24,}'
+        'rk_live_[A-Za-z0-9]{24,}'
+
+        # SendGrid
+        'SG\.[A-Za-z0-9_\-]{22}\.[A-Za-z0-9_\-]{43}'
+
+        # Twilio
+        'SK[A-Za-z0-9]{32}'
+
+        # OpenAI
+        'sk-[A-Za-z0-9]{48}'
+
+        # Anthropic
+        'sk-ant-[A-Za-z0-9\-]{40,}'
+
+        # Google
+        'AIza[A-Za-z0-9_\-]{35}'
+
+        # Cloudflare
+        'cloudflare.*["\047][A-Za-z0-9_\-]{37}["\047]'
+    )
+
+    # Files to ignore
+    IGNORE_PATTERNS=(
+        '\.example$'
+        '\.sample$'
+        '\.template$'
+        '\.md$'
+        'package-lock\.json$'
+        'pnpm-lock\.yaml$'
+        'yarn\.lock$'
+    )
+
+    SECRETS_FOUND=0
+    FINDINGS=""
+
+    for FILE in $STAGED_FILES; do
+        # Skip if file doesn't exist
+        if [ ! -f "$FILE" ]; then
+            continue
+        fi
+
+        # Skip ignored file patterns
+        SKIP=0
+        for IGNORE in "${IGNORE_PATTERNS[@]}"; do
+            if echo "$FILE" | grep -qE "$IGNORE"; then
+                SKIP=1
+                break
+            fi
+        done
+
+        if [ $SKIP -eq 1 ]; then
+            continue
+        fi
+
+        # Check for each secret pattern
+        for PATTERN in "${SECRET_PATTERNS[@]}"; do
+            MATCHES=$(git show ":$FILE" 2>/dev/null | grep -nE "$PATTERN" 2>/dev/null || true)
+
+            if [ -n "$MATCHES" ]; then
+                SECRETS_FOUND=1
+                FINDINGS="$FINDINGS\n❌ Potential secret found in $FILE:\n$MATCHES\n"
+            fi
+        done
+    done
+
+    if [ $SECRETS_FOUND -eq 1 ]; then
+        echo ""
+        echo "🚨 SECRET DETECTION FAILED!"
+        echo -e "$FINDINGS"
+        CHECKS_PASSED=0
+    else
+        echo "✅ No secrets detected"
+    fi
 fi
 
-# Define patterns to detect secrets
-# Each pattern is on a new line for readability
-SECRET_PATTERNS=(
-    # AWS
-    'AKIA[0-9A-Z]{16}'
-    'aws_secret_access_key\s*=\s*["\047][A-Za-z0-9/+=]{40}["\047]'
+# =========================================
+# 2. EDGE RUNTIME CHECK
+# =========================================
+echo ""
+echo "🌐 [2/4] Checking for Edge Runtime declarations..."
 
-    # Private Keys
-    '-----BEGIN (RSA |DSA |EC |OPENSSH |PGP )?PRIVATE KEY( BLOCK)?-----'
-
-    # Generic API Keys and Tokens
-    '[aA][pP][iI]_?[kK][eE][yY]\s*[:=]\s*["\047][A-Za-z0-9_\-]{20,}["\047]'
-    '[aA][pP][iI]_?[sS][eE][cC][rR][eE][tT]\s*[:=]\s*["\047][A-Za-z0-9_\-]{20,}["\047]'
-    '[sS][eE][cC][rR][eE][tT]_?[kK][eE][yY]\s*[:=]\s*["\047][A-Za-z0-9_\-]{20,}["\047]'
-
-    # Supabase (this project uses Supabase)
-    'sb[op]_[A-Za-z0-9]{20,}'
-    'service_role\s*[:=]\s*["\047]eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+["\047]'
-
-    # JWT Tokens
-    'eyJ[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}'
-
-    # Generic secrets/passwords in config
-    '[pP][aA][sS][sS][wW][oO][rR][dD]\s*[:=]\s*["\047][^"\047]{8,}["\047]'
-
-    # Database URLs with passwords
-    '(mysql|postgres|postgresql|mongodb|redis):\/\/[^:]+:[^@]+@'
-
-    # GitHub/GitLab tokens
-    'gh[pousr]_[A-Za-z0-9_]{36,}'
-    'glpat-[A-Za-z0-9\-]{20,}'
-
-    # Slack tokens
-    'xox[baprs]-[A-Za-z0-9\-]{10,}'
-
-    # Stripe
-    'sk_live_[A-Za-z0-9]{24,}'
-    'sk_test_[A-Za-z0-9]{24,}'
-    'rk_live_[A-Za-z0-9]{24,}'
-
-    # SendGrid
-    'SG\.[A-Za-z0-9_\-]{22}\.[A-Za-z0-9_\-]{43}'
-
-    # Twilio
-    'SK[A-Za-z0-9]{32}'
-
-    # OpenAI
-    'sk-[A-Za-z0-9]{48}'
-
-    # Anthropic
-    'sk-ant-[A-Za-z0-9\-]{40,}'
-
-    # Google
-    'AIza[A-Za-z0-9_\-]{35}'
-
-    # Cloudflare
-    'cloudflare.*["\047][A-Za-z0-9_\-]{37}["\047]'
-)
-
-# Files to ignore (typically example/template files)
-IGNORE_PATTERNS=(
-    '\.example$'
-    '\.sample$'
-    '\.template$'
-    '\.md$'
-    'package-lock\.json$'
-    'pnpm-lock\.yaml$'
-    'yarn\.lock$'
-)
-
-SECRETS_FOUND=0
-FINDINGS=""
+# Find all page.tsx files in apps/web/app that are staged
+EDGE_ISSUES=""
+EDGE_CHECK_FAILED=0
 
 for FILE in $STAGED_FILES; do
-    # Skip if file doesn't exist (was deleted)
-    if [ ! -f "$FILE" ]; then
-        continue
-    fi
-
-    # Skip ignored file patterns
-    SKIP=0
-    for IGNORE in "${IGNORE_PATTERNS[@]}"; do
-        if echo "$FILE" | grep -qE "$IGNORE"; then
-            SKIP=1
-            break
+    # Only check page.tsx files in the app directory
+    if echo "$FILE" | grep -qE "^apps/web/app/.*page\.tsx$"; then
+        # Skip files in special directories that don't need edge runtime
+        if echo "$FILE" | grep -qE "(api|_components|_hooks|_lib|_utils)/"; then
+            continue
         fi
-    done
 
-    if [ $SKIP -eq 1 ]; then
-        continue
-    fi
+        # Check if the file exists
+        if [ -f "$FILE" ]; then
+            # Skip client components - they inherit runtime from layout
+            if grep -q "^'use client'" "$FILE" || grep -q '^"use client"' "$FILE"; then
+                continue
+            fi
 
-    # Check for each secret pattern
-    for PATTERN in "${SECRET_PATTERNS[@]}"; do
-        # Get the staged content of the file
-        MATCHES=$(git show ":$FILE" 2>/dev/null | grep -nE "$PATTERN" 2>/dev/null || true)
-
-        if [ -n "$MATCHES" ]; then
-            SECRETS_FOUND=1
-            FINDINGS="$FINDINGS\n❌ Potential secret found in $FILE:\n$MATCHES\n"
+            # Server components must have edge runtime export
+            if ! grep -q "export const runtime = 'edge'" "$FILE"; then
+                EDGE_ISSUES="$EDGE_ISSUES\n❌ Missing 'export const runtime = \"edge\"' in: $FILE"
+                EDGE_CHECK_FAILED=1
+            fi
         fi
-    done
+    fi
 done
 
-if [ $SECRETS_FOUND -eq 1 ]; then
+if [ $EDGE_CHECK_FAILED -eq 1 ]; then
+    echo -e "$EDGE_ISSUES"
     echo ""
-    echo "🚨 COMMIT BLOCKED: Potential secrets detected!"
-    echo "================================================"
-    echo -e "$FINDINGS"
-    echo "================================================"
-    echo ""
-    echo "If these are false positives, you can:"
-    echo "  1. Add the file to .gitignore"
-    echo "  2. Use environment variables instead of hardcoding"
-    echo "  3. Skip this hook with: git commit --no-verify (not recommended)"
-    echo ""
-    exit 1
+    echo "🚨 EDGE RUNTIME CHECK FAILED!"
+    echo "All server component page.tsx files must include: export const runtime = 'edge'"
+    echo "This is required for Cloudflare Pages deployment."
+    CHECKS_PASSED=0
+else
+    echo "✅ All page files have Edge Runtime declaration"
 fi
 
-echo "✅ No secrets detected in staged files"
-exit 0
+# =========================================
+# 3. TYPESCRIPT TYPE CHECK
+# =========================================
+echo ""
+echo "📝 [3/4] Running TypeScript type check..."
+
+# Check if any TypeScript files are staged
+TS_FILES=$(echo "$STAGED_FILES" | grep -E '\.(ts|tsx)$' || true)
+
+if [ -z "$TS_FILES" ]; then
+    echo "✅ No TypeScript files to check"
+else
+    pnpm typecheck
+    TYPECHECK_EXIT=$?
+    if [ $TYPECHECK_EXIT -eq 0 ]; then
+        echo "✅ TypeScript check passed"
+    else
+        echo ""
+        echo "🚨 TYPESCRIPT CHECK FAILED!"
+        echo "Please fix the type errors before committing."
+        CHECKS_PASSED=0
+    fi
+fi
+
+# =========================================
+# 4. LINTING CHECK
+# =========================================
+echo ""
+echo "🔧 [4/4] Running ESLint check..."
+
+# Check if any lintable files are staged
+LINT_FILES=$(echo "$STAGED_FILES" | grep -E '\.(js|jsx|ts|tsx)$' || true)
+
+if [ -z "$LINT_FILES" ]; then
+    echo "✅ No files to lint"
+else
+    pnpm lint
+    LINT_EXIT=$?
+    if [ $LINT_EXIT -eq 0 ]; then
+        echo "✅ Lint check passed"
+    else
+        echo ""
+        echo "🚨 LINT CHECK FAILED!"
+        echo "Please fix the linting errors before committing."
+        echo "Run 'pnpm lint:fix' to auto-fix some issues."
+        CHECKS_PASSED=0
+    fi
+fi
+
+# =========================================
+# FINAL RESULT
+# =========================================
+echo ""
+echo "========================================"
+
+if [ $CHECKS_PASSED -eq 0 ]; then
+    echo "❌ PRE-COMMIT CHECKS FAILED"
+    echo "========================================"
+    echo ""
+    echo "Please fix the issues above before committing."
+    echo "To bypass (not recommended): git commit --no-verify"
+    echo ""
+    exit 1
+else
+    echo "✅ ALL PRE-COMMIT CHECKS PASSED"
+    echo "========================================"
+    echo ""
+    exit 0
+fi

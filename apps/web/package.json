@@ -8,8 +8,12 @@
     "analyze": "ANALYZE=true pnpm run build",
     "build": "pnpm with-env next build",
     "build:test": "NODE_ENV=test pnpm with-env:test next build",
-    "clean": "git clean -xdf .next .turbo node_modules",
+    "build:cloudflare": "pnpm with-env opennextjs-cloudflare build",
+    "clean": "git clean -xdf .next .turbo .open-next node_modules",
     "dev": "pnpm with-env next dev --turbo | pino-pretty -c",
+    "preview:cloudflare": "pnpm with-env wrangler dev",
+    "preview:cloudflare:remote": "pnpm with-env wrangler dev --remote",
+    "deploy:cloudflare": "pnpm with-env wrangler deploy",
     "lint": "eslint .",
     "format": "prettier --check \"**/*.{js,cjs,mjs,ts,tsx,md,json}\"",
     "start": "pnpm with-env next start",
@@ -23,7 +27,6 @@
   },
   "dependencies": {
     "@auth/d1-adapter": "^1.7.4",
-    "@cloudflare/next-on-pages": "^1.13.7",
     "@edge-csrf/nextjs": "2.5.3-cloudflare-rc1",
     "@hookform/resolvers": "^5.2.2",
     "@kit/accounts": "workspace:*",
@@ -60,6 +63,7 @@
     "@kit/prettier-config": "workspace:*",
     "@kit/tsconfig": "workspace:*",
     "@next/bundle-analyzer": "15.5.7",
+    "@opennextjs/cloudflare": "^1.14.7",
     "@tailwindcss/postcss": "^4.1.14",
     "@types/mdx": "^2.0.13",
     "@types/node": "^24.7.1",
@@ -74,7 +78,8 @@
     "tailwindcss": "4.1.14",
     "tailwindcss-animate": "^1.0.7",
     "tsx": "^4.19.2",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "wrangler": "^4.54.0"
   },
   "prettier": "@kit/prettier-config",
   "browserslist": [

@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server';
 
-import { getRequestContext } from '@cloudflare/next-on-pages';
+import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { z } from 'zod';
 
 import { auth } from '~/lib/auth/auth';
@@ -44,7 +44,7 @@ export async function PATCH(request: NextRequest, { params }: RouteParams) {
   }
 
   const { role, status } = parsed.data;
-  const { env } = getRequestContext();
+  const { env } = getCloudflareContext();
   const db = env.DB;
 
   // Get current user's membership and verify permissions
@@ -160,7 +160,7 @@ export async function DELETE(request: NextRequest, { params }: RouteParams) {
   }
 
   const { memberId } = await params;
-  const { env } = getRequestContext();
+  const { env } = getCloudflareContext();
   const db = env.DB;
 
   // Get current user's membership and verify permissions

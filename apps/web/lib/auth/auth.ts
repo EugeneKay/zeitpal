@@ -1,6 +1,6 @@
 import NextAuth from 'next-auth';
 import { D1Adapter } from '@auth/d1-adapter';
-import { getOptionalRequestContext } from '@cloudflare/next-on-pages';
+import { getCloudflareContext } from '@opennextjs/cloudflare';
 
 import { getAuthConfig } from './auth.config';
 
@@ -10,7 +10,7 @@ type AuthEnv = Record<string, string | undefined>;
  * Initialize NextAuth with D1 database adapter
  *
  * The D1 adapter is initialized dynamically per-request since
- * the D1 binding is only available via getRequestContext() in
+ * the D1 binding is only available via getCloudflareContext() in
  * Cloudflare Pages edge runtime.
  *
  * In development (Node.js runtime), we use a simpler setup without D1.
@@ -19,10 +19,10 @@ type AuthEnv = Record<string, string | undefined>;
  */
 function getAuth() {
   // Try to get Cloudflare bindings (only available in edge runtime)
-  // The getOptionalRequestContext() function throws an error in Node.js runtime,
+  // The getCloudflareContext() function throws an error in Node.js runtime,
   // so we need to catch that and fall back to the JWT-only setup
   try {
-    const ctx = getOptionalRequestContext();
+    const ctx = getCloudflareContext();
     const env = (ctx?.env ?? process.env) as AuthEnv;
     const authConfig = getAuthConfig(env);
 

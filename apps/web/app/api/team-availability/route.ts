@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server';
 
-import { getRequestContext } from '@cloudflare/next-on-pages';
+import { getCloudflareContext } from '@opennextjs/cloudflare';
 
 import { auth } from '~/lib/auth/auth';
 import { forbidden, success, unauthorized } from '~/lib/api/responses';
@@ -32,7 +32,7 @@ export async function GET(_: NextRequest) {
     return unauthorized();
   }
 
-  const { env } = getRequestContext();
+  const { env } = getCloudflareContext();
   const db = env.DB;
 
   const membership = await db

@@ -1,4 +1,4 @@
-import { getRequestContext } from '@cloudflare/next-on-pages';
+import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 
@@ -59,7 +59,7 @@ export async function POST(request: NextRequest) {
 
     const data = parsed.data;
     const userId = session.user.id;
-    const { env } = getRequestContext();
+    const { env } = getCloudflareContext();
     const db = env.DB;
 
     // Generate unique IDs

@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server';
 
-import { getRequestContext } from '@cloudflare/next-on-pages';
+import { getCloudflareContext } from '@opennextjs/cloudflare';
 
 import { auth } from '~/lib/auth/auth';
 import { success, unauthorized } from '~/lib/api/responses';
@@ -18,7 +18,7 @@ export async function GET(request: NextRequest) {
     return unauthorized();
   }
 
-  const { env } = getRequestContext();
+  const { env } = getCloudflareContext();
   const db = env.DB;
 
   const searchParams = request.nextUrl.searchParams;

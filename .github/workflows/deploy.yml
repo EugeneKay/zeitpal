@@ -1,4 +1,4 @@
-name: Deploy to Cloudflare Pages
+name: Deploy to Cloudflare Workers
 
 on:
   push:
@@ -38,8 +38,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build for Cloudflare Pages
-        run: pnpm --filter web exec next-on-pages
+      - name: Build for Cloudflare Workers
+        run: pnpm --filter web run build:cloudflare
         env:
           NEXT_PUBLIC_SITE_URL: https://zeitpal.com
           NEXT_PUBLIC_PRODUCT_NAME: ZeitPal
@@ -55,14 +55,12 @@ jobs:
           NEXT_PUBLIC_ENABLE_THEME_TOGGLE: ${{ vars.NEXT_PUBLIC_ENABLE_THEME_TOGGLE || 'true' }}
           NEXT_PUBLIC_LANGUAGE_PRIORITY: ${{ vars.NEXT_PUBLIC_LANGUAGE_PRIORITY || 'application' }}
           NEXT_PUBLIC_ENABLE_PERSONAL_ACCOUNT_DELETION: ${{ vars.NEXT_PUBLIC_ENABLE_PERSONAL_ACCOUNT_DELETION || 'true' }}
-          # Secrets
-          AUTH_SECRET: ${{ secrets.AUTH_SECRET }}
 
-      - name: Deploy to Cloudflare Pages
+      - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           packageManager: pnpm
           workingDirectory: apps/web
-          command: pages deploy .vercel/output/static --project-name=zeitpal
+          command: deploy

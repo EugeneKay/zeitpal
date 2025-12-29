@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server';
 
-import { getRequestContext } from '@cloudflare/next-on-pages';
+import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { z } from 'zod';
 
 import { badRequest, success, validationError } from '~/lib/api/responses';
@@ -30,7 +30,7 @@ export async function POST(request: NextRequest) {
 
   const { slug } = parsed.data;
 
-  const { env } = getRequestContext();
+  const { env } = getCloudflareContext();
   const db = env.DB;
 
   // Check if slug is already taken

@@ -2,7 +2,7 @@ import type { NextRequest } from 'next/server';
 import { NextResponse, URLPattern } from 'next/server';
 
 import { CsrfError, createCsrfProtect } from '@edge-csrf/nextjs';
-import { getOptionalRequestContext } from '@cloudflare/next-on-pages';
+import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { getToken } from 'next-auth/jwt';
 
 import appConfig from '~/config/app.config';
@@ -24,14 +24,17 @@ export const config = {
 async function getUser(request: NextRequest) {
   try {
     // Get secret from Cloudflare runtime context, fallback to process.env for local dev
-    const ctx = getOptionalRequestContext();
-    const env = ctx?.env as Record<string, string | undefined> | undefined;
-    const secret = env?.AUTH_SECRET ?? process.env.AUTH_SECRET;
+    let secret: string | undefined;
+    try {
+      const { env } = getCloudflareContext();
+      secret = (env as unknown as Record<string, string | undefined>)?.AUTH_SECRET;
+    } catch {
+      // Not in Cloudflare runtime (local dev)
+    }
+    secret = secret ?? process.env.AUTH_SECRET;
 
     // Debug: Log context availability (remove after debugging)
     console.log('[Middleware Debug]', {
-      hasContext: !!ctx,
-      hasEnv: !!env,
       hasSecret: !!secret,
       secretLength: secret?.length,
       cookies: request.cookies.getAll().map(c => c.name),

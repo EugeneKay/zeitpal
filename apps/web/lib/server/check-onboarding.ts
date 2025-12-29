@@ -1,4 +1,4 @@
-import { getRequestContext } from '@cloudflare/next-on-pages';
+import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { redirect } from 'next/navigation';
 
 import { auth } from '~/lib/auth/auth';
@@ -17,7 +17,7 @@ export async function requireOnboardingComplete() {
     redirect('/auth/sign-in');
   }
 
-  const { env } = getRequestContext();
+  const { env } = getCloudflareContext();
   const db = env.DB;
 
   // Check if user has an organization membership
@@ -60,7 +60,7 @@ export async function requireOnboardingIncomplete() {
     redirect('/auth/sign-in');
   }
 
-  const { env } = getRequestContext();
+  const { env } = getCloudflareContext();
   const db = env.DB;
 
   // Check if user has an organization membership
@@ -94,7 +94,7 @@ export async function getUserOrganization() {
     return null;
   }
 
-  const { env } = getRequestContext();
+  const { env } = getCloudflareContext();
   const db = env.DB;
 
   const result = await db

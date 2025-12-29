@@ -1,7 +1,7 @@
 export const runtime = 'edge';
 
 import { NextResponse } from 'next/server';
-import { getOptionalRequestContext } from '@cloudflare/next-on-pages';
+import { getCloudflareContext } from '@opennextjs/cloudflare';
 
 /**
  * Check which auth providers are available in the current runtime.
@@ -13,7 +13,7 @@ export async function GET() {
   let hasEmailProvider = false;
 
   try {
-    const ctx = getOptionalRequestContext();
+    const ctx = getCloudflareContext();
     // Email provider is only available when D1 is available
     hasEmailProvider = !!ctx?.env?.DB;
   } catch {

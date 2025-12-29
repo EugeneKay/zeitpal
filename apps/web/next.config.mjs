@@ -1,5 +1,3 @@
-import { setupDevPlatform } from '@cloudflare/next-on-pages/next-dev';
-
 const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 const ENABLE_REACT_COMPILER = process.env.ENABLE_REACT_COMPILER === 'true';
 
@@ -11,11 +9,6 @@ const INTERNAL_PACKAGES = [
   '@kit/i18n',
   '@kit/next',
 ];
-
-// Setup Cloudflare bindings for local development
-if (process.env.NODE_ENV === 'development') {
-  await setupDevPlatform();
-}
 
 /** @type {import('next').NextConfig} */
 const config = {
