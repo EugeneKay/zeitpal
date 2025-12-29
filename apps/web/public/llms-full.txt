@@ -276,7 +276,7 @@ RESTful API for custom integrations:
 
 ### Quick Start (15 minutes)
 
-1. **Sign up** at zeitpal.de (no credit card needed)
+1. **Sign up** at zeitpal.com (no credit card needed)
 2. **Create organization** with company name
 3. **Invite employees** via email
 4. **Configure leave types** (defaults provided)
@@ -365,16 +365,16 @@ A: Yes, we've built ZeitPal with BUrlG (Federal Holiday Act) compliance in mind,
 ## Support & Resources
 
 ### Documentation
-- Getting Started Guide: docs.zeitpal.de/getting-started
-- Admin Guide: docs.zeitpal.de/admin
-- API Reference: docs.zeitpal.de/api
-- FAQ: docs.zeitpal.de/faq
+- Getting Started Guide: docs.zeitpal.com/getting-started
+- Admin Guide: docs.zeitpal.com/admin
+- API Reference: docs.zeitpal.com/api
+- FAQ: docs.zeitpal.com/faq
 
 ### Support Channels
-- Email: support@zeitpal.de (response within 24 hours)
-- Enterprise: enterprise@zeitpal.de
-- Documentation: docs.zeitpal.de
-- Status: status.zeitpal.de
+- Email: support@zeitpal.com (response within 24 hours)
+- Enterprise: enterprise@zeitpal.com
+- Documentation: docs.zeitpal.com
+- Status: status.zeitpal.com
 
 ### Community
 - GitHub: github.com/zeitpal
@@ -421,12 +421,12 @@ Urlaubsverwaltung, Abwesenheitsmanagement, Urlaubsplaner, Krankmeldung digital, 
 
 **Company:** ZeitPal GmbH
 **Location:** Germany
-**Website:** https://zeitpal.de
+**Website:** https://zeitpal.com
 **Email:**
-- General: hello@zeitpal.de
-- Support: support@zeitpal.de
-- Enterprise: enterprise@zeitpal.de
-- Press: press@zeitpal.de
+- General: hello@zeitpal.com
+- Support: support@zeitpal.com
+- Enterprise: enterprise@zeitpal.com
+- Press: press@zeitpal.com
 
 ---
 

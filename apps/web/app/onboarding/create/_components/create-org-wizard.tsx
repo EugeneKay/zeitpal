@@ -209,7 +209,7 @@ export function CreateOrgWizard() {
                       <Input {...field} placeholder="" />
                     </FormControl>
                     <FormDescription>
-                      Your organization URL: zeitpal.de/{field.value || 'your-org'}
+                      Your organization URL: zeitpal.com/{field.value || 'your-org'}
                     </FormDescription>
                     <FormMessage />
                   </FormItem>

@@ -38,8 +38,8 @@ export const authConfig: NextAuthConfig = {
     // Magic Link via Mailgun
     MailgunProvider({
       apiKey: process.env.MAILGUN_API_KEY ?? '',
-      domain: process.env.MAILGUN_DOMAIN ?? 'mg.zeitpal.de',
-      from: process.env.AUTH_EMAIL_FROM ?? 'ZeitPal <noreply@zeitpal.de>',
+      domain: process.env.MAILGUN_DOMAIN ?? 'mg.zeitpal.com',
+      from: process.env.AUTH_EMAIL_FROM ?? 'ZeitPal <noreply@zeitpal.com>',
     }),
   ],
 

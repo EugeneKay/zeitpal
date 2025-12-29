@@ -138,7 +138,7 @@ export function MailgunProvider(options: {
     type: 'email',
     name: 'Email',
     server: {},
-    from: options.from ?? 'ZeitPal <noreply@zeitpal.de>',
+    from: options.from ?? 'ZeitPal <noreply@zeitpal.com>',
     maxAge: 60 * 60, // 1 hour
 
     async sendVerificationRequest({
@@ -160,7 +160,7 @@ export function MailgunProvider(options: {
 
       try {
         await mg.messages.create(options.domain, {
-          from: from ?? options.from ?? 'ZeitPal <noreply@zeitpal.de>',
+          from: from ?? options.from ?? 'ZeitPal <noreply@zeitpal.com>',
           to: email,
           subject: t.subject(siteName),
           text: t.textEmail(siteName, url),

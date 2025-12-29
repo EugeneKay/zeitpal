@@ -128,7 +128,7 @@ export default function OrganizationPage() {
                 <FormControl>
                   <div className="flex items-center">
                     <span className="inline-flex h-10 items-center rounded-l-md border border-r-0 bg-muted px-3 text-sm text-muted-foreground">
-                      zeitpal.de/
+                      zeitpal.com/
                     </span>
                     <Input
                       placeholder=""

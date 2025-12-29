@@ -173,7 +173,7 @@ export function OrganizationSettingsForm() {
                     <Input {...field} />
                   </FormControl>
                   <FormDescription>
-                    Used in URLs: zeitpal.de/{field.value}
+                    Used in URLs: zeitpal.com/{field.value}
                   </FormDescription>
                   <FormMessage />
                 </FormItem>

@@ -6,7 +6,7 @@
 
 <p align="center">
   <strong>Modern Leave Management for Teams</strong><br>
-  Open source, GDPR-compliant absence management built for the modern workplace.
+  GDPR-compliant absence management built for the modern workplace. Free for non-commercial use.
 </p>
 
 <p align="center">
@@ -26,7 +26,7 @@
     <img src="https://img.shields.io/github/forks/yourusername/zeitpal?style=social" alt="GitHub Forks">
   </a>
   <a href="https://github.com/yourusername/zeitpal/blob/main/LICENSE">
-    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License">
+    <img src="https://img.shields.io/badge/license-Non--Commercial-orange.svg" alt="License">
   </a>
   <a href="https://github.com/yourusername/zeitpal/actions">
     <img src="https://img.shields.io/github/actions/workflow/status/yourusername/zeitpal/ci.yml?branch=main" alt="CI Status">
@@ -44,7 +44,7 @@
 
 ## Why ZeitPal?
 
-Managing employee leave shouldn't require expensive enterprise software or endless Excel spreadsheets. ZeitPal is a **free, open-source** solution that makes leave management simple, transparent, and compliant with European data protection regulations.
+Managing employee leave shouldn't require expensive enterprise software or endless Excel spreadsheets. ZeitPal is a **free for non-commercial use** solution that makes leave management simple, transparent, and compliant with European data protection regulations.
 
 **Free for teams up to 20 employees** — no credit card, no hidden fees.
 
@@ -90,9 +90,7 @@ Managing employee leave shouldn't require expensive enterprise software or endle
 
 ## Demo
 
-🌐 **Live Demo:** [https://demo.zeitpal.de](https://demo.zeitpal.de)
-
-Try ZeitPal without signing up. The demo resets every 24 hours.
+🌐 **Live Demo:** [https://zeitpal.com](https://zeitpal.com)
 
 ### Screenshots
 
@@ -274,7 +272,7 @@ pnpm run supabase:web:reset
 
 ## Contributing
 
-We love contributions! ZeitPal is an open-source project and we welcome developers of all skill levels.
+We love contributions! ZeitPal is a source-available project and we welcome developers of all skill levels.
 
 ### How to Contribute
 
@@ -324,15 +322,15 @@ See the [open issues](https://github.com/yourusername/zeitpal/issues) for a full
 
 ## Support
 
-- **Documentation:** [docs.zeitpal.de](https://docs.zeitpal.de)
-- **Email:** support@zeitpal.de
-- **Enterprise:** enterprise@zeitpal.de
+- **Documentation:** [docs.zeitpal.com](https://docs.zeitpal.com)
+- **Email:** support@zeitpal.com
+- **Enterprise:** enterprise@zeitpal.com
 
 ---
 
 ## Sponsors
 
-ZeitPal is free and open source. If you find it useful, please consider sponsoring:
+ZeitPal is free for non-commercial use. If you find it useful, please consider sponsoring:
 
 <a href="https://github.com/sponsors/yourusername">
   <img src="https://img.shields.io/badge/Sponsor-❤️-pink?style=for-the-badge" alt="Sponsor">
@@ -342,7 +340,7 @@ ZeitPal is free and open source. If you find it useful, please consider sponsori
 
 ## License
 
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+This project is licensed under a **Non-Commercial License** — free for personal and educational use. For commercial use, please contact enterprise@zeitpal.com. See the [LICENSE](LICENSE) file for details.
 
 ---
 

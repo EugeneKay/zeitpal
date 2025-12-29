@@ -255,14 +255,14 @@ AUTH_MICROSOFT_ENTRA_ID_ID=<microsoft-client-id>
 AUTH_MICROSOFT_ENTRA_ID_SECRET=<microsoft-secret>
 AUTH_MICROSOFT_ENTRA_ID_TENANT_ID=common
 AUTH_RESEND_KEY=<resend-api-key>
-AUTH_EMAIL_FROM=noreply@zeitpal.de
+AUTH_EMAIL_FROM=noreply@mg.zeitpal.com
 
 # Mailgun (for notifications)
 MAILGUN_API_KEY=<mailgun-api-key>
-MAILGUN_DOMAIN=mg.zeitpal.de
+MAILGUN_DOMAIN=mg.zeitpal.com
 
 # App
-NEXT_PUBLIC_SITE_URL=https://zeitpal.de
+NEXT_PUBLIC_SITE_URL=https://zeitpal.com
 NEXT_PUBLIC_PRODUCT_NAME=ZeitPal
 NEXT_PUBLIC_DEFAULT_LOCALE=de
 ```
@@ -558,7 +558,7 @@ const mg = new Mailgun(formData).client({
 
 export async function sendEmail(to: string, subject: string, html: string) {
   return mg.messages.create(process.env.MAILGUN_DOMAIN!, {
-    from: 'ZeitPal <noreply@zeitpal.de>',
+    from: 'ZeitPal <noreply@zeitpal.com>',
     to,
     subject,
     html,

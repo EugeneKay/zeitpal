@@ -16,7 +16,7 @@ bucket_name = "zeitpal-storage"
 
 # Environment variables
 [vars]
-NEXT_PUBLIC_SITE_URL = "https://zeitpal.de"
+NEXT_PUBLIC_SITE_URL = "https://zeitpal.com"
 NEXT_PUBLIC_PRODUCT_NAME = "ZeitPal"
 NEXT_PUBLIC_SITE_TITLE = "ZeitPal - Urlaubsverwaltung, die einfach funktioniert"
 NEXT_PUBLIC_SITE_DESCRIPTION = "ZeitPal macht Urlaubsplanung, Krankmeldungen und Abwesenheitsmanagement zum Kinderspiel. DSGVO-konform, Made in Germany. Kostenlos für kleine Teams."
@@ -31,7 +31,7 @@ NEXT_PUBLIC_ENABLE_THEME_TOGGLE = "true"
 NEXT_PUBLIC_LANGUAGE_PRIORITY = "application"
 NEXT_PUBLIC_ENABLE_PERSONAL_ACCOUNT_DELETION = "true"
 MAILGUN_DOMAIN = "mg.zeitpal.com"
-AUTH_EMAIL_FROM = "ZeitPal <noreply@zeitpal.de>"
+AUTH_EMAIL_FROM = "ZeitPal <noreply@zeitpal.com>"
 
 # Secrets (set via `wrangler secret put` or Cloudflare dashboard):
 # - AUTH_SECRET
