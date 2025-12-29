@@ -40,6 +40,24 @@ jobs:
 
       - name: Build for Cloudflare Pages
         run: pnpm --filter web exec next-on-pages
+        env:
+          # Site config (set in GitHub repository variables or secrets)
+          NEXT_PUBLIC_SITE_URL: ${{ vars.NEXT_PUBLIC_SITE_URL }}
+          NEXT_PUBLIC_PRODUCT_NAME: ${{ vars.NEXT_PUBLIC_PRODUCT_NAME }}
+          NEXT_PUBLIC_SITE_TITLE: ${{ vars.NEXT_PUBLIC_SITE_TITLE }}
+          NEXT_PUBLIC_SITE_DESCRIPTION: ${{ vars.NEXT_PUBLIC_SITE_DESCRIPTION }}
+          NEXT_PUBLIC_DEFAULT_LOCALE: ${{ vars.NEXT_PUBLIC_DEFAULT_LOCALE }}
+          NEXT_PUBLIC_DEFAULT_THEME_MODE: ${{ vars.NEXT_PUBLIC_DEFAULT_THEME_MODE || 'light' }}
+          NEXT_PUBLIC_THEME_COLOR: ${{ vars.NEXT_PUBLIC_THEME_COLOR || '#ffffff' }}
+          NEXT_PUBLIC_THEME_COLOR_DARK: ${{ vars.NEXT_PUBLIC_THEME_COLOR_DARK || '#0a0a0a' }}
+          NEXT_PUBLIC_AUTH_MAGIC_LINK: ${{ vars.NEXT_PUBLIC_AUTH_MAGIC_LINK || 'true' }}
+          NEXT_PUBLIC_DISPLAY_TERMS_AND_CONDITIONS_CHECKBOX: ${{ vars.NEXT_PUBLIC_DISPLAY_TERMS_AND_CONDITIONS_CHECKBOX || 'true' }}
+          NEXT_PUBLIC_LOCALES_PATH: ${{ vars.NEXT_PUBLIC_LOCALES_PATH || 'apps/web/public/locales' }}
+          NEXT_PUBLIC_ENABLE_THEME_TOGGLE: ${{ vars.NEXT_PUBLIC_ENABLE_THEME_TOGGLE || 'true' }}
+          NEXT_PUBLIC_LANGUAGE_PRIORITY: ${{ vars.NEXT_PUBLIC_LANGUAGE_PRIORITY || 'application' }}
+          NEXT_PUBLIC_ENABLE_PERSONAL_ACCOUNT_DELETION: ${{ vars.NEXT_PUBLIC_ENABLE_PERSONAL_ACCOUNT_DELETION || 'true' }}
+          # Secrets
+          AUTH_SECRET: ${{ secrets.AUTH_SECRET }}
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3

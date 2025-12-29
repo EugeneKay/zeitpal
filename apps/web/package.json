@@ -16,7 +16,7 @@
     "start:test": "NODE_ENV=test pnpm with-env:test next start",
     "typecheck": "tsc --noEmit",
     "translate": "tsx scripts/translate.ts",
-    "with-env": "dotenv -e ./.env.local --",
+    "with-env": "dotenv -e ./.env -e ./.env.local --",
     "with-env:test": "dotenv -e ./.env.test --",
     "db:migrate": "wrangler d1 migrations apply DB --local",
     "db:migrate:remote": "wrangler d1 migrations apply DB --remote"
