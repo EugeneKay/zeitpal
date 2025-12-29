@@ -1,4 +1,4 @@
-import Link from 'next/link';
+export const runtime = 'edge';
 
 import {
   ArrowRight,
@@ -15,7 +15,9 @@ import {
 
 import { Button } from '@kit/ui/button';
 import { Trans } from '@kit/ui/trans';
+import { AnimatedShinyText } from '@kit/ui/magicui';
 
+import { LocalizedLink } from '~/components/localized-link';
 import { SitePageHeader } from '~/(marketing)/_components/site-page-header';
 import { createI18nServerInstance } from '~/lib/i18n/i18n.server';
 import { withI18n } from '~/lib/i18n/with-i18n';
@@ -104,7 +106,11 @@ async function FeaturesPage() {
 
       <div className={'flex flex-col space-y-4 xl:space-y-8'}>
         <SitePageHeader
-          title={t('marketing:features.title')}
+          title={
+            <AnimatedShinyText className="text-3xl md:text-4xl font-bold">
+              {t('marketing:features.title')}
+            </AnimatedShinyText>
+          }
           subtitle={t('marketing:features.subtitle')}
         />
 
@@ -126,16 +132,16 @@ async function FeaturesPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg">
-                <Link href={'/auth/sign-up'}>
+                <LocalizedLink href={'/auth/sign-up'}>
                   <Trans i18nKey={'marketing:cta.startFree'} />
                   <ArrowRight className={'ml-2 w-4'} />
-                </Link>
+                </LocalizedLink>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link href={'/pricing'}>
-                  <Trans i18nKey={'marketing:pricing'} />
+                <LocalizedLink href={'/pricing'}>
+                  <Trans i18nKey={'marketing:pricingLabel'} />
                   <ArrowRight className={'ml-2 w-4'} />
-                </Link>
+                </LocalizedLink>
               </Button>
             </div>
           </div>

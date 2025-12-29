@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 
 import {
   addMonths,
@@ -8,7 +8,6 @@ import {
   endOfMonth,
   format,
   getDay,
-  isSameDay,
   isSameMonth,
   isToday,
   isWeekend,
@@ -33,12 +32,12 @@ import { Tooltip, TooltipContent, TooltipTrigger } from '@kit/ui/tooltip';
 import { Trans } from '@kit/ui/trans';
 import { cn } from '@kit/ui/utils';
 
+import { useHolidays } from '~/lib/hooks/use-holidays';
+
 // TODO: Replace with React Query
 const mockTeams = [
   { id: 'all', name: 'All Teams' },
 ];
-
-const mockHolidays: { date: string; name: string }[] = [];
 
 const mockAbsences: {
   id: string;
@@ -162,9 +161,20 @@ export function TeamCalendar() {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedTeam, setSelectedTeam] = useState('all');
 
-  // TODO: Replace with React Query
-  const isLoading = false;
-  const holidays = mockHolidays;
+  const currentYear = currentDate.getFullYear();
+  const { data: holidaysData, isLoading: isLoadingHolidays } = useHolidays({ year: currentYear });
+
+  // Transform holidays to the format expected by CalendarDay
+  const holidays = useMemo(() => {
+    if (!holidaysData) return [];
+    return holidaysData.map((h) => ({
+      date: h.date,
+      name: h.nameEn, // TODO: Use locale to determine which name to show
+    }));
+  }, [holidaysData]);
+
+  // TODO: Replace with React Query for absences and teams
+  const isLoading = isLoadingHolidays;
   const absences = mockAbsences;
   const teams = mockTeams;
 

@@ -3,7 +3,7 @@
 import { useState } from 'react';
 
 import { format } from 'date-fns';
-import { Check, Loader2, MoreHorizontal, X } from 'lucide-react';
+import { Check, CheckCircle, Loader2, MoreHorizontal, X } from 'lucide-react';
 import { toast } from 'sonner';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@kit/ui/avatar';
@@ -275,7 +275,7 @@ export function ApprovalQueue() {
     return (
       <Card>
         <CardContent className="py-12 text-center">
-          <div className="mb-4 text-4xl">✅</div>
+          <CheckCircle className="mb-4 h-12 w-12 text-green-500 mx-auto" />
           <h3 className="text-lg font-semibold">All caught up!</h3>
           <p className="text-muted-foreground">
             <Trans i18nKey="leave:approvals.noRequests" />

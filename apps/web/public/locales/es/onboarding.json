@@ -1,0 +1,156 @@
+{
+  "title": "Onboarding",
+  "welcome": {
+    "title": "Welcome to ZeitPal",
+    "subtitle": "Your all-in-one leave management solution",
+    "setupTime": "Setup takes about 3 minutes",
+    "getStarted": "Get Started",
+    "features": {
+      "trackLeave": {
+        "title": "Track All Leave Types",
+        "description": "Vacation, sick leave, parental leave, and more"
+      },
+      "teamCalendar": {
+        "title": "Team Calendar",
+        "description": "See who is out and plan coverage"
+      },
+      "approvals": {
+        "title": "Approval Workflows",
+        "description": "Configurable approval chains for your organization"
+      },
+      "holidays": {
+        "title": "Holiday-Aware",
+        "description": "Automatic public holiday detection by region"
+      }
+    }
+  },
+  "profile": {
+    "title": "Your Profile",
+    "description": "Let's personalize your experience",
+    "fullName": "Full Name",
+    "fullNamePlaceholder": "Max Mustermann",
+    "fullNameHelp": "How should we address you?",
+    "timezone": "Timezone",
+    "timezoneHelp": "This ensures dates and times display correctly",
+    "language": "Preferred Language",
+    "changeLater": "You can change these settings anytime from your profile page."
+  },
+  "organization": {
+    "title": "Name Your Organization",
+    "description": "This is your company's workspace in ZeitPal",
+    "name": "Organization Name",
+    "namePlaceholder": "Acme GmbH",
+    "nameHelp": "Your company or team name",
+    "url": "Your Unique URL",
+    "urlPlaceholder": "acme-gmbh",
+    "urlHelp": "Share this link with your team members to join",
+    "changeLater": "Your organization name and URL can be changed later in settings."
+  },
+  "location": {
+    "title": "Your Location",
+    "description": "This determines public holidays for your team",
+    "country": "Country",
+    "countryHelp": "Where is your organization based?",
+    "region": "State / Region",
+    "regionHelp": {
+      "DE": "Each German state has different public holidays",
+      "default": "Regional public holidays may vary"
+    },
+    "regionLabels": {
+      "DE": "Federal State (Bundesland)",
+      "AT": "Federal State (Bundesland)",
+      "CH": "Canton",
+      "default": "Region"
+    }
+  },
+  "policy": {
+    "title": "Leave Policy",
+    "description": "Set your organization's default leave policy",
+    "vacationDays": "Annual Vacation Days (Default)",
+    "vacationDaysHelp": "This is the default for new employees. You can customize per employee later.",
+    "vacationDaysMinimum": "Minimum {{days}} days required",
+    "carryover": "Allow Leave Carryover",
+    "carryoverDescription": "Employees can carry over unused vacation days to the next year",
+    "carryoverMaxDays": "Maximum Carryover Days",
+    "carryoverExpiry": "Carryover Expires On",
+    "configLater": "You can configure additional settings later: sick leave requirements, approval workflows, and custom leave types."
+  },
+  "team": {
+    "title": "Create Your First Team",
+    "description": "Teams help organize leave calendars and approvals",
+    "name": "Team Name",
+    "namePlaceholder": "e.g., Engineering",
+    "nameHelp": "What should this team be called?",
+    "color": "Team Color",
+    "colorHelp": "This color will be used in the team calendar",
+    "suggestions": "Common team names",
+    "configLater": "You can create more teams and organize team members later in Settings."
+  },
+  "invite": {
+    "title": "Invite Team Members",
+    "description": "Invite your colleagues to join your organization",
+    "email": "Email",
+    "emailPlaceholder": "colleague@company.com",
+    "role": "Role",
+    "addAnother": "Add Another",
+    "rolePermissions": "Role Permissions",
+    "inviteNote": "Invitees will receive an email with a link to join your organization. You can invite more team members anytime.",
+    "roles": {
+      "employee": {
+        "label": "Employee",
+        "description": "Can request leave and view own balance"
+      },
+      "manager": {
+        "label": "Manager",
+        "description": "Can approve team requests"
+      },
+      "hr": {
+        "label": "HR",
+        "description": "Can manage all leave and balances"
+      },
+      "admin": {
+        "label": "Admin",
+        "description": "Full access including settings"
+      }
+    }
+  },
+  "complete": {
+    "title": "You're All Set!",
+    "subtitle": "Your organization is ready to go",
+    "summary": "Summary",
+    "organization": "Organization",
+    "location": "Location",
+    "vacationDays": "Vacation Days",
+    "team": "Team",
+    "invites": "Invites",
+    "skipped": "Skipped",
+    "notCreated": "Not created",
+    "none": "None",
+    "daysPerYear": "{{days}} days/year",
+    "teamMembers": "{{count}} team member",
+    "teamMembers_plural": "{{count}} team members",
+    "goToDashboard": "Go to Dashboard",
+    "configureLeaveTypes": "Configure Leave Types",
+    "inviteMore": "Invite More Members",
+    "creating": "Creating your organization..."
+  },
+  "navigation": {
+    "back": "Back",
+    "continue": "Continue",
+    "skip": "Skip for now",
+    "pleaseWait": "Please wait..."
+  },
+  "steps": {
+    "welcome": "Welcome",
+    "profile": "Profile",
+    "organization": "Organization",
+    "location": "Location",
+    "policy": "Policy",
+    "team": "Team",
+    "invite": "Invite",
+    "complete": "Done"
+  },
+  "progress": {
+    "stepOf": "Step {{current}} of {{total}}"
+  }
+}

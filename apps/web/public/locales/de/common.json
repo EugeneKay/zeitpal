@@ -86,7 +86,7 @@
     }
   },
   "cookieBanner": {
-    "title": "Hey, wir verwenden Cookies 🍪",
+    "title": "Hey, wir verwenden Cookies",
     "description": "Diese Website verwendet Cookies, um Ihnen das beste Erlebnis zu bieten.",
     "reject": "Ablehnen",
     "accept": "Akzeptieren"

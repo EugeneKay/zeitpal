@@ -34,6 +34,7 @@
     "cmdk": "1.1.1",
     "input-otp": "1.4.2",
     "lucide-react": "^0.545.0",
+    "motion": "^12.23.26",
     "react-top-loading-bar": "3.0.2",
     "recharts": "2.15.3",
     "tailwind-merge": "^3.3.1"
@@ -124,7 +125,8 @@
     "./multi-step-form": "./src/makerkit/multi-step-form.tsx",
     "./app-breadcrumbs": "./src/makerkit/app-breadcrumbs.tsx",
     "./empty-state": "./src/makerkit/empty-state.tsx",
-    "./marketing": "./src/makerkit/marketing/index.tsx"
+    "./marketing": "./src/makerkit/marketing/index.tsx",
+    "./magicui": "./src/magicui/index.ts"
   },
   "typesVersions": {
     "*": {

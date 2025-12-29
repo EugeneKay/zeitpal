@@ -1,15 +1,20 @@
 {
+  "site": {
+    "title": "ZeitPal - Urlaubsverwaltung, die einfach funktioniert",
+    "description": "ZeitPal macht Urlaubsplanung, Krankmeldungen und Abwesenheitsmanagement zum Kinderspiel. DSGVO-konform, Made in Germany. Kostenlos für kleine Teams."
+  },
+
   "blog": "Blog",
   "blogSubtitle": "Neuigkeiten und Updates zur Plattform",
   "documentation": "Dokumentation",
   "documentationSubtitle": "Tutorials und Anleitungen zum Einstieg",
   "faq": "FAQ",
   "faqSubtitle": "Häufig gestellte Fragen zu ZeitPal",
-  "pricing": "Preise",
+  "pricingLabel": "Preise",
   "pricingSubtitle": "Einfache, transparente Preise",
-  "features": "Funktionen",
+  "featuresLabel": "Funktionen",
   "featuresSubtitle": "Alle Funktionen im Überblick",
-  "about": "Über uns",
+  "aboutLabel": "Über uns",
   "aboutSubtitle": "Lernen Sie das Team hinter ZeitPal kennen",
   "contact": "Kontakt",
   "contactSubtitle": "Wir freuen uns von Ihnen zu hören",
@@ -40,10 +45,10 @@
 
   "pricing": {
     "metaTitle": "Preise | ZeitPal - Kostenlose Urlaubsverwaltung",
-    "metaDescription": "ZeitPal ist kostenlos für Teams bis 5 Personen. Keine Kreditkarte erforderlich. Transparente Preise für wachsende Teams.",
+    "metaDescription": "ZeitPal ist kostenlos für Teams bis 20 Personen. Keine Kreditkarte erforderlich. Transparente Preise für größere Teams.",
     "title": "Einfache, transparente Preise",
-    "subtitle": "Starten Sie kostenlos. Upgraden Sie, wenn Sie wachsen.",
-    "freeForever": "Dauerhaft kostenlos",
+    "subtitle": "Kostenlos für kleine und mittlere Teams. Zahlen Sie erst ab 21 Mitarbeitern.",
+    "freeForever": "Kostenlos bis 20 Mitarbeiter",
     "noCreditCard": "Keine Kreditkarte erforderlich",
     "noHiddenFees": "Keine versteckten Kosten",
     "mostPopular": "Am beliebtesten",
@@ -53,36 +58,38 @@
     "compare": "Pläne vergleichen",
 
     "starter": {
-      "name": "Starter",
+      "name": "Kostenlos",
       "price": "0",
-      "description": "Perfekt für kleine Teams",
+      "description": "Perfekt für Teams bis 20 Mitarbeiter",
       "features": [
-        "Bis zu 5 Benutzer",
+        "Bis zu 20 Benutzer",
         "Urlaubsanträge & Genehmigungen",
         "Teamkalender",
         "Krankmeldungen",
         "E-Mail-Benachrichtigungen",
+        "Mehrere Teams",
+        "Urlaubskontingente",
         "DSGVO-konform"
       ]
     },
     "team": {
       "name": "Team",
-      "price": "4,99",
-      "description": "Für wachsende Teams",
+      "price": "3,99",
+      "description": "Für Unternehmen ab 21 Mitarbeitern",
       "features": [
-        "Alles aus Starter",
-        "6-50 Benutzer",
-        "Mehrere Teams",
-        "Erweiterte Berichte",
-        "Urlaubskontingente",
+        "Alles aus Kostenlos",
+        "21-100 Benutzer",
+        "Erweiterte Berichte & Analysen",
         "Slack-Integration",
-        "Prioritätssupport"
+        "Google Calendar Sync",
+        "Prioritäts-E-Mail-Support",
+        "Individuelle Abwesenheitsarten"
       ]
     },
     "enterprise": {
       "name": "Enterprise",
       "price": "Individuell",
-      "description": "Für große Unternehmen",
+      "description": "Für große Unternehmen ab 100 Mitarbeitern",
       "features": [
         "Alles aus Team",
         "Unbegrenzte Benutzer",
@@ -90,7 +97,8 @@
         "API-Zugang",
         "Dedizierter Account Manager",
         "SLA-Garantie",
-        "On-Premise Option"
+        "On-Premise Option",
+        "Individuelle Integrationen"
       ]
     }
   },
@@ -169,6 +177,19 @@
     "uptime": "Verfügbarkeit"
   },
 
+  "liveUpdates": {
+    "heading": "Alles im Blick - in Echtzeit",
+    "subheading": "Erhalten Sie sofortige Benachrichtigungen über Urlaubsanträge, Genehmigungen und Teamänderungen.",
+    "item1": "Urlaubsantrag genehmigt",
+    "time1": "Gerade eben",
+    "item2": "Sarah K. - Urlaub 23.-27. Dez",
+    "time2": "Vor 2 Minuten",
+    "item3": "Erinnerung: Team-Meeting morgen",
+    "time3": "Vor 5 Minuten",
+    "item4": "Krankmeldung eingegangen",
+    "time4": "Vor 10 Minuten"
+  },
+
   "testimonials": {
     "heading": "Das sagen unsere Kunden",
     "subheading": "Über 500 Teams vertrauen auf ZeitPal",
@@ -214,7 +235,7 @@
     },
     "urlaubsplaner": {
       "metaTitle": "Online Urlaubsplaner | ZeitPal - Kostenlos",
-      "metaDescription": "Planen Sie Urlaub online mit dem Teamkalender. Vermeiden Sie Konflikte, behalten Sie den Überblick. Kostenlos für Teams bis 5 Personen.",
+      "metaDescription": "Planen Sie Urlaub online mit dem Teamkalender. Vermeiden Sie Konflikte, behalten Sie den Überblick. Kostenlos für Teams bis 20 Mitarbeiter.",
       "h1": "Online Urlaubsplaner für Teams",
       "subtitle": "Planen Sie den Urlaub Ihres Teams zentral und vermeiden Sie Engpässe. Mit Kalenderansicht und automatischen Benachrichtigungen."
     },
@@ -235,7 +256,7 @@
   "useCases": {
     "startups": {
       "metaTitle": "Urlaubsverwaltung für Startups | ZeitPal",
-      "metaDescription": "Kostenlose Urlaubsverwaltung für Startups bis 5 Mitarbeiter. Schnell eingerichtet, einfach zu bedienen. Jetzt starten.",
+      "metaDescription": "Kostenlose Urlaubsverwaltung für Startups bis 20 Mitarbeiter. Schnell eingerichtet, einfach zu bedienen. Jetzt starten.",
       "h1": "Urlaubsverwaltung für Startups",
       "subtitle": "Konzentrieren Sie sich auf Ihr Wachstum - wir kümmern uns um die Urlaubsverwaltung. Kostenlos für kleine Teams."
     },
@@ -250,7 +271,7 @@
   "faqItems": [
     {
       "question": "Ist ZeitPal wirklich kostenlos?",
-      "answer": "Ja! Unser Starter-Plan ist dauerhaft kostenlos für Teams bis 5 Personen. Keine Kreditkarte erforderlich, keine versteckten Kosten."
+      "answer": "Ja! ZeitPal ist komplett kostenlos für Teams bis 20 Mitarbeiter. Keine Kreditkarte erforderlich, keine versteckten Kosten. Sie zahlen erst, wenn Ihr Team über 20 Mitarbeiter wächst."
     },
     {
       "question": "Wie lange dauert die Einrichtung?",
@@ -279,7 +300,11 @@
     "product": "Produkt",
     "solutions": "Lösungen",
     "company": "Unternehmen",
-    "legal": "Rechtliches"
+    "legal": "Rechtliches",
+    "leaveManagement": "Urlaubsverwaltung",
+    "absenceManagement": "Abwesenheitsmanagement",
+    "forStartups": "Für Startups",
+    "forSMEs": "Für Mittelstand"
   },
 
   "ctaSection": {

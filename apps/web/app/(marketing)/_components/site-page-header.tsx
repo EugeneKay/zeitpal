@@ -6,7 +6,7 @@ export function SitePageHeader({
   container = true,
   className = '',
 }: {
-  title: string;
+  title: React.ReactNode;
   subtitle: string;
   container?: boolean;
   className?: string;

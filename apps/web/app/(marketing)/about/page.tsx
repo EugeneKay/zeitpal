@@ -1,10 +1,12 @@
-import Link from 'next/link';
+export const runtime = 'edge';
 
 import { ArrowRight, Shield, Heart, Zap, Users } from 'lucide-react';
 
 import { Button } from '@kit/ui/button';
 import { Trans } from '@kit/ui/trans';
+import { AnimatedShinyText } from '@kit/ui/magicui';
 
+import { LocalizedLink } from '~/components/localized-link';
 import { SitePageHeader } from '~/(marketing)/_components/site-page-header';
 import { createI18nServerInstance } from '~/lib/i18n/i18n.server';
 import { withI18n } from '~/lib/i18n/with-i18n';
@@ -13,7 +15,7 @@ export const generateMetadata = async () => {
   const { t } = await createI18nServerInstance();
 
   return {
-    title: t('marketing:about'),
+    title: t('marketing:aboutLabel'),
     description: t('marketing:aboutSubtitle'),
   };
 };
@@ -64,7 +66,7 @@ async function AboutPage() {
 
       <div className={'flex flex-col space-y-4 xl:space-y-8'}>
         <SitePageHeader
-          title={t('marketing:about')}
+          title={t('marketing:aboutLabel')}
           subtitle={t('marketing:aboutSubtitle')}
         />
 
@@ -72,7 +74,9 @@ async function AboutPage() {
           {/* Mission Section */}
           <section className="mb-16">
             <h2 className="text-2xl font-bold mb-6">
-              <Trans i18nKey={'marketing:about.mission.title'} />
+              <AnimatedShinyText className="text-2xl font-bold">
+                <Trans i18nKey={'marketing:about.mission.title'} />
+              </AnimatedShinyText>
             </h2>
             <div className="prose prose-lg dark:prose-invert">
               <p className="text-muted-foreground leading-relaxed">
@@ -124,16 +128,16 @@ async function AboutPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg">
-                <Link href={'/auth/sign-up'}>
+                <LocalizedLink href={'/auth/sign-up'}>
                   <Trans i18nKey={'marketing:cta.startFree'} />
                   <ArrowRight className={'ml-2 w-4'} />
-                </Link>
+                </LocalizedLink>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link href={'/contact'}>
+                <LocalizedLink href={'/contact'}>
                   <Trans i18nKey={'marketing:contact'} />
                   <ArrowRight className={'ml-2 w-4'} />
-                </Link>
+                </LocalizedLink>
               </Button>
             </div>
           </section>

@@ -17,12 +17,30 @@
   "members": {
     "title": "Members",
     "description": "Manage organization members and invitations",
+    "membersCount": "Members",
     "invite": "Invite Member",
+    "inviteMember": "Invite Member",
     "inviteDescription": "Send an invitation to join your organization",
+    "inviteDialog": {
+      "title": "Invite New Member",
+      "description": "Send an invitation email to add a new member to your organization.",
+      "email": "Email Address",
+      "role": "Role",
+      "send": "Send Invitation",
+      "sending": "Sending..."
+    },
+    "pendingInvites": "Pending Invitations",
+    "table": {
+      "member": "Member",
+      "email": "Email",
+      "role": "Role",
+      "teams": "Teams",
+      "joined": "Joined",
+      "expires": "Expires"
+    },
     "email": "Email Address",
     "role": "Role",
     "status": "Status",
-    "actions": "Actions",
     "active": "Active",
     "pending": "Pending",
     "inactive": "Inactive",
@@ -32,19 +50,45 @@
     "resendInvite": "Resend Invitation",
     "inviteSent": "Invitation sent",
     "memberRemoved": "Member removed",
-    "noMembers": "No members found"
+    "noMembers": "No members found",
+    "roles": {
+      "admin": "Administrator",
+      "manager": "Manager",
+      "member": "Member"
+    },
+    "actions": {
+      "label": "Actions",
+      "viewProfile": "View Profile",
+      "makeAdmin": "Make Admin",
+      "makeManager": "Make Manager",
+      "makeMember": "Make Member",
+      "remove": "Remove Member"
+    }
   },
   "teams": {
     "title": "Teams",
     "description": "Organize members into teams",
+    "teamsCount": "Teams",
     "create": "Create Team",
+    "createTeam": "Create Team",
+    "createDialog": {
+      "title": "Create New Team",
+      "description": "Create a new team to organize your members.",
+      "name": "Team Name",
+      "descriptionLabel": "Description",
+      "manager": "Team Manager",
+      "creating": "Creating...",
+      "create": "Create Team"
+    },
     "edit": "Edit Team",
     "delete": "Delete Team",
     "deleteConfirm": "Are you sure you want to delete this team?",
     "name": "Team Name",
-    "description": "Description",
+    "descriptionField": "Description",
     "color": "Team Color",
     "members": "Team Members",
+    "manager": "Manager",
+    "noManager": "No Manager",
     "lead": "Team Lead",
     "minCoverage": "Minimum Coverage",
     "minCoverageHelp": "Minimum team members required on any day",
@@ -54,7 +98,12 @@
     "noTeams": "No teams created yet",
     "created": "Team created",
     "updated": "Team updated",
-    "deleted": "Team deleted"
+    "deleted": "Team deleted",
+    "actions": {
+      "edit": "Edit",
+      "addMembers": "Add Members",
+      "delete": "Delete"
+    }
   },
   "leaveTypes": {
     "title": "Leave Types",

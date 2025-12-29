@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 import {
   ArrowRight,
   Check,
@@ -14,7 +12,9 @@ import {
 
 import { Button } from '@kit/ui/button';
 import { Trans } from '@kit/ui/trans';
+import { AnimatedShinyText } from '@kit/ui/magicui';
 
+import { LocalizedLink } from '~/components/localized-link';
 import { SitePageHeader } from './site-page-header';
 
 interface SEOLandingPageProps {
@@ -74,14 +74,21 @@ export function SEOLandingPage({
       )}
 
       <div className={'flex flex-col space-y-4 xl:space-y-8'}>
-        <SitePageHeader title={title} subtitle={subtitle} />
+        <SitePageHeader
+          title={
+            <AnimatedShinyText className="text-3xl md:text-4xl font-bold">
+              {title}
+            </AnimatedShinyText>
+          }
+          subtitle={subtitle}
+        />
 
         <div className={'container pb-16'}>
           {/* Trust indicators */}
           <div className="flex flex-wrap justify-center gap-4 mb-12 text-sm">
             <div className="flex items-center gap-2 px-4 py-2 bg-muted rounded-full">
               <Shield className="h-4 w-4 text-green-500" />
-              <span>DSGVO-konform</span>
+              <span>GDPR Compliant</span>
             </div>
             <div className="flex items-center gap-2 px-4 py-2 bg-muted rounded-full">
               <span>🇩🇪</span>
@@ -89,27 +96,27 @@ export function SEOLandingPage({
             </div>
             <div className="flex items-center gap-2 px-4 py-2 bg-muted rounded-full">
               <Check className="h-4 w-4 text-green-500" />
-              <span>Kostenlos für kleine Teams</span>
+              <span>Free for Small Teams</span>
             </div>
           </div>
 
           {/* Main CTA */}
           <div className="text-center mb-16">
             <Button asChild size="lg" className="text-lg px-8 py-6">
-              <Link href={ctaHref}>
+              <LocalizedLink href={ctaHref}>
                 {ctaText}
                 <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
+              </LocalizedLink>
             </Button>
             <p className="text-muted-foreground mt-4 text-sm">
-              Keine Kreditkarte erforderlich. In 5 Minuten startklar.
+              No credit card required. Ready in 5 minutes.
             </p>
           </div>
 
           {/* Features Grid */}
           <section className="mb-16">
             <h2 className="text-2xl font-bold text-center mb-8">
-              Was ZeitPal für Sie tun kann
+              What ZeitPal Can Do for You
             </h2>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {features.map((feature, index) => (
@@ -128,7 +135,7 @@ export function SEOLandingPage({
           {/* Benefits List */}
           <section className="mb-16 max-w-2xl mx-auto">
             <h2 className="text-2xl font-bold text-center mb-8">
-              Ihre Vorteile mit ZeitPal
+              Your Benefits with ZeitPal
             </h2>
             <ul className="space-y-4">
               {benefits.map((benefit, index) => (
@@ -144,7 +151,7 @@ export function SEOLandingPage({
           {faqItems && faqItems.length > 0 && (
             <section className="mb-16 max-w-3xl mx-auto">
               <h2 className="text-2xl font-bold text-center mb-8">
-                Häufige Fragen
+                Frequently Asked Questions
               </h2>
               <div className="space-y-4">
                 {faqItems.map((item, index) => (
@@ -166,33 +173,33 @@ export function SEOLandingPage({
           {/* Secondary CTA */}
           <section className="text-center p-12 bg-muted/50 rounded-2xl mb-16">
             <h2 className="text-2xl font-bold mb-4">
-              Bereit, Ihre Urlaubsverwaltung zu vereinfachen?
+              Ready to Simplify Your Leave Management?
             </h2>
             <p className="text-muted-foreground mb-8">
-              Schließen Sie sich über 500 zufriedenen Teams an.
+              Join over 500 satisfied teams.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg">
-                <Link href="/auth/sign-up">
-                  Kostenlos starten
+                <LocalizedLink href="/auth/sign-up">
+                  Start for Free
                   <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
+                </LocalizedLink>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link href="/pricing">
-                  Preise ansehen
-                </Link>
+                <LocalizedLink href="/pricing">
+                  View Pricing
+                </LocalizedLink>
               </Button>
             </div>
           </section>
 
           {/* Related Links */}
           <section>
-            <h3 className="text-lg font-semibold mb-4">Weitere Themen</h3>
+            <h3 className="text-lg font-semibold mb-4">Related Topics</h3>
             <div className="flex flex-wrap gap-3">
               {relatedLinks.map((link, index) => (
                 <Button key={index} asChild variant="outline" size="sm">
-                  <Link href={link.href}>{link.label}</Link>
+                  <LocalizedLink href={link.href}>{link.label}</LocalizedLink>
                 </Button>
               ))}
             </div>

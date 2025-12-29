@@ -4,14 +4,24 @@ import { getRequestContext } from '@cloudflare/next-on-pages';
 import { z } from 'zod';
 
 import { auth } from '~/lib/auth/auth';
-import { success, unauthorized, validationError } from '~/lib/api/responses';
+import {
+  badRequest,
+  created,
+  forbidden,
+  success,
+  unauthorized,
+  validationError,
+} from '~/lib/api/responses';
 
 interface HolidayRow {
   id: string;
+  organization_id: string | null;
   date: string;
   name_en: string;
   name_de: string;
   bundesland: string | null;
+  type: string;
+  is_half_day: number;
 }
 
 export const runtime = 'edge';
@@ -19,6 +29,15 @@ export const runtime = 'edge';
 const querySchema = z.object({
   year: z.coerce.number().min(2020).max(2030).optional(),
   bundesland: z.string().min(2).max(2).optional(),
+  includeCompany: z.coerce.boolean().optional(),
+});
+
+const createHolidaySchema = z.object({
+  date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Invalid date format'),
+  nameEn: z.string().min(1, 'English name is required'),
+  nameDe: z.string().min(1, 'German name is required'),
+  type: z.enum(['public', 'company', 'optional']).default('company'),
+  isHalfDay: z.boolean().default(false),
 });
 
 /**
@@ -36,40 +55,44 @@ export async function GET(request: NextRequest) {
   const query = querySchema.safeParse({
     year: searchParams.get('year') ?? undefined,
     bundesland: searchParams.get('bundesland') ?? undefined,
+    includeCompany: searchParams.get('includeCompany') ?? undefined,
   });
 
   if (!query.success) {
     return validationError(query.error.flatten());
   }
 
-  const { year, bundesland } = query.data;
+  const { year, bundesland, includeCompany } = query.data;
   const { env } = getRequestContext();
   const db = env.DB;
 
-  // If no bundesland specified, get from user's organization
-  let effectiveBundesland = bundesland;
-  if (!effectiveBundesland) {
-    const org = await db
-      .prepare(
-        `SELECT o.bundesland
-         FROM organization_members om
-         JOIN organizations o ON om.organization_id = o.id
-         WHERE om.user_id = ? AND om.status = 'active'
-         LIMIT 1`
-      )
-      .bind(session.user.id)
-      .first<{ bundesland: string }>();
+  // Get user's organization
+  const membership = await db
+    .prepare(
+      `SELECT om.organization_id, o.bundesland
+       FROM organization_members om
+       JOIN organizations o ON om.organization_id = o.id
+       WHERE om.user_id = ? AND om.status = 'active'
+       LIMIT 1`
+    )
+    .bind(session.user.id)
+    .first<{ organization_id: string; bundesland: string }>();
 
-    effectiveBundesland = org?.bundesland;
-  }
+  const effectiveBundesland = bundesland ?? membership?.bundesland;
+  const effectiveYear = year ?? new Date().getFullYear();
 
   // Build query based on parameters
-  let sql = 'SELECT * FROM public_holidays WHERE 1=1';
-  const params: (string | number)[] = [];
+  let sql = `SELECT * FROM public_holidays WHERE strftime('%Y', date) = ?`;
+  const params: (string | number)[] = [String(effectiveYear)];
 
-  const effectiveYear = year ?? new Date().getFullYear();
-  sql += " AND strftime('%Y', date) = ?";
-  params.push(String(effectiveYear));
+  if (includeCompany && membership) {
+    // Include system holidays + company-specific holidays
+    sql += ' AND (organization_id IS NULL OR organization_id = ?)';
+    params.push(membership.organization_id);
+  } else {
+    // Only system holidays
+    sql += ' AND organization_id IS NULL';
+  }
 
   if (effectiveBundesland) {
     // Get holidays that apply to this bundesland (national or specific to the state)
@@ -87,12 +110,88 @@ export async function GET(request: NextRequest) {
   const holidays = result.results.map((row: HolidayRow) => ({
     id: row.id,
     date: row.date,
-    name: row.name_en,
+    nameEn: row.name_en,
     nameDe: row.name_de,
     bundesland: row.bundesland,
-    year: effectiveYear,
+    type: row.type,
+    isHalfDay: Boolean(row.is_half_day),
+    isCompanyHoliday: row.organization_id !== null,
     isNational: !row.bundesland,
   }));
 
   return success(holidays);
+}
+
+/**
+ * POST /api/holidays
+ * Create a company-specific holiday
+ * Requires admin, manager, or hr role
+ */
+export async function POST(request: NextRequest) {
+  const session = await auth();
+
+  if (!session?.user?.id) {
+    return unauthorized();
+  }
+
+  const { env } = getRequestContext();
+  const db = env.DB;
+
+  // Get user's organization membership and verify role
+  const membership = await db
+    .prepare(
+      `SELECT om.organization_id, om.role
+       FROM organization_members om
+       WHERE om.user_id = ? AND om.status = 'active'
+       LIMIT 1`
+    )
+    .bind(session.user.id)
+    .first<{ organization_id: string; role: string }>();
+
+  if (!membership) {
+    return badRequest('You are not a member of any organization');
+  }
+
+  if (!['admin', 'manager', 'hr'].includes(membership.role)) {
+    return forbidden('Only admins, managers, and HR can create holidays');
+  }
+
+  const body = await request.json();
+  const parsed = createHolidaySchema.safeParse(body);
+
+  if (!parsed.success) {
+    return validationError(parsed.error.flatten());
+  }
+
+  const { date, nameEn, nameDe, type, isHalfDay } = parsed.data;
+  const holidayId = crypto.randomUUID();
+  const now = new Date().toISOString();
+
+  await db
+    .prepare(
+      `INSERT INTO public_holidays (
+        id, organization_id, date, name_en, name_de, type, is_half_day, created_at
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`
+    )
+    .bind(
+      holidayId,
+      membership.organization_id,
+      date,
+      nameEn,
+      nameDe,
+      type,
+      isHalfDay ? 1 : 0,
+      now
+    )
+    .run();
+
+  return created({
+    id: holidayId,
+    date,
+    nameEn,
+    nameDe,
+    type,
+    isHalfDay,
+    isCompanyHoliday: true,
+  });
 }

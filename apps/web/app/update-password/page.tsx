@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 import { UpdatePasswordForm } from '@kit/auth/password-reset';
 import { AuthLayoutShell } from '@kit/auth/shared';
 

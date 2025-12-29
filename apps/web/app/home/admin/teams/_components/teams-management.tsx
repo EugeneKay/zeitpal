@@ -127,7 +127,7 @@ export function TeamsManagement() {
 
               <div className="grid gap-2">
                 <Label htmlFor="description">
-                  <Trans i18nKey="admin:teams.createDialog.description" />
+                  <Trans i18nKey="admin:teams.createDialog.descriptionLabel" />
                 </Label>
                 <Textarea
                   id="description"

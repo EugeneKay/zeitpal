@@ -2,13 +2,16 @@
 
 import { useEffect, useState } from 'react';
 
-import { Calendar, Check, Edit2, Plus, X } from 'lucide-react';
+import { AlertCircle, Calendar, Check, Plus, X } from 'lucide-react';
 
+import { Alert, AlertDescription } from '@kit/ui/alert';
 import { Badge } from '@kit/ui/badge';
 import { Button } from '@kit/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@kit/ui/card';
 import { Skeleton } from '@kit/ui/skeleton';
 import { Switch } from '@kit/ui/switch';
+
+import { apiFetch } from '~/lib/utils/csrf';
 
 interface LeaveType {
   id: string;
@@ -33,7 +36,9 @@ interface LeaveType {
 export function LeaveTypesManagement() {
   const [leaveTypes, setLeaveTypes] = useState<LeaveType[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [loadError, setLoadError] = useState<string | null>(null);
+  const [updateError, setUpdateError] = useState<string | null>(null);
+  const [updatingIds, setUpdatingIds] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     async function fetchLeaveTypes() {
@@ -45,7 +50,7 @@ export function LeaveTypesManagement() {
         const data = await response.json();
         setLeaveTypes(data.data || []);
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'Failed to load leave types');
+        setLoadError(err instanceof Error ? err.message : 'Failed to load leave types');
       } finally {
         setIsLoading(false);
       }
@@ -53,6 +58,30 @@ export function LeaveTypesManagement() {
 
     fetchLeaveTypes();
   }, []);
+
+  async function handleToggleActive(id: string, currentStatus: boolean) {
+    setUpdatingIds((prev) => new Set(prev).add(id));
+    setUpdateError(null);
+
+    const { error } = await apiFetch('/api/leave-types', {
+      method: 'PATCH',
+      body: JSON.stringify({ id, isActive: !currentStatus }),
+    });
+
+    if (error) {
+      setUpdateError(error);
+    } else {
+      setLeaveTypes((prev) =>
+        prev.map((lt) => (lt.id === id ? { ...lt, isActive: !currentStatus } : lt))
+      );
+    }
+
+    setUpdatingIds((prev) => {
+      const next = new Set(prev);
+      next.delete(id);
+      return next;
+    });
+  }
 
   if (isLoading) {
     return (
@@ -72,11 +101,11 @@ export function LeaveTypesManagement() {
     );
   }
 
-  if (error) {
+  if (loadError) {
     return (
       <Card>
         <CardContent className="py-10 text-center">
-          <p className="text-muted-foreground">{error}</p>
+          <p className="text-muted-foreground">{loadError}</p>
           <Button
             variant="outline"
             className="mt-4"
@@ -102,6 +131,14 @@ export function LeaveTypesManagement() {
           Add Custom Type
         </Button>
       </div>
+
+      {/* Update error alert */}
+      {updateError && (
+        <Alert variant="destructive">
+          <AlertCircle className="h-4 w-4" />
+          <AlertDescription>{updateError}</AlertDescription>
+        </Alert>
+      )}
 
       {/* Leave types grid */}
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -190,7 +227,13 @@ export function LeaveTypesManagement() {
 
               <div className="flex items-center justify-between pt-2 border-t">
                 <span className="text-sm text-muted-foreground">Active</span>
-                <Switch checked={leaveType.isActive} disabled />
+                <Switch
+                  checked={leaveType.isActive}
+                  disabled={updatingIds.has(leaveType.id)}
+                  onCheckedChange={() =>
+                    handleToggleActive(leaveType.id, leaveType.isActive)
+                  }
+                />
               </div>
             </CardContent>
           </Card>

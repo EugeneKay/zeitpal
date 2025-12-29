@@ -5,6 +5,8 @@ import Link from 'next/link';
 
 import type { User } from 'next-auth';
 
+import { LocalizedLink } from '~/components/localized-link';
+
 import { Button } from '@kit/ui/button';
 import { If } from '@kit/ui/if';
 import { Trans } from '@kit/ui/trans';
@@ -17,6 +19,7 @@ import {
 } from '@kit/ui/dropdown-menu';
 import { Avatar, AvatarFallback, AvatarImage } from '@kit/ui/avatar';
 
+import { LanguageSwitcher } from '~/components/language-switcher';
 import featuresFlagConfig from '~/config/feature-flags.config';
 import pathsConfig from '~/config/paths.config';
 
@@ -58,6 +61,8 @@ function UserDropdown({ user }: { user: User }) {
 
   return (
     <div className="flex items-center gap-2">
+      <LanguageSwitcher />
+
       <If condition={features.enableThemeToggle}>
         <ModeToggle />
       </If>
@@ -100,21 +105,23 @@ function AuthButtons() {
   return (
     <div className={'flex space-x-2'}>
       <div className={'hidden space-x-0.5 md:flex'}>
+        <LanguageSwitcher />
+
         <If condition={features.enableThemeToggle}>
           <ModeToggle />
         </If>
 
         <Button asChild variant={'ghost'}>
-          <Link href={pathsConfig.auth.signIn}>
+          <LocalizedLink href={pathsConfig.auth.signIn}>
             <Trans i18nKey={'auth:signIn'} />
-          </Link>
+          </LocalizedLink>
         </Button>
       </div>
 
       <Button asChild className="group" variant={'default'}>
-        <Link href={pathsConfig.auth.signUp}>
+        <LocalizedLink href={pathsConfig.auth.signUp}>
           <Trans i18nKey={'auth:signUp'} />
-        </Link>
+        </LocalizedLink>
       </Button>
     </div>
   );

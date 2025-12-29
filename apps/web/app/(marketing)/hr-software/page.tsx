@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 import {
   FileText,
   Shield,
@@ -26,65 +28,65 @@ async function HRSoftwarePage() {
   const features = [
     {
       icon: <FileText className="h-8 w-8" />,
-      title: 'Urlaubsverwaltung',
-      description: 'Digitale Urlaubsanträge und Genehmigungen für das gesamte Unternehmen.',
+      title: 'Leave Management',
+      description: 'Digital leave requests and approvals for the entire company.',
     },
     {
       icon: <Scale className="h-8 w-8" />,
-      title: 'Deutsches Arbeitsrecht',
-      description: 'Entwickelt für deutsche Anforderungen: BUrlG, Feiertage nach Bundesland, AU-Pflichten.',
+      title: 'German Labor Law',
+      description: 'Developed for German requirements: BUrlG, holidays by federal state, sick note obligations.',
     },
     {
       icon: <Shield className="h-8 w-8" />,
-      title: 'DSGVO-konform',
-      description: 'Datenschutz nach höchsten deutschen Standards. Server in Deutschland.',
+      title: 'GDPR Compliant',
+      description: 'Data protection to highest German standards. Servers in Germany.',
     },
     {
       icon: <BarChart3 className="h-8 w-8" />,
-      title: 'HR-Reporting',
-      description: 'Detaillierte Berichte zu Abwesenheiten, Urlaubskontingenten und mehr.',
+      title: 'HR Reporting',
+      description: 'Detailed reports on absences, vacation quotas and more.',
     },
     {
       icon: <Users className="h-8 w-8" />,
-      title: 'Mitarbeiterverwaltung',
-      description: 'Teams, Abteilungen und Genehmigungsworkflows flexibel verwalten.',
+      title: 'Employee Management',
+      description: 'Flexibly manage teams, departments and approval workflows.',
     },
     {
       icon: <Globe className="h-8 w-8" />,
-      title: 'Integrationen',
-      description: 'Verbindung mit Slack, Google Workspace und weiteren Tools.',
+      title: 'Integrations',
+      description: 'Connect with Slack, Google Workspace and other tools.',
     },
   ];
 
   const benefits = [
-    'Speziell für den deutschen Markt entwickelt',
-    'Konform mit BUrlG und DSGVO',
-    'Alle Feiertage nach Bundesland integriert',
-    'Deutsche Server für maximale Datensicherheit',
-    'Support auf Deutsch',
-    'Keine versteckten Kosten - transparente Preise',
+    'Developed specifically for the German market',
+    'Compliant with BUrlG and GDPR',
+    'All holidays by federal state integrated',
+    'German servers for maximum data security',
+    'Support available in German and English',
+    'No hidden costs - transparent pricing',
   ];
 
   const faqItems = [
     {
-      question: 'Was unterscheidet ZeitPal von amerikanischen HR-Tools?',
-      answer: 'ZeitPal wurde speziell für deutsche Anforderungen entwickelt: deutsches Arbeitsrecht, Feiertage nach Bundesland, DSGVO-Konformität und deutsche Server.',
+      question: 'What sets ZeitPal apart from American HR tools?',
+      answer: 'ZeitPal was specifically developed for German requirements: German labor law, holidays by federal state, GDPR compliance and German servers.',
     },
     {
-      question: 'Ist ZeitPal für ISO-Zertifizierungen geeignet?',
-      answer: 'Ja, ZeitPal dokumentiert alle Abwesenheiten nachvollziehbar und unterstützt Sie bei Compliance-Anforderungen.',
+      question: 'Is ZeitPal suitable for ISO certifications?',
+      answer: 'Yes, ZeitPal documents all absences comprehensively and supports you with compliance requirements.',
     },
     {
-      question: 'Gibt es eine Schnittstelle zur Lohnbuchhaltung?',
-      answer: 'Aktuell bieten wir Datenexporte für die Lohnbuchhaltung. API-Integrationen sind in Planung.',
+      question: 'Is there an interface to payroll?',
+      answer: 'Currently we offer data exports for payroll. API integrations are in planning.',
     },
   ];
 
   const relatedLinks = [
-    { href: '/urlaubsverwaltung', label: 'Urlaubsverwaltung' },
-    { href: '/abwesenheitsmanagement', label: 'Abwesenheitsmanagement' },
-    { href: '/fuer-mittelstand', label: 'Für Mittelstand' },
-    { href: '/pricing', label: 'Preise' },
+    { href: '/leave-management', label: 'Leave Management' },
+    { href: '/absence-management', label: 'Absence Management' },
+    { href: '/for-smes', label: 'For SMEs' },
+    { href: '/pricing', label: 'Pricing' },
   ];
 
   return (
@@ -93,7 +95,7 @@ async function HRSoftwarePage() {
       subtitle={t('marketing:seo.hrSoftware.subtitle')}
       features={features}
       benefits={benefits}
-      ctaText="HR Software kostenlos testen"
+      ctaText="Try HR Software for Free"
       ctaHref="/auth/sign-up"
       relatedLinks={relatedLinks}
       faqItems={faqItems}

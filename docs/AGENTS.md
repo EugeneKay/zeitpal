@@ -12,6 +12,7 @@
 4. **Security First** - Never introduce vulnerabilities. Validate all inputs.
 5. **Consistency** - Follow existing patterns in the codebase.
 6. **DRY (Don't Repeat Yourself)** - Extract repeated code into reusable functions, hooks, or components.
+7. **Document in `/docs`** - When implementing new features or significant changes that require documentation, store that documentation in the `/docs` folder. Keep implementation details, architectural decisions, and feature documentation centralized there.
 
 ---
 
@@ -745,6 +746,39 @@ Before submitting PR, verify:
 
 ## Documentation Standards
 
+### Documentation Location
+
+All significant documentation must be stored in the `/docs` folder at the project root. This ensures documentation is:
+- Centralized and easy to find
+- Version controlled alongside the code
+- Accessible to both humans and AI agents
+
+**What goes in `/docs`:**
+
+| Documentation Type | Filename Convention | When to Create |
+|--------------------|---------------------|----------------|
+| Feature documentation | `FEATURE-[name].md` | New feature implementation |
+| Architecture decisions | `ADR-[number]-[title].md` | Significant architectural changes |
+| API documentation | `API-[name].md` | New API endpoints or changes |
+| Integration guides | `INTEGRATION-[name].md` | Third-party integrations |
+| Implementation notes | `IMPLEMENTATION.md` | Complex implementation details |
+| Agent guidelines | `AGENTS.md` | AI development guidelines |
+
+**Example:** When implementing a new calendar sync feature:
+```
+/docs/
+├── AGENTS.md                    # This file
+├── IMPLEMENTATION.md            # Existing implementation notes
+├── FEATURE-calendar-sync.md     # New feature documentation
+└── ADR-001-calendar-provider.md # Decision record for provider choice
+```
+
+**Documentation Requirements:**
+- Document the **why**, not just the **what**
+- Include usage examples where applicable
+- Update existing documentation when modifying features
+- Cross-reference related documentation files
+
 ### Code Comments
 
 ```typescript
@@ -1006,14 +1040,390 @@ const mutation = useMutation({
 
 ---
 
+## SEO & Multilingual Content Guidelines
+
+### Subfolder-Based Language Routing
+
+ZeitPal uses subfolder-based language routing for optimal SEO:
+
+```
+URL Structure: /[locale]/[translated-slug]
+
+Examples:
+- German (default): /funktionen, /preise, /kontakt
+- English: /en/features, /en/pricing, /en/contact
+- Spanish: /es/caracteristicas, /es/precios, /es/contacto
+```
+
+**Key Rules:**
+1. Default locale (German) uses canonical paths without locale prefix
+2. Non-default locales are prefixed with locale code (e.g., `/en/`, `/es/`)
+3. Home page: German → `/`, English → `/en`, Spanish → `/es`
+
+### Locale Configuration
+
+**File:** `/apps/web/lib/i18n/locales.config.ts`
+
+Supported locales with their configurations:
+- `LOCALES` - Array of supported locale codes
+- `LOCALE_LABELS` - Human-readable labels (native language)
+- `LOCALE_HREFLANG` - ISO codes for hreflang tags
+- `LOCALE_OG` - OpenGraph locale codes (language_TERRITORY)
+
+### Slug Translation System
+
+**File:** `/apps/web/lib/i18n/slug-translations.ts`
+
+```typescript
+// Canonical (German) slug → translations for each locale
+SLUG_TRANSLATIONS = {
+  'funktionen': {
+    de: 'funktionen',
+    en: 'features',
+    es: 'caracteristicas',
+  },
+  'preise': {
+    de: 'preise',
+    en: 'pricing',
+    es: 'precios',
+  },
+}
+```
+
+**Adding New Marketing Pages:**
+1. Create page at `/app/(marketing)/[canonical-german-slug]/page.tsx`
+2. Add slug translations to `SLUG_TRANSLATIONS` for all locales
+3. Add translations to marketing.json for German (source language)
+4. Run `pnpm translate` to auto-generate English and Spanish translations
+5. Add page priority to sitemap configuration
+
+### URL Localization Utilities
+
+```typescript
+// Get translated slug for a canonical path
+getTranslatedSlug('funktionen', 'en') // → 'features'
+
+// Get canonical slug from translated slug
+getCanonicalSlug('features', 'en') // → 'funktionen'
+
+// Get full localized path
+getLocalizedPath('funktionen', 'en') // → '/en/features'
+getLocalizedPath('funktionen', 'de') // → '/funktionen' (no prefix for default)
+```
+
+### Middleware Locale Routing
+
+**File:** `/apps/web/middleware.ts`
+
+The middleware handles locale detection and URL rewriting:
+
+1. Extracts potential locale from first URL segment
+2. For non-default locales, rewrites `/en/features` → `/funktionen`
+3. Sets locale cookie (`lang`) for 1 year
+4. Sets `x-locale` header for server components
+
+**Routes Excluded from Locale Routing:**
+- `/api/*` - API routes
+- `/home/*` - Protected app routes
+- `/auth/*` - Authentication routes
+- `/onboarding/*` - Onboarding flow
+- `/_next/*` - Next.js internals
+- Static files (containing `.`)
+
+### Components for Localized Navigation
+
+**LocalizedLink Component:**
+```tsx
+import { LocalizedLink } from '~/components/localized-link';
+
+// Automatically localizes href based on current locale context
+// Use canonical German paths in href
+<LocalizedLink href="/funktionen">Features</LocalizedLink>
+// In English context → /en/features
+// In German context → /funktionen
+```
+
+**LanguageSwitcher Component:**
+```tsx
+import { LanguageSwitcher } from '~/components/language-switcher';
+
+// Dropdown to switch between languages (preserves current page)
+<LanguageSwitcher />
+```
+
+### Translation File Organization
+
+```
+public/locales/
+├── de/                   # German (SOURCE - edit here!)
+│   ├── common.json       # Shared UI labels
+│   ├── marketing.json    # Marketing pages (SEO content)
+│   └── [namespace].json  # Feature-specific translations
+├── en/                   # English (AUTO-GENERATED)
+│   └── [same structure]
+└── es/                   # Spanish (AUTO-GENERATED)
+    └── [same structure]
+```
+
+> **IMPORTANT:** German is the source language. Only edit files in `/public/locales/de/`. English and Spanish translations are auto-generated by the translation script.
+
+**Marketing Translation Keys (in German):**
+```json
+{
+  "seo": {
+    "features": {
+      "metaTitle": "Funktionen - ZeitPal Urlaubsverwaltung",
+      "metaDescription": "Entdecken Sie die leistungsstarken Funktionen von ZeitPal..."
+    }
+  },
+  "hero": { "title": "...", "subtitle": "..." },
+  "features": { ... },
+  "faqItems": [ { "question": "...", "answer": "..." } ]
+}
+```
+
+### SEO Metadata Pattern
+
+Each marketing page exports metadata using translations:
+
+```typescript
+export const generateMetadata = async () => {
+  const { t } = await createI18nServerInstance();
+  return {
+    title: t('marketing:seo.features.metaTitle'),
+    description: t('marketing:seo.features.metaDescription'),
+  };
+};
+```
+
+### Sitemap with Hreflang
+
+**File:** `/apps/web/app/sitemap.ts`
+
+- Generates entries for all marketing pages in all locales
+- Includes hreflang alternates for each URL
+- Sets `x-default` pointing to English version
+- Configures priority and change frequency per page type
+
+### Structured Data (JSON-LD)
+
+Include schema.org markup on marketing pages:
+
+```typescript
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'ZeitPal',
+  applicationCategory: 'BusinessApplication',
+  // ...
+};
+
+return (
+  <>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+    />
+    {/* Page content */}
+  </>
+);
+```
+
+### Checklist for New Marketing Pages
+
+- [ ] Create page component at correct route
+- [ ] Add slug translations for ALL supported locales
+- [ ] Add SEO translations (metaTitle, metaDescription) for all locales
+- [ ] Wrap page with `withI18n()` HOC
+- [ ] Export `generateMetadata` with translations
+- [ ] Add page to sitemap priorities
+- [ ] Use `LocalizedLink` for internal links
+- [ ] Include structured data where appropriate
+
+### Checklist for New Locale Support
+
+- [ ] Add locale to `LOCALES` array in locales.config.ts
+- [ ] Add label to `LOCALE_LABELS`
+- [ ] Add hreflang code to `LOCALE_HREFLANG`
+- [ ] Add OG code to `LOCALE_OG`
+- [ ] Create translation files in `/public/locales/[locale]/`
+- [ ] Add slug translations for all marketing pages
+- [ ] Test all marketing pages render correctly
+
+---
+
+## Blog Content Guidelines
+
+### Blog Structure
+
+```
+apps/web/
+├── app/(marketing)/blog/
+│   ├── page.tsx              # Blog index
+│   └── [slug]/
+│       └── page.tsx          # Blog post page
+└── content/blog/
+    ├── en/
+    │   └── [slug].mdx        # English posts
+    ├── de/
+    │   └── [slug].mdx        # German posts
+    └── es/
+        └── [slug].mdx        # Spanish posts
+```
+
+### Blog Post Frontmatter
+
+```mdx
+---
+title: "How to Manage Leave Effectively"
+description: "Best practices for leave management..."
+publishedAt: "2024-01-15"
+author: "ZeitPal Team"
+category: "guides"
+tags: ["leave-management", "hr", "best-practices"]
+image: "/images/blog/leave-management.jpg"
+---
+```
+
+### Blog Translation Rules
+
+1. Each blog post must exist in the default locale (German)
+2. Translated posts use the same slug as the German version
+3. If no translation exists, fall back to German version
+4. Blog slugs are NOT translated (for consistency)
+
+---
+
+## Automatic Translation System
+
+### Overview
+
+ZeitPal uses an AI-powered translation system to automatically translate German content to English and Spanish. This ensures consistent, high-quality translations across the application.
+
+### Source Language
+
+**German is the source language.** All new content should be written in German first.
+
+```
+Source:  /public/locales/de/*.json    ← EDIT HERE
+Targets: /public/locales/en/*.json    ← AUTO-GENERATED
+         /public/locales/es/*.json    ← AUTO-GENERATED
+```
+
+### Adding New Translation Strings
+
+When adding new UI text or content:
+
+1. **Add the German string to the appropriate namespace file:**
+   ```bash
+   # Edit the German translation file
+   apps/web/public/locales/de/[namespace].json
+   ```
+
+2. **Use hierarchical, descriptive keys:**
+   ```json
+   {
+     "leave": {
+       "request": {
+         "title": "Urlaubsantrag",
+         "submitButton": "Antrag einreichen",
+         "successMessage": "Ihr Urlaubsantrag wurde erfolgreich eingereicht"
+       }
+     }
+   }
+   ```
+
+3. **Run the translation script locally (optional):**
+   ```bash
+   cd apps/web
+   pnpm translate                    # Translate all namespaces
+   pnpm translate --namespace=leave  # Translate specific namespace
+   pnpm translate --dry-run          # Preview without writing
+   ```
+
+4. **Commit your changes to the German file.** The GitHub Action will automatically generate English and Spanish translations when merged to main.
+
+### Translation Script Commands
+
+```bash
+# In apps/web directory:
+pnpm translate              # Translate all locales, all namespaces (sequential)
+pnpm translate --parallel   # Translate all locales in parallel (FAST!)
+pnpm translate --locale=en  # Translate only English
+pnpm translate --namespace=marketing  # Translate only marketing namespace
+pnpm translate --dry-run    # Preview without writing files
+```
+
+### GitHub Action Workflow
+
+The translation workflow (`.github/workflows/translations.yml`) runs:
+
+- **On push to main:** When German translation files (`/de/*.json`) are modified
+- **Manual trigger:** Via workflow_dispatch for on-demand translation
+
+The workflow:
+1. Detects changed German locale files
+2. Runs translation script with `--parallel` flag
+3. Commits updated English and Spanish translations
+4. Pushes changes automatically
+
+### Interpolation Variables
+
+When using variables in translations, preserve them exactly:
+
+```json
+{
+  "greeting": "Hallo {{name}}, du hast {{count}} Urlaubstage übrig."
+}
+```
+
+The translation system preserves `{{variable}}` placeholders automatically.
+
+### HTML Tags in Translations
+
+HTML tags are preserved during translation:
+
+```json
+{
+  "terms": "Ich akzeptiere die <terms>Nutzungsbedingungen</terms> und <privacy>Datenschutzrichtlinie</privacy>"
+}
+```
+
+### Checklist for Adding New Strings
+
+- [ ] Add string to German file (`/public/locales/de/[namespace].json`)
+- [ ] Use hierarchical, descriptive key (e.g., `leave.request.title`)
+- [ ] Preserve any `{{variables}}` exactly as needed
+- [ ] Preserve any `<html>` tags needed for links/formatting
+- [ ] Use `<Trans>` component in React for rendering
+- [ ] Commit German file - translations auto-generated on merge
+
+### Supported Namespaces
+
+| Namespace | Purpose |
+|-----------|---------|
+| `common` | Shared UI labels (buttons, actions, errors) |
+| `auth` | Authentication flows (login, signup, password) |
+| `account` | User account settings |
+| `teams` | Team management |
+| `billing` | Payment and subscriptions |
+| `marketing` | Marketing pages (SEO content) |
+| `leave` | Leave management features |
+| `admin` | Admin dashboard |
+| `onboarding` | Onboarding wizard |
+
+---
+
 ## Summary
 
 1. **Security**: Validate everything, use parameterized queries, check auth
 2. **Quality**: TypeScript strict mode, consistent patterns, proper error handling
 3. **Performance**: Pagination, caching, selective queries
 4. **Accessibility**: Semantic HTML, ARIA labels, keyboard navigation
-5. **i18n**: Hierarchical keys, proper pluralization
-6. **Testing**: Focus on business logic and API routes
-7. **Documentation**: Explain why, not what
+5. **i18n**: German source, auto-translate to EN/ES, subfolder routing, hreflang tags
+6. **SEO**: Structured data, canonical URLs (German), metadata per locale
+7. **Testing**: Focus on business logic and API routes
+8. **Documentation**: Explain why, not what; store all feature/implementation docs in `/docs` folder
+9. **Translations**: Write in German → auto-generate EN/ES via GitHub Action
 
 When in doubt, look at existing code in the codebase and follow its patterns.

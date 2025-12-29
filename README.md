@@ -1,343 +1,365 @@
-![Makerkit - Next.js Supabase SaaS Starter Kit \[Lite version\]](apps/web/public/images/makerkit.webp)
+<p align="center">
+  <img src="apps/web/public/images/zeitpal-logo.svg" alt="ZeitPal Logo" width="120" />
+</p>
 
-# NEW! Next.js Supabase SaaS Starter Kit (Lite)
+<h1 align="center">ZeitPal</h1>
 
-Start building your SaaS faster with our Next.js 15 + Supabase starter kit.
+<p align="center">
+  <strong>Modern Leave Management for Teams</strong><br>
+  Open source, GDPR-compliant absence management built for the modern workplace.
+</p>
 
-👉 **Looking for a full-featured SaaS Starter Kit?** [Check out the complete version](https://makerkit.dev)
+<p align="center">
+  <a href="#features">Features</a> •
+  <a href="#demo">Demo</a> •
+  <a href="#quick-start">Quick Start</a> •
+  <a href="#deployment">Deployment</a> •
+  <a href="#contributing">Contributing</a> •
+  <a href="#license">License</a>
+</p>
 
-⭐️ **Why Developers Trust Makerkit:**
-- Production-grade architecture decisions
-- Comprehensive TypeScript setup
-- Modern stack: Next.js 15, Supabase, TailwindCSS v4
-- Quality Code tooling: ESLint v9, Prettier, strict TypeScript, etc.
-- Regular updates and active maintenance
+<p align="center">
+  <a href="https://github.com/yourusername/zeitpal/stargazers">
+    <img src="https://img.shields.io/github/stars/yourusername/zeitpal?style=social" alt="GitHub Stars">
+  </a>
+  <a href="https://github.com/yourusername/zeitpal/network/members">
+    <img src="https://img.shields.io/github/forks/yourusername/zeitpal?style=social" alt="GitHub Forks">
+  </a>
+  <a href="https://github.com/yourusername/zeitpal/blob/main/LICENSE">
+    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License">
+  </a>
+  <a href="https://github.com/yourusername/zeitpal/actions">
+    <img src="https://img.shields.io/github/actions/workflow/status/yourusername/zeitpal/ci.yml?branch=main" alt="CI Status">
+  </a>
+</p>
 
-PS: the documentation for this kit is still being updated, so please check back later for more details.
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-15-black?logo=next.js" alt="Next.js 15">
+  <img src="https://img.shields.io/badge/TypeScript-5.9-blue?logo=typescript" alt="TypeScript">
+  <img src="https://img.shields.io/badge/Tailwind-4.0-38B2AC?logo=tailwindcss" alt="Tailwind CSS">
+  <img src="https://img.shields.io/badge/Supabase-Database-3ECF8E?logo=supabase" alt="Supabase">
+</p>
 
-## What's Included
+---
 
-### Core Architecture
-- 🏗️ Next.js 15 + Turborepo monorepo setup
-- 🎨 Shadcn UI components with TailwindCSS v4
-- 🔐 Supabase authentication & basic DB
-- 🌐 i18n translations (client + server)
-- ✨ Full TypeScript + ESLint v9 + Prettier configuration
+## Why ZeitPal?
 
-### Key Features
-- 👤 User authentication flow
-- ⚙️ User profile & settings
-- 📱 Responsive marketing pages
-- 🔒 Protected routes
-- 🎯 Basic test setup with Playwright
+Managing employee leave shouldn't require expensive enterprise software or endless Excel spreadsheets. ZeitPal is a **free, open-source** solution that makes leave management simple, transparent, and compliant with European data protection regulations.
 
-### Technologies
+**Free for teams up to 20 employees** — no credit card, no hidden fees.
 
-This starter kit provides core foundations:
+### Key Benefits
 
-🛠️ **Technology Stack**:
-- [Next.js 15](https://nextjs.org/): A React-based framework for server-side rendering and static site generation.
-- [Tailwind CSS](https://tailwindcss.com/): A utility-first CSS framework for rapidly building custom designs.
-- [Supabase](https://supabase.com/): A realtime database for web and mobile applications.
-- [i18next](https://www.i18next.com/): A popular internationalization framework for JavaScript.
-- [Turborepo](https://turborepo.org/): A monorepo tool for managing multiple packages and applications.
-- [Shadcn UI](https://shadcn.com/): A collection of components built using Tailwind CSS.
-- [Zod](https://github.com/colinhacks/zod): A TypeScript-first schema validation library.
-- [React Query](https://tanstack.com/query/v4): A powerful data fetching and caching library for React.
-- [Prettier](https://prettier.io/): An opinionated code formatter for JavaScript, TypeScript, and CSS.
-- [Eslint](https://eslint.org/): A powerful linting tool for JavaScript and TypeScript.
-- [Playwright](https://playwright.dev/): A framework for end-to-end testing of web applications.
+- **Save 5+ hours per month** on administrative tasks
+- **Setup in under 15 minutes** — no training required
+- **100% GDPR compliant** — data hosted in the EU
+- **German labor law support** — including state-specific holidays
 
-This kit is a trimmed down version of the [full version of this SaaS Starter Kit](https://makerkit.dev). It is a good way to evaluate small part of the full kit, or to simply use it as a base for your own project.
+---
 
-## Comparing Lite vs Full Version
+## Features
 
-The lite kit is perfect for:
-- Evaluating our code architecture and patterns
-- Building basic SaaS prototypes
-- Learning our tech stack approach
-- Building a basic SaaS tool
+### Core Functionality
 
-The [full version](https://makerkit.dev) adds production features:
-- 💳 Complete billing and subscription system
-- 👥 Team accounts and management
-- 📧 Mailers and Email Templates (Nodemailer, Resend, etc.)
-- 📊 Analytics (GA, Posthog, Umami, etc.)
-- 🔦 Monitoring providers (Sentry, Baselime, etc.)
-- 🔐 Production database schema
-- ✅ Comprehensive test suite
-- 🔔 Realtime Notifications
-- 📝 Blogging system
-- 💡 Documentation system
-- ‍💻 Super Admin panel
-- 🕒 Daily updates and improvements
-- 🐛 Priority bug fixes
-- 🤝 Support
-- ⭐️ Used by 1000+ developers
-- 💪 Active community members
-- 🏢 Powers startups to enterprises
+| Feature | Description |
+|---------|-------------|
+| **Leave Requests** | Submit and approve leave requests with one click |
+| **Team Calendar** | Visual overview of team availability and absences |
+| **Sick Leave** | Digital sick leave reporting with certificate reminders |
+| **Leave Balances** | Automatic calculation of remaining days, carryover, and pro-rata |
+| **Approval Workflows** | Flexible approval chains for different absence types |
+| **Notifications** | Email and Slack notifications for requests and approvals |
 
-[View complete feature comparison →](https://makerkit.dev/#pricing)
+### For Growing Teams (21+ employees)
 
-## Getting Started
+- Advanced reports and analytics
+- Multiple team management
+- Slack and Google Calendar integration
+- Custom leave types
+- Priority support
+
+### For Enterprises (100+ employees)
+
+- SSO/SAML authentication
+- API access
+- Dedicated account manager
+- SLA guarantee
+- On-premise deployment option
+
+---
+
+## Demo
+
+🌐 **Live Demo:** [https://demo.zeitpal.de](https://demo.zeitpal.de)
+
+Try ZeitPal without signing up. The demo resets every 24 hours.
+
+### Screenshots
+
+<p align="center">
+  <img src="docs/screenshots/dashboard.png" alt="Dashboard" width="45%">
+  <img src="docs/screenshots/calendar.png" alt="Team Calendar" width="45%">
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/leave-request.png" alt="Leave Request" width="45%">
+  <img src="docs/screenshots/reports.png" alt="Reports" width="45%">
+</p>
+
+---
+
+## Tech Stack
+
+ZeitPal is built with modern, production-ready technologies:
+
+| Technology | Purpose |
+|------------|---------|
+| [Next.js 15](https://nextjs.org/) | React framework with App Router |
+| [TypeScript](https://www.typescriptlang.org/) | Type-safe JavaScript |
+| [Tailwind CSS v4](https://tailwindcss.com/) | Utility-first CSS framework |
+| [Supabase](https://supabase.com/) | PostgreSQL database & authentication |
+| [Turborepo](https://turbo.build/) | Monorepo build system |
+| [Shadcn UI](https://ui.shadcn.com/) | Accessible component library |
+| [i18next](https://www.i18next.com/) | Internationalization (DE/EN) |
+| [React Query](https://tanstack.com/query) | Data fetching and caching |
+| [Zod](https://zod.dev/) | Schema validation |
+| [Playwright](https://playwright.dev/) | End-to-end testing |
+
+---
+
+## Quick Start
 
 ### Prerequisites
 
-- Node.js 18.x or later (preferably the latest LTS version)
-- Docker
-- PNPM
-
-Please make sure you have a Docker daemon running on your machine. This is required for the Supabase CLI to work.
+- **Node.js** 18.x or later
+- **Docker** (for local Supabase)
+- **pnpm** (package manager)
 
 ### Installation
 
-#### 1. Clone this repository
-
 ```bash
-git clone https://github.com/makerkit/next-supabase-saas-kit-lite.git
-```
+# Clone the repository
+git clone https://github.com/yourusername/zeitpal.git
+cd zeitpal
 
-#### 2. Install dependencies
-
-```bash
+# Install dependencies
 pnpm install
-```
 
-#### 3. Start Supabase
-
-Please make sure you have a Docker daemon running on your machine.
-
-Then run the following command to start Supabase:
-
-```bash
+# Start Supabase (requires Docker)
 pnpm run supabase:web:start
-```
 
-Once the Supabase server is running, please access the Supabase Dashboard using the port in the output of the previous command. Normally, you find it at [http://localhost:54323](http://localhost:54323).
-
-You will also find all the Supabase services printed in the terminal after the command is executed.
-
-##### Stopping Supabase
-
-To stop the Supabase server, run the following command:
-
-```bash
-pnpm run supabase:web:stop
-```
-
-##### Resetting Supabase
-
-To reset the Supabase server, run the following command:
-
-```bash
-pnpm run supabase:web:reset
-```
-
-##### More Supabase Commands
-
-For more Supabase commands, see the [Supabase CLI documentation](https://supabase.com/docs/guides/cli).
-
-```
-# Create new migration
-pnpm --filter web supabase migration new <name>
-
-# Link to Supabase project
-pnpm --filter web supabase link
-
-# Push migrations
-pnpm --filter web supabase db push
-```
-
-#### 4. Start the Next.js application
-
-```bash
+# Start the development server
 pnpm run dev
 ```
 
-The application will be available at http://localhost:3000.
+Open [http://localhost:3000](http://localhost:3000) to see ZeitPal running.
 
-#### 5. Code Health (linting, formatting, etc.)
+### Supabase Dashboard
 
-To format your code, run the following command:
+Access the local Supabase dashboard at [http://localhost:54323](http://localhost:54323) to manage your database.
 
-```bash
-pnpm run format:fix
-```
-
-To lint your code, run the following command:
-
-```bash
-pnpm run lint
-```
-
-To validate your TypeScript code, run the following command:
-
-```bash
-pnpm run typecheck
-```
-
-Turborepo will cache the results of these commands, so you can run them as many times as you want without any performance impact.
+---
 
 ## Project Structure
 
-The project is organized into the following folders:
-
 ```
-apps/
-├── web/                  # Next.js application
-│   ├── app/             # App Router pages
-│   │   ├── (marketing)/ # Public marketing pages
-│   │   ├── auth/        # Authentication pages
-│   │   └── home/        # Protected app pages
-│   ├── supabase/        # Database & migrations
-│   └── config/          # App configuration
+zeitpal/
+├── apps/
+│   └── web/                    # Next.js application
+│       ├── app/
+│       │   ├── (marketing)/    # Public marketing pages
+│       │   ├── auth/           # Authentication pages
+│       │   └── home/           # Protected app pages
+│       ├── supabase/           # Database & migrations
+│       └── config/             # App configuration
 │
-packages/
-├── ui/                  # Shared UI components
-└── features/           # Core feature packages
-    ├── auth/           # Authentication logic
-    └── ...
+├── packages/
+│   ├── ui/                     # Shared UI components
+│   └── features/               # Core feature packages
+│       └── auth/               # Authentication logic
+│
+└── docs/                       # Documentation
 ```
 
-For more information about this project structure, see the article [Next.js App Router: Project Structure](https://makerkit.dev/blog/tutorials/nextjs-app-router-project-structure).
+---
+
+## Configuration
 
 ### Environment Variables
 
-You can configure the application by setting environment variables in the `.env.local` file.
+Create a `.env.local` file in `apps/web/` with:
 
-Here are the available variables:
+```env
+# Site Configuration
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+NEXT_PUBLIC_PRODUCT_NAME=ZeitPal
 
-| Variable Name | Description | Default Value |
-| --- | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | The URL of your SaaS application | `http://localhost:3000` |
-| `NEXT_PUBLIC_PRODUCT_NAME` | The name of your SaaS product | `Makerkit` |
-| `NEXT_PUBLIC_SITE_TITLE` | The title of your SaaS product | `Makerkit - The easiest way to build and manage your SaaS` |
-| `NEXT_PUBLIC_SITE_DESCRIPTION` | The description of your SaaS product | `Makerkit is the easiest way to build and manage your SaaS. It provides you with the tools you need to build your SaaS, without the hassle of building it from scratch.` |
-| `NEXT_PUBLIC_DEFAULT_THEME_MODE` | The default theme mode of your SaaS product | `light` |
-| `NEXT_PUBLIC_THEME_COLOR` | The default theme color of your SaaS product | `#ffffff` |
-| `NEXT_PUBLIC_THEME_COLOR_DARK` | The default theme color of your SaaS product in dark mode | `#0a0a0a` |
-| `NEXT_PUBLIC_SUPABASE_URL` | The URL of your Supabase project | `http://127.0.0.1:54321` |
-| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | The anon key of your Supabase project | ''
-| `SUPABASE_SERVICE_ROLE_KEY` | The service role key of your Supabase project | ''
+# Supabase (local defaults)
+NEXT_PUBLIC_SUPABASE_URL=http://127.0.0.1:54321
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 
-## Architecture
+# Theme
+NEXT_PUBLIC_DEFAULT_THEME_MODE=light
+NEXT_PUBLIC_THEME_COLOR=#7c3aed
+```
 
-This starter kit uses a monorepo architecture.
+See [Environment Variables](#environment-variables-reference) for the full list.
 
-1. The `apps/web` directory is the Next.js application.
-2. The `packages` directory contains all the packages used by the application.
-3. The `packages/features` directory contains all the features of the application.
-4. The `packages/ui` directory contains all the UI components.
+---
 
-For more information about the architecture, please refer to the [Makerkit blog post about Next.js Project Structure](https://makerkit.dev/blog/tutorials/nextjs-app-router-project-structure).
+## Deployment
 
-### Marketing Pages
+### Cloudflare Pages (Recommended)
 
-Marketing pages are located in the `apps/web/app/(marketing)` directory. These pages are used to showcase the features of the SaaS and provide information about the product.
+```bash
+# Build for production
+pnpm run build
 
-### Authentication
+# Deploy to Cloudflare
+npx wrangler pages deploy apps/web/.next
+```
 
-Authenticated is backed by Supabase. The `apps/web/app/auth` directory contains the authentication pages, however, the logic is into its own package `@kit/auth` located in `packages/features/auth`.
+### Vercel
 
-This package can be used across multiple applications.
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yourusername/zeitpal)
 
-### Gated Pages
+### Docker
 
-Gated pages are located in the `apps/web/app/home` directory. Here is where you can build your SaaS pages that are gated by authentication.
+```bash
+docker build -t zeitpal .
+docker run -p 3000:3000 zeitpal
+```
 
-### Database
+### Production Supabase
 
-The Supabase database is located in the `apps/web/supabase` directory. In this directory you will find the database schema, migrations, and seed data.
+1. Create a [Supabase project](https://supabase.com/)
+2. Push migrations: `pnpm --filter web supabase db push`
+3. Set callback URL: `<your-url>/auth/callback`
+4. Update environment variables
 
-#### Creating a new migration
-To create a new migration, run the following command:
+---
+
+## Development
+
+### Available Scripts
+
+```bash
+# Development
+pnpm run dev              # Start development server
+
+# Code Quality
+pnpm run lint             # Run ESLint
+pnpm run format:fix       # Format code with Prettier
+pnpm run typecheck        # TypeScript validation
+
+# Database
+pnpm run supabase:web:start   # Start local Supabase
+pnpm run supabase:web:stop    # Stop local Supabase
+pnpm run supabase:web:reset   # Reset database
+pnpm run supabase:web:typegen # Generate TypeScript types
+
+# Testing
+pnpm run test             # Run tests
+```
+
+### Creating Database Migrations
 
 ```bash
 pnpm --filter web supabase migration new --name <migration-name>
-```
-
-This command will create a new migration file in the `apps/web/supabase/migrations` directory. 
-
-#### Applying a migration
-
-Once you have created a migration, you can apply it to the database by running the following command:
-
-```bash
 pnpm run supabase:web:reset
 ```
 
-This command will apply the migration to the database and update the schema. It will also reset the database using the provided seed data.
-
-#### Linking the Supabase database
-
-Linking the local Supabase database to the Supabase project is done by running the following command:
-
-```bash
-pnpm --filter web supabase db link
-```
-
-This command will link the local Supabase database to the Supabase project.
-
-#### Pushing the migration to the Supabase project
-
-After you have made changes to the migration, you can push the migration to the Supabase project by running the following command:
-
-```bash
-pnpm --filter web supabase db push
-```
-
-This command will push the migration to the Supabase project. You can now apply the migration to the Supabase database.
-
-## Going to Production
-
-#### 1. Create a Supabase project
-
-To deploy your application to production, you will need to create a Supabase project.
-
-#### 2. Push the migration to the Supabase project
-
-After you have made changes to the migration, you can push the migration to the Supabase project by running the following command:
-
-```bash
-pnpm --filter web supabase db push
-```
-
-This command will push the migration to the Supabase project.
-
-#### 3. Set the Supabase Callback URL
-
-When working with a remote Supabase project, you will need to set the Supabase Callback URL.
-
-Please set the callback URL in the Supabase project settings to the following URL:
-
-`<url>/auth/callback`
-
-Where `<url>` is the URL of your application.
-
-#### 4. Deploy to Vercel or any other hosting provider
-
-You can deploy your application to any hosting provider that supports Next.js.
-
-#### 5. Deploy to Cloudflare
-
-The configuration should work as is, but you need to set the runtime to `edge` in the root layout file (`apps/web/app/layout.tsx`).
-
-```tsx
-export const runtime = 'edge';
-```
-
-Remember to enable Node.js compatibility in the Cloudflare dashboard.
+---
 
 ## Contributing
 
-Contributions for bug fixed are welcome! However, please open an issue first to discuss your ideas before making a pull request.
+We love contributions! ZeitPal is an open-source project and we welcome developers of all skill levels.
 
-## License
+### How to Contribute
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+1. **Fork** the repository
+2. **Clone** your fork: `git clone https://github.com/your-username/zeitpal.git`
+3. **Create** a branch: `git checkout -b feature/amazing-feature`
+4. **Make** your changes
+5. **Test** your changes: `pnpm run lint && pnpm run typecheck`
+6. **Commit**: `git commit -m 'Add amazing feature'`
+7. **Push**: `git push origin feature/amazing-feature`
+8. **Open** a Pull Request
+
+### Good First Issues
+
+Looking for a place to start? Check out issues labeled [`good first issue`](https://github.com/yourusername/zeitpal/labels/good%20first%20issue).
+
+### Development Guidelines
+
+- Follow the existing code style
+- Write meaningful commit messages
+- Add tests for new features
+- Update documentation as needed
+- Keep PRs focused and small
+
+---
+
+## Roadmap
+
+- [ ] Mobile app (React Native)
+- [ ] Calendar integrations (Outlook, Apple Calendar)
+- [ ] HR system integrations (Personio, HRworks)
+- [ ] AI-powered leave suggestions
+- [ ] Multi-language support (FR, ES, IT)
+- [ ] Advanced analytics dashboard
+
+See the [open issues](https://github.com/yourusername/zeitpal/issues) for a full list of proposed features.
+
+---
+
+## Community
+
+- **Discussions:** [GitHub Discussions](https://github.com/yourusername/zeitpal/discussions)
+- **Issues:** [GitHub Issues](https://github.com/yourusername/zeitpal/issues)
+- **Twitter/X:** [@zeitpal](https://twitter.com/zeitpal)
+
+---
 
 ## Support
 
-No support is provided for this kit. Feel free to open an issue if you have any questions or need help, but there is no guaranteed response time, nor guarantee a fix.
+- **Documentation:** [docs.zeitpal.de](https://docs.zeitpal.de)
+- **Email:** support@zeitpal.de
+- **Enterprise:** enterprise@zeitpal.de
 
-For dedicated support, priority fixes, and advanced features, [check out our full version](https://makerkit.dev).
+---
+
+## Sponsors
+
+ZeitPal is free and open source. If you find it useful, please consider sponsoring:
+
+<a href="https://github.com/sponsors/yourusername">
+  <img src="https://img.shields.io/badge/Sponsor-❤️-pink?style=for-the-badge" alt="Sponsor">
+</a>
+
+---
+
+## License
+
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+
+---
+
+## Acknowledgments
+
+Built with love using:
+
+- [MakerKit](https://makerkit.dev) — SaaS starter template
+- [Shadcn UI](https://ui.shadcn.com) — Component library
+- [Supabase](https://supabase.com) — Backend infrastructure
+
+---
+
+<p align="center">
+  <strong>⭐ Star this repo if you find ZeitPal useful!</strong>
+</p>
+
+<p align="center">
+  Made with ❤️ in Germany
+</p>

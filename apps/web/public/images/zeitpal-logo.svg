@@ -1,0 +1,13 @@
+<svg width="200" height="48" viewBox="0 0 200 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Clock icon -->
+  <circle cx="24" cy="24" r="20" stroke="#9333ea" stroke-width="3" fill="none"/>
+  <circle cx="24" cy="24" r="16" fill="#f3e8ff"/>
+  <path d="M24 12V24L32 28" stroke="#9333ea" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Small decorative dots -->
+  <circle cx="24" cy="8" r="1.5" fill="#a855f7"/>
+  <circle cx="40" cy="24" r="1.5" fill="#a855f7"/>
+  <circle cx="24" cy="40" r="1.5" fill="#a855f7"/>
+  <circle cx="8" cy="24" r="1.5" fill="#a855f7"/>
+  <!-- ZeitPal text -->
+  <text x="54" y="32" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="700" letter-spacing="-0.5" fill="#7c3aed">Zeit<tspan fill="#a855f7">Pal</tspan></text>
+</svg>

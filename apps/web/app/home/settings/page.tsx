@@ -1,24 +1,16 @@
+export const runtime = 'edge';
+
 import { use } from 'react';
 
-import { PersonalAccountSettingsContainer } from '@kit/accounts/personal-account-settings';
-import { PageBody } from '@kit/ui/page';
+import { PageBody, PageHeader } from '@kit/ui/page';
+import { Trans } from '@kit/ui/trans';
 
-import authConfig from '~/config/auth.config';
-import pathsConfig from '~/config/paths.config';
 import { createI18nServerInstance } from '~/lib/i18n/i18n.server';
 import { withI18n } from '~/lib/i18n/with-i18n';
 import { requireUserInServerComponent } from '~/lib/server/require-user-in-server-component';
 
-const callbackPath = pathsConfig.auth.callback;
-
-const features = {
-  enableAccountDeletion: true,
-  enablePasswordUpdate: authConfig.providers.password,
-};
-
-const paths = {
-  callback: callbackPath + `?next=${pathsConfig.app.profileSettings}`,
-};
+import { AccountSettings } from './_components/account-settings';
+import { NotificationSettings } from './_components/notification-settings';
 
 export const generateMetadata = async () => {
   const i18n = await createI18nServerInstance();
@@ -31,18 +23,33 @@ export const generateMetadata = async () => {
 
 function PersonalAccountSettingsPage() {
   const user = use(requireUserInServerComponent());
-  const userId = user.id;
+  const userId = user.id ?? '';
+
+  if (!userId) {
+    return null;
+  }
 
   return (
-    <PageBody>
-      <div className={'flex w-full flex-1 flex-col lg:max-w-2xl'}>
-        <PersonalAccountSettingsContainer
-          userId={userId}
-          paths={paths}
-          features={features}
-        />
-      </div>
-    </PageBody>
+    <>
+      <PageHeader
+        title={<Trans i18nKey="common:settingsTabLabel" />}
+        description={<Trans i18nKey="common:settingsTabDescription" />}
+      />
+      <PageBody>
+        <div className="flex w-full flex-1 flex-col space-y-8 lg:max-w-2xl">
+          <AccountSettings
+            userId={userId}
+            user={{
+              id: userId,
+              name: user.name ?? null,
+              email: user.email ?? null,
+              image: user.image ?? null,
+            }}
+          />
+          <NotificationSettings userId={userId} />
+        </div>
+      </PageBody>
+    </>
   );
 }
 

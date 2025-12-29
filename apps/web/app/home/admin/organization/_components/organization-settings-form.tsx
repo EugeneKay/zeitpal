@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect } from 'react';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
@@ -27,9 +27,11 @@ import {
   SelectValue,
 } from '@kit/ui/select';
 import { Separator } from '@kit/ui/separator';
+import { Skeleton } from '@kit/ui/skeleton';
 import { Switch } from '@kit/ui/switch';
 import { Trans } from '@kit/ui/trans';
 
+import { useOrganization, useUpdateOrganization } from '~/lib/hooks/use-organization';
 import { BUNDESLAND_NAMES, type Bundesland } from '~/lib/types';
 
 const bundeslandOptions = Object.entries(BUNDESLAND_NAMES) as [Bundesland, { en: string; de: string }][];
@@ -48,11 +50,10 @@ const organizationSchema = z.object({
 
 type OrganizationFormData = z.infer<typeof organizationSchema>;
 
-// TODO: Replace with React Query - load from API
-const mockOrganization = {
+const defaultFormValues: OrganizationFormData = {
   name: '',
   slug: '',
-  bundesland: '' as Bundesland,
+  bundesland: '',
   defaultVacationDays: 30,
   carryoverEnabled: true,
   carryoverMaxDays: 5,
@@ -62,29 +63,75 @@ const mockOrganization = {
 };
 
 export function OrganizationSettingsForm() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { data: organization, isLoading, error } = useOrganization();
+  const updateOrganization = useUpdateOrganization();
 
   const form = useForm<OrganizationFormData>({
     resolver: zodResolver(organizationSchema),
-    defaultValues: mockOrganization,
+    defaultValues: defaultFormValues,
   });
+
+  // Populate form when organization data loads
+  useEffect(() => {
+    if (organization) {
+      form.reset({
+        name: organization.name || '',
+        slug: organization.slug || '',
+        bundesland: organization.bundesland || '',
+        defaultVacationDays: organization.defaultVacationDays ?? 30,
+        carryoverEnabled: organization.carryoverEnabled ?? true,
+        carryoverMaxDays: organization.carryoverMaxDays ?? 5,
+        sickLeaveAuThreshold: organization.sickLeaveAuThreshold ?? 3,
+        requireApproval: organization.requireApproval ?? true,
+        autoApproveThreshold: organization.autoApproveThreshold ?? null,
+      });
+    }
+  }, [organization, form]);
 
   const carryoverEnabled = form.watch('carryoverEnabled');
   const requireApproval = form.watch('requireApproval');
 
   const onSubmit = async (data: OrganizationFormData) => {
-    setIsSubmitting(true);
     try {
-      // TODO: Implement API call
-      console.log('Saving organization settings:', data);
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await updateOrganization.mutateAsync({
+        name: data.name,
+        bundesland: data.bundesland as Bundesland,
+        defaultVacationDays: data.defaultVacationDays,
+        carryoverEnabled: data.carryoverEnabled,
+        carryoverMaxDays: data.carryoverMaxDays,
+        sickLeaveAuThreshold: data.sickLeaveAuThreshold,
+        requireApproval: data.requireApproval,
+        autoApproveThreshold: data.autoApproveThreshold ?? undefined,
+      });
       toast.success('Organization settings saved');
-    } catch (error) {
-      toast.error('Failed to save settings');
-    } finally {
-      setIsSubmitting(false);
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : 'Failed to save settings');
     }
   };
+
+  if (isLoading) {
+    return <OrganizationFormSkeleton />;
+  }
+
+  if (error) {
+    return (
+      <Card>
+        <CardContent className="py-8 text-center">
+          <p className="text-destructive">Failed to load organization settings</p>
+        </CardContent>
+      </Card>
+    );
+  }
+
+  if (!organization) {
+    return (
+      <Card>
+        <CardContent className="py-8 text-center">
+          <p className="text-muted-foreground">No organization found. Please create one first.</p>
+        </CardContent>
+      </Card>
+    );
+  }
 
   return (
     <Form {...form}>
@@ -333,11 +380,51 @@ export function OrganizationSettingsForm() {
 
         {/* Submit */}
         <div className="flex justify-end">
-          <Button type="submit" disabled={isSubmitting}>
-            {isSubmitting ? 'Saving...' : <Trans i18nKey="admin:organization.save" />}
+          <Button type="submit" disabled={updateOrganization.isPending}>
+            {updateOrganization.isPending ? 'Saving...' : <Trans i18nKey="admin:organization.save" />}
           </Button>
         </div>
       </form>
     </Form>
+  );
+}
+
+function OrganizationFormSkeleton() {
+  return (
+    <div className="space-y-6">
+      <Card>
+        <CardHeader>
+          <Skeleton className="h-6 w-40" />
+          <Skeleton className="h-4 w-60" />
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="space-y-2">
+            <Skeleton className="h-4 w-24" />
+            <Skeleton className="h-10 w-full" />
+          </div>
+          <div className="space-y-2">
+            <Skeleton className="h-4 w-24" />
+            <Skeleton className="h-10 w-full" />
+          </div>
+          <div className="space-y-2">
+            <Skeleton className="h-4 w-24" />
+            <Skeleton className="h-10 w-full" />
+          </div>
+        </CardContent>
+      </Card>
+      <Card>
+        <CardHeader>
+          <Skeleton className="h-6 w-32" />
+          <Skeleton className="h-4 w-72" />
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="space-y-2">
+            <Skeleton className="h-4 w-32" />
+            <Skeleton className="h-10 w-24" />
+          </div>
+          <Skeleton className="h-16 w-full rounded-lg" />
+        </CardContent>
+      </Card>
+    </div>
   );
 }

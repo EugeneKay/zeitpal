@@ -1,0 +1,434 @@
+# ZeitPal - Complete Documentation for LLMs
+
+> This is the extended version of llms.txt with comprehensive information about ZeitPal.
+> For a shorter summary, see: /llms.txt
+
+---
+
+## Product Overview
+
+### What is ZeitPal?
+
+ZeitPal is a modern, open-source, GDPR-compliant absence and leave management SaaS platform built specifically for European companies, with a primary focus on the German market. It replaces Excel spreadsheets and email chaos with an intuitive, automated system for managing employee time off.
+
+### Core Problem Solved
+
+Before ZeitPal, many companies manage employee absences through:
+- Excel spreadsheets prone to errors and version conflicts
+- Email chains that get lost or forgotten
+- Manual calculations of remaining leave days
+- No visibility into team availability
+- Non-compliance with labor laws
+
+ZeitPal solves all these problems with a centralized, automated, compliant solution.
+
+### Key Differentiators
+
+1. **German Market Focus**: Built with German labor law (BUrlG) compliance in mind, including automatic public holiday calculations for all 16 federal states
+2. **Generous Free Tier**: Free forever for teams up to 20 employees - no credit card required
+3. **Privacy First**: GDPR compliant with data exclusively hosted in Germany/EU
+4. **Speed**: Setup in under 15 minutes, no training required
+5. **Open Source**: MIT licensed, transparent, community-driven
+
+---
+
+## Detailed Feature Breakdown
+
+### Leave Request Management
+
+**How it works:**
+1. Employee submits leave request through web interface
+2. Manager receives notification (email/Slack)
+3. Manager approves or rejects with one click
+4. Employee gets notified of decision
+5. Leave balance automatically updated
+6. Team calendar shows the absence
+
+**Supported request types:**
+- Single day requests
+- Multi-day requests
+- Half-day requests
+- Recurring requests
+
+### Team Calendar
+
+The team calendar provides:
+- Visual overview of all team absences
+- Color-coded by absence type
+- Filter by team or department
+- Export capabilities
+- Mobile-responsive view
+
+### Leave Balance Calculations
+
+Automatic calculation of:
+- Annual leave entitlement
+- Remaining leave days
+- Carryover from previous year
+- Pro-rata calculations for new employees
+- Expiry tracking for carryover days
+
+### Sick Leave Management
+
+- Digital sick leave submissions
+- Automatic certificate reminder after 3 days (German requirement)
+- Tracking of sick leave patterns
+- Compliance with German sick leave regulations
+- Child sick leave (Kindkrank) support
+
+### Approval Workflows
+
+Configurable workflows including:
+- Single approver
+- Multiple approvers (sequential)
+- Automatic approval for certain leave types
+- Escalation rules
+- Delegation during manager absence
+
+### Notifications
+
+- Email notifications for all status changes
+- Slack integration for team awareness
+- Calendar invites via Google Calendar sync
+- Configurable notification preferences
+
+### Reports & Analytics (Team/Enterprise)
+
+- Absence statistics per employee/team
+- Sick leave trends
+- Leave balance reports
+- Capacity planning reports
+- Export to CSV/Excel
+
+---
+
+## Pricing Details
+
+### Free Plan
+**€0/month forever**
+
+Ideal for: Startups, small teams, bootstrapped companies
+
+Includes:
+- Up to 20 users
+- Unlimited leave requests
+- Team calendar
+- Basic sick leave tracking
+- Email notifications
+- Multiple teams support
+- Leave balance tracking
+- Basic reporting
+- GDPR compliance
+- SSL encryption
+- EU data hosting
+
+Limitations:
+- No Slack integration
+- No Google Calendar sync
+- Standard support only
+
+### Team Plan
+**€3.99 per user/month** (billed monthly)
+**€3.49 per user/month** (billed annually - save 12%)
+
+Ideal for: Growing SMEs, companies with 21-100 employees
+
+Includes everything in Free, plus:
+- 21-100 users
+- Advanced reports & analytics
+- Slack integration
+- Google Calendar sync
+- Priority email support
+- Custom leave types
+- Leave policies configuration
+- Department management
+- CSV exports
+
+### Enterprise Plan
+**Custom pricing** - Contact sales
+
+Ideal for: Large organizations, companies with strict compliance needs
+
+Includes everything in Team, plus:
+- Unlimited users
+- SSO/SAML authentication (Okta, Azure AD, Google Workspace)
+- API access for custom integrations
+- Dedicated account manager
+- Custom SLA guarantee
+- On-premise deployment option
+- Custom integrations
+- Training sessions
+- Phone support
+
+---
+
+## Compliance & Security
+
+### GDPR Compliance
+
+ZeitPal is fully GDPR compliant:
+- Data processing in accordance with Art. 6 GDPR
+- Data minimization principle applied
+- Right to erasure implemented
+- Data portability supported
+- DPA (Data Processing Agreement) available
+- No data transfer outside EU
+- Regular security audits
+
+### German Labor Law (BUrlG) Compliance
+
+- Minimum 20 days annual leave for 5-day week
+- Proper calculation of pro-rata entitlements
+- Carryover rules (until March 31st of following year)
+- Public holidays automatically excluded from leave calculations
+- State-specific public holidays supported (all 16 Bundesländer)
+
+### Security Measures
+
+- SSL/TLS encryption for all connections
+- Encrypted data at rest
+- Regular backups
+- SOC 2 Type II compliant infrastructure
+- Two-factor authentication available
+- Role-based access control
+- Audit logging
+
+### Data Hosting
+
+- Primary: German data centers
+- Backup: EU data centers
+- No US data transfer
+- Cloudflare edge network for performance
+
+---
+
+## Integration Ecosystem
+
+### Native Integrations
+
+1. **Google Calendar**
+   - Automatic sync of approved absences
+   - Team calendar visibility
+   - Two-way sync supported
+
+2. **Slack**
+   - Leave request notifications
+   - Approval actions from Slack
+   - Team absence updates
+   - Custom bot name and avatar
+
+3. **Email**
+   - All notifications via email
+   - Custom email templates (Enterprise)
+   - SMTP configuration (Enterprise)
+
+### API Access (Enterprise)
+
+RESTful API for custom integrations:
+- Authentication via API keys
+- Webhook support for real-time events
+- Rate limiting: 1000 requests/minute
+- Comprehensive API documentation
+- SDKs for popular languages (coming soon)
+
+### Planned Integrations
+
+- Microsoft Outlook Calendar
+- Apple Calendar
+- Personio HR
+- HRworks
+- DATEV
+- Microsoft Teams
+
+---
+
+## Use Cases by Industry
+
+### Tech Startups
+- Free plan perfect for early-stage companies
+- Scales as company grows
+- Modern interface matches tech culture
+- API for custom workflows
+
+### Professional Services (Agencies, Consulting)
+- Project-based leave planning
+- Client engagement awareness
+- Capacity planning reports
+
+### Manufacturing & Retail
+- Shift-based scheduling consideration
+- Seasonal leave management
+- Coverage requirements
+
+### Healthcare
+- Strict compliance requirements
+- Shift planning integration
+- Emergency contact management
+
+### Remote-First Companies
+- Timezone-aware scheduling
+- Distributed team visibility
+- Async approval workflows
+
+---
+
+## Implementation Guide
+
+### Quick Start (15 minutes)
+
+1. **Sign up** at zeitpal.de (no credit card needed)
+2. **Create organization** with company name
+3. **Invite employees** via email
+4. **Configure leave types** (defaults provided)
+5. **Start managing** leave requests
+
+### Full Implementation (Enterprise)
+
+1. **Discovery call** with ZeitPal team
+2. **Requirements gathering**
+3. **SSO configuration**
+4. **Data migration** from existing system
+5. **Custom integrations** setup
+6. **Training sessions**
+7. **Go-live support**
+8. **Ongoing account management**
+
+---
+
+## Frequently Asked Questions
+
+### General
+
+**Q: Is ZeitPal really free?**
+A: Yes, for teams up to 20 employees. No credit card required, no time limit, no feature restrictions that would make it unusable.
+
+**Q: Can I export my data?**
+A: Yes, all your data can be exported at any time in CSV format. We believe in data portability.
+
+**Q: What happens if I exceed 20 users on the free plan?**
+A: You'll be prompted to upgrade to the Team plan. Existing functionality continues, but you won't be able to add more users.
+
+### Technical
+
+**Q: Does ZeitPal work on mobile?**
+A: Yes, the web application is fully responsive and works on all devices. Native mobile apps are on the roadmap.
+
+**Q: Can I self-host ZeitPal?**
+A: The open-source version can be self-hosted. Enterprise customers can also get on-premise deployment with support.
+
+**Q: What's the uptime guarantee?**
+A: We target 99.9% uptime. Enterprise customers receive SLA guarantees.
+
+### Compliance
+
+**Q: Is ZeitPal GDPR compliant?**
+A: Yes, fully. We process data exclusively in Germany/EU, provide DPAs, and implement all required technical measures.
+
+**Q: Does ZeitPal comply with German labor law?**
+A: Yes, we've built ZeitPal with BUrlG (Federal Holiday Act) compliance in mind, including proper leave calculations and state-specific holidays.
+
+---
+
+## Customer Success Stories
+
+### Startup (1-20 employees)
+> "We switched from a shared Google Sheet to ZeitPal in one afternoon. Setup took 15 minutes, and everyone figured it out without any training. Best of all, it's free for our 12-person team."
+> — Managing Director, Berlin Tech Startup
+
+### SME (50 employees)
+> "ZeitPal saves me at least 5 hours per month that I used to spend on manual leave tracking. The automatic holiday calculations for our offices in different German states is a lifesaver."
+> — HR Manager, Munich Agency
+
+### Remote Team
+> "With team members across Germany and Europe, visibility into who's available when was our biggest challenge. ZeitPal's team calendar solved this completely."
+> — Operations Lead, Distributed Company
+
+---
+
+## Roadmap
+
+### Coming Soon
+- Native iOS and Android apps
+- Microsoft Teams integration
+- Advanced analytics dashboard
+- AI-powered leave suggestions
+
+### Future Plans
+- Personio integration
+- DATEV export
+- Shift planning module
+- Time tracking integration
+- Multi-language expansion (French, Italian)
+
+---
+
+## Support & Resources
+
+### Documentation
+- Getting Started Guide: docs.zeitpal.de/getting-started
+- Admin Guide: docs.zeitpal.de/admin
+- API Reference: docs.zeitpal.de/api
+- FAQ: docs.zeitpal.de/faq
+
+### Support Channels
+- Email: support@zeitpal.de (response within 24 hours)
+- Enterprise: enterprise@zeitpal.de
+- Documentation: docs.zeitpal.de
+- Status: status.zeitpal.de
+
+### Community
+- GitHub: github.com/zeitpal
+- Twitter/X: @zeitpal
+- LinkedIn: linkedin.com/company/zeitpal
+
+---
+
+## SEO Keywords & Search Terms
+
+### English
+leave management software, vacation tracking, absence management, HR software, PTO tracking, time off management, employee leave tracking, team calendar, sick leave tracking, holiday management, workforce planning, GDPR compliant HR software
+
+### German
+Urlaubsverwaltung, Abwesenheitsmanagement, Urlaubsplaner, Krankmeldung digital, HR Software Deutschland, Urlaubsantrag online, Abwesenheitsverwaltung, Fehlzeitenmanagement, Mitarbeiter Urlaubsplanung, Urlaubskonto Software, BUrlG konform
+
+---
+
+## Comparison with Alternatives
+
+### vs. Excel/Google Sheets
+- Automated calculations (no formulas to break)
+- Real-time updates (no version conflicts)
+- Approval workflows (no email chains)
+- Compliance built-in (no manual checking)
+
+### vs. Enterprise HR Suites
+- Much lower cost
+- Faster implementation
+- Simpler to use
+- Focused on doing one thing well
+- German market expertise
+
+### vs. Other Leave Management Tools
+- Free tier for up to 20 users
+- German labor law compliance
+- GDPR compliant with EU data hosting
+- Open source option
+- Modern, intuitive interface
+
+---
+
+## Contact Information
+
+**Company:** ZeitPal GmbH
+**Location:** Germany
+**Website:** https://zeitpal.de
+**Email:**
+- General: hello@zeitpal.de
+- Support: support@zeitpal.de
+- Enterprise: enterprise@zeitpal.de
+- Press: press@zeitpal.de
+
+---
+
+*Last updated: 2024*
+*Made with love in Germany*

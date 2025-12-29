@@ -1,0 +1,360 @@
+{
+  "site": {
+    "title": "ZeitPal - Gestion de Vacaciones que Simplemente Funciona",
+    "description": "ZeitPal facilita la planificacion de vacaciones, bajas medicas y gestion de ausencias. Cumple con GDPR, Hecho en Alemania. Gratis para equipos pequenos."
+  },
+
+  "blog": "Blog",
+  "blogSubtitle": "Noticias y actualizaciones sobre la plataforma",
+  "documentation": "Documentacion",
+  "documentationSubtitle": "Tutoriales y guias para comenzar",
+  "faq": "FAQ",
+  "faqSubtitle": "Preguntas frecuentes sobre ZeitPal",
+  "pricingLabel": "Precios",
+  "pricingSubtitle": "Precios simples y transparentes",
+  "featuresLabel": "Caracteristicas",
+  "featuresSubtitle": "Todas las caracteristicas de un vistazo",
+  "about": "Nosotros",
+  "aboutSubtitle": "Conoce al equipo detras de ZeitPal",
+  "contact": "Contacto",
+  "contactSubtitle": "Nos encantaria saber de ti",
+  "demo": "Demo",
+  "demoSubtitle": "Ve ZeitPal en accion",
+  "customers": "Clientes",
+  "customersSubtitle": "Lo que dicen nuestros clientes",
+  "product": "Producto",
+  "legal": "Legal",
+  "solutions": "Soluciones",
+  "company": "Empresa",
+  "getStarted": "Comenzar",
+  "termsOfService": "Terminos de Servicio",
+  "termsOfServiceDescription": "Nuestros terminos y condiciones",
+  "cookiePolicy": "Politica de Cookies",
+  "cookiePolicyDescription": "Nuestra politica de cookies",
+  "privacyPolicy": "Politica de Privacidad",
+  "privacyPolicyDescription": "Nuestra politica de privacidad",
+  "imprint": "Aviso Legal",
+
+  "hero": {
+    "pill": "Comienza Gratis",
+    "title": "Gestion de vacaciones que simplemente funciona",
+    "subtitle": "ZeitPal facilita la planificacion de vacaciones, bajas medicas y gestion de ausencias. Gratis para equipos pequenos.",
+    "cta": "Comenzar Gratis",
+    "ctaSecondary": "Ver Demo"
+  },
+
+  "pricing": {
+    "metaTitle": "Precios | ZeitPal - Gestion de Vacaciones Gratuita",
+    "metaDescription": "ZeitPal es gratis para equipos de hasta 20 personas. Sin tarjeta de credito. Precios transparentes para equipos mas grandes.",
+    "title": "Precios simples y transparentes",
+    "subtitle": "Gratis para equipos pequenos y medianos. Solo paga cuando crezcas mas de 20 empleados.",
+    "freeForever": "Gratis hasta 20 empleados",
+    "noCreditCard": "Sin tarjeta de credito",
+    "noHiddenFees": "Sin costos ocultos",
+    "mostPopular": "Mas popular",
+    "perUser": "por usuario/mes",
+    "getStarted": "Comenzar Gratis",
+    "contactSales": "Contactar Ventas",
+    "compare": "Comparar planes",
+
+    "starter": {
+      "name": "Gratis",
+      "price": "0",
+      "description": "Perfecto para equipos de hasta 20 empleados",
+      "features": [
+        "Hasta 20 usuarios",
+        "Solicitudes y aprobaciones",
+        "Calendario del equipo",
+        "Seguimiento de bajas",
+        "Notificaciones por email",
+        "Multiples equipos",
+        "Balance de vacaciones",
+        "Cumple con GDPR"
+      ]
+    },
+    "team": {
+      "name": "Equipo",
+      "price": "3.99",
+      "description": "Para empresas con 21+ empleados",
+      "features": [
+        "Todo en Gratis",
+        "21-100 usuarios",
+        "Informes avanzados",
+        "Integracion Slack",
+        "Sincronizacion Google Calendar",
+        "Soporte prioritario",
+        "Tipos de ausencia personalizados"
+      ]
+    },
+    "enterprise": {
+      "name": "Empresa",
+      "price": "Personalizado",
+      "description": "Para grandes organizaciones con 100+ empleados",
+      "features": [
+        "Todo en Equipo",
+        "Usuarios ilimitados",
+        "SSO/SAML",
+        "Acceso API",
+        "Gerente de cuenta dedicado",
+        "Garantia SLA",
+        "Opcion on-premise",
+        "Integraciones personalizadas"
+      ]
+    }
+  },
+
+  "features": {
+    "metaTitle": "Caracteristicas | ZeitPal Gestion de Vacaciones",
+    "metaDescription": "Descubre todas las caracteristicas de ZeitPal: solicitudes de vacaciones, calendario de equipo, seguimiento de bajas y mas.",
+    "title": "Todo lo que necesitas para gestionar vacaciones",
+    "subtitle": "Desde solicitudes de vacaciones hasta planificacion de equipo - ZeitPal lo tiene todo.",
+
+    "leaveManagement": {
+      "title": "Solicitudes de Vacaciones",
+      "description": "Envia solicitudes de vacaciones en segundos. Aprobaciones con un clic."
+    },
+    "teamCalendar": {
+      "title": "Calendario del Equipo",
+      "description": "Ve de un vistazo quien esta ausente y cuando. Evita conflictos."
+    },
+    "sickLeave": {
+      "title": "Bajas Medicas",
+      "description": "Reporte digital de bajas con recordatorios automaticos."
+    },
+    "approvals": {
+      "title": "Flujos de Aprobacion",
+      "description": "Cadenas de aprobacion flexibles para diferentes tipos de ausencia."
+    },
+    "balances": {
+      "title": "Balance de Vacaciones",
+      "description": "Calculo automatico de dias restantes, arrastre y prorrateo."
+    },
+    "reports": {
+      "title": "Informes y Analiticas",
+      "description": "Informes detallados sobre ausencias, tasas de baja y mas."
+    },
+    "notifications": {
+      "title": "Notificaciones",
+      "description": "Notificaciones por email y Slack para solicitudes y aprobaciones."
+    },
+    "mobile": {
+      "title": "App Movil",
+      "description": "Gestiona vacaciones en movimiento con nuestra app web movil."
+    },
+    "integrations": {
+      "title": "Integraciones",
+      "description": "Conecta ZeitPal con Slack, Google Calendar y mas."
+    },
+    "germanLaw": {
+      "title": "Legislacion Alemana",
+      "description": "Cumple con BUrlG, incluyendo festivos por estado."
+    }
+  },
+
+  "trust": {
+    "gdprCompliant": "Cumple con GDPR",
+    "madeInGermany": "Hecho en Alemania",
+    "sslEncrypted": "Encriptado SSL",
+    "germanServers": "Servidores UE",
+    "noHiddenCosts": "Sin Costos Ocultos"
+  },
+
+  "cta": {
+    "startFree": "Comenzar Gratis",
+    "watchDemo": "Ver Demo",
+    "learnMore": "Saber Mas",
+    "getStarted": "Comenzar",
+    "bookDemo": "Reservar Demo",
+    "tryFree": "Probar Gratis",
+    "signUp": "Registrarse"
+  },
+
+  "stats": {
+    "heading": "ZeitPal en numeros",
+    "daysManaged": "Dias de vacaciones gestionados",
+    "teams": "Equipos felices",
+    "rating": "Calificacion promedio",
+    "uptime": "Tiempo de actividad"
+  },
+
+  "testimonials": {
+    "heading": "Lo que dicen nuestros clientes",
+    "subheading": "Mas de 500 equipos confian en ZeitPal",
+
+    "1": {
+      "quote": "Desde que usamos ZeitPal, ahorro al menos 5 horas de trabajo administrativo cada mes. Por fin sin hojas de calculo!",
+      "author": "Sarah M.",
+      "role": "Gerente de RRHH",
+      "company": "TechStart GmbH, Berlin"
+    },
+    "2": {
+      "quote": "La configuracion tomo menos de una hora. Nuestro equipo de 12 ahora usa ZeitPal diariamente - y es completamente gratis!",
+      "author": "Michael K.",
+      "role": "Director General",
+      "company": "Kreativ Agentur Nord"
+    },
+    "3": {
+      "quote": "Ahora apruebo solicitudes de vacaciones con un toque en mi telefono. Mi equipo adora la transparencia del calendario compartido.",
+      "author": "Julia B.",
+      "role": "Lider de Equipo",
+      "company": "Consulting Plus AG"
+    },
+    "4": {
+      "quote": "Como empresa remota, la gestion de ausencias era una pesadilla. ZeitPal lo resolvio completamente.",
+      "author": "Thomas W.",
+      "role": "Director de Operaciones",
+      "company": "GlobalTech Solutions"
+    }
+  },
+
+  "seo": {
+    "urlaubsverwaltung": {
+      "metaTitle": "Software de Gestion de Vacaciones | ZeitPal - Comienza Gratis",
+      "metaDescription": "Gestion digital de vacaciones para empresas. Cumple con GDPR, facil de usar, gratis para equipos pequenos. Pruebalo ahora!",
+      "h1": "Software de Gestion de Vacaciones para Equipos Modernos",
+      "subtitle": "Di adios al caos de Excel y cadenas de emails. ZeitPal automatiza toda tu gestion de vacaciones."
+    },
+    "abwesenheitsmanagement": {
+      "metaTitle": "Software de Gestion de Ausencias | ZeitPal",
+      "metaDescription": "Gestion profesional de ausencias: vacaciones, bajas, teletrabajo - todo en un lugar. Gratis para equipos pequenos.",
+      "h1": "Gestion Digital de Ausencias",
+      "subtitle": "Mantente al tanto de todas las ausencias de tu equipo. Automatico, transparente y cumple con GDPR."
+    },
+    "urlaubsplaner": {
+      "metaTitle": "Planificador de Vacaciones Online | ZeitPal - Gratis",
+      "metaDescription": "Planifica vacaciones online con el calendario de equipo. Evita conflictos, mantente informado. Gratis para equipos de hasta 20 empleados.",
+      "h1": "Planificador de Vacaciones Online para Equipos",
+      "subtitle": "Planifica las vacaciones de tu equipo de forma centralizada y evita cuellos de botella. Con vista de calendario y notificaciones automaticas."
+    },
+    "krankmeldungDigital": {
+      "metaTitle": "Baja Medica Digital | ZeitPal",
+      "metaDescription": "Registra y gestiona bajas medicas digitalmente. Recordatorios automaticos de certificados, cumple con GDPR. Prueba gratis ahora.",
+      "h1": "Baja Medica Digital para tu Empresa",
+      "subtitle": "Registra bajas medicas digitalmente. Recordatorio automatico de certificado medico despues de 3 dias."
+    },
+    "hrSoftware": {
+      "metaTitle": "Software de RRHH para Empresas | ZeitPal",
+      "metaDescription": "Software moderno de RRHH para gestion de vacaciones y seguimiento de ausencias. Cumple con GDPR, Hecho en Alemania. Comienza gratis.",
+      "h1": "Software de RRHH para Empresas",
+      "subtitle": "ZeitPal fue construido especificamente para el mercado. Cumple con la legislacion laboral y GDPR."
+    }
+  },
+
+  "useCases": {
+    "startups": {
+      "metaTitle": "Gestion de Vacaciones para Startups | ZeitPal",
+      "metaDescription": "Gestion de vacaciones gratuita para startups de hasta 20 empleados. Configuracion rapida, facil de usar. Comienza ahora.",
+      "h1": "Gestion de Vacaciones para Startups",
+      "subtitle": "Concentrate en el crecimiento - nosotros nos encargamos de la gestion de vacaciones. Gratis para equipos pequenos."
+    },
+    "mittelstand": {
+      "metaTitle": "Gestion de Ausencias para PYMEs | ZeitPal",
+      "metaDescription": "Gestion profesional de ausencias para medianas empresas. Escalable, seguro, conforme a la ley.",
+      "h1": "Gestion de Ausencias para PYMEs",
+      "subtitle": "Gestion profesional de vacaciones que crece con tu empresa. Multiples equipos, informes avanzados, integraciones."
+    }
+  },
+
+  "faqItems": [
+    {
+      "question": "Es ZeitPal realmente gratis?",
+      "answer": "Si! ZeitPal es completamente gratis para equipos de hasta 20 empleados. Sin tarjeta de credito, sin costos ocultos. Solo pagas cuando creces mas de 20 miembros."
+    },
+    {
+      "question": "Cuanto tiempo toma la configuracion?",
+      "answer": "La mayoria de equipos estan listos en menos de 15 minutos. Registrate, invita a tu equipo y listo."
+    },
+    {
+      "question": "Cumple ZeitPal con GDPR?",
+      "answer": "Si, ZeitPal cumple totalmente con GDPR. Tus datos se almacenan en servidores alemanes y solo procesamos datos necesarios."
+    },
+    {
+      "question": "Que tipos de ausencia se soportan?",
+      "answer": "Vacaciones, baja por enfermedad, baja por hijo enfermo, permiso parental, maternidad, permiso especial, compensacion de horas extra, formacion y permiso no remunerado."
+    },
+    {
+      "question": "Se incluyen los festivos alemanes?",
+      "answer": "Si, ZeitPal conoce todos los festivos alemanes por estado. Los dias laborables se calculan automaticamente correctamente."
+    },
+    {
+      "question": "Puedo migrar de Excel a ZeitPal?",
+      "answer": "Absolutamente! Te ayudamos a importar tus datos de vacaciones existentes. Contactanos para soporte."
+    }
+  ],
+
+  "footer": {
+    "description": "ZeitPal es la solucion simple para gestion de vacaciones y seguimiento de ausencias. Hecho en Alemania, cumple con GDPR.",
+    "product": "Producto",
+    "solutions": "Soluciones",
+    "company": "Empresa",
+    "legal": "Legal",
+    "leaveManagement": "Gestion de Vacaciones",
+    "absenceManagement": "Gestion de Ausencias",
+    "forStartups": "Para Startups",
+    "forSMEs": "Para PYMEs"
+  },
+
+  "ctaSection": {
+    "heading": "Listo para simplificar tu gestion de vacaciones?",
+    "subheading": "Comienza gratis en menos de 5 minutos. Sin tarjeta de credito.",
+    "startFree": "Comenzar Gratis"
+  },
+
+  "about": {
+    "mission": {
+      "title": "Nuestra Mision",
+      "description": "Creemos que la gestion de vacaciones no deberia ser complicada. ZeitPal fue creado para facilitar la vida de equipos de RRHH y empleados - con una solucion intuitiva que cumple con GDPR y simplemente funciona."
+    },
+    "story": {
+      "title": "Nuestra Historia",
+      "paragraph1": "ZeitPal nacio de nuestra propia experiencia: Como equipo en crecimiento, estabamos cansados de hojas de calculo, emails perdidos y el constante ir y venir en solicitudes de vacaciones. Sabiamos que habia una mejor manera.",
+      "paragraph2": "Hoy, ZeitPal ayuda a cientos de equipos a gestionar sus ausencias eficientemente. Nos enfocamos en simplicidad, privacidad de datos y los requisitos especificos del mercado."
+    },
+    "values": {
+      "title": "Nuestros Valores",
+      "privacy": {
+        "title": "Privacidad Primero",
+        "description": "El cumplimiento de GDPR no es opcional - es estandar. Tus datos se quedan en Alemania."
+      },
+      "simplicity": {
+        "title": "Simplicidad",
+        "description": "Sin capacitacion requerida. ZeitPal es tan intuitivo que tu equipo puede comenzar de inmediato."
+      },
+      "transparency": {
+        "title": "Transparencia",
+        "description": "Precios claros, comunicacion honesta. Sin costos ocultos ni sorpresas."
+      },
+      "community": {
+        "title": "Enfoque al Cliente",
+        "description": "Continuamos desarrollando ZeitPal basandonos en los comentarios de nuestros usuarios."
+      }
+    },
+    "cta": {
+      "title": "Listo para comenzar?",
+      "description": "Unete a cientos de equipos que han simplificado su gestion de vacaciones con ZeitPal."
+    }
+  },
+
+  "contact": {
+    "location": "Ubicacion",
+    "responseTime": "Tiempo de Respuesta",
+    "responseTimeValue": "Dentro de 24 horas",
+    "faqTitle": "Tienes Preguntas?",
+    "faqDescription": "Podrias encontrar la respuesta en nuestras FAQ."
+  },
+
+  "contactHeading": "Contactanos",
+  "contactSubheading": "Tienes preguntas? Estamos felices de ayudar.",
+  "contactName": "Tu Nombre",
+  "contactEmail": "Tu Email",
+  "contactMessage": "Tu Mensaje",
+  "sendMessage": "Enviar Mensaje",
+  "contactSuccess": "Tu mensaje ha sido enviado exitosamente",
+  "contactError": "Ocurrio un error",
+  "contactSuccessDescription": "Hemos recibido tu mensaje y nos pondremos en contacto pronto.",
+  "contactErrorDescription": "Por favor intenta de nuevo mas tarde.",
+  "contactFaq": "Tienes mas preguntas? Contactanos",
+
+  "footerDescription": "ZeitPal es la solucion simple para gestion de vacaciones y seguimiento de ausencias. Hecho en Alemania, cumple con GDPR.",
+  "copyright": "(c) {{year}} {{product}}. Todos los Derechos Reservados."
+}

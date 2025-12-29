@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 import { Menu } from 'lucide-react';
 
 import {
@@ -11,10 +9,13 @@ import {
 import { NavigationMenu, NavigationMenuList } from '@kit/ui/navigation-menu';
 import { Trans } from '@kit/ui/trans';
 
+import { LocalizedLink } from '~/components/localized-link';
+
 import { SiteNavigationItem } from './site-navigation-item';
 
 /**
  * Add your navigation links here
+ * Use canonical (English) paths - they will be localized automatically
  *
  * @example
  *
@@ -38,16 +39,16 @@ const links: Record<
   }
 > = {
   Features: {
-    label: 'marketing:features',
+    label: 'marketing:featuresLabel',
     path: '/features',
   },
   Pricing: {
-    label: 'marketing:pricing',
+    label: 'marketing:pricingLabel',
     path: '/pricing',
   },
   Customers: {
     label: 'marketing:customers',
-    path: '/kunden',
+    path: '/customers',
   },
   FAQ: {
     label: 'marketing:faq',
@@ -94,9 +95,9 @@ function MobileDropdown() {
 
           return (
             <DropdownMenuItem key={item.path} asChild>
-              <Link className={className} href={item.path}>
+              <LocalizedLink className={className} href={item.path}>
                 <Trans i18nKey={item.label} />
-              </Link>
+              </LocalizedLink>
             </DropdownMenuItem>
           );
         })}

@@ -8,6 +8,7 @@ import {
   badRequest,
   conflict,
   created,
+  forbidden,
   success,
   unauthorized,
   validationError,
@@ -24,6 +25,19 @@ const createOrganizationSchema = z.object({
     .regex(/^[a-z0-9-]+$/, 'Only lowercase letters, numbers, and hyphens'),
   bundesland: z.string().min(2).max(2),
   defaultVacationDays: z.coerce.number().min(20).max(50).default(30),
+});
+
+// Validation schema for updating an organization
+const updateOrganizationSchema = z.object({
+  name: z.string().min(2, 'Name must be at least 2 characters').optional(),
+  bundesland: z.string().min(2).max(2).optional(),
+  defaultVacationDays: z.coerce.number().min(20).max(50).optional(),
+  carryoverEnabled: z.boolean().optional(),
+  carryoverMaxDays: z.coerce.number().min(0).max(30).optional(),
+  carryoverExpiryDate: z.string().regex(/^\d{2}-\d{2}$/).optional(),
+  sickLeaveAuThreshold: z.coerce.number().min(1).max(7).optional(),
+  requireApproval: z.boolean().optional(),
+  autoApproveThreshold: z.coerce.number().min(0).max(10).nullable().optional(),
 });
 
 /**
@@ -190,5 +204,129 @@ export async function POST(request: NextRequest) {
     name,
     slug,
     bundesland,
+  });
+}
+
+/**
+ * PATCH /api/organizations
+ * Update the current user's organization settings
+ * Requires admin, manager, or hr role
+ */
+export async function PATCH(request: NextRequest) {
+  const session = await auth();
+
+  if (!session?.user?.id) {
+    return unauthorized();
+  }
+
+  const { env } = getRequestContext();
+  const db = env.DB;
+
+  // Get user's organization membership and verify role
+  const membership = await db
+    .prepare(
+      `SELECT om.organization_id, om.role
+       FROM organization_members om
+       WHERE om.user_id = ? AND om.status = 'active'
+       LIMIT 1`
+    )
+    .bind(session.user.id)
+    .first<{ organization_id: string; role: string }>();
+
+  if (!membership) {
+    return badRequest('You are not a member of any organization');
+  }
+
+  // Check if user has permission to update organization
+  if (!['admin', 'manager', 'hr'].includes(membership.role)) {
+    return forbidden('Only admins, managers, and HR can update organization settings');
+  }
+
+  const body = await request.json();
+  const parsed = updateOrganizationSchema.safeParse(body);
+
+  if (!parsed.success) {
+    return validationError(parsed.error.flatten());
+  }
+
+  const updates = parsed.data;
+  const now = new Date().toISOString();
+
+  // Build dynamic update query
+  const setClauses: string[] = [];
+  const params: (string | number | null)[] = [];
+
+  if (updates.name !== undefined) {
+    setClauses.push('name = ?');
+    params.push(updates.name);
+  }
+  if (updates.bundesland !== undefined) {
+    setClauses.push('bundesland = ?');
+    params.push(updates.bundesland);
+  }
+  if (updates.defaultVacationDays !== undefined) {
+    setClauses.push('default_vacation_days = ?');
+    params.push(updates.defaultVacationDays);
+  }
+  if (updates.carryoverEnabled !== undefined) {
+    setClauses.push('carryover_enabled = ?');
+    params.push(updates.carryoverEnabled ? 1 : 0);
+  }
+  if (updates.carryoverMaxDays !== undefined) {
+    setClauses.push('carryover_max_days = ?');
+    params.push(updates.carryoverMaxDays);
+  }
+  if (updates.carryoverExpiryDate !== undefined) {
+    setClauses.push('carryover_expiry_date = ?');
+    params.push(updates.carryoverExpiryDate);
+  }
+  if (updates.sickLeaveAuThreshold !== undefined) {
+    setClauses.push('sick_leave_au_threshold = ?');
+    params.push(updates.sickLeaveAuThreshold);
+  }
+  if (updates.requireApproval !== undefined) {
+    setClauses.push('require_approval = ?');
+    params.push(updates.requireApproval ? 1 : 0);
+  }
+  if (updates.autoApproveThreshold !== undefined) {
+    setClauses.push('auto_approve_threshold = ?');
+    params.push(updates.autoApproveThreshold);
+  }
+
+  if (setClauses.length === 0) {
+    return badRequest('No fields to update');
+  }
+
+  setClauses.push('updated_at = ?');
+  params.push(now);
+  params.push(membership.organization_id);
+
+  await db
+    .prepare(`UPDATE organizations SET ${setClauses.join(', ')} WHERE id = ?`)
+    .bind(...params)
+    .run();
+
+  // Fetch updated organization
+  const updated = await db
+    .prepare('SELECT * FROM organizations WHERE id = ?')
+    .bind(membership.organization_id)
+    .first<Record<string, unknown>>();
+
+  if (!updated) {
+    return badRequest('Organization not found');
+  }
+
+  return success({
+    id: updated.id,
+    name: updated.name,
+    slug: updated.slug,
+    bundesland: updated.bundesland,
+    defaultVacationDays: updated.default_vacation_days,
+    carryoverEnabled: Boolean(updated.carryover_enabled),
+    carryoverMaxDays: updated.carryover_max_days,
+    carryoverExpiryDate: updated.carryover_expiry_date,
+    sickLeaveAuThreshold: updated.sick_leave_au_threshold,
+    requireApproval: Boolean(updated.require_approval),
+    autoApproveThreshold: updated.auto_approve_threshold,
   });
 }

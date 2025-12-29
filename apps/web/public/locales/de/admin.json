@@ -17,12 +17,30 @@
   "members": {
     "title": "Mitglieder",
     "description": "Verwalten Sie Organisationsmitglieder und Einladungen",
+    "membersCount": "Mitglieder",
     "invite": "Mitglied einladen",
+    "inviteMember": "Mitglied einladen",
     "inviteDescription": "Senden Sie eine Einladung zur Organisation",
+    "inviteDialog": {
+      "title": "Neues Mitglied einladen",
+      "description": "Senden Sie eine Einladungs-E-Mail, um ein neues Mitglied hinzuzufügen.",
+      "email": "E-Mail-Adresse",
+      "role": "Rolle",
+      "send": "Einladung senden",
+      "sending": "Wird gesendet..."
+    },
+    "pendingInvites": "Ausstehende Einladungen",
+    "table": {
+      "member": "Mitglied",
+      "email": "E-Mail",
+      "role": "Rolle",
+      "teams": "Teams",
+      "joined": "Beigetreten",
+      "expires": "Läuft ab"
+    },
     "email": "E-Mail-Adresse",
     "role": "Rolle",
     "status": "Status",
-    "actions": "Aktionen",
     "active": "Aktiv",
     "pending": "Ausstehend",
     "inactive": "Inaktiv",
@@ -32,19 +50,45 @@
     "resendInvite": "Einladung erneut senden",
     "inviteSent": "Einladung gesendet",
     "memberRemoved": "Mitglied entfernt",
-    "noMembers": "Keine Mitglieder gefunden"
+    "noMembers": "Keine Mitglieder gefunden",
+    "roles": {
+      "admin": "Administrator",
+      "manager": "Manager",
+      "member": "Mitglied"
+    },
+    "actions": {
+      "label": "Aktionen",
+      "viewProfile": "Profil anzeigen",
+      "makeAdmin": "Zum Admin machen",
+      "makeManager": "Zum Manager machen",
+      "makeMember": "Zum Mitglied machen",
+      "remove": "Mitglied entfernen"
+    }
   },
   "teams": {
     "title": "Teams",
     "description": "Organisieren Sie Mitglieder in Teams",
+    "teamsCount": "Teams",
     "create": "Team erstellen",
+    "createTeam": "Team erstellen",
+    "createDialog": {
+      "title": "Neues Team erstellen",
+      "description": "Erstellen Sie ein neues Team, um Ihre Mitglieder zu organisieren.",
+      "name": "Teamname",
+      "descriptionLabel": "Beschreibung",
+      "manager": "Teammanager",
+      "creating": "Wird erstellt...",
+      "create": "Team erstellen"
+    },
     "edit": "Team bearbeiten",
     "delete": "Team löschen",
     "deleteConfirm": "Sind Sie sicher, dass Sie dieses Team löschen möchten?",
     "name": "Teamname",
-    "description": "Beschreibung",
+    "descriptionField": "Beschreibung",
     "color": "Teamfarbe",
     "members": "Teammitglieder",
+    "manager": "Manager",
+    "noManager": "Kein Manager",
     "lead": "Teamleiter",
     "minCoverage": "Mindestbesetzung",
     "minCoverageHelp": "Mindestanzahl an Teammitgliedern an jedem Tag",
@@ -54,7 +98,12 @@
     "noTeams": "Noch keine Teams erstellt",
     "created": "Team erstellt",
     "updated": "Team aktualisiert",
-    "deleted": "Team gelöscht"
+    "deleted": "Team gelöscht",
+    "actions": {
+      "edit": "Bearbeiten",
+      "addMembers": "Mitglieder hinzufügen",
+      "delete": "Löschen"
+    }
   },
   "leaveTypes": {
     "title": "Urlaubsarten",

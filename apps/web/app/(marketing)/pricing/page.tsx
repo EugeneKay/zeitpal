@@ -1,10 +1,11 @@
-import Link from 'next/link';
+export const runtime = 'edge';
 
 import { ArrowRight, Check } from 'lucide-react';
 
 import { Button } from '@kit/ui/button';
 import { Trans } from '@kit/ui/trans';
 
+import { LocalizedLink } from '~/components/localized-link';
 import { SitePageHeader } from '~/(marketing)/_components/site-page-header';
 import { createI18nServerInstance } from '~/lib/i18n/i18n.server';
 import { withI18n } from '~/lib/i18n/with-i18n';
@@ -112,12 +113,12 @@ async function PricingPage() {
               <Trans i18nKey={'marketing:pricingFaqPrompt'} defaults="Have questions about pricing?" />
             </p>
             <Button asChild variant={'outline'}>
-              <Link href={'/faq'}>
+              <LocalizedLink href={'/faq'}>
                 <span>
                   <Trans i18nKey={'marketing:faq'} />
                 </span>
                 <ArrowRight className={'ml-2 w-4'} />
-              </Link>
+              </LocalizedLink>
             </Button>
           </div>
         </div>
@@ -192,10 +193,10 @@ function PricingCard({ plan }: { plan: PricingPlan }) {
         className="w-full"
         size="lg"
       >
-        <Link href={plan.ctaHref}>
+        <LocalizedLink href={plan.ctaHref}>
           {plan.cta}
           <ArrowRight className="ml-2 h-4 w-4" />
-        </Link>
+        </LocalizedLink>
       </Button>
     </div>
   );

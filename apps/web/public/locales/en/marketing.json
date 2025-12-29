@@ -1,15 +1,20 @@
 {
+  "site": {
+    "title": "ZeitPal - Leave Management That Just Works",
+    "description": "ZeitPal makes vacation planning, sick leave, and absence management effortless. GDPR compliant, Made in Germany. Free for small teams."
+  },
+
   "blog": "Blog",
   "blogSubtitle": "News and updates about the platform",
   "documentation": "Documentation",
   "documentationSubtitle": "Tutorials and guides to get started",
   "faq": "FAQ",
   "faqSubtitle": "Frequently asked questions about ZeitPal",
-  "pricing": "Pricing",
+  "pricingLabel": "Pricing",
   "pricingSubtitle": "Simple, transparent pricing",
-  "features": "Features",
+  "featuresLabel": "Features",
   "featuresSubtitle": "All features at a glance",
-  "about": "About",
+  "aboutLabel": "About",
   "aboutSubtitle": "Meet the team behind ZeitPal",
   "contact": "Contact",
   "contactSubtitle": "We'd love to hear from you",
@@ -40,10 +45,10 @@
 
   "pricing": {
     "metaTitle": "Pricing | ZeitPal - Free Leave Management",
-    "metaDescription": "ZeitPal is free for teams up to 5 people. No credit card required. Transparent pricing for growing teams.",
+    "metaDescription": "ZeitPal is free for teams up to 20 people. No credit card required. Transparent pricing for larger teams.",
     "title": "Simple, transparent pricing",
-    "subtitle": "Start for free. Upgrade as you grow.",
-    "freeForever": "Free forever",
+    "subtitle": "Free for small and medium teams. Only pay when you grow beyond 20 employees.",
+    "freeForever": "Free up to 20 employees",
     "noCreditCard": "No credit card required",
     "noHiddenFees": "No hidden fees",
     "mostPopular": "Most popular",
@@ -53,36 +58,38 @@
     "compare": "Compare plans",
 
     "starter": {
-      "name": "Starter",
+      "name": "Free",
       "price": "0",
-      "description": "Perfect for small teams",
+      "description": "Perfect for teams up to 20 employees",
       "features": [
-        "Up to 5 users",
+        "Up to 20 users",
         "Leave requests & approvals",
         "Team calendar",
         "Sick leave tracking",
         "Email notifications",
+        "Multiple teams",
+        "Leave balances",
         "GDPR compliant"
       ]
     },
     "team": {
       "name": "Team",
-      "price": "4.99",
-      "description": "For growing teams",
+      "price": "3.99",
+      "description": "For growing companies with 21+ employees",
       "features": [
-        "Everything in Starter",
-        "6-50 users",
-        "Multiple teams",
-        "Advanced reports",
-        "Leave balances",
+        "Everything in Free",
+        "21-100 users",
+        "Advanced reports & analytics",
         "Slack integration",
-        "Priority support"
+        "Google Calendar sync",
+        "Priority email support",
+        "Custom leave types"
       ]
     },
     "enterprise": {
       "name": "Enterprise",
       "price": "Custom",
-      "description": "For large organizations",
+      "description": "For large organizations with 100+ employees",
       "features": [
         "Everything in Team",
         "Unlimited users",
@@ -90,7 +97,8 @@
         "API access",
         "Dedicated account manager",
         "SLA guarantee",
-        "On-premise option"
+        "On-premise option",
+        "Custom integrations"
       ]
     }
   },
@@ -169,6 +177,19 @@
     "uptime": "Uptime"
   },
 
+  "liveUpdates": {
+    "heading": "Stay informed - in real time",
+    "subheading": "Get instant notifications about leave requests, approvals, and team changes.",
+    "item1": "Leave request approved",
+    "time1": "Just now",
+    "item2": "Sarah K. - Vacation Dec 23-27",
+    "time2": "2 minutes ago",
+    "item3": "Reminder: Team meeting tomorrow",
+    "time3": "5 minutes ago",
+    "item4": "Sick leave notification received",
+    "time4": "10 minutes ago"
+  },
+
   "testimonials": {
     "heading": "What our customers say",
     "subheading": "Over 500 teams trust ZeitPal",
@@ -214,7 +235,7 @@
     },
     "urlaubsplaner": {
       "metaTitle": "Online Vacation Planner | ZeitPal - Free",
-      "metaDescription": "Plan vacations online with the team calendar. Avoid conflicts, stay informed. Free for teams up to 5.",
+      "metaDescription": "Plan vacations online with the team calendar. Avoid conflicts, stay informed. Free for teams up to 20 employees.",
       "h1": "Online Vacation Planner for Teams",
       "subtitle": "Plan your team's vacation centrally and avoid bottlenecks. With calendar view and automatic notifications."
     },
@@ -235,7 +256,7 @@
   "useCases": {
     "startups": {
       "metaTitle": "Leave Management for Startups | ZeitPal",
-      "metaDescription": "Free leave management for startups up to 5 employees. Quick setup, easy to use. Start now.",
+      "metaDescription": "Free leave management for startups up to 20 employees. Quick setup, easy to use. Start now.",
       "h1": "Leave Management for Startups",
       "subtitle": "Focus on growth - we take care of leave management. Free for small teams."
     },
@@ -250,7 +271,7 @@
   "faqItems": [
     {
       "question": "Is ZeitPal really free?",
-      "answer": "Yes! Our Starter plan is free forever for teams up to 5 people. No credit card required, no hidden costs."
+      "answer": "Yes! ZeitPal is completely free for teams up to 20 employees. No credit card required, no hidden costs. You only pay when you grow beyond 20 team members."
     },
     {
       "question": "How long does setup take?",
@@ -279,7 +300,11 @@
     "product": "Product",
     "solutions": "Solutions",
     "company": "Company",
-    "legal": "Legal"
+    "legal": "Legal",
+    "leaveManagement": "Leave Management",
+    "absenceManagement": "Absence Management",
+    "forStartups": "For Startups",
+    "forSMEs": "For SMEs"
   },
 
   "ctaSection": {

@@ -9,9 +9,9 @@ const defaultLanguage = process.env.NEXT_PUBLIC_DEFAULT_LOCALE ?? 'en';
 
 /**
  * The list of supported languages.
- * English first (default), German second.
+ * Must match LOCALES in locales.config.ts
  */
-export const languages: string[] = ['en', 'de'];
+export const languages: string[] = ['en', 'de', 'es'];
 
 /**
  * The name of the cookie that stores the selected language.

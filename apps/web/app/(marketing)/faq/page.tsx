@@ -1,10 +1,11 @@
-import Link from 'next/link';
+export const runtime = 'edge';
 
 import { ArrowRight, ChevronDown } from 'lucide-react';
 
 import { Button } from '@kit/ui/button';
 import { Trans } from '@kit/ui/trans';
 
+import { LocalizedLink } from '~/components/localized-link';
 import { SitePageHeader } from '~/(marketing)/_components/site-page-header';
 import { createI18nServerInstance } from '~/lib/i18n/i18n.server';
 import { withI18n } from '~/lib/i18n/with-i18n';
@@ -64,13 +65,13 @@ async function FAQPage() {
 
           <div>
             <Button asChild variant={'outline'}>
-              <Link href={'/contact'}>
+              <LocalizedLink href={'/contact'}>
                 <span>
                   <Trans i18nKey={'marketing:contactFaq'} />
                 </span>
 
                 <ArrowRight className={'ml-2 w-4'} />
-              </Link>
+              </LocalizedLink>
             </Button>
           </div>
         </div>

@@ -3,7 +3,7 @@ import { NextRequest } from 'next/server';
 import { getRequestContext } from '@cloudflare/next-on-pages';
 
 import { auth } from '~/lib/auth/auth';
-import { success, unauthorized } from '~/lib/api/responses';
+import { badRequest, success, unauthorized } from '~/lib/api/responses';
 
 export const runtime = 'edge';
 
@@ -68,4 +68,67 @@ export async function GET(request: NextRequest) {
   }));
 
   return success(leaveTypes);
+}
+
+/**
+ * PATCH /api/leave-types
+ * Update a leave type's active status
+ */
+export async function PATCH(request: NextRequest) {
+  try {
+    const session = await auth();
+
+    if (!session?.user?.id) {
+      return unauthorized('Not authenticated');
+    }
+
+    const { env } = getRequestContext();
+    const db = env.DB;
+
+    // Get user's organization and check admin status
+    const member = await db
+      .prepare(
+        `SELECT organization_id, role FROM organization_members
+         WHERE user_id = ? AND status = 'active' LIMIT 1`
+      )
+      .bind(session.user.id)
+      .first<{ organization_id: string; role: string }>();
+
+    if (!member) {
+      return unauthorized('No active organization membership found');
+    }
+
+    // Only admins can modify leave types
+    if (member.role !== 'admin' && member.role !== 'owner') {
+      return unauthorized('Only admins can modify leave types');
+    }
+
+    const body = await request.json();
+    const { id, isActive } = body;
+
+    if (!id || typeof isActive !== 'boolean') {
+      return badRequest('Invalid request body: id and isActive are required');
+    }
+
+    // Update the leave type's is_active status
+    // Note: For system-wide leave types (organization_id IS NULL), this affects all orgs
+    // TODO: Add organization_leave_type_settings table for per-org overrides
+    const result = await db
+      .prepare(
+        `UPDATE leave_types SET is_active = ?, updated_at = datetime('now') WHERE id = ?`
+      )
+      .bind(isActive ? 1 : 0, id)
+      .run();
+
+    if (!result.meta.changes) {
+      return badRequest('Leave type not found or already in requested state');
+    }
+
+    return success({ id, isActive });
+  } catch (error) {
+    console.error('Error updating leave type:', error);
+    return badRequest(
+      `Failed to update leave type: ${error instanceof Error ? error.message : 'Unknown error'}`
+    );
+  }
 }
