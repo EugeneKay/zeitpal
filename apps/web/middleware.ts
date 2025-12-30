@@ -40,12 +40,18 @@ async function getUser(request: NextRequest) {
       cookies: request.cookies.getAll().map(c => c.name),
     });
 
+    // Auth.js v5 uses 'authjs.session-token' cookie name by default
+    // In production with HTTPS, it uses '__Secure-authjs.session-token'
+    const isSecure = request.nextUrl.protocol === 'https:';
+    const cookieName = isSecure ? '__Secure-authjs.session-token' : 'authjs.session-token';
+
     const token = await getToken({
       req: request,
       secret,
+      cookieName,
     });
 
-    console.log('[Middleware Debug] Token:', !!token);
+    console.log('[Middleware Debug] Token:', !!token, 'cookieName:', cookieName);
 
     return token;
   } catch (error) {
