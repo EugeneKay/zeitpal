@@ -4,6 +4,8 @@ import { z } from 'zod';
 
 import { auth } from '~/lib/auth/auth';
 import { badRequest, created, unauthorized } from '~/lib/api/responses';
+import { sendMemberInvitationEmail } from '~/lib/emails';
+import { getSiteUrl } from '~/lib/services/email.service';
 
 
 const onboardingCompleteSchema = z.object({
@@ -217,6 +219,13 @@ export async function POST(request: NextRequest) {
     }
 
     // 6. Create invites if provided
+    const inviteDetails: Array<{
+      email: string;
+      role: string;
+      token: string;
+      expiresAt: string;
+    }> = [];
+
     for (const invite of data.invites) {
       const inviteId = crypto.randomUUID();
       const token = crypto.randomUUID();
@@ -245,8 +254,13 @@ export async function POST(request: NextRequest) {
           )
       );
 
-      // TODO: Send invite email via Mailgun
-      // await sendInviteEmail(invite.email, token, data.organizationName);
+      // Store invite details for sending emails after batch succeeds
+      inviteDetails.push({
+        email: invite.email.toLowerCase(),
+        role: invite.role,
+        token,
+        expiresAt,
+      });
     }
 
     // 7. Create audit log entry
@@ -278,12 +292,33 @@ export async function POST(request: NextRequest) {
     // Execute all statements in batch
     await db.batch(statements);
 
+    // Send invite emails after successful database transaction
+    // Fire-and-forget with error logging to avoid blocking the response
+    const siteUrl = getSiteUrl();
+    const inviterName = data.displayName || session.user.name || session.user.email || 'Team Admin';
+
+    for (const invite of inviteDetails) {
+      const inviteUrl = `${siteUrl}/invite/${invite.token}`;
+
+      sendMemberInvitationEmail(env, {
+        inviteeName: invite.email.split('@')[0] ?? invite.email,
+        inviteeEmail: invite.email,
+        organizationName: data.organizationName,
+        inviterName,
+        role: invite.role,
+        inviteUrl,
+        expiresAt: invite.expiresAt,
+      }).catch((error) => {
+        console.error(`Failed to send invitation email to ${invite.email}:`, error);
+      });
+    }
+
     return created({
       success: true,
       organizationId: orgId,
       organizationSlug: data.organizationSlug,
       teamId,
-      invitesSent: data.invites.length,
+      invitesSent: inviteDetails.length,
     });
   } catch (error) {
     console.error('Onboarding completion error:', error);
