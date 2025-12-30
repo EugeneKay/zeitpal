@@ -122,7 +122,7 @@ export async function POST(request: NextRequest) {
           data.organizationSlug,
           data.country,
           data.region || null,
-          data.country === 'DE' ? data.region : null, // For backwards compatibility
+          data.country === 'DE' ? (data.region || '') : '', // bundesland for DE, empty for others
           data.defaultVacationDays,
           data.carryoverEnabled ? 1 : 0,
           data.carryoverMaxDays,
