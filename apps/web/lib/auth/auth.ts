@@ -25,11 +25,28 @@ async function getAuth() {
   try {
     const ctx = await getCloudflareContext({ async: true });
     cfEnv = ctx?.env as CloudflareEnv | undefined;
-  } catch {
+
+    // Debug logging - remove after fixing
+    console.log('[Auth Debug] getCloudflareContext result:', {
+      hasCtx: !!ctx,
+      hasEnv: !!cfEnv,
+      envKeys: cfEnv ? Object.keys(cfEnv) : [],
+      hasGoogleId: !!cfEnv?.AUTH_GOOGLE_ID,
+      hasGoogleSecret: !!cfEnv?.AUTH_GOOGLE_SECRET,
+    });
+  } catch (e) {
     // Not in edge runtime - fall back to process.env
+    console.log('[Auth Debug] getCloudflareContext failed:', e);
   }
 
   const env = (cfEnv ?? process.env) as AuthEnv;
+
+  // Debug: what env are we using?
+  console.log('[Auth Debug] Using env:', {
+    isCfEnv: !!cfEnv,
+    hasGoogleId: !!env.AUTH_GOOGLE_ID,
+    hasGoogleSecret: !!env.AUTH_GOOGLE_SECRET,
+  });
   const authConfig = getAuthConfig(env);
   const secret =
     env.AUTH_SECRET ??
