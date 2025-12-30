@@ -17,7 +17,6 @@ interface MemberRow {
   team_names: string | null;
 }
 
-export const runtime = 'edge';
 
 /**
  * GET /api/members

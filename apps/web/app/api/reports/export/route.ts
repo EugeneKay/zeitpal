@@ -6,7 +6,6 @@ import { z } from 'zod';
 import { auth } from '~/lib/auth/auth';
 import { badRequest, forbidden, unauthorized } from '~/lib/api/responses';
 
-export const runtime = 'edge';
 
 const querySchema = z.object({
   type: z.enum(['balances', 'requests', 'summary']),

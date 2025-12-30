@@ -24,7 +24,6 @@ interface HolidayRow {
   is_half_day: number;
 }
 
-export const runtime = 'edge';
 
 const querySchema = z.object({
   year: z.coerce.number().min(2020).max(2030).optional(),

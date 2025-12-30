@@ -13,7 +13,6 @@ import {
   validationError,
 } from '~/lib/api/responses';
 
-export const runtime = 'edge';
 
 interface LeaveRequestRow {
   id: string;

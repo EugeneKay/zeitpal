@@ -17,7 +17,6 @@ import {
   sendTeamAbsenceNotificationEmail,
 } from '~/lib/emails';
 
-export const runtime = 'edge';
 
 const approveSchema = z.object({
   comment: z.string().max(500).optional(),

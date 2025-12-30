@@ -13,7 +13,6 @@ import {
   validationError,
 } from '~/lib/api/responses';
 
-export const runtime = 'edge';
 
 const addMembersSchema = z.object({
   memberIds: z.array(z.string().min(1)).min(1, 'Select at least one member'),

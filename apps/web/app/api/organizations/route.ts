@@ -14,7 +14,6 @@ import {
   validationError,
 } from '~/lib/api/responses';
 
-export const runtime = 'edge';
 
 // Validation schema for creating an organization
 const createOrganizationSchema = z.object({

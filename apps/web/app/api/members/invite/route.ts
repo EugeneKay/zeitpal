@@ -14,7 +14,6 @@ import {
 import { sendMemberInvitationEmail } from '~/lib/emails';
 import { getSiteUrl } from '~/lib/services/email.service';
 
-export const runtime = 'edge';
 
 const inviteSchema = z.object({
   email: z.string().email('Invalid email address'),

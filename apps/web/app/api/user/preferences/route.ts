@@ -11,7 +11,6 @@ import {
   validationError,
 } from '~/lib/api/responses';
 
-export const runtime = 'edge';
 
 // Notification preferences schema
 const notificationPreferencesSchema = z.object({

@@ -5,7 +5,6 @@ import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { auth } from '~/lib/auth/auth';
 import { forbidden, success, unauthorized } from '~/lib/api/responses';
 
-export const runtime = 'edge';
 
 interface TeamAvailabilityRow {
   id: string;

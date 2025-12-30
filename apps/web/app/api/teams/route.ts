@@ -14,7 +14,6 @@ import {
   validationError,
 } from '~/lib/api/responses';
 
-export const runtime = 'edge';
 
 interface TeamRow {
   id: string;

@@ -13,7 +13,6 @@ import {
   validationError,
 } from '~/lib/api/responses';
 
-export const runtime = 'edge';
 
 const updateMemberSchema = z.object({
   role: z.enum(['admin', 'manager', 'member']).optional(),

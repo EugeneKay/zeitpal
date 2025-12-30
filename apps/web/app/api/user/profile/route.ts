@@ -11,7 +11,6 @@ import {
   validationError,
 } from '~/lib/api/responses';
 
-export const runtime = 'edge';
 
 const updateProfileSchema = z.object({
   name: z.string().min(1).max(100).optional(),

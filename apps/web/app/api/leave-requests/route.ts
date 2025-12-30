@@ -14,7 +14,6 @@ import {
 import { calculateWorkDays } from '~/lib/utils/leave-calculations';
 import { sendLeaveRequestSubmittedEmail } from '~/lib/emails';
 
-export const runtime = 'edge';
 
 // Validation schema for creating a leave request
 const createLeaveRequestSchema = z.object({

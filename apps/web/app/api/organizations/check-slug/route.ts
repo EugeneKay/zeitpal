@@ -5,7 +5,6 @@ import { z } from 'zod';
 
 import { badRequest, success, validationError } from '~/lib/api/responses';
 
-export const runtime = 'edge';
 
 const checkSlugSchema = z.object({
   slug: z

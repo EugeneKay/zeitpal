@@ -14,7 +14,6 @@ import {
 } from '~/lib/api/responses';
 import { sendLeaveRequestRejectedEmail } from '~/lib/emails';
 
-export const runtime = 'edge';
 
 const rejectSchema = z.object({
   reason: z.string().min(1, 'Reason is required').max(500),

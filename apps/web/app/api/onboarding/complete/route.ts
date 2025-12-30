@@ -5,7 +5,6 @@ import { z } from 'zod';
 import { auth } from '~/lib/auth/auth';
 import { badRequest, created, unauthorized } from '~/lib/api/responses';
 
-export const runtime = 'edge';
 
 const onboardingCompleteSchema = z.object({
   // Profile
