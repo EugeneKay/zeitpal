@@ -71,10 +71,11 @@ export default function OrganizationPage() {
     try {
       const response = await fetch(`/api/organizations/check-slug?slug=${encodeURIComponent(slug)}`);
 
-      const data = await response.json();
+      const result = await response.json();
       lastCheckedSlug.current = slug;
 
-      if (data.available) {
+      // API response is wrapped in { data: { available, slug } }
+      if (result.data?.available) {
         setSlugAvailability('available');
       } else {
         setSlugAvailability('taken');
