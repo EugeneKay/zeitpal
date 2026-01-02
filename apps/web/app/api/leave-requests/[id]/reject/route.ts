@@ -43,7 +43,7 @@ export async function POST(request: NextRequest, { params }: RouteParams) {
   }
 
   const { reason } = parsed.data;
-  const { env } = getCloudflareContext();
+  const { env, ctx } = getCloudflareContext();
   const db = env.DB;
 
   // Get current user's membership
@@ -153,9 +153,9 @@ export async function POST(request: NextRequest, { params }: RouteParams) {
     .bind(session.user.id)
     .first<{ name: string }>();
 
-  // Send rejection notification email to employee
+  // Send rejection notification email to employee using waitUntil
   if (employee && leaveType && rejecter) {
-    sendLeaveRequestRejectedEmail(env, {
+    const rejectionEmailPromise = sendLeaveRequestRejectedEmail(env, {
       employeeName: employee.name || employee.email,
       employeeEmail: employee.email,
       leaveType: leaveType.name_en,
@@ -167,6 +167,8 @@ export async function POST(request: NextRequest, { params }: RouteParams) {
     }).catch((error) => {
       console.error('Failed to send rejection email:', error);
     });
+
+    ctx.waitUntil(rejectionEmailPromise);
   }
 
   return success({

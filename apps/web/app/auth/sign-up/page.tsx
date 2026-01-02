@@ -1,5 +1,8 @@
+import { Suspense } from 'react';
 
 import Link from 'next/link';
+
+import { Loader2 } from 'lucide-react';
 
 import { Button } from '@kit/ui/button';
 import { Heading } from '@kit/ui/heading';
@@ -19,6 +22,14 @@ export const generateMetadata = async () => {
   };
 };
 
+function SignUpFormFallback() {
+  return (
+    <div className="flex flex-col items-center justify-center py-8">
+      <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" />
+    </div>
+  );
+}
+
 function SignUpPage() {
   return (
     <>
@@ -26,7 +37,9 @@ function SignUpPage() {
         <Trans i18nKey={'auth:signUpHeading'} />
       </Heading>
 
-      <SignUpForm />
+      <Suspense fallback={<SignUpFormFallback />}>
+        <SignUpForm />
+      </Suspense>
 
       <div className={'flex justify-center'}>
         <Button asChild variant={'link'} size={'sm'}>

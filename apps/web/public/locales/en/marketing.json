@@ -304,7 +304,8 @@
     "leaveManagement": "Leave Management",
     "absenceManagement": "Absence Management",
     "forStartups": "For Startups",
-    "forSMEs": "For SMEs"
+    "forSMEs": "For SMEs",
+    "compare": "Compare"
   },
 
   "ctaSection": {
@@ -369,5 +370,812 @@
   "contactFaq": "Have more questions? Contact us",
 
   "footerDescription": "ZeitPal is the simple solution for leave management and absence tracking. Made in Germany, GDPR compliant.",
-  "copyright": "© {{year}} {{product}}. All Rights Reserved."
+  "copyright": "© {{year}} {{product}}. All Rights Reserved.",
+
+  "termsOfServiceContent": {
+    "lastUpdated": "Last updated: {{date}}",
+    "intro": "Welcome to ZeitPal. By using our services, you agree to these Terms of Service.",
+    "sections": [
+      {
+        "title": "1. Scope",
+        "content": "These Terms of Service apply to all users of the ZeitPal platform. By registering and using our services, you accept these terms in full."
+      },
+      {
+        "title": "2. Service Description",
+        "content": "ZeitPal provides cloud-based software for managing leave requests, absences, and team calendars. The scope of features depends on the selected plan."
+      },
+      {
+        "title": "3. Registration and User Account",
+        "content": "Registration is required to use ZeitPal. You are obligated to provide accurate information and keep your login credentials confidential. You are responsible for all activities that occur under your account."
+      },
+      {
+        "title": "4. Free Usage and Paid Plans",
+        "content": "ZeitPal is free for teams up to 20 members. For larger teams, our paid plans apply according to the current pricing on our website."
+      },
+      {
+        "title": "5. User Obligations",
+        "content": "You agree not to use ZeitPal for unlawful purposes, not to upload harmful content, and to respect the rights of third parties. Sharing login credentials with unauthorized third parties is prohibited."
+      },
+      {
+        "title": "6. Data Protection",
+        "content": "Protecting your data is important to us. Details about the processing of personal data can be found in our Privacy Policy."
+      },
+      {
+        "title": "7. Availability",
+        "content": "We strive to maintain high availability of our services but cannot guarantee 100% uptime. Maintenance work will be announced in advance when possible."
+      },
+      {
+        "title": "8. Limitation of Liability",
+        "content": "ZeitPal is only liable for damages caused by intentional or grossly negligent conduct. Liability for slight negligence is excluded to the extent permitted by law. This does not apply to damages arising from injury to life, body, or health."
+      },
+      {
+        "title": "9. Termination",
+        "content": "You may terminate your account at any time. For paid plans, the agreed notice period applies. After termination, your data will be deleted in accordance with our Privacy Policy."
+      },
+      {
+        "title": "10. Changes to Terms of Service",
+        "content": "We reserve the right to modify these Terms of Service. You will be notified of material changes by email. Continued use after the changes take effect constitutes acceptance."
+      },
+      {
+        "title": "11. Applicable Law and Jurisdiction",
+        "content": "German law applies, excluding the UN Convention on Contracts for the International Sale of Goods. The place of jurisdiction for all disputes is, to the extent permitted by law, the registered office of the operator."
+      },
+      {
+        "title": "12. Contact",
+        "content": "If you have questions about these Terms of Service, please contact us via our contact form or by email."
+      }
+    ]
+  },
+
+  "privacyPolicyContent": {
+    "lastUpdated": "Last updated: {{date}}",
+    "intro": "Protecting your personal data is important to us. This Privacy Policy informs you about how we collect, process, and protect your data.",
+    "sections": [
+      {
+        "title": "1. Data Controller",
+        "content": "The data controller within the meaning of the GDPR is the operator of ZeitPal. Contact details can be found in our Imprint."
+      },
+      {
+        "title": "2. Collection and Processing of Personal Data",
+        "content": "We collect personal data when you register with ZeitPal, use our services, or contact us. This includes: name, email address, company data, leave requests, and absence data."
+      },
+      {
+        "title": "3. Purposes of Data Processing",
+        "content": "We process your data to provide our services, manage your user account, communicate with you, improve our services, and fulfill legal obligations."
+      },
+      {
+        "title": "4. Legal Basis",
+        "content": "Processing is based on Art. 6(1)(b) GDPR (contract performance), Art. 6(1)(a) GDPR (consent), Art. 6(1)(c) GDPR (legal obligation), or Art. 6(1)(f) GDPR (legitimate interests)."
+      },
+      {
+        "title": "5. Data Sharing with Third Parties",
+        "content": "We only share your data when necessary for contract performance, when you have consented, or when legally required. Our hosting providers are carefully selected and contractually obligated to comply with GDPR."
+      },
+      {
+        "title": "6. Data Storage and Deletion",
+        "content": "Your data is stored on servers in Germany. We only store your data for as long as necessary for the respective purposes or as required by legal retention obligations."
+      },
+      {
+        "title": "7. Your Rights",
+        "content": "You have the right to access your stored data, rectification of inaccurate data, deletion of your data, restriction of processing, data portability, and the right to object to processing. You may also lodge a complaint with a supervisory authority."
+      },
+      {
+        "title": "8. Data Security",
+        "content": "We implement technical and organizational security measures to protect your data against accidental or intentional manipulation, loss, destruction, or access by unauthorized persons. These include SSL encryption, regular security updates, and access controls."
+      },
+      {
+        "title": "9. Cookies",
+        "content": "We use cookies to make our website user-friendly. Details can be found in our Cookie Policy."
+      },
+      {
+        "title": "10. Changes to the Privacy Policy",
+        "content": "We reserve the right to adapt this Privacy Policy as needed to reflect changes in legal requirements or changes to our services or data processing."
+      },
+      {
+        "title": "11. Contact",
+        "content": "If you have questions about data protection, please contact us via our contact form or by email."
+      }
+    ]
+  },
+
+  "cookiePolicyContent": {
+    "lastUpdated": "Last updated: {{date}}",
+    "intro": "This Cookie Policy explains how ZeitPal uses cookies and similar technologies when you visit our website.",
+    "sections": [
+      {
+        "title": "1. What Are Cookies?",
+        "content": "Cookies are small text files that are stored on your device when you visit a website. They allow the website to recognize your device and store various information."
+      },
+      {
+        "title": "2. What Cookies Do We Use?",
+        "content": "We use different types of cookies:"
+      },
+      {
+        "title": "2.1 Necessary Cookies",
+        "content": "These cookies are essential for the basic functions of the website. They enable navigation, login, and access to secure areas. Without these cookies, the website cannot function properly."
+      },
+      {
+        "title": "2.2 Functional Cookies",
+        "content": "These cookies enable enhanced features such as saving your language preferences or remembering your login details. They improve user experience."
+      },
+      {
+        "title": "2.3 Analytics Cookies",
+        "content": "These cookies allow us to understand how visitors use our website. The collected data is anonymized and helps us improve our website."
+      },
+      {
+        "title": "3. Managing Cookie Settings",
+        "content": "You can adjust your cookie preferences at any time via the cookie settings in the footer of our website. You can also block or delete cookies in your browser settings. Note that disabling certain cookies may affect website functionality."
+      },
+      {
+        "title": "4. Storage Duration",
+        "content": "Storage duration varies depending on the type of cookie. Session cookies are deleted when you close your browser. Persistent cookies remain on your device for a specified period or until you delete them."
+      },
+      {
+        "title": "5. Third-Party Cookies",
+        "content": "In some cases, we use cookies from trusted third parties. These cookies are subject to the privacy policies of the respective providers."
+      },
+      {
+        "title": "6. Updates to This Policy",
+        "content": "We may update this Cookie Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons."
+      },
+      {
+        "title": "7. Contact",
+        "content": "If you have questions about our use of cookies, please contact us via our contact form or by email."
+      }
+    ]
+  },
+
+  "compare": {
+    "metaTitle": "ZeitPal vs {{competitor}} - Leave Management Comparison",
+    "metaDescription": "Compare ZeitPal with {{competitor}}. See which leave management software is best for your team. Feature comparison, pricing, and honest review.",
+    "heroTitle": "ZeitPal vs {{competitor}}",
+    "heroSubtitle": "Find the best leave management solution for your team. An honest comparison of features, pricing, and user experience.",
+    "quickSummary": "Quick Summary",
+    "zeitpalAdvantages": [
+      "Free for teams up to 20 employees",
+      "Made in Germany, GDPR compliant",
+      "Setup in under 15 minutes",
+      "German labor law support"
+    ],
+    "sections": {
+      "overview": "Company Overview",
+      "features": "Feature Comparison",
+      "pricing": "Pricing Comparison",
+      "targetAudience": "Target Audience",
+      "prosAndCons": "Pros & Cons",
+      "compliance": "GDPR & Compliance",
+      "integrations": "Integrations",
+      "support": "Customer Support",
+      "verdict": "Our Verdict",
+      "faq": "Frequently Asked Questions"
+    },
+    "featureLabels": {
+      "leaveManagement": "Leave Management",
+      "sickLeave": "Sick Leave",
+      "teamCalendar": "Team Calendar",
+      "approvals": "Approval Workflows",
+      "reporting": "Reports & Analytics",
+      "mobileApp": "Mobile App",
+      "integrations": "Integrations"
+    },
+    "pricingLabels": {
+      "freeOption": "Free Tier",
+      "startingPrice": "Starting Price",
+      "pricingModel": "Pricing Model"
+    },
+    "pros": "Pros",
+    "cons": "Cons",
+    "ctaTitle": "Ready to try ZeitPal?",
+    "ctaSubtitle": "Start free today - no credit card required. Setup takes less than 15 minutes.",
+    "ctaButton": "Start for Free",
+    "viewPricing": "View Pricing",
+    "yes": "Yes",
+    "no": "No",
+
+    "index": {
+      "metaTitle": "ZeitPal Alternatives & Comparisons | Leave Management Software",
+      "metaDescription": "Compare ZeitPal with popular leave management solutions. Find the best alternative for your team with detailed feature comparisons.",
+      "title": "ZeitPal Comparisons",
+      "subtitle": "See how ZeitPal compares to other leave management solutions",
+      "description": "Choosing the right leave management software is an important decision. We've created honest, detailed comparisons with the most popular alternatives to help you make an informed choice.",
+      "ctaTitle": "Ready to simplify your leave management?",
+      "ctaSubtitle": "Start free today - no credit card required.",
+      "ctaButton": "Start for Free"
+    },
+
+    "zeitpal": {
+      "features": {
+        "leaveManagement": "Full leave request and approval system with one-click approvals",
+        "sickLeave": "Digital sick leave with automatic certificate reminders after 3 days",
+        "teamCalendar": "Shared team calendar with absence overview and conflict detection",
+        "approvals": "Flexible approval chains, multi-level approvals, delegation",
+        "reporting": "Absence reports, sick rate analytics, leave balance overview",
+        "mobileApp": "Responsive web app, works on any device",
+        "integrations": "Slack, Google Calendar, Microsoft 365 (coming soon)"
+      },
+      "pricing": {
+        "summary": "ZeitPal offers a generous free tier for small teams, with affordable paid plans for growing companies. No hidden costs, transparent pricing.",
+        "startingPrice": "Free / €3.99 per user",
+        "pricingModel": "Per user per month, annual billing available"
+      }
+    },
+
+    "competitors": {
+      "personio": {
+        "name": "Personio",
+        "tagline": "All-in-one HR platform from Munich",
+        "website": "personio.de",
+        "founded": "2015",
+        "headquarters": "Munich, Germany",
+        "overview": "Personio is a comprehensive HR software platform founded in Munich in 2015. It has grown to become one of Europe's leading HR tech companies, serving over 10,000 customers. Personio offers a full suite of HR tools including recruiting, onboarding, time tracking, payroll, and of course, absence management.\n\nWhile Personio is an excellent choice for companies looking for an all-in-one HR solution, its comprehensive nature means it may be more than what smaller teams need. The platform is designed for companies ready to centralize all their HR processes in one place.",
+        "features": {
+          "leaveManagement": "Full absence management with approval workflows",
+          "sickLeave": "Sick leave tracking with document upload",
+          "teamCalendar": "Team absence calendar integrated with HR data",
+          "approvals": "Multi-level approval workflows",
+          "reporting": "Comprehensive HR analytics and custom reports",
+          "mobileApp": "Native iOS and Android apps",
+          "integrations": "200+ integrations including Slack, MS Teams, payroll systems"
+        },
+        "pricing": {
+          "summary": "Personio uses custom pricing based on company size and required modules. Expect to pay €3-8 per employee per month for Core HR, with additional costs for extra modules. No free tier available.",
+          "freeOption": "false",
+          "startingPrice": "~€3-8 per employee/month",
+          "pricingModel": "Custom quote, module-based pricing"
+        },
+        "targetAudience": "Personio is ideal for mid-sized companies (50-2000 employees) looking to consolidate all HR processes in one platform. It's particularly well-suited for German companies needing comprehensive HR software with strong compliance features. However, for teams primarily focused on leave management, Personio may offer more functionality than needed.",
+        "pros": [
+          "Comprehensive all-in-one HR platform",
+          "Strong GDPR compliance and German focus",
+          "Excellent integration ecosystem",
+          "Native mobile apps",
+          "Established company with strong support"
+        ],
+        "cons": [
+          "No free tier available",
+          "Can be complex for simple leave management needs",
+          "Pricing requires sales contact",
+          "May be overkill for small teams",
+          "Long implementation time for full platform"
+        ],
+        "gdprCompliance": "Personio is fully GDPR compliant with data stored in EU data centers. As a German company, they have strong expertise in European data protection requirements. They offer features like data retention policies, access controls, and audit logs.",
+        "support": "Personio offers email and phone support with German-speaking agents. Enterprise customers get dedicated account managers. They also provide an extensive help center and regular webinars for training.",
+        "verdict": "Personio is an excellent choice if you need a comprehensive HR platform that goes beyond leave management. However, if your primary need is simple, affordable leave tracking, ZeitPal offers a more focused solution with a free tier for small teams. Choose Personio for full HR suite, choose ZeitPal for straightforward leave management.",
+        "faqItems": [
+          {
+            "question": "Is Personio better than ZeitPal for leave management?",
+            "answer": "Personio offers more comprehensive HR features, but ZeitPal is specifically designed for leave management with a simpler interface and free tier for small teams. If you only need leave management, ZeitPal is more cost-effective."
+          },
+          {
+            "question": "Can I migrate from Personio to ZeitPal?",
+            "answer": "Yes, you can export your absence data from Personio and import it into ZeitPal. Our support team can help with the migration process."
+          },
+          {
+            "question": "Does Personio have a free version?",
+            "answer": "No, Personio does not offer a free tier. ZeitPal is free for teams up to 20 employees."
+          }
+        ]
+      },
+
+      "personizer": {
+        "name": "Personizer",
+        "tagline": "German time tracking and absence management",
+        "website": "personizer.com",
+        "founded": "2015",
+        "headquarters": "Germany",
+        "overview": "Personizer is a German cloud-based HR tool focused on time tracking and absence management for small and medium-sized companies. Founded in 2015, they've built a reputation for GDPR compliance and ease of use.\n\nPersonizer combines time tracking with absence management, making it a good choice for companies that need both functionalities. Their focus on the German market means strong compliance with local labor laws.",
+        "features": {
+          "leaveManagement": "Leave requests with approval workflows",
+          "sickLeave": "Sick leave tracking and notifications",
+          "teamCalendar": "Team absence calendar",
+          "approvals": "Manager approval workflows",
+          "reporting": "Basic absence reports and exports",
+          "mobileApp": "Mobile-responsive web app",
+          "integrations": "Limited integrations, API available"
+        },
+        "pricing": {
+          "summary": "Personizer offers a free tier for up to 5 users. Paid plans start at around €2 per user per month. Transparent pricing with no hidden costs.",
+          "freeOption": "true",
+          "startingPrice": "Free / ~€2 per user",
+          "pricingModel": "Per user per month"
+        },
+        "targetAudience": "Personizer is designed for small to medium German companies that need combined time tracking and absence management. It's particularly suitable for teams that want simple, GDPR-compliant software without enterprise complexity.",
+        "pros": [
+          "German company with strong GDPR compliance",
+          "Free tier available for small teams",
+          "Combined time tracking and absence management",
+          "Easy to use interface",
+          "Affordable pricing"
+        ],
+        "cons": [
+          "Free tier limited to 5 users (vs ZeitPal's 20)",
+          "Fewer integrations than larger platforms",
+          "Less feature-rich than enterprise solutions",
+          "Limited customization options",
+          "Smaller company with less support resources"
+        ],
+        "gdprCompliance": "Personizer is fully GDPR compliant with data stored on ISO-certified servers in the EU. As a German company, they prioritize data protection and offer strong security measures.",
+        "support": "Personizer offers email support in German and English. They provide a help center and documentation for self-service support.",
+        "verdict": "Personizer and ZeitPal are both solid choices for German companies. The main differences are: ZeitPal offers a more generous free tier (20 users vs 5), while Personizer includes time tracking. If time tracking is important, consider Personizer. For pure leave management with a better free offering, ZeitPal is the better choice.",
+        "faqItems": [
+          {
+            "question": "What's the difference between Personizer and ZeitPal?",
+            "answer": "Both are German GDPR-compliant solutions. Personizer combines time tracking with absence management, while ZeitPal focuses specifically on leave management. ZeitPal offers a free tier for up to 20 users, compared to Personizer's 5 user limit."
+          },
+          {
+            "question": "Which is cheaper, Personizer or ZeitPal?",
+            "answer": "For teams up to 20 employees, ZeitPal is completely free. Personizer's free tier is limited to 5 users. For paid plans, both are similarly priced around €2-4 per user per month."
+          }
+        ]
+      },
+
+      "absence-io": {
+        "name": "absence.io",
+        "tagline": "Dedicated absence management platform",
+        "website": "absence.io",
+        "founded": "2014",
+        "headquarters": "Munich, Germany",
+        "overview": "absence.io is a dedicated absence management platform founded in Munich in 2014. Unlike all-in-one HR platforms, absence.io focuses specifically on making absence tracking simple and efficient. They serve thousands of companies worldwide with a clean, user-friendly interface.\n\nThe platform is known for its simplicity and ease of use. It's designed to be set up quickly and requires minimal training for team members.",
+        "features": {
+          "leaveManagement": "Full leave request and approval system",
+          "sickLeave": "Sick leave tracking with notifications",
+          "teamCalendar": "Absence calendar with team overview",
+          "approvals": "Customizable approval workflows",
+          "reporting": "Absence reports and analytics",
+          "mobileApp": "Native iOS and Android apps",
+          "integrations": "Slack, Google Calendar, Personio, BambooHR"
+        },
+        "pricing": {
+          "summary": "absence.io offers a 14-day free trial but no permanent free tier. Paid plans start at €2.50 per user per month. Volume discounts available for larger teams.",
+          "freeOption": "false",
+          "startingPrice": "€2.50 per user/month",
+          "pricingModel": "Per user per month, annual billing"
+        },
+        "targetAudience": "absence.io is designed for companies of all sizes that want a focused absence management solution. It's particularly popular with companies that have outgrown spreadsheets but don't need a full HR platform.",
+        "pros": [
+          "Clean, focused absence management solution",
+          "Native mobile apps for iOS and Android",
+          "Good integration with other HR tools",
+          "Quick setup and easy to use",
+          "GDPR compliant with EU data hosting"
+        ],
+        "cons": [
+          "No free tier (only 14-day trial)",
+          "Less feature-rich than ZeitPal's free tier",
+          "No German labor law specific features",
+          "Additional cost for advanced features",
+          "Support primarily in English"
+        ],
+        "gdprCompliance": "absence.io is fully GDPR compliant with data stored in EU data centers. They have a dedicated data protection officer and offer features for GDPR compliance including data export and deletion.",
+        "support": "absence.io provides email support and an extensive help center. Response times are generally within 24 hours. Premium support available for enterprise customers.",
+        "verdict": "absence.io is a solid choice for companies wanting a dedicated absence management tool. However, the lack of a free tier makes ZeitPal more attractive for small teams. ZeitPal also offers better German labor law support. Choose absence.io for its native mobile apps, choose ZeitPal for free usage and German compliance.",
+        "faqItems": [
+          {
+            "question": "Does absence.io have a free version?",
+            "answer": "absence.io only offers a 14-day free trial, not a permanent free tier. ZeitPal is free for teams up to 20 employees with no time limit."
+          },
+          {
+            "question": "Which has better mobile apps: absence.io or ZeitPal?",
+            "answer": "absence.io has native iOS and Android apps, while ZeitPal offers a responsive web app that works on all devices. Both provide good mobile experiences."
+          }
+        ]
+      },
+
+      "factorial": {
+        "name": "Factorial",
+        "tagline": "Modern HR platform for SMEs",
+        "website": "factorialhr.com",
+        "founded": "2016",
+        "headquarters": "Barcelona, Spain",
+        "overview": "Factorial is a modern HR platform founded in Barcelona in 2016. It has grown rapidly to serve over 60,000 companies worldwide. Factorial offers a comprehensive suite of HR tools including time tracking, absence management, document management, and performance reviews.\n\nThe platform is known for its modern interface and user-friendly design. It's particularly popular with startups and growing companies looking for a scalable HR solution.",
+        "features": {
+          "leaveManagement": "Complete leave management with custom policies",
+          "sickLeave": "Sick leave tracking with document management",
+          "teamCalendar": "Team calendar with absence visibility",
+          "approvals": "Multi-level approval workflows",
+          "reporting": "HR analytics and custom dashboards",
+          "mobileApp": "Native iOS and Android apps",
+          "integrations": "Slack, Google, Microsoft, payroll integrations"
+        },
+        "pricing": {
+          "summary": "Factorial offers a limited free tier for very small teams. Paid plans start at around €4-6 per employee per month depending on features. Custom pricing for enterprise.",
+          "freeOption": "true",
+          "startingPrice": "~€4-6 per employee/month",
+          "pricingModel": "Per employee per month, feature-based tiers"
+        },
+        "targetAudience": "Factorial is designed for SMEs and startups looking for a modern, scalable HR platform. It's particularly popular in Spain and Latin America but has strong presence across Europe. Best suited for companies wanting more than just leave management.",
+        "pros": [
+          "Modern, user-friendly interface",
+          "Comprehensive HR features beyond absence management",
+          "Native mobile apps",
+          "Good integration ecosystem",
+          "Limited free tier available"
+        ],
+        "cons": [
+          "Free tier very limited in features",
+          "Less focused on German market requirements",
+          "Can be complex for simple leave management",
+          "Pricing higher than ZeitPal for similar features",
+          "Support primarily in English and Spanish"
+        ],
+        "gdprCompliance": "Factorial is GDPR compliant with EU data centers. They offer standard data protection features and privacy controls. However, they're not specifically focused on German data protection requirements.",
+        "support": "Factorial provides chat and email support. They have a help center with documentation and video tutorials. Support available in English, Spanish, and other European languages.",
+        "verdict": "Factorial is a strong choice for companies wanting a comprehensive, modern HR platform. However, for German companies focused specifically on leave management, ZeitPal offers better value with its generous free tier and German labor law compliance. Choose Factorial for full HR suite, choose ZeitPal for focused leave management in Germany.",
+        "faqItems": [
+          {
+            "question": "Is Factorial available in German?",
+            "answer": "Factorial supports multiple languages including German. However, their primary focus is on Spanish and English-speaking markets, while ZeitPal is specifically built for German companies."
+          },
+          {
+            "question": "Which is better for a small German company?",
+            "answer": "For German companies up to 20 employees, ZeitPal is likely the better choice due to its free tier, German labor law support, and GDPR-focused approach. Factorial is better if you need a full HR platform."
+          }
+        ]
+      },
+
+      "vacation-tracker": {
+        "name": "Vacation Tracker",
+        "tagline": "Leave tracking for Slack and Teams",
+        "website": "vacationtracker.io",
+        "founded": "2018",
+        "headquarters": "Bosnia and Herzegovina",
+        "overview": "Vacation Tracker is a leave tracking tool designed specifically for teams that use Slack or Microsoft Teams. Founded in 2018, they've focused on making leave management seamless within the communication tools teams already use.\n\nThe platform is known for its tight integration with Slack and Teams, allowing employees to request and manage leave without leaving their chat application.",
+        "features": {
+          "leaveManagement": "Leave requests directly in Slack or Teams",
+          "sickLeave": "Sick day tracking with notifications",
+          "teamCalendar": "Calendar view integrated with Slack/Teams",
+          "approvals": "Approval workflows via Slack/Teams messages",
+          "reporting": "Leave reports and balance tracking",
+          "mobileApp": "Works via Slack/Teams mobile apps",
+          "integrations": "Slack, Microsoft Teams, Google Calendar, Outlook"
+        },
+        "pricing": {
+          "summary": "Vacation Tracker offers a free tier with limited features. Paid plans start at $1 per user per month, making it one of the more affordable options.",
+          "freeOption": "true",
+          "startingPrice": "$1 per user/month",
+          "pricingModel": "Per user per month"
+        },
+        "targetAudience": "Vacation Tracker is ideal for remote teams and companies heavily using Slack or Microsoft Teams for communication. It's particularly popular with tech startups and distributed teams who want leave management embedded in their workflow.",
+        "pros": [
+          "Excellent Slack and Teams integration",
+          "Very affordable pricing",
+          "Free tier available",
+          "Easy setup within existing tools",
+          "Great for remote teams"
+        ],
+        "cons": [
+          "Requires Slack or Teams to be useful",
+          "Limited standalone features",
+          "Not specifically designed for German market",
+          "Less comprehensive reporting",
+          "No German labor law specific features"
+        ],
+        "gdprCompliance": "Vacation Tracker is GDPR compliant and offers data processing agreements. However, data may be stored outside the EU depending on configuration. Not specifically focused on German compliance requirements.",
+        "support": "Vacation Tracker provides email support and a help center. Being a smaller company, support resources are more limited than enterprise alternatives.",
+        "verdict": "Vacation Tracker is excellent for teams living in Slack or Teams who want minimal friction for leave requests. However, if you're a German company needing standalone leave management with German labor law compliance, ZeitPal is the better choice. Choose Vacation Tracker for Slack/Teams integration, choose ZeitPal for German compliance and standalone use.",
+        "faqItems": [
+          {
+            "question": "Do I need Slack or Teams to use Vacation Tracker?",
+            "answer": "While Vacation Tracker has a web interface, its main value is the Slack/Teams integration. Without these tools, ZeitPal offers a more comprehensive standalone experience."
+          },
+          {
+            "question": "Is Vacation Tracker cheaper than ZeitPal?",
+            "answer": "For teams over 20 employees, Vacation Tracker at $1/user may be cheaper than ZeitPal at €3.99/user. However, for teams under 20, ZeitPal is completely free."
+          }
+        ]
+      },
+
+      "calamari": {
+        "name": "Calamari",
+        "tagline": "HR software with time and attendance",
+        "website": "calamari.io",
+        "founded": "2014",
+        "headquarters": "Poland",
+        "overview": "Calamari is an HR software platform focused on time tracking, attendance, and leave management. Founded in Poland in 2014, they've built a strong presence in Europe with their comprehensive workforce management tools.\n\nThe platform combines clock-in/clock-out functionality with leave management, making it suitable for companies that need both time tracking and absence management in one tool.",
+        "features": {
+          "leaveManagement": "Full leave request and approval system",
+          "sickLeave": "Sick leave tracking with notifications",
+          "teamCalendar": "Team calendar with attendance view",
+          "approvals": "Multi-level approval workflows",
+          "reporting": "Time and attendance analytics",
+          "mobileApp": "Native iOS and Android apps",
+          "integrations": "Slack, Microsoft Teams, Google Calendar, Jira"
+        },
+        "pricing": {
+          "summary": "Calamari offers separate pricing for Leave Management and Clock-in/Clock-out modules. Leave Management starts at $2 per user per month. 14-day free trial available.",
+          "freeOption": "false",
+          "startingPrice": "$2 per user/month",
+          "pricingModel": "Per user per month, module-based"
+        },
+        "targetAudience": "Calamari is designed for companies needing both time tracking and leave management. It's popular with companies that have shift workers or need attendance tracking alongside absence management.",
+        "pros": [
+          "Combined time tracking and leave management",
+          "Native mobile apps with clock-in feature",
+          "Good Microsoft Teams integration",
+          "Affordable pricing",
+          "GDPR compliant"
+        ],
+        "cons": [
+          "No free tier (only 14-day trial)",
+          "Requires paying for modules separately",
+          "Not specifically designed for German market",
+          "Polish company with limited German support",
+          "Interface can feel dated"
+        ],
+        "gdprCompliance": "Calamari is GDPR compliant with data stored in EU data centers. They provide standard data protection features and DPA agreements.",
+        "support": "Calamari offers email support and chat support during business hours. They have a help center with documentation. Support primarily in English.",
+        "verdict": "Calamari is a good choice if you need combined time tracking and leave management. However, for German companies focused primarily on leave management, ZeitPal offers a better solution with its free tier and German labor law support. Choose Calamari for time tracking needs, choose ZeitPal for focused leave management.",
+        "faqItems": [
+          {
+            "question": "Can I use just the leave management in Calamari?",
+            "answer": "Yes, Calamari offers leave management as a separate module. However, without the free tier, ZeitPal may be more cost-effective for small teams."
+          },
+          {
+            "question": "Does Calamari support German holidays?",
+            "answer": "Calamari supports public holidays but may not have comprehensive German state-specific holidays. ZeitPal offers full German labor law support including all state holidays."
+          }
+        ]
+      },
+
+      "edays": {
+        "name": "edays",
+        "tagline": "Enterprise absence management",
+        "website": "e-days.com",
+        "founded": "2007",
+        "headquarters": "United Kingdom",
+        "overview": "edays is a UK-based absence management platform founded in 2007. They specialize in enterprise-level absence management with a focus on compliance, analytics, and global workforce management.\n\nThe platform is known for its comprehensive reporting capabilities and ability to handle complex absence policies for large organizations with multiple locations and employee types.",
+        "features": {
+          "leaveManagement": "Enterprise-grade leave management system",
+          "sickLeave": "Sick leave tracking with Bradford Factor",
+          "teamCalendar": "Multi-team calendars with global view",
+          "approvals": "Complex approval workflows and delegation",
+          "reporting": "Advanced analytics and custom reports",
+          "mobileApp": "Mobile app available",
+          "integrations": "HR systems, payroll, SSO"
+        },
+        "pricing": {
+          "summary": "edays uses custom enterprise pricing. Expect to pay £2-5 per user per month depending on company size and required features. No free tier available.",
+          "freeOption": "false",
+          "startingPrice": "~£2-5 per user/month",
+          "pricingModel": "Custom quote, enterprise pricing"
+        },
+        "targetAudience": "edays is designed for mid-sized to large enterprises (100+ employees) needing sophisticated absence management with strong analytics and compliance features. Best suited for UK and global companies.",
+        "pros": [
+          "Enterprise-grade features and reliability",
+          "Strong analytics and reporting",
+          "Bradford Factor for sick leave management",
+          "Global workforce support",
+          "Established company since 2007"
+        ],
+        "cons": [
+          "No free tier or small business plans",
+          "Primarily UK-focused, less German compliance",
+          "Complex setup and implementation",
+          "Pricing not transparent",
+          "May be overkill for SMEs"
+        ],
+        "gdprCompliance": "edays is GDPR compliant with data centers in the UK and EU. They offer strong data protection features suitable for enterprise requirements.",
+        "support": "edays provides dedicated account managers for enterprise customers, email and phone support, and comprehensive training resources.",
+        "verdict": "edays is an excellent choice for large enterprises needing sophisticated absence management. However, for German SMEs, ZeitPal offers a more suitable solution with its free tier, German labor law focus, and simpler setup. Choose edays for enterprise needs, choose ZeitPal for SME simplicity.",
+        "faqItems": [
+          {
+            "question": "Is edays suitable for small businesses?",
+            "answer": "edays is designed for enterprises and may be too complex and expensive for small businesses. ZeitPal is a better fit for teams under 50 employees."
+          },
+          {
+            "question": "Does edays support German labor law?",
+            "answer": "edays supports multiple countries but is primarily UK-focused. ZeitPal is specifically designed for German labor law requirements."
+          }
+        ]
+      },
+
+      "breathehr": {
+        "name": "Breathe HR",
+        "tagline": "Simple HR software for UK SMEs",
+        "website": "breathehr.com",
+        "founded": "2012",
+        "headquarters": "United Kingdom",
+        "overview": "Breathe HR is a UK-based HR software designed specifically for small and medium businesses. Founded in 2012, they've built a reputation for simple, affordable HR management that doesn't require HR expertise to use.\n\nThe platform offers a range of HR tools including absence management, document storage, performance management, and recruitment. Their focus is on simplicity and ease of use for SMEs.",
+        "features": {
+          "leaveManagement": "Holiday and absence management",
+          "sickLeave": "Sickness tracking with Bradford Factor",
+          "teamCalendar": "Company calendar view",
+          "approvals": "Manager approval workflows",
+          "reporting": "Basic HR reports and analytics",
+          "mobileApp": "Mobile-responsive web app",
+          "integrations": "Limited integrations, API available"
+        },
+        "pricing": {
+          "summary": "Breathe HR pricing starts at £13 per month for up to 10 employees, then per-user pricing applies. No free tier available.",
+          "freeOption": "false",
+          "startingPrice": "£13/month (up to 10 users)",
+          "pricingModel": "Flat fee + per user pricing"
+        },
+        "targetAudience": "Breathe HR is designed for UK SMEs with 1-250 employees looking for simple HR software. It's particularly popular with companies without dedicated HR teams.",
+        "pros": [
+          "Simple and easy to use",
+          "Designed for UK SMEs",
+          "Affordable for small teams",
+          "No HR expertise required",
+          "Good UK employment law support"
+        ],
+        "cons": [
+          "UK-focused, not ideal for German companies",
+          "No free tier available",
+          "Limited integrations",
+          "Basic features compared to alternatives",
+          "Mobile experience is web-based only"
+        ],
+        "gdprCompliance": "Breathe HR is GDPR compliant with UK data centers. They provide standard data protection features for UK businesses.",
+        "support": "Breathe HR offers phone and email support with UK-based team. They have a help center and provide onboarding support.",
+        "verdict": "Breathe HR is a solid choice for UK SMEs wanting simple HR software. However, for German companies, ZeitPal is clearly the better choice with its German labor law support, GDPR focus, and free tier. Choose Breathe for UK businesses, choose ZeitPal for German companies.",
+        "faqItems": [
+          {
+            "question": "Can German companies use Breathe HR?",
+            "answer": "While possible, Breathe HR is designed for UK employment law. German companies would be better served by ZeitPal, which is built specifically for German requirements."
+          },
+          {
+            "question": "Is Breathe HR available in German?",
+            "answer": "Breathe HR is primarily available in English. ZeitPal offers full German language support and is designed for the German market."
+          }
+        ]
+      },
+
+      "leapsome": {
+        "name": "Leapsome",
+        "tagline": "People enablement platform",
+        "website": "leapsome.com",
+        "founded": "2016",
+        "headquarters": "Berlin, Germany",
+        "overview": "Leapsome is a Berlin-based people enablement platform founded in 2016. Unlike traditional HR software, Leapsome focuses on performance management, employee engagement, OKRs, and learning. While they do offer time tracking, absence management is not their primary focus.\n\nThe platform is known for its modern approach to people management and is popular with tech companies and startups looking to build strong performance cultures.",
+        "features": {
+          "leaveManagement": "Basic time off tracking (not primary focus)",
+          "sickLeave": "Available as part of time tracking",
+          "teamCalendar": "Team availability view",
+          "approvals": "Manager approval for time off",
+          "reporting": "People analytics focused on performance",
+          "mobileApp": "Native iOS and Android apps",
+          "integrations": "HRIS, Slack, MS Teams, Google, BambooHR"
+        },
+        "pricing": {
+          "summary": "Leapsome uses modular pricing. Expect €6-15 per user per month depending on modules selected. Time tracking is an add-on module.",
+          "freeOption": "false",
+          "startingPrice": "~€6+ per user/month",
+          "pricingModel": "Per user per month, module-based"
+        },
+        "targetAudience": "Leapsome is designed for companies focused on building high-performance cultures with emphasis on goals, feedback, and development. Best for tech companies and startups prioritizing people development over administrative HR.",
+        "pros": [
+          "German company, strong GDPR compliance",
+          "Excellent performance management features",
+          "Modern, well-designed interface",
+          "Strong OKR and goal tracking",
+          "Good integration ecosystem"
+        ],
+        "cons": [
+          "Absence management is not the focus",
+          "No free tier available",
+          "Can be expensive for just leave management",
+          "Better suited for larger companies",
+          "Time off is an add-on, not core feature"
+        ],
+        "gdprCompliance": "Leapsome is a German company with strong GDPR compliance. Data is stored in EU data centers and they provide comprehensive data protection features.",
+        "support": "Leapsome provides dedicated customer success managers, email support, and comprehensive documentation. Training and onboarding support included.",
+        "verdict": "Leapsome is an excellent choice for companies prioritizing performance management and people development. However, for dedicated leave management, ZeitPal is the better fit with its focused features and free tier. Choose Leapsome for performance culture, choose ZeitPal for leave management.",
+        "faqItems": [
+          {
+            "question": "Can I use Leapsome just for leave management?",
+            "answer": "While possible, Leapsome's strength is in performance management. For dedicated leave management, ZeitPal offers a more focused and cost-effective solution."
+          },
+          {
+            "question": "Is Leapsome German?",
+            "answer": "Yes, Leapsome is a Berlin-based company. However, their focus is on global performance management rather than German-specific leave management like ZeitPal."
+          }
+        ]
+      },
+
+      "clockodo": {
+        "name": "Clockodo",
+        "tagline": "German time tracking software",
+        "website": "clockodo.com",
+        "founded": "2011",
+        "headquarters": "Germany",
+        "overview": "Clockodo is a German time tracking software founded in 2011. While primarily known for project-based time tracking, they also offer absence management features. The platform is popular with agencies, consultancies, and service companies that need to track billable hours.\n\nClockodo combines time tracking with absence management and offers integration with DATEV for German payroll processing.",
+        "features": {
+          "leaveManagement": "Absence management as part of time tracking",
+          "sickLeave": "Sick leave recording with time tracking",
+          "teamCalendar": "Absence overview calendar",
+          "approvals": "Manager approval for absences",
+          "reporting": "Time and absence reports, DATEV export",
+          "mobileApp": "Native iOS and Android apps",
+          "integrations": "DATEV, project management tools"
+        },
+        "pricing": {
+          "summary": "Clockodo pricing is based on active users. Plans start at €6.50 per user per month. They offer a 14-day free trial but no permanent free tier.",
+          "freeOption": "false",
+          "startingPrice": "€6.50 per user/month",
+          "pricingModel": "Per user per month"
+        },
+        "targetAudience": "Clockodo is designed for German service companies, agencies, and consultancies that need project-based time tracking alongside absence management. Best suited for companies with billable hours.",
+        "pros": [
+          "German company with DATEV integration",
+          "Strong time tracking features",
+          "GDPR compliant with German servers",
+          "Good for agencies and service companies",
+          "Native mobile apps"
+        ],
+        "cons": [
+          "No free tier available",
+          "Primarily a time tracking tool",
+          "Absence management is secondary feature",
+          "More expensive than dedicated leave tools",
+          "May be complex if you don't need time tracking"
+        ],
+        "gdprCompliance": "Clockodo is a German company with full GDPR compliance. Data is stored on German servers and they offer DATEV integration for German accounting requirements.",
+        "support": "Clockodo provides German-language support via email and phone. They have a comprehensive help center and offer personal onboarding.",
+        "verdict": "Clockodo is an excellent choice for German service companies needing project-based time tracking with absence management. However, if your primary need is leave management without time tracking, ZeitPal offers a more focused and cost-effective solution with a free tier. Choose Clockodo for time tracking, choose ZeitPal for leave management.",
+        "faqItems": [
+          {
+            "question": "Should I use Clockodo or ZeitPal?",
+            "answer": "If you need project-based time tracking for billable hours, choose Clockodo. If you primarily need leave and absence management, choose ZeitPal. ZeitPal is also free for up to 20 employees."
+          },
+          {
+            "question": "Does Clockodo integrate with German payroll?",
+            "answer": "Yes, Clockodo offers DATEV integration for German payroll. ZeitPal focuses on leave management rather than payroll integration."
+          }
+        ]
+      },
+
+      "absentify": {
+        "name": "absentify",
+        "tagline": "Leave management for Microsoft Teams",
+        "website": "absentify.com",
+        "founded": "2020",
+        "headquarters": "Austria",
+        "overview": "absentify is an Austrian leave management tool specifically designed for Microsoft Teams. Founded in 2020, they've focused on providing a seamless absence management experience within the Teams ecosystem.\n\nThe platform offers tight integration with Microsoft 365, allowing employees to manage leave without leaving their familiar Teams environment.",
+        "features": {
+          "leaveManagement": "Leave requests within Microsoft Teams",
+          "sickLeave": "Sick leave tracking and notifications",
+          "teamCalendar": "Absence calendar integrated with Outlook",
+          "approvals": "Approval workflows in Teams",
+          "reporting": "Basic absence reports",
+          "mobileApp": "Works via Teams mobile app",
+          "integrations": "Microsoft Teams, Outlook, Microsoft 365"
+        },
+        "pricing": {
+          "summary": "absentify offers a limited free tier. Paid plans start at €2 per user per month. Transparent pricing with no hidden costs.",
+          "freeOption": "true",
+          "startingPrice": "Free / €2 per user",
+          "pricingModel": "Per user per month"
+        },
+        "targetAudience": "absentify is designed for companies using Microsoft Teams as their primary communication tool. Best suited for organizations wanting leave management embedded in their Microsoft 365 ecosystem.",
+        "pros": [
+          "Excellent Microsoft Teams integration",
+          "Austrian company, EU focus",
+          "Free tier available",
+          "Easy setup within Teams",
+          "Outlook calendar integration"
+        ],
+        "cons": [
+          "Requires Microsoft Teams to be useful",
+          "Limited standalone features",
+          "Newer company with smaller customer base",
+          "Less comprehensive than full HR solutions",
+          "German labor law support unclear"
+        ],
+        "gdprCompliance": "absentify is GDPR compliant as an Austrian company. They use Microsoft Azure infrastructure for data storage and processing.",
+        "support": "absentify provides email support and documentation. Being a smaller company, support resources are more limited but responsive.",
+        "verdict": "absentify is a great choice for Teams-heavy organizations wanting embedded leave management. However, for German companies needing standalone leave management with specific labor law compliance, ZeitPal offers a more comprehensive solution. Choose absentify for Microsoft Teams integration, choose ZeitPal for standalone German leave management.",
+        "faqItems": [
+          {
+            "question": "Do I need Microsoft Teams for absentify?",
+            "answer": "While absentify has a web interface, its primary value is the Teams integration. Without Teams, ZeitPal offers a more comprehensive standalone experience."
+          },
+          {
+            "question": "Is absentify cheaper than ZeitPal?",
+            "answer": "Both offer free tiers. For small teams, ZeitPal's free tier (up to 20 users) may be more generous. For paid plans, both are similarly priced around €2-4 per user per month."
+          }
+        ]
+      }
+    }
+  }
 }

@@ -41,6 +41,9 @@ export default function CompletePage() {
 
   const handleComplete = async () => {
     setIsCreating(true);
+
+    const invitesToSend = data.skipInvites ? [] : data.invites;
+
     try {
       // Create organization via API
       const response = await fetch('/api/onboarding/complete', {
@@ -67,7 +70,7 @@ export default function CompletePage() {
           teamName: data.skipTeam ? null : data.teamName,
           teamColor: data.skipTeam ? null : data.teamColor,
           // Invites (optional)
-          invites: data.skipInvites ? [] : data.invites,
+          invites: invitesToSend,
         }),
       });
 

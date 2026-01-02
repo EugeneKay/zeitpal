@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { signIn } from 'next-auth/react';
 
 import { Button } from '@kit/ui/button';
@@ -11,6 +12,9 @@ import { Alert, AlertDescription } from '@kit/ui/alert';
 import { AlertCircle, Mail, Loader2, Info } from 'lucide-react';
 
 export function SignInForm() {
+  const searchParams = useSearchParams();
+  const callbackUrl = searchParams.get('callbackUrl') || '/home';
+
   const [email, setEmail] = useState('');
   const [isLoading, setIsLoading] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -31,7 +35,7 @@ export function SignInForm() {
 
     try {
       await signIn(provider, {
-        callbackUrl: '/home',
+        callbackUrl,
       });
     } catch {
       setError('An error occurred. Please try again.');
@@ -47,7 +51,7 @@ export function SignInForm() {
     try {
       const result = await signIn('mailgun', {
         email,
-        callbackUrl: '/home',
+        callbackUrl,
         redirect: false,
       });
 

@@ -31,6 +31,10 @@ export function SiteFooter() {
               label: <Trans i18nKey="marketing:pricingLabel" />,
             },
             {
+              href: '/compare',
+              label: <Trans i18nKey="marketing:footer.compare" />,
+            },
+            {
               href: '/faq',
               label: <Trans i18nKey="marketing:faq" />,
             },

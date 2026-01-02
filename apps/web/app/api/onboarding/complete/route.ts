@@ -60,7 +60,7 @@ export async function POST(request: NextRequest) {
 
     const data = parsed.data;
     const userId = session.user.id;
-    const { env } = getCloudflareContext();
+    const { env, ctx } = getCloudflareContext();
     const db = env.DB;
 
     // Generate unique IDs
@@ -293,24 +293,29 @@ export async function POST(request: NextRequest) {
     await db.batch(statements);
 
     // Send invite emails after successful database transaction
-    // Fire-and-forget with error logging to avoid blocking the response
+    // Use waitUntil to ensure emails are sent before worker terminates
     const siteUrl = getSiteUrl();
     const inviterName = data.displayName || session.user.name || session.user.email || 'Team Admin';
 
-    for (const invite of inviteDetails) {
-      const inviteUrl = `${siteUrl}/invite/${invite.token}`;
+    if (inviteDetails.length > 0) {
+      const emailPromises = inviteDetails.map((invite) => {
+        const inviteUrl = `${siteUrl}/invite/${invite.token}`;
 
-      sendMemberInvitationEmail(env, {
-        inviteeName: invite.email.split('@')[0] ?? invite.email,
-        inviteeEmail: invite.email,
-        organizationName: data.organizationName,
-        inviterName,
-        role: invite.role,
-        inviteUrl,
-        expiresAt: invite.expiresAt,
-      }).catch((error) => {
-        console.error(`Failed to send invitation email to ${invite.email}:`, error);
+        return sendMemberInvitationEmail(env, {
+          inviteeName: invite.email.split('@')[0] ?? invite.email,
+          inviteeEmail: invite.email,
+          organizationName: data.organizationName,
+          inviterName,
+          role: invite.role,
+          inviteUrl,
+          expiresAt: invite.expiresAt,
+        }).catch((error) => {
+          console.error(`Failed to send invitation email to ${invite.email}:`, error);
+        });
       });
+
+      // Use waitUntil to keep the worker alive until emails are sent
+      ctx.waitUntil(Promise.all(emailPromises));
     }
 
     return created({

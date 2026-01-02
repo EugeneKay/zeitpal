@@ -154,7 +154,7 @@ export async function POST(request: NextRequest) {
   const { leaveTypeId, startDate, endDate, startHalfDay, endHalfDay, reason } =
     parsed.data;
 
-  const { env } = getCloudflareContext();
+  const { env, ctx } = getCloudflareContext();
   const db = env.DB;
 
   // Get user's organization
@@ -301,7 +301,7 @@ export async function POST(request: NextRequest) {
     .bind(organizationId, session.user.id)
     .all<{ email: string; name: string }>();
 
-  // Send notification emails to all approvers (non-blocking)
+  // Send notification emails to all approvers using waitUntil
   if (user && leaveType && approvers.results.length > 0) {
     const emailPromises = approvers.results.map((approver: { email: string; name: string }) =>
       sendLeaveRequestSubmittedEmail(env, approver.email, {
@@ -317,8 +317,8 @@ export async function POST(request: NextRequest) {
       })
     );
 
-    // Fire and forget - don't block the response
-    Promise.all(emailPromises).catch(() => {});
+    // Use waitUntil to keep the worker alive until emails are sent
+    ctx.waitUntil(Promise.all(emailPromises));
   }
 
   return created({ id, status: 'pending', workDays });

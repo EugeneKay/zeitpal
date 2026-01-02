@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
   }
 
   const { email, role, teamIds: _teamIds } = parsed.data;
-  const { env } = getCloudflareContext();
+  const { env, ctx } = getCloudflareContext();
   const db = env.DB;
 
   // Get user's organization and verify they have permission to invite
@@ -132,9 +132,9 @@ export async function POST(request: NextRequest) {
   const siteUrl = getSiteUrl();
   const inviteUrl = `${siteUrl}/invite/${token}`;
 
-  // Send invite email
+  // Send invite email using waitUntil to ensure it's sent before worker terminates
   if (organization?.name && inviter) {
-    sendMemberInvitationEmail(env, {
+    const emailPromise = sendMemberInvitationEmail(env, {
       inviteeName: email.split('@')[0] ?? email, // Use email prefix as name
       inviteeEmail: email,
       organizationName: organization.name,
@@ -145,6 +145,8 @@ export async function POST(request: NextRequest) {
     }).catch((error) => {
       console.error('Failed to send invitation email:', error);
     });
+
+    ctx.waitUntil(emailPromise);
   }
 
   return created({

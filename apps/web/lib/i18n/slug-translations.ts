@@ -106,6 +106,70 @@ export const SLUG_TRANSLATIONS: Record<string, Record<Locale, string>> = {
     de: 'blog',
     es: 'blog',
   },
+
+  // Comparison index page
+  compare: {
+    en: 'compare',
+    de: 'vergleich',
+    es: 'comparar',
+  },
+
+  // Individual comparison pages
+  'personio-vs-zeitpal': {
+    en: 'personio-vs-zeitpal',
+    de: 'personio-zeitpal-vergleich',
+    es: 'personio-vs-zeitpal',
+  },
+  'personizer-vs-zeitpal': {
+    en: 'personizer-vs-zeitpal',
+    de: 'personizer-zeitpal-vergleich',
+    es: 'personizer-vs-zeitpal',
+  },
+  'absence-io-vs-zeitpal': {
+    en: 'absence-io-vs-zeitpal',
+    de: 'absence-io-zeitpal-vergleich',
+    es: 'absence-io-vs-zeitpal',
+  },
+  'factorial-vs-zeitpal': {
+    en: 'factorial-vs-zeitpal',
+    de: 'factorial-zeitpal-vergleich',
+    es: 'factorial-vs-zeitpal',
+  },
+  'vacation-tracker-vs-zeitpal': {
+    en: 'vacation-tracker-vs-zeitpal',
+    de: 'vacation-tracker-zeitpal-vergleich',
+    es: 'vacation-tracker-vs-zeitpal',
+  },
+  'calamari-vs-zeitpal': {
+    en: 'calamari-vs-zeitpal',
+    de: 'calamari-zeitpal-vergleich',
+    es: 'calamari-vs-zeitpal',
+  },
+  'edays-vs-zeitpal': {
+    en: 'edays-vs-zeitpal',
+    de: 'edays-zeitpal-vergleich',
+    es: 'edays-vs-zeitpal',
+  },
+  'breathehr-vs-zeitpal': {
+    en: 'breathehr-vs-zeitpal',
+    de: 'breathehr-zeitpal-vergleich',
+    es: 'breathehr-vs-zeitpal',
+  },
+  'leapsome-vs-zeitpal': {
+    en: 'leapsome-vs-zeitpal',
+    de: 'leapsome-zeitpal-vergleich',
+    es: 'leapsome-vs-zeitpal',
+  },
+  'clockodo-vs-zeitpal': {
+    en: 'clockodo-vs-zeitpal',
+    de: 'clockodo-zeitpal-vergleich',
+    es: 'clockodo-vs-zeitpal',
+  },
+  'absentify-vs-zeitpal': {
+    en: 'absentify-vs-zeitpal',
+    de: 'absentify-zeitpal-vergleich',
+    es: 'absentify-vs-zeitpal',
+  },
 };
 
 /**

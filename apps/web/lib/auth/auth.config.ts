@@ -6,6 +6,8 @@ import { MailgunProvider } from './mailgun-provider';
 
 type AuthEnv = Record<string, string | undefined>;
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 /**
  * Auth.js provider configuration for ZeitPal
  *
@@ -16,6 +18,8 @@ type AuthEnv = Record<string, string | undefined>;
  */
 export function getAuthConfig(env: AuthEnv): NextAuthConfig {
   return {
+    // In development, don't use secure cookies (allows HTTP localhost)
+    useSecureCookies: isProduction,
     providers: [
       // Google OAuth
     Google({
@@ -53,7 +57,9 @@ export function getAuthConfig(env: AuthEnv): NextAuthConfig {
       signOut: '/auth/sign-out',
       error: '/auth/callback/error',
       verifyRequest: '/auth/verify',
-      newUser: '/onboarding',
+      // Note: We don't use newUser page because it overrides the callbackUrl.
+      // Instead, we handle new user redirects in the redirect callback below,
+      // which allows invite links to work correctly.
     },
 
     callbacks: {

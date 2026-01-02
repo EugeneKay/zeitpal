@@ -34,6 +34,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'cookie-policy': { priority: 0.5, changeFrequency: 'yearly' },
     // Blog
     blog: { priority: 0.7, changeFrequency: 'weekly' },
+    // Comparison index page
+    compare: { priority: 0.8, changeFrequency: 'monthly' },
+    // Individual comparison pages
+    'personio-vs-zeitpal': { priority: 0.7, changeFrequency: 'monthly' },
+    'personizer-vs-zeitpal': { priority: 0.7, changeFrequency: 'monthly' },
+    'absence-io-vs-zeitpal': { priority: 0.7, changeFrequency: 'monthly' },
+    'factorial-vs-zeitpal': { priority: 0.7, changeFrequency: 'monthly' },
+    'vacation-tracker-vs-zeitpal': { priority: 0.7, changeFrequency: 'monthly' },
+    'calamari-vs-zeitpal': { priority: 0.7, changeFrequency: 'monthly' },
+    'edays-vs-zeitpal': { priority: 0.7, changeFrequency: 'monthly' },
+    'breathehr-vs-zeitpal': { priority: 0.7, changeFrequency: 'monthly' },
+    'leapsome-vs-zeitpal': { priority: 0.7, changeFrequency: 'monthly' },
+    'clockodo-vs-zeitpal': { priority: 0.7, changeFrequency: 'monthly' },
+    'absentify-vs-zeitpal': { priority: 0.7, changeFrequency: 'monthly' },
   };
 
   // Generate sitemap entries for each canonical path with all language variants

@@ -1,7 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { signIn } from 'next-auth/react';
 
 import { Button } from '@kit/ui/button';
@@ -10,16 +11,28 @@ import { Label } from '@kit/ui/label';
 import { Trans } from '@kit/ui/trans';
 import { Alert, AlertDescription } from '@kit/ui/alert';
 import { Checkbox } from '@kit/ui/checkbox';
-import { AlertCircle, Mail, Loader2 } from 'lucide-react';
+import { AlertCircle, Mail, Loader2, Info } from 'lucide-react';
 
 import pathsConfig from '~/config/paths.config';
 
 export function SignUpForm() {
+  const searchParams = useSearchParams();
+  const callbackUrl = searchParams.get('callbackUrl') || '/home';
+
   const [email, setEmail] = useState('');
   const [isLoading, setIsLoading] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [emailSent, setEmailSent] = useState(false);
   const [termsAccepted, setTermsAccepted] = useState(false);
+  const [emailAvailable, setEmailAvailable] = useState<boolean | null>(null);
+
+  // Check if email provider is available on mount
+  useEffect(() => {
+    fetch('/api/auth/provider-availability')
+      .then((res) => res.json())
+      .then((data) => setEmailAvailable(data.emailAvailable))
+      .catch(() => setEmailAvailable(false));
+  }, []);
 
   const handleOAuthSignIn = async (provider: string) => {
     if (!termsAccepted) {
@@ -32,7 +45,7 @@ export function SignUpForm() {
 
     try {
       await signIn(provider, {
-        callbackUrl: '/home',
+        callbackUrl,
       });
     } catch {
       setError('An error occurred. Please try again.');
@@ -54,7 +67,7 @@ export function SignUpForm() {
     try {
       const result = await signIn('mailgun', {
         email,
-        callbackUrl: '/home',
+        callbackUrl,
         redirect: false,
       });
 
@@ -167,66 +180,80 @@ export function SignUpForm() {
       </div>
 
       {/* Magic Link */}
-      <form onSubmit={handleMagicLinkSignIn} className="space-y-4">
-        <div className="space-y-2">
-          <Label htmlFor="email">
-            <Trans i18nKey={'account:emailLabel'} />
-          </Label>
-          <Input
-            id="email"
-            type="email"
-            placeholder="ihre@email.de"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            disabled={isLoading !== null}
-          />
+      {emailAvailable === false ? (
+        <div className="rounded-lg border border-blue-200 bg-blue-50 dark:border-blue-800 dark:bg-blue-950 p-4">
+          <div className="flex gap-3">
+            <Info className="h-5 w-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
+            <div className="text-sm text-blue-800 dark:text-blue-200">
+              <p className="font-medium">Magic link not available</p>
+              <p className="mt-1 text-blue-700 dark:text-blue-300">
+                Email sign-in requires the production environment. Please use Google or Microsoft to sign up during development.
+              </p>
+            </div>
+          </div>
         </div>
-
-        {/* Terms and Conditions Checkbox */}
-        <div className="flex items-start space-x-2">
-          <Checkbox
-            id="terms"
-            checked={termsAccepted}
-            onCheckedChange={(checked) => setTermsAccepted(checked === true)}
-            disabled={isLoading !== null}
-          />
-          <Label htmlFor="terms" className="text-sm leading-relaxed">
-            <Trans
-              i18nKey={'auth:acceptTerms'}
-              components={{
-                terms: (
-                  <Link
-                    href={pathsConfig.legal.termsOfService}
-                    className="underline hover:text-primary"
-                    target="_blank"
-                  />
-                ),
-                privacy: (
-                  <Link
-                    href={pathsConfig.legal.privacyPolicy}
-                    className="underline hover:text-primary"
-                    target="_blank"
-                  />
-                ),
-              }}
+      ) : (
+        <form onSubmit={handleMagicLinkSignIn} className="space-y-4">
+          <div className="space-y-2">
+            <Label htmlFor="email">
+              <Trans i18nKey={'account:emailLabel'} />
+            </Label>
+            <Input
+              id="email"
+              type="email"
+              placeholder="ihre@email.de"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              disabled={isLoading !== null || emailAvailable === null}
             />
-          </Label>
-        </div>
+          </div>
 
-        <Button
-          type="submit"
-          className="w-full"
-          disabled={isLoading !== null || !email || !termsAccepted}
-        >
-          {isLoading === 'email' ? (
-            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-          ) : (
-            <Mail className="mr-2 h-4 w-4" />
-          )}
-          <Trans i18nKey={'auth:sendEmailLink'} />
-        </Button>
-      </form>
+          {/* Terms and Conditions Checkbox */}
+          <div className="flex items-start space-x-2">
+            <Checkbox
+              id="terms"
+              checked={termsAccepted}
+              onCheckedChange={(checked) => setTermsAccepted(checked === true)}
+              disabled={isLoading !== null}
+            />
+            <Label htmlFor="terms" className="text-sm leading-relaxed">
+              <Trans
+                i18nKey={'auth:acceptTerms'}
+                components={{
+                  terms: (
+                    <Link
+                      href={pathsConfig.legal.termsOfService}
+                      className="underline hover:text-primary"
+                      target="_blank"
+                    />
+                  ),
+                  privacy: (
+                    <Link
+                      href={pathsConfig.legal.privacyPolicy}
+                      className="underline hover:text-primary"
+                      target="_blank"
+                    />
+                  ),
+                }}
+              />
+            </Label>
+          </div>
+
+          <Button
+            type="submit"
+            className="w-full"
+            disabled={isLoading !== null || !email || !termsAccepted || emailAvailable === null}
+          >
+            {isLoading === 'email' || emailAvailable === null ? (
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+            ) : (
+              <Mail className="mr-2 h-4 w-4" />
+            )}
+            <Trans i18nKey={'auth:sendEmailLink'} />
+          </Button>
+        </form>
+      )}
     </div>
   );
 }

@@ -46,7 +46,7 @@ export async function POST(request: NextRequest, { params }: RouteParams) {
   }
 
   const { comment } = parsed.data;
-  const { env } = getCloudflareContext();
+  const { env, ctx } = getCloudflareContext();
   const db = env.DB;
 
   // Get current user's membership
@@ -158,9 +158,9 @@ export async function POST(request: NextRequest, { params }: RouteParams) {
     .bind(session.user.id)
     .first<{ name: string }>();
 
-  // Send approval notification email to employee
+  // Send approval notification email to employee using waitUntil
   if (employee && leaveType && approver) {
-    sendLeaveRequestApprovedEmail(env, {
+    const approvalEmailPromise = sendLeaveRequestApprovedEmail(env, {
       employeeName: employee.name || employee.email,
       employeeEmail: employee.email,
       leaveType: leaveType.name_en,
@@ -172,6 +172,8 @@ export async function POST(request: NextRequest, { params }: RouteParams) {
     }).catch((error) => {
       console.error('Failed to send approval email:', error);
     });
+
+    ctx.waitUntil(approvalEmailPromise);
 
     // Send team absence notifications to team members
     const teamMembers = await db
@@ -207,7 +209,7 @@ export async function POST(request: NextRequest, { params }: RouteParams) {
         })
       );
 
-      Promise.all(teamEmailPromises).catch(() => {});
+      ctx.waitUntil(Promise.all(teamEmailPromises));
     }
   }
 
