@@ -1,373 +1,1141 @@
 {
-  "site": {
-    "title": "ZeitPal - Urlaubsverwaltung, die einfach funktioniert",
-    "description": "ZeitPal macht Urlaubsplanung, Krankmeldungen und Abwesenheitsmanagement zum Kinderspiel. DSGVO-konform, Made in Germany. Kostenlos für kleine Teams."
+  "about": {
+    "cta": {
+      "description": "Schließen Sie sich hunderten von Teams an, die ihre Urlaubsverwaltung mit ZeitPal vereinfacht haben.",
+      "title": "Bereit zum Starten?"
+    },
+    "mission": {
+      "description": "Wir glauben, dass Urlaubsverwaltung nicht kompliziert sein sollte. ZeitPal wurde entwickelt, um das Leben von HR-Teams und Mitarbeitern einfacher zu machen - mit einer intuitiven, DSGVO-konformen Lösung, die einfach funktioniert.",
+      "title": "Unsere Mission"
+    },
+    "story": {
+      "paragraph1": "ZeitPal entstand aus unserer eigenen Erfahrung: Als wachsendes Team waren wir es leid, Excel-Tabellen zu verwenden, E-Mails zu verlieren und ständig über Urlaubsanträge hin und her zu kommunizieren. Wir wussten, dass es einen besseren Weg geben musste.",
+      "paragraph2": "Heute hilft ZeitPal Hunderten von Teams in Deutschland, ihre Abwesenheiten effizient zu verwalten. Wir konzentrieren uns auf Einfachheit, Datenschutz und die spezifischen Anforderungen des deutschen Marktes.",
+      "title": "Unsere Geschichte"
+    },
+    "values": {
+      "community": {
+        "description": "Wir entwickeln ZeitPal kontinuierlich basierend auf dem Feedback unserer Nutzer weiter.",
+        "title": "Kundenorientierung"
+      },
+      "privacy": {
+        "description": "DSGVO-Konformität ist nicht optional - es ist Standard. Ihre Daten bleiben in Deutschland.",
+        "title": "Datenschutz an erster Stelle"
+      },
+      "simplicity": {
+        "description": "Keine Schulung erforderlich. ZeitPal ist so intuitiv, dass Ihr Team sofort loslegen kann.",
+        "title": "Einfachheit"
+      },
+      "title": "Unsere Werte",
+      "transparency": {
+        "description": "Klare Preisgestaltung, ehrliche Kommunikation. Keine versteckten Kosten oder Überraschungen.",
+        "title": "Transparenz"
+      }
+    }
   },
-
+  "aboutLabel": "Über uns",
+  "aboutSubtitle": "Lernen Sie das Team hinter ZeitPal kennen",
   "blog": "Blog",
   "blogSubtitle": "Neuigkeiten und Updates zur Plattform",
+  "company": "Unternehmen",
+  "compare": {
+    "competitors": {
+      "absence-io": {
+        "cons": [
+          "Kein kostenloser Plan (nur 14-tägige Testversion)",
+          "Weniger funktionsreich als ZeitPals kostenloser Plan",
+          "Keine spezifischen Funktionen für deutsches Arbeitsrecht",
+          "Zusatzkosten für erweiterte Funktionen",
+          "Support hauptsächlich auf Englisch"
+        ],
+        "faqItems": [
+          {
+            "answer": "absence.io bietet nur eine 14-tägige kostenlose Testversion, keinen permanenten kostenlosen Plan. ZeitPal ist kostenlos für Teams mit bis zu 20 Mitarbeitern ohne zeitliche Begrenzung.",
+            "question": "Hat absence.io eine kostenlose Version?"
+          },
+          {
+            "answer": "absence.io hat native iOS- und Android-Apps, während ZeitPal eine responsive Web-App bietet, die auf allen Geräten funktioniert. Beide bieten gute mobile Erfahrungen.",
+            "question": "Welche hat bessere Mobile Apps: absence.io oder ZeitPal?"
+          }
+        ],
+        "features": {
+          "approvals": "Anpassbare Genehmigungsworkflows",
+          "integrations": "Slack, Google Calendar, Personio, BambooHR",
+          "leaveManagement": "Vollständiges System für Urlaubsanträge und Genehmigungen",
+          "mobileApp": "Native iOS- und Android-Apps",
+          "reporting": "Abwesenheitsberichte und Analysen",
+          "sickLeave": "Krankmeldungsverfolgung mit Benachrichtigungen",
+          "teamCalendar": "Abwesenheitskalender mit Teamübersicht"
+        },
+        "founded": "2014",
+        "gdprCompliance": "absence.io ist vollständig GDPR-konform mit Daten in EU-Rechenzentren. Sie haben einen dedizierten Datenschutzbeauftragten und bieten Funktionen für GDPR-Compliance, einschließlich Datenexport und -löschung.",
+        "headquarters": "München, Deutschland",
+        "name": "absence.io",
+        "overview": "absence.io ist eine dedizierte Abwesenheitsverwaltungsplattform, die 2014 in München gegründet wurde. Im Gegensatz zu All-in-One-HR-Plattformen konzentriert sich absence.io speziell darauf, die Abwesenheitsverfolgung einfach und effizient zu gestalten. Sie bedienen weltweit Tausende von Unternehmen mit einer sauberen, benutzerfreundlichen Oberfläche.\n\nDie Plattform ist für ihre Einfachheit und Benutzerfreundlichkeit bekannt. Sie ist so konzipiert, dass sie schnell eingerichtet werden kann und minimale Schulung für Teamkollegen erfordert.",
+        "pricing": {
+          "freeOption": "false",
+          "pricingModel": "Pro Benutzer pro Monat, jährliche Abrechnung",
+          "startingPrice": "€2,50 pro Benutzer/Monat",
+          "summary": "absence.io bietet eine 14-tägige kostenlose Testversion, aber keinen permanenten kostenlosen Plan. Kostenpflichtige Pläne beginnen bei €2,50 pro Benutzer pro Monat. Mengenrabatte für größere Teams verfügbar."
+        },
+        "pros": [
+          "Saubere, fokussierte Abwesenheitsverwaltungslösung",
+          "Native Mobile Apps für iOS und Android",
+          "Gute Integration mit anderen HR-Tools",
+          "Schnelle Einrichtung und einfach zu bedienen",
+          "GDPR-konform mit EU-Datenspeicherung"
+        ],
+        "support": "absence.io bietet E-Mail-Support und ein umfassendes Hilfecenter. Die Antwortzeiten liegen in der Regel innerhalb von 24 Stunden. Premium-Support für Enterprise-Kunden verfügbar.",
+        "tagline": "Dedizierte Abwesenheitsverwaltungsplattform",
+        "targetAudience": "absence.io ist für Unternehmen aller Größen konzipiert, die eine fokussierte Abwesenheitsverwaltungslösung wünschen. Es ist besonders beliebt bei Unternehmen, die über Tabellenkalkulationen hinausgewachsen sind, aber keine vollständige HR-Plattform benötigen.",
+        "verdict": "absence.io ist eine solide Wahl für Unternehmen, die ein dediziertes Abwesenheitsverwaltungstool wünschen. Allerdings macht das Fehlen eines kostenlosen Plans ZeitPal für kleine Teams attraktiver. ZeitPal bietet auch bessere Unterstützung für deutsches Arbeitsrecht. Wählen Sie absence.io für seine nativen Mobile Apps, wählen Sie ZeitPal für kostenlose Nutzung und deutsche Compliance.",
+        "website": "absence.io"
+      },
+      "absentify": {
+        "cons": [
+          "Erfordert Microsoft Teams, um sinnvoll zu sein",
+          "Begrenzte eigenständige Funktionen",
+          "Neueres Unternehmen mit kleinerer Kundenbasis",
+          "Weniger umfassend als vollständige HR-Lösungen",
+          "Unterstützung für deutsches Arbeitsrecht unklar"
+        ],
+        "faqItems": [
+          {
+            "answer": "Obwohl absentify eine Web-Oberfläche hat, liegt der Hauptwert in der Teams-Integration. Ohne Teams bietet ZeitPal ein umfassenderes eigenständiges Erlebnis.",
+            "question": "Benötige ich Microsoft Teams für absentify?"
+          },
+          {
+            "answer": "Beide bieten kostenlose Pläne. Für kleine Teams kann ZeitPals kostenloser Plan (bis zu 20 Benutzer) großzügiger sein. Bei bezahlten Plänen sind beide ähnlich preiswert bei etwa €2-4 pro Benutzer pro Monat.",
+            "question": "Ist absentify günstiger als ZeitPal?"
+          }
+        ],
+        "features": {
+          "approvals": "Genehmigungsworkflows in Teams",
+          "integrations": "Microsoft Teams, Outlook, Microsoft 365",
+          "leaveManagement": "Urlaubsanträge innerhalb von Microsoft Teams",
+          "mobileApp": "Funktioniert über die Teams-Mobile-App",
+          "reporting": "Grundlegende Abwesenheitsberichte",
+          "sickLeave": "Krankenstandverfolgung und Benachrichtigungen",
+          "teamCalendar": "Abwesenheitskalender integriert mit Outlook"
+        },
+        "founded": "2020",
+        "gdprCompliance": "absentify ist als österreichisches Unternehmen DSGVO-konform. Sie nutzen Microsoft Azure-Infrastruktur für Datenspeicherung und -verarbeitung.",
+        "headquarters": "Österreich",
+        "name": "absentify",
+        "overview": "absentify ist ein österreichisches Urlaubsverwaltungstool, das speziell für Microsoft Teams entwickelt wurde. Seit 2020 konzentrieren sie sich darauf, ein nahtloses Abwesenheitsmanagement im Teams-Ökosystem bereitzustellen.\n\nDie Plattform bietet enge Integration mit Microsoft 365 und ermöglicht es Mitarbeitern, Urlaub zu verwalten, ohne ihre vertraute Teams-Umgebung zu verlassen.",
+        "pricing": {
+          "freeOption": "true",
+          "pricingModel": "Pro Benutzer pro Monat",
+          "startingPrice": "Kostenlos / €2 pro Benutzer",
+          "summary": "absentify bietet einen eingeschränkten kostenlosen Plan. Bezahlte Pläne beginnen bei €2 pro Benutzer pro Monat. Transparente Preisgestaltung ohne versteckte Kosten."
+        },
+        "pros": [
+          "Hervorragende Microsoft Teams-Integration",
+          "Österreichisches Unternehmen mit EU-Fokus",
+          "Kostenloser Plan verfügbar",
+          "Einfache Einrichtung innerhalb von Teams",
+          "Outlook-Kalenderintegration"
+        ],
+        "support": "absentify bietet E-Mail-Support und Dokumentation. Als kleineres Unternehmen sind die Support-Ressourcen begrenzt, aber reaktionsschnell.",
+        "tagline": "Urlaubsverwaltung für Microsoft Teams",
+        "targetAudience": "absentify ist für Unternehmen konzipiert, die Microsoft Teams als primäres Kommunikationstool nutzen. Am besten geeignet für Organisationen, die Urlaubsverwaltung in ihr Microsoft 365-Ökosystem integrieren möchten.",
+        "verdict": "absentify ist eine großartige Wahl für Teams-lastige Organisationen, die eingebettete Urlaubsverwaltung wünschen. Für deutsche Unternehmen, die eigenständige Urlaubsverwaltung mit spezifischer Arbeitsrechtskonformität benötigen, bietet ZeitPal jedoch eine umfassendere Lösung. Wählen Sie absentify für Microsoft Teams-Integration, wählen Sie ZeitPal für eigenständige deutsche Urlaubsverwaltung.",
+        "website": "absentify.com"
+      },
+      "breathehr": {
+        "cons": [
+          "Auf Großbritannien ausgerichtet, nicht ideal für deutsche Unternehmen",
+          "Kein kostenloser Tarif verfügbar",
+          "Begrenzte Integrationen",
+          "Grundlegende Funktionen im Vergleich zu Alternativen",
+          "Mobile Erfahrung nur webbasiert"
+        ],
+        "faqItems": [
+          {
+            "answer": "Obwohl möglich, ist Breathe HR für britisches Arbeitsrecht konzipiert. Deutsche Unternehmen würden besser von ZeitPal profitieren, das speziell für deutsche Anforderungen entwickelt wurde.",
+            "question": "Können deutsche Unternehmen Breathe HR nutzen?"
+          },
+          {
+            "answer": "Breathe HR ist hauptsächlich auf Englisch verfügbar. ZeitPal bietet vollständige deutsche Sprachunterstützung und ist für den deutschen Markt konzipiert.",
+            "question": "Ist Breathe HR auf Deutsch verfügbar?"
+          }
+        ],
+        "features": {
+          "approvals": "Genehmigungsworkflows für Manager",
+          "integrations": "Begrenzte Integrationen, API verfügbar",
+          "leaveManagement": "Urlaubs- und Abwesenheitsmanagement",
+          "mobileApp": "Mobile-responsive Web-App",
+          "reporting": "Grundlegende HR-Berichte und Analysen",
+          "sickLeave": "Krankheitsverfolgung mit Bradford Factor",
+          "teamCalendar": "Unternehmenskalenderansicht"
+        },
+        "founded": "2012",
+        "gdprCompliance": "Breathe HR ist GDPR-konform mit Rechenzentren im Vereinigten Königreich. Sie bieten standardmäßige Datenschutzfunktionen für britische Unternehmen.",
+        "headquarters": "Vereinigtes Königreich",
+        "name": "Breathe HR",
+        "overview": "Breathe HR ist eine britische HR-Software, die speziell für kleine und mittlere Unternehmen entwickelt wurde. Seit ihrer Gründung 2012 haben sie sich einen Ruf für einfaches, erschwingliches HR-Management erworben, das keine HR-Expertise erfordert.\n\nDie Plattform bietet eine Reihe von HR-Tools, einschließlich Abwesenheitsmanagement, Dokumentenspeicherung, Leistungsmanagement und Rekrutierung. Der Fokus liegt auf Einfachheit und Benutzerfreundlichkeit für KMUs.",
+        "pricing": {
+          "freeOption": "false",
+          "pricingModel": "Pauschalgebühr + Pro-Benutzer-Preisgestaltung",
+          "startingPrice": "£13/Monat (bis zu 10 Benutzer)",
+          "summary": "Die Preisgestaltung von Breathe HR beginnt bei £13 pro Monat für bis zu 10 Mitarbeiter, dann wird eine Pro-Benutzer-Preisgestaltung angewendet. Kein kostenloser Tarif verfügbar."
+        },
+        "pros": [
+          "Einfach und benutzerfreundlich",
+          "Für britische KMUs konzipiert",
+          "Erschwinglich für kleine Teams",
+          "Keine HR-Expertise erforderlich",
+          "Gute Unterstützung für britisches Arbeitsrecht"
+        ],
+        "support": "Breathe HR bietet Telefon- und E-Mail-Support mit britischem Team. Sie haben ein Hilfecenter und bieten Onboarding-Unterstützung.",
+        "tagline": "Einfache HR-Software für britische KMUs",
+        "targetAudience": "Breathe HR ist für britische KMUs mit 1-250 Mitarbeitern konzipiert, die einfache HR-Software suchen. Es ist besonders beliebt bei Unternehmen ohne dedizierte HR-Teams.",
+        "verdict": "Breathe HR ist eine solide Wahl für britische KMUs, die einfache HR-Software wünschen. Für deutsche Unternehmen ist ZeitPal jedoch eindeutig die bessere Wahl mit seiner Unterstützung für deutsches Arbeitsrecht, GDPR-Fokus und kostenlosem Tarif. Wählen Sie Breathe für britische Unternehmen, wählen Sie ZeitPal für deutsche Unternehmen.",
+        "website": "breathehr.com"
+      },
+      "calamari": {
+        "cons": [
+          "Keine kostenlose Version (nur 14-Tage-Test)",
+          "Module müssen separat bezahlt werden",
+          "Nicht speziell für den deutschen Markt konzipiert",
+          "Polnisches Unternehmen mit begrenztem deutschem Support",
+          "Benutzeroberfläche wirkt veraltet"
+        ],
+        "faqItems": [
+          {
+            "answer": "Ja, Calamari bietet Urlaubsverwaltung als separates Modul. Ohne kostenlose Version kann ZeitPal für kleine Teams kostengünstiger sein.",
+            "question": "Kann ich in Calamari nur die Urlaubsverwaltung nutzen?"
+          },
+          {
+            "answer": "Calamari unterstützt öffentliche Feiertage, hat aber möglicherweise keine umfassenden bundeslandspezifischen deutschen Feiertage. ZeitPal bietet vollständige Unterstützung für deutsches Arbeitsrecht einschließlich aller Bundeslandfeiertage.",
+            "question": "Unterstützt Calamari deutsche Feiertage?"
+          }
+        ],
+        "features": {
+          "approvals": "Mehrstufige Genehmigungsworkflows",
+          "integrations": "Slack, Microsoft Teams, Google Calendar, Jira",
+          "leaveManagement": "Vollständiges System für Urlaubsanträge und Genehmigungen",
+          "mobileApp": "Native iOS- und Android-Apps",
+          "reporting": "Zeit- und Anwesenheitsanalysen",
+          "sickLeave": "Krankenstandverfolgung mit Benachrichtigungen",
+          "teamCalendar": "Team-Kalender mit Anwesenheitsansicht"
+        },
+        "founded": "2014",
+        "gdprCompliance": "Calamari ist DSGVO-konform mit Daten in EU-Rechenzentren. Das Unternehmen bietet Standard-Datenschutzfunktionen und Datenverarbeitungsverträge.",
+        "headquarters": "Polen",
+        "name": "Calamari",
+        "overview": "Calamari ist eine HR-Softwareplattform mit Fokus auf Zeiterfassung, Anwesenheit und Urlaubsverwaltung. Das Unternehmen wurde 2014 in Polen gegründet und hat sich in Europa mit umfassenden Workforce-Management-Tools etabliert.\n\nDie Plattform kombiniert Ein- und Ausstempelungsfunktionen mit Urlaubsverwaltung und eignet sich für Unternehmen, die sowohl Zeiterfassung als auch Abwesenheitsverwaltung in einem Tool benötigen.",
+        "pricing": {
+          "freeOption": "false",
+          "pricingModel": "Pro Benutzer pro Monat, modulbasiert",
+          "startingPrice": "2 € pro Benutzer/Monat",
+          "summary": "Calamari bietet separate Preise für die Module Urlaubsverwaltung und Ein-/Ausstempelung. Die Urlaubsverwaltung beginnt bei 2 € pro Benutzer pro Monat. 14-Tage-Kostenlos-Test verfügbar."
+        },
+        "pros": [
+          "Kombinierte Zeiterfassung und Urlaubsverwaltung",
+          "Native Mobile Apps mit Stempelungsfunktion",
+          "Gute Microsoft Teams-Integration",
+          "Erschwingliche Preisgestaltung",
+          "DSGVO-konform"
+        ],
+        "support": "Calamari bietet E-Mail- und Chat-Support während der Geschäftszeiten. Es gibt ein Hilfecenter mit Dokumentation. Support hauptsächlich auf Englisch.",
+        "tagline": "HR-Software mit Zeit- und Anwesenheitsverwaltung",
+        "targetAudience": "Calamari ist für Unternehmen konzipiert, die sowohl Zeiterfassung als auch Urlaubsverwaltung benötigen. Es ist beliebt bei Unternehmen mit Schichtarbeitern oder die Anwesenheitsverfolgung neben Abwesenheitsverwaltung benötigen.",
+        "verdict": "Calamari ist eine gute Wahl, wenn Sie Zeiterfassung und Urlaubsverwaltung kombinieren möchten. Für deutsche Unternehmen, die sich hauptsächlich auf Urlaubsverwaltung konzentrieren, bietet ZeitPal eine bessere Lösung mit kostenloser Version und Unterstützung für deutsches Arbeitsrecht. Wählen Sie Calamari für Zeiterfassungsanforderungen, wählen Sie ZeitPal für fokussierte Urlaubsverwaltung.",
+        "website": "calamari.io"
+      },
+      "clockodo": {
+        "cons": [
+          "Keine kostenlose Version verfügbar",
+          "Hauptsächlich ein Zeiterfassungstool",
+          "Abwesenheitsverwaltung ist eine Sekundärfunktion",
+          "Teurer als dedizierte Urlaubsverwaltungstools",
+          "Kann komplex sein, wenn Sie keine Zeiterfassung benötigen"
+        ],
+        "faqItems": [
+          {
+            "answer": "Wenn Sie projektbasierte Zeiterfassung für abrechenbare Stunden benötigen, wählen Sie Clockodo. Wenn Sie hauptsächlich Urlaubs- und Abwesenheitsverwaltung benötigen, wählen Sie ZeitPal. ZeitPal ist auch kostenlos für bis zu 20 Mitarbeiter.",
+            "question": "Sollte ich Clockodo oder ZeitPal nutzen?"
+          },
+          {
+            "answer": "Ja, Clockodo bietet DATEV-Integration für deutsche Gehaltsabrechnung. ZeitPal konzentriert sich auf Urlaubsverwaltung statt Gehaltsabrechnung-Integration.",
+            "question": "Integriert sich Clockodo mit deutscher Lohnabrechnung?"
+          }
+        ],
+        "features": {
+          "approvals": "Manager-Genehmigung für Abwesenheiten",
+          "integrations": "DATEV, Projektmanagement-Tools",
+          "leaveManagement": "Abwesenheitsverwaltung als Teil der Zeiterfassung",
+          "mobileApp": "Native iOS- und Android-Apps",
+          "reporting": "Zeit- und Abwesenheitsberichte, DATEV-Export",
+          "sickLeave": "Krankmeldung mit Zeiterfassung",
+          "teamCalendar": "Abwesenheitsübersichtskalender"
+        },
+        "founded": "2011",
+        "gdprCompliance": "Clockodo ist ein deutsches Unternehmen mit vollständiger GDPR-Compliance. Daten werden auf deutschen Servern gespeichert und das Unternehmen bietet DATEV-Integration für deutsche Buchhaltungsanforderungen.",
+        "headquarters": "Deutschland",
+        "name": "Clockodo",
+        "overview": "Clockodo ist eine deutsche Zeiterfassungssoftware, gegründet 2011. Obwohl hauptsächlich für projektbasierte Zeiterfassung bekannt, bietet das Unternehmen auch Abwesenheitsverwaltungsfunktionen. Die Plattform ist beliebt bei Agenturen, Beratungsunternehmen und Dienstleistungsunternehmen, die abrechenbare Stunden verfolgen müssen.\n\nClockodo kombiniert Zeiterfassung mit Abwesenheitsverwaltung und bietet Integration mit DATEV für deutsche Lohnabrechnung.",
+        "pricing": {
+          "freeOption": "false",
+          "pricingModel": "Pro Benutzer pro Monat",
+          "startingPrice": "€6,50 pro Benutzer/Monat",
+          "summary": "Clockodo-Preise basieren auf aktiven Benutzern. Pläne beginnen bei €6,50 pro Benutzer pro Monat. Sie bieten eine 14-tägige kostenlose Testversion, aber keine permanente kostenlose Version."
+        },
+        "pros": [
+          "Deutsches Unternehmen mit DATEV-Integration",
+          "Starke Zeiterfassungsfunktionen",
+          "GDPR-konform mit deutschen Servern",
+          "Gut geeignet für Agenturen und Dienstleistungsunternehmen",
+          "Native Mobile Apps"
+        ],
+        "support": "Clockodo bietet deutschsprachigen Support per E-Mail und Telefon. Sie haben ein umfassendes Hilfezentrum und bieten persönliches Onboarding.",
+        "tagline": "Deutsche Zeiterfassungssoftware",
+        "targetAudience": "Clockodo ist für deutsche Dienstleistungsunternehmen, Agenturen und Beratungsfirmen konzipiert, die projektbasierte Zeiterfassung zusammen mit Abwesenheitsverwaltung benötigen. Am besten geeignet für Unternehmen mit abrechenbaren Stunden.",
+        "verdict": "Clockodo ist eine ausgezeichnete Wahl für deutsche Dienstleistungsunternehmen, die projektbasierte Zeiterfassung mit Abwesenheitsverwaltung benötigen. Wenn Ihr primäres Bedürfnis jedoch Urlaubsverwaltung ohne Zeiterfassung ist, bietet ZeitPal eine fokussiertere und kostengünstigere Lösung mit kostenloser Version. Wählen Sie Clockodo für Zeiterfassung, wählen Sie ZeitPal für Urlaubsverwaltung.",
+        "website": "clockodo.com"
+      },
+      "edays": {
+        "cons": [
+          "Keine kostenlose Version oder Pläne für kleine Unternehmen",
+          "Hauptsächlich UK-fokussiert, weniger deutsche Compliance",
+          "Komplexe Einrichtung und Implementierung",
+          "Preisgestaltung nicht transparent",
+          "Möglicherweise zu umfangreich für KMUs"
+        ],
+        "faqItems": [
+          {
+            "answer": "edays ist für Unternehmen konzipiert und kann für kleine Unternehmen zu komplex und teuer sein. ZeitPal ist eine bessere Lösung für Teams mit weniger als 50 Mitarbeitern.",
+            "question": "Ist edays für kleine Unternehmen geeignet?"
+          },
+          {
+            "answer": "edays unterstützt mehrere Länder, ist aber hauptsächlich auf das Vereinigte Königreich ausgerichtet. ZeitPal ist speziell für die Anforderungen des deutschen Arbeitsrechts konzipiert.",
+            "question": "Unterstützt edays deutsches Arbeitsrecht?"
+          }
+        ],
+        "features": {
+          "approvals": "Komplexe Genehmigungsworkflows und Delegierung",
+          "integrations": "HR-Systeme, Gehaltsabrechnung, SSO",
+          "leaveManagement": "Enterprise-Urlaubsverwaltungssystem",
+          "mobileApp": "Mobile App verfügbar",
+          "reporting": "Erweiterte Analytik und benutzerdefinierte Berichte",
+          "sickLeave": "Krankenstandverfolgung mit Bradford Factor",
+          "teamCalendar": "Multi-Team-Kalender mit globaler Ansicht"
+        },
+        "founded": "2007",
+        "gdprCompliance": "edays ist GDPR-konform mit Rechenzentren im Vereinigten Königreich und in der EU. Sie bieten starke Datenschutzfunktionen, die für Unternehmensanforderungen geeignet sind.",
+        "headquarters": "Vereinigtes Königreich",
+        "name": "edays",
+        "overview": "edays ist eine 2007 gegründete britische Abwesenheitsverwaltungsplattform. Das Unternehmen spezialisiert sich auf Enterprise-Abwesenheitsverwaltung mit Fokus auf Compliance, Analytik und globales Workforce-Management.\n\nDie Plattform ist bekannt für ihre umfassenden Berichtsfunktionen und die Fähigkeit, komplexe Abwesenheitsrichtlinien für große Organisationen mit mehreren Standorten und Mitarbeitertypen zu handhaben.",
+        "pricing": {
+          "freeOption": "false",
+          "pricingModel": "Benutzerdefiniertes Angebot, Enterprise-Preisgestaltung",
+          "startingPrice": "~£2-5 pro Benutzer/Monat",
+          "summary": "edays verwendet benutzerdefinierte Enterprise-Preise. Rechnen Sie mit £2-5 pro Benutzer pro Monat je nach Unternehmensgröße und erforderlichen Funktionen. Keine kostenlose Version verfügbar."
+        },
+        "pros": [
+          "Enterprise-Funktionen und Zuverlässigkeit",
+          "Starke Analytik und Berichterstattung",
+          "Bradford Factor für Krankenstandverwaltung",
+          "Unterstützung für globale Belegschaften",
+          "Etabliertes Unternehmen seit 2007"
+        ],
+        "support": "edays bietet dedizierte Account Manager für Unternehmenskunden, E-Mail- und Telefonsupport sowie umfassende Schulungsressourcen.",
+        "tagline": "Enterprise-Abwesenheitsverwaltung",
+        "targetAudience": "edays ist für mittlere bis große Unternehmen (100+ Mitarbeiter) konzipiert, die eine ausgefeilte Abwesenheitsverwaltung mit starken Analyse- und Compliance-Funktionen benötigen. Am besten geeignet für britische und globale Unternehmen.",
+        "verdict": "edays ist eine ausgezeichnete Wahl für große Unternehmen, die ein ausgefeiltes Abwesenheitsmanagement benötigen. Für deutsche KMUs bietet ZeitPal jedoch eine besser geeignete Lösung mit kostenlosem Tarif, Fokus auf deutsches Arbeitsrecht und einfacherer Einrichtung. Wählen Sie edays für Unternehmensanforderungen, wählen Sie ZeitPal für KMU-Einfachheit.",
+        "website": "e-days.com"
+      },
+      "factorial": {
+        "cons": [
+          "Kostenlose Version mit sehr begrenzten Funktionen",
+          "Weniger fokussiert auf deutsche Marktanforderungen",
+          "Kann für einfache Urlaubsverwaltung zu komplex sein",
+          "Preisgestaltung höher als ZeitPal für ähnliche Funktionen",
+          "Support hauptsächlich auf Englisch und Spanisch"
+        ],
+        "faqItems": [
+          {
+            "answer": "Factorial unterstützt mehrere Sprachen, einschließlich Deutsch. Ihr Hauptfokus liegt jedoch auf spanisch- und englischsprachigen Märkten, während ZeitPal speziell für deutsche Unternehmen entwickelt wurde.",
+            "question": "Ist Factorial auf Deutsch verfügbar?"
+          },
+          {
+            "answer": "Für deutsche Unternehmen mit bis zu 20 Mitarbeitern ist ZeitPal wahrscheinlich die bessere Wahl aufgrund seiner kostenlosen Version, Unterstützung für deutsches Arbeitsrecht und GDPR-fokussierten Ansatz. Factorial ist besser, wenn Sie eine vollständige HR-Plattform benötigen.",
+            "question": "Welche Lösung ist besser für ein kleines deutsches Unternehmen?"
+          }
+        ],
+        "features": {
+          "approvals": "Mehrstufige Genehmigungsworkflows",
+          "integrations": "Slack, Google, Microsoft, Gehaltsabrechnung-Integrationen",
+          "leaveManagement": "Vollständige Urlaubsverwaltung mit benutzerdefinierten Richtlinien",
+          "mobileApp": "Native iOS- und Android-Apps",
+          "reporting": "HR-Analysen und benutzerdefinierte Dashboards",
+          "sickLeave": "Krankmeldungsverfolgung mit Dokumentenverwaltung",
+          "teamCalendar": "Teamkalender mit Abwesenheitssichtbarkeit"
+        },
+        "founded": "2016",
+        "gdprCompliance": "Factorial ist GDPR-konform mit EU-Rechenzentren. Sie bieten Standard-Datenschutzfunktionen und Datenschutzkontrollen. Sie konzentrieren sich jedoch nicht speziell auf deutsche Datenschutzanforderungen.",
+        "headquarters": "Barcelona, Spanien",
+        "name": "Factorial",
+        "overview": "Factorial ist eine moderne HR-Plattform, die 2016 in Barcelona gegründet wurde. Sie ist schnell gewachsen und bedient über 60.000 Unternehmen weltweit. Factorial bietet eine umfassende Suite von HR-Tools, einschließlich Zeiterfassung, Abwesenheitsverwaltung, Dokumentenverwaltung und Leistungsbewertungen.\n\nDie Plattform ist für ihre moderne Oberfläche und benutzerfreundliche Gestaltung bekannt. Sie ist besonders beliebt bei Startups und wachsenden Unternehmen, die eine skalierbare HR-Lösung suchen.",
+        "pricing": {
+          "freeOption": "true",
+          "pricingModel": "Pro Mitarbeiter pro Monat, funktionsbasierte Tarife",
+          "startingPrice": "~€4-6 pro Mitarbeiter/Monat",
+          "summary": "Factorial bietet einen eingeschränkten kostenlosen Plan für sehr kleine Teams. Kostenpflichtige Pläne beginnen bei etwa €4-6 pro Mitarbeiter pro Monat, je nach Funktionen. Benutzerdefinierte Preise für Enterprise."
+        },
+        "pros": [
+          "Moderne, benutzerfreundliche Oberfläche",
+          "Umfassende HR-Funktionen über die Abwesenheitsverwaltung hinaus",
+          "Native Mobile Apps",
+          "Gutes Integrations-Ökosystem",
+          "Begrenzte kostenlose Version verfügbar"
+        ],
+        "support": "Factorial bietet Chat- und E-Mail-Support. Sie haben ein Hilfecenter mit Dokumentation und Video-Tutorials. Support verfügbar in Englisch, Spanisch und anderen europäischen Sprachen.",
+        "tagline": "Moderne HR-Plattform für KMU",
+        "targetAudience": "Factorial ist für KMUs und Startups konzipiert, die eine moderne, skalierbare HR-Plattform suchen. Es ist besonders in Spanien und Lateinamerika beliebt, hat aber eine starke Präsenz in ganz Europa. Am besten geeignet für Unternehmen, die mehr als nur Urlaubsverwaltung benötigen.",
+        "verdict": "Factorial ist eine starke Wahl für Unternehmen, die eine umfassende, moderne HR-Plattform wünschen. Für deutsche Unternehmen, die sich speziell auf Urlaubsverwaltung konzentrieren, bietet ZeitPal jedoch besseres Preis-Leistungs-Verhältnis mit seiner großzügigen kostenlosen Version und Compliance mit deutschem Arbeitsrecht. Wählen Sie Factorial für eine vollständige HR-Suite, wählen Sie ZeitPal für fokussierte Urlaubsverwaltung in Deutschland.",
+        "website": "factorialhr.com"
+      },
+      "leapsome": {
+        "cons": [
+          "Abwesenheitsmanagement ist nicht der Fokus",
+          "Keine kostenlose Version verfügbar",
+          "Kann teuer sein, wenn nur für Urlaubsverwaltung genutzt",
+          "Besser geeignet für größere Unternehmen",
+          "Zeitausfall ist ein Add-on, keine Kernfunktion"
+        ],
+        "faqItems": [
+          {
+            "answer": "Obwohl möglich, liegt die Stärke von Leapsome im Performance Management. Für dedizierte Urlaubsverwaltung bietet ZeitPal eine fokussiertere und kostengünstigere Lösung.",
+            "question": "Kann ich Leapsome nur für Urlaubsverwaltung nutzen?"
+          },
+          {
+            "answer": "Ja, Leapsome ist ein Berliner Unternehmen. Ihr Fokus liegt jedoch auf globalem Performance Management und nicht auf deutschspezifischer Urlaubsverwaltung wie ZeitPal.",
+            "question": "Ist Leapsome deutsch?"
+          }
+        ],
+        "features": {
+          "approvals": "Manager-Genehmigung für Freizeit",
+          "integrations": "HRIS, Slack, MS Teams, Google, BambooHR",
+          "leaveManagement": "Grundlegende Zeiterfassung (nicht Hauptfokus)",
+          "mobileApp": "Native iOS- und Android-Apps",
+          "reporting": "People Analytics mit Fokus auf Leistung",
+          "sickLeave": "Verfügbar als Teil der Zeiterfassung",
+          "teamCalendar": "Teamverfügbarkeitsansicht"
+        },
+        "founded": "2016",
+        "gdprCompliance": "Leapsome ist ein deutsches Unternehmen mit starker GDPR-Compliance. Daten werden in EU-Rechenzentren gespeichert und das Unternehmen bietet umfassende Datenschutzfunktionen.",
+        "headquarters": "Berlin, Deutschland",
+        "name": "Leapsome",
+        "overview": "Leapsome ist eine 2016 gegründete People-Enablement-Plattform mit Sitz in Berlin. Im Gegensatz zu traditioneller HR-Software konzentriert sich Leapsome auf Leistungsmanagement, Mitarbeiterbindung, OKRs und Lernen. Obwohl sie Zeiterfassung anbieten, ist Abwesenheitsmanagement nicht ihr Hauptfokus.\n\nDie Plattform ist für ihren modernen Ansatz zum Personalmanagement bekannt und ist beliebt bei Tech-Unternehmen und Startups, die starke Leistungskulturen aufbauen möchten.",
+        "pricing": {
+          "freeOption": "false",
+          "pricingModel": "Pro Benutzer pro Monat, modulbasiert",
+          "startingPrice": "~€6+ pro Benutzer/Monat",
+          "summary": "Leapsome verwendet modulare Preisgestaltung. Erwarten Sie €6-15 pro Benutzer pro Monat je nach ausgewählten Modulen. Zeiterfassung ist ein Add-on-Modul."
+        },
+        "pros": [
+          "Deutsches Unternehmen mit starker GDPR-Compliance",
+          "Hervorragende Performance-Management-Funktionen",
+          "Modernes, gut gestaltetes Interface",
+          "Starke OKR- und Ziel-Verfolgung",
+          "Gutes Integrations-Ökosystem"
+        ],
+        "support": "Leapsome bietet dedizierte Customer-Success-Manager, E-Mail-Support und umfassende Dokumentation. Schulungs- und Onboarding-Support sind enthalten.",
+        "tagline": "People-Enablement-Plattform",
+        "targetAudience": "Leapsome ist für Unternehmen konzipiert, die Hochleistungskulturen mit Fokus auf Ziele, Feedback und Entwicklung aufbauen möchten. Am besten geeignet für Tech-Unternehmen und Startups, die Personalentwicklung über administrative HR-Aufgaben priorisieren.",
+        "verdict": "Leapsome ist eine ausgezeichnete Wahl für Unternehmen, die Performance Management und Personalentwicklung priorisieren. Für dedizierte Urlaubsverwaltung ist ZeitPal jedoch die bessere Wahl mit seinen fokussierten Funktionen und kostenloser Version. Wählen Sie Leapsome für Performance-Kultur, wählen Sie ZeitPal für Urlaubsverwaltung.",
+        "website": "leapsome.com"
+      },
+      "personio": {
+        "cons": [
+          "Kein kostenloses Angebot verfügbar",
+          "Kann für einfache Urlaubsverwaltungsanforderungen komplex sein",
+          "Preisgestaltung erfordert Kontakt mit dem Vertrieb",
+          "Möglicherweise zu umfangreich für kleine Teams",
+          "Lange Implementierungszeit für vollständige Plattform"
+        ],
+        "faqItems": [
+          {
+            "answer": "Personio bietet umfassendere HR-Funktionen, aber ZeitPal ist speziell für Urlaubsverwaltung mit einfacherer Benutzeroberfläche und kostenlosem Angebot für kleine Teams konzipiert. Wenn Sie nur Urlaubsverwaltung benötigen, ist ZeitPal kostengünstiger.",
+            "question": "Ist Personio besser als ZeitPal für Urlaubsverwaltung?"
+          },
+          {
+            "answer": "Ja, Sie können Ihre Abwesenheitsdaten aus Personio exportieren und in ZeitPal importieren. Unser Support-Team kann Sie bei der Migration unterstützen.",
+            "question": "Kann ich von Personio zu ZeitPal migrieren?"
+          },
+          {
+            "answer": "Nein, Personio bietet keinen kostenlosen Tarif. ZeitPal ist kostenlos für Teams mit bis zu 20 Mitarbeitern.",
+            "question": "Hat Personio eine kostenlose Version?"
+          }
+        ],
+        "features": {
+          "approvals": "Mehrstufige Genehmigungsworkflows",
+          "integrations": "200+ Integrationen einschließlich Slack, MS Teams, Gehaltsabrechnungssysteme",
+          "leaveManagement": "Vollständige Abwesenheitsverwaltung mit Genehmigungsworkflows",
+          "mobileApp": "Native iOS- und Android-Apps",
+          "reporting": "Umfassende HR-Analytik und benutzerdefinierte Berichte",
+          "sickLeave": "Krankmeldungsverfolgung mit Dokumenten-Upload",
+          "teamCalendar": "Team-Abwesenheitskalender integriert mit HR-Daten"
+        },
+        "founded": "2015",
+        "gdprCompliance": "Personio ist vollständig DSGVO-konform mit Daten in EU-Rechenzentren. Als deutsches Unternehmen verfügen sie über umfangreiche Expertise in europäischen Datenschutzanforderungen. Sie bieten Funktionen wie Datenspeicherrichtlinien, Zugriffskontrolle und Audit-Protokolle.",
+        "headquarters": "München, Deutschland",
+        "name": "Personio",
+        "overview": "Personio ist eine umfassende HR-Softwareplattform, die 2015 in München gegründet wurde. Das Unternehmen ist zu einem der führenden HR-Tech-Unternehmen Europas herangewachsen und bedient über 10.000 Kunden. Personio bietet eine vollständige Suite von HR-Tools, einschließlich Recruiting, Onboarding, Zeiterfassung, Gehaltsabrechnung und natürlich Abwesenheitsverwaltung.\n\nWährend Personio eine ausgezeichnete Wahl für Unternehmen ist, die nach einer All-in-One-HR-Lösung suchen, kann die umfassende Natur der Plattform für kleinere Teams mehr sein als nötig. Die Plattform ist für Unternehmen konzipiert, die bereit sind, alle ihre HR-Prozesse an einem Ort zu zentralisieren.",
+        "pricing": {
+          "freeOption": "false",
+          "pricingModel": "Individuelles Angebot, modulbasierte Preisgestaltung",
+          "startingPrice": "~€3-8 pro Mitarbeiter/Monat",
+          "summary": "Personio verwendet benutzerdefinierte Preise basierend auf Unternehmensgröße und erforderlichen Modulen. Rechnen Sie mit €3-8 pro Mitarbeiter pro Monat für Core HR, mit zusätzlichen Kosten für weitere Module. Kein kostenloses Angebot verfügbar."
+        },
+        "pros": [
+          "Umfassende All-in-One-HR-Plattform",
+          "Starke DSGVO-Compliance und Deutschlandfokus",
+          "Exzellentes Integrations-Ökosystem",
+          "Native Mobile Apps",
+          "Etabliertes Unternehmen mit starkem Support"
+        ],
+        "support": "Personio bietet E-Mail- und Telefon-Support mit deutschsprachigen Mitarbeitern. Enterprise-Kunden erhalten dedizierte Account Manager. Sie stellen auch ein umfassendes Hilfecenter und regelmäßige Webinare für Schulungen bereit.",
+        "tagline": "All-in-One-HR-Plattform aus München",
+        "targetAudience": "Personio ist ideal für mittelständische Unternehmen (50-2000 Mitarbeiter), die alle HR-Prozesse auf einer Plattform konsolidieren möchten. Es ist besonders gut geeignet für deutsche Unternehmen, die umfassende HR-Software mit starken Compliance-Funktionen benötigen. Für Teams, die sich jedoch hauptsächlich auf Urlaubsverwaltung konzentrieren, bietet Personio möglicherweise mehr Funktionalität als nötig.",
+        "verdict": "Personio ist eine ausgezeichnete Wahl, wenn Sie eine umfassende HR-Plattform benötigen, die über Urlaubsverwaltung hinausgeht. Wenn Ihr Hauptbedarf jedoch einfache, erschwingliche Urlaubsverfolgung ist, bietet ZeitPal eine fokussiertere Lösung mit kostenlosem Angebot für kleine Teams. Wählen Sie Personio für vollständige HR-Suite, wählen Sie ZeitPal für unkomplizierte Urlaubsverwaltung.",
+        "website": "personio.de"
+      },
+      "personizer": {
+        "cons": [
+          "Kostenloses Angebot auf 5 Benutzer begrenzt (vs. ZeitPals 20)",
+          "Weniger Integrationen als größere Plattformen",
+          "Weniger funktionsreich als Enterprise-Lösungen",
+          "Begrenzte Anpassungsoptionen",
+          "Kleineres Unternehmen mit weniger Support-Ressourcen"
+        ],
+        "faqItems": [
+          {
+            "answer": "Beide sind deutsche GDPR-konforme Lösungen. Personizer kombiniert Zeiterfassung mit Abwesenheitsverwaltung, während ZeitPal sich speziell auf Urlaubsverwaltung konzentriert. ZeitPal bietet einen kostenlosen Plan für bis zu 20 Benutzer, im Vergleich zu Personizers Limit von 5 Benutzern.",
+            "question": "Was ist der Unterschied zwischen Personizer und ZeitPal?"
+          },
+          {
+            "answer": "Für Teams mit bis zu 20 Mitarbeitern ist ZeitPal vollständig kostenlos. Der kostenlose Plan von Personizer ist auf 5 Benutzer begrenzt. Bei kostenpflichtigen Plänen sind beide ähnlich preiswert, etwa €2-4 pro Benutzer pro Monat.",
+            "question": "Was ist günstiger, Personizer oder ZeitPal?"
+          }
+        ],
+        "features": {
+          "approvals": "Manager-Genehmigungsworkflows",
+          "integrations": "Begrenzte Integrationen, API verfügbar",
+          "leaveManagement": "Urlaubsanträge mit Genehmigungsworkflows",
+          "mobileApp": "Mobile-responsive Web-App",
+          "reporting": "Grundlegende Abwesenheitsberichte und Exporte",
+          "sickLeave": "Krankenstandverfolgung und Benachrichtigungen",
+          "teamCalendar": "Team-Abwesenheitskalender"
+        },
+        "founded": "2015",
+        "gdprCompliance": "Personizer ist vollständig GDPR-konform mit Daten auf ISO-zertifizierten Servern in der EU. Als deutsches Unternehmen legen sie Wert auf Datenschutz und bieten starke Sicherheitsmaßnahmen.",
+        "headquarters": "Deutschland",
+        "name": "Personizer",
+        "overview": "Personizer ist ein deutsches Cloud-basiertes HR-Tool, das sich auf Zeiterfassung und Abwesenheitsverwaltung für kleine und mittlere Unternehmen konzentriert. Seit 2015 gegründet, haben sie sich einen Ruf für DSGVO-Compliance und Benutzerfreundlichkeit aufgebaut.\n\nPersonizer kombiniert Zeiterfassung mit Abwesenheitsverwaltung und ist daher eine gute Wahl für Unternehmen, die beide Funktionalitäten benötigen. Ihr Fokus auf den deutschen Markt bedeutet starke Compliance mit lokalen Arbeitsgesetzen.",
+        "pricing": {
+          "freeOption": "true",
+          "pricingModel": "Pro Benutzer pro Monat",
+          "startingPrice": "Kostenlos / ~€2 pro Benutzer",
+          "summary": "Personizer bietet einen kostenlosen Tarif für bis zu 5 Benutzer. Bezahlte Pläne beginnen bei etwa €2 pro Benutzer pro Monat. Transparente Preisgestaltung ohne versteckte Kosten."
+        },
+        "pros": [
+          "Deutsches Unternehmen mit starker DSGVO-Compliance",
+          "Kostenloses Angebot für kleine Teams verfügbar",
+          "Kombinierte Zeiterfassung und Abwesenheitsverwaltung",
+          "Benutzerfreundliche Oberfläche",
+          "Erschwingliche Preisgestaltung"
+        ],
+        "support": "Personizer bietet E-Mail-Support auf Deutsch und Englisch. Sie stellen ein Hilfecenter und Dokumentation für Self-Service-Support zur Verfügung.",
+        "tagline": "Deutsche Zeiterfassung und Abwesenheitsverwaltung",
+        "targetAudience": "Personizer ist für kleine bis mittlere deutsche Unternehmen konzipiert, die kombinierte Zeiterfassung und Abwesenheitsverwaltung benötigen. Es ist besonders geeignet für Teams, die einfache, DSGVO-konforme Software ohne Enterprise-Komplexität wünschen.",
+        "verdict": "Personizer und ZeitPal sind beide solide Optionen für deutsche Unternehmen. Die Hauptunterschiede sind: ZeitPal bietet einen großzügigeren kostenlosen Plan (20 Benutzer vs. 5), während Personizer Zeiterfassung beinhaltet. Wenn Zeiterfassung wichtig ist, erwägen Sie Personizer. Für reine Urlaubsverwaltung mit besserer kostenloser Option ist ZeitPal die bessere Wahl.",
+        "website": "personizer.com"
+      },
+      "vacation-tracker": {
+        "cons": [
+          "Erfordert Slack oder Teams, um nützlich zu sein",
+          "Begrenzte eigenständige Funktionen",
+          "Nicht speziell für den deutschen Markt konzipiert",
+          "Weniger umfassende Berichterstattung",
+          "Keine spezifischen Funktionen für deutsches Arbeitsrecht"
+        ],
+        "faqItems": [
+          {
+            "answer": "Während Vacation Tracker eine Web-Oberfläche hat, liegt der Hauptwert in der Slack/Teams-Integration. Ohne diese Tools bietet ZeitPal ein umfassenderes eigenständiges Erlebnis.",
+            "question": "Benötige ich Slack oder Teams, um Vacation Tracker zu nutzen?"
+          },
+          {
+            "answer": "Für Teams mit über 20 Mitarbeitern kann Vacation Tracker bei $1/Benutzer günstiger sein als ZeitPal bei €3,99/Benutzer. Für Teams unter 20 Mitarbeitern ist ZeitPal jedoch völlig kostenlos.",
+            "question": "Ist Vacation Tracker günstiger als ZeitPal?"
+          }
+        ],
+        "features": {
+          "approvals": "Genehmigungsworkflows über Slack/Teams-Nachrichten",
+          "integrations": "Slack, Microsoft Teams, Google Calendar, Outlook",
+          "leaveManagement": "Urlaubsanträge direkt in Slack oder Teams",
+          "mobileApp": "Funktioniert über Slack/Teams Mobile Apps",
+          "reporting": "Urlaubsberichte und Saldoverfolgung",
+          "sickLeave": "Krankentagverfolgung mit Benachrichtigungen",
+          "teamCalendar": "Kalenderansicht integriert mit Slack/Teams"
+        },
+        "founded": "2018",
+        "gdprCompliance": "Vacation Tracker ist GDPR-konform und bietet Datenverarbeitungsvereinbarungen. Daten können je nach Konfiguration außerhalb der EU gespeichert werden. Nicht speziell auf deutsche Compliance-Anforderungen ausgerichtet.",
+        "headquarters": "Bosnien und Herzegowina",
+        "name": "Vacation Tracker",
+        "overview": "Vacation Tracker ist ein Urlaubsverfolgungstool, das speziell für Teams entwickelt wurde, die Slack oder Microsoft Teams nutzen. Gegründet 2018, haben sie sich darauf konzentriert, die Urlaubsverwaltung nahtlos in den Kommunikationstools zu integrieren, die Teams bereits verwenden.\n\nDie Plattform ist bekannt für ihre enge Integration mit Slack und Teams, die es Mitarbeitern ermöglicht, Urlaub anzufordern und zu verwalten, ohne ihre Chat-Anwendung zu verlassen.",
+        "pricing": {
+          "freeOption": "true",
+          "pricingModel": "Pro Benutzer pro Monat",
+          "startingPrice": "$1 pro Benutzer/Monat",
+          "summary": "Vacation Tracker bietet eine kostenlose Version mit begrenzten Funktionen. Bezahlte Pläne beginnen bei $1 pro Benutzer pro Monat, was es zu einer der günstigeren Optionen macht."
+        },
+        "pros": [
+          "Hervorragende Slack- und Teams-Integration",
+          "Sehr erschwingliche Preisgestaltung",
+          "Kostenlose Version verfügbar",
+          "Einfache Einrichtung in bestehenden Tools",
+          "Großartig für Remote-Teams"
+        ],
+        "support": "Vacation Tracker bietet E-Mail-Support und ein Hilfecenter. Als kleineres Unternehmen sind die Support-Ressourcen begrenzter als bei Enterprise-Alternativen.",
+        "tagline": "Urlaubsverfolgung für Slack und Teams",
+        "targetAudience": "Vacation Tracker ist ideal für Remote-Teams und Unternehmen, die Slack oder Microsoft Teams intensiv für die Kommunikation nutzen. Es ist besonders beliebt bei Tech-Startups und verteilten Teams, die Urlaubsverwaltung in ihren Workflow integrieren möchten.",
+        "verdict": "Vacation Tracker ist hervorragend für Teams, die in Slack oder Teams arbeiten und minimale Reibung bei Urlaubsanfragen wünschen. Wenn Sie jedoch ein deutsches Unternehmen sind, das eigenständige Urlaubsverwaltung mit Compliance für deutsches Arbeitsrecht benötigt, ist ZeitPal die bessere Wahl. Wählen Sie Vacation Tracker für Slack/Teams-Integration, wählen Sie ZeitPal für deutsche Compliance und eigenständige Nutzung.",
+        "website": "vacationtracker.io"
+      }
+    },
+    "cons": "Nachteile",
+    "ctaButton": "Kostenlos starten",
+    "ctaSubtitle": "Starten Sie kostenlos heute – keine Kreditkarte erforderlich. Die Einrichtung dauert weniger als 15 Minuten.",
+    "ctaTitle": "Bereit, ZeitPal auszuprobieren?",
+    "featureLabels": {
+      "approvals": "Genehmigungsworkflows",
+      "integrations": "Integrationen",
+      "leaveManagement": "Urlaubsverwaltung",
+      "mobileApp": "Mobile App",
+      "reporting": "Berichte & Analysen",
+      "sickLeave": "Krankmeldung",
+      "teamCalendar": "Team-Kalender"
+    },
+    "heroSubtitle": "Finden Sie die beste Urlaubsverwaltungslösung für Ihr Team. Ein ehrlicher Vergleich von Funktionen, Preisgestaltung und Benutzererfahrung.",
+    "heroTitle": "ZeitPal vs {{competitor}}",
+    "index": {
+      "ctaButton": "Kostenlos starten",
+      "ctaSubtitle": "Starten Sie kostenlos heute – keine Kreditkarte erforderlich.",
+      "ctaTitle": "Bereit, Ihre Urlaubsverwaltung zu vereinfachen?",
+      "description": "Die Wahl der richtigen Urlaubsverwaltungssoftware ist eine wichtige Entscheidung. Wir haben ehrliche, detaillierte Vergleiche mit den beliebtesten Alternativen erstellt, um Ihnen eine fundierte Entscheidung zu ermöglichen.",
+      "metaDescription": "Vergleichen Sie ZeitPal mit beliebten Urlaubsverwaltungslösungen. Finden Sie die beste Alternative für Ihr Team mit detaillierten Funktionsvergleichen.",
+      "metaTitle": "ZeitPal Alternativen & Vergleiche | Urlaubsverwaltungssoftware",
+      "subtitle": "Sehen Sie, wie ZeitPal mit anderen Urlaubsverwaltungslösungen vergleicht",
+      "title": "ZeitPal Vergleiche"
+    },
+    "metaDescription": "Vergleichen Sie ZeitPal mit {{competitor}}. Sehen Sie, welche Urlaubsverwaltungssoftware am besten für Ihr Team geeignet ist. Funktionsvergleich, Preisgestaltung und ehrliche Bewertung.",
+    "metaTitle": "ZeitPal vs {{competitor}} - Vergleich der Urlaubsverwaltung",
+    "no": "Nein",
+    "pricingLabels": {
+      "freeOption": "Kostenlos",
+      "pricingModel": "Preismodell",
+      "startingPrice": "Startpreis"
+    },
+    "pros": "Vorteile",
+    "quickSummary": "Schnelle Zusammenfassung",
+    "sections": {
+      "compliance": "GDPR & Compliance",
+      "faq": "Häufig gestellte Fragen",
+      "features": "Funktionsvergleich",
+      "integrations": "Integrationen",
+      "overview": "Unternehmensübersicht",
+      "pricing": "Preisvergleich",
+      "prosAndCons": "Vor- und Nachteile",
+      "support": "Kundenservice",
+      "targetAudience": "Zielgruppe",
+      "verdict": "Unser Fazit"
+    },
+    "viewPricing": "Preise anzeigen",
+    "yes": "Ja",
+    "zeitpal": {
+      "features": {
+        "approvals": "Flexible Genehmigungsketten, mehrstufige Genehmigungen, Delegationen",
+        "integrations": "Slack, Google Calendar, Microsoft 365 (in Kürze verfügbar)",
+        "leaveManagement": "Vollständiges Urlaubsantrags- und Genehmigungssystem mit One-Click-Genehmigungen",
+        "mobileApp": "Responsive Web-App, funktioniert auf jedem Gerät",
+        "reporting": "Abwesenheitsberichte, Krankenquoten-Analysen, Urlaubssaldo-Übersicht",
+        "sickLeave": "Digitale Krankmeldung mit automatischen Erinnerungen für Atteste nach 3 Tagen",
+        "teamCalendar": "Gemeinsamer Team-Kalender mit Abwesenheitsübersicht und Konflikt-Erkennung"
+      },
+      "pricing": {
+        "pricingModel": "Pro Benutzer pro Monat, Jahresabrechnung verfügbar",
+        "startingPrice": "Kostenlos / €3,99 pro Benutzer",
+        "summary": "ZeitPal bietet eine großzügige kostenlose Version für kleine Teams und erschwingliche Bezahlpläne für wachsende Unternehmen. Keine versteckten Kosten, transparente Preisgestaltung."
+      }
+    },
+    "zeitpalAdvantages": [
+      "Kostenlos für Teams bis zu 20 Mitarbeitern",
+      "Made in Germany, DSGVO-konform",
+      "Einrichtung in unter 15 Minuten",
+      "Unterstützung des deutschen Arbeitsrechts"
+    ]
+  },
+  "contact": {
+    "faqDescription": "Die Antwort finden Sie möglicherweise in unseren häufig gestellten Fragen.",
+    "faqTitle": "Haben Sie Fragen?",
+    "location": "Standort",
+    "responseTime": "Antwortzeit",
+    "responseTimeValue": "Innerhalb von 24 Stunden"
+  },
+  "contactEmail": "Ihre E-Mail",
+  "contactError": "Ein Fehler ist aufgetreten",
+  "contactErrorDescription": "Bitte versuchen Sie es später erneut.",
+  "contactFaq": "Haben Sie weitere Fragen? Kontaktieren Sie uns",
+  "contactHeading": "Kontaktieren Sie uns",
+  "contactMessage": "Ihre Nachricht",
+  "contactName": "Ihr Name",
+  "contactSubheading": "Haben Sie Fragen? Wir helfen gerne weiter.",
+  "contactSubtitle": "Wir freuen uns, von Ihnen zu hören",
+  "contactSuccess": "Ihre Nachricht wurde erfolgreich versendet",
+  "contactSuccessDescription": "Wir haben Ihre Nachricht erhalten und werden uns in Kürze bei Ihnen melden.",
+  "cookiePolicy": "Cookie-Richtlinie",
+  "cookiePolicyContent": {
+    "intro": "Diese Cookie-Richtlinie erläutert, wie ZeitPal Cookies und ähnliche Technologien verwendet, wenn Sie unsere Website besuchen.",
+    "lastUpdated": "Zuletzt aktualisiert: {{date}}",
+    "sections": [
+      {
+        "content": "Cookies sind kleine Textdateien, die auf Ihrem Gerät gespeichert werden, wenn Sie eine Website besuchen. Sie ermöglichen es der Website, Ihr Gerät zu erkennen und verschiedene Informationen zu speichern.",
+        "title": "1. Was sind Cookies?"
+      },
+      {
+        "content": "Wir verwenden verschiedene Arten von Cookies:",
+        "title": "2. Welche Cookies verwenden wir?"
+      },
+      {
+        "content": "Diese Cookies sind für die grundlegenden Funktionen der Website erforderlich. Sie ermöglichen Navigation, Anmeldung und Zugriff auf sichere Bereiche. Ohne diese Cookies kann die Website nicht ordnungsgemäß funktionieren.",
+        "title": "2.1 Notwendige Cookies"
+      },
+      {
+        "content": "Diese Cookies ermöglichen erweiterte Funktionen wie das Speichern Ihrer Spracheinstellungen oder das Merken Ihrer Anmeldedaten. Sie verbessern die Benutzererfahrung.",
+        "title": "2.2 Funktionale Cookies"
+      },
+      {
+        "content": "Diese Cookies ermöglichen es uns zu verstehen, wie Besucher unsere Website nutzen. Die erfassten Daten sind anonymisiert und helfen uns, unsere Website zu verbessern.",
+        "title": "2.3 Analyse-Cookies"
+      },
+      {
+        "content": "Sie können Ihre Cookie-Einstellungen jederzeit über die Cookie-Einstellungen in der Fußzeile unserer Website anpassen. Sie können Cookies auch in Ihren Browsereinstellungen blockieren oder löschen. Beachten Sie, dass das Deaktivieren bestimmter Cookies die Website-Funktionalität beeinträchtigen kann.",
+        "title": "3. Verwaltung von Cookie-Einstellungen"
+      },
+      {
+        "content": "Die Speicherdauer variiert je nach Cookie-Typ. Session-Cookies werden gelöscht, wenn Sie Ihren Browser schließen. Persistente Cookies bleiben auf Ihrem Gerät für einen bestimmten Zeitraum oder bis Sie sie löschen.",
+        "title": "4. Speicherdauer"
+      },
+      {
+        "content": "In einigen Fällen verwenden wir Cookies von vertrauenswürdigen Drittanbietern. Diese Cookies unterliegen den Datenschutzrichtlinien der jeweiligen Anbieter.",
+        "title": "5. Cookies von Drittanbietern"
+      },
+      {
+        "content": "Wir können diese Cookie-Richtlinie von Zeit zu Zeit aktualisieren, um Änderungen unserer Praktiken oder aus anderen betrieblichen, rechtlichen oder behördlichen Gründen widerzuspiegeln.",
+        "title": "6. Aktualisierungen dieser Richtlinie"
+      },
+      {
+        "content": "Wenn Sie Fragen zur Verwendung von Cookies haben, kontaktieren Sie uns bitte über unser Kontaktformular oder per E-Mail.",
+        "title": "7. Kontakt"
+      }
+    ]
+  },
+  "cookiePolicyDescription": "Unsere Cookie-Richtlinie und wie wir diese verwenden",
+  "copyright": "© {{year}} {{product}}. Alle Rechte vorbehalten.",
+  "cta": {
+    "bookDemo": "Demo buchen",
+    "getStarted": "Jetzt beginnen",
+    "learnMore": "Mehr erfahren",
+    "signUp": "Registrieren",
+    "startFree": "Kostenlos starten",
+    "tryFree": "Kostenlos testen",
+    "watchDemo": "Demo ansehen"
+  },
+  "ctaSection": {
+    "heading": "Bereit, Ihre Urlaubsverwaltung zu vereinfachen?",
+    "startFree": "Kostenlos starten",
+    "subheading": "Kostenlos in weniger als 5 Minuten starten. Keine Kreditkarte erforderlich."
+  },
+  "customers": "Kunden",
+  "customersSubtitle": "Das sagen unsere Kunden",
+  "demo": "Demo",
+  "demoSubtitle": "Sehen Sie ZeitPal in Aktion",
   "documentation": "Dokumentation",
   "documentationSubtitle": "Tutorials und Anleitungen zum Einstieg",
   "faq": "FAQ",
+  "faqItems": [
+    {
+      "answer": "Ja! ZeitPal ist vollständig kostenlos für Teams bis zu 20 Mitarbeitern. Keine Kreditkarte erforderlich, keine versteckten Kosten. Sie zahlen nur, wenn Sie über 20 Teamkollegen hinauswachsen.",
+      "question": "Ist ZeitPal wirklich kostenlos?"
+    },
+    {
+      "answer": "Die meisten Teams sind in weniger als 15 Minuten einsatzbereit. Registrieren Sie sich, laden Sie Ihr Team ein und los geht's.",
+      "question": "Wie lange dauert die Einrichtung?"
+    },
+    {
+      "answer": "Ja, ZeitPal ist vollständig DSGVO-konform. Ihre Daten werden auf deutschen Servern gespeichert und wir verarbeiten nur notwendige Daten.",
+      "question": "Ist ZeitPal DSGVO-konform?"
+    },
+    {
+      "answer": "Urlaub, Krankmeldung, Kinderkrankmeldung, Elternzeit, Mutterschaftsurlaub, Sonderurlaub, Überstundenausgleich, Schulung und unbezahlter Urlaub.",
+      "question": "Welche Abwesenheitstypen werden unterstützt?"
+    },
+    {
+      "answer": "Ja, ZeitPal kennt alle deutschen Feiertage nach Bundesland. Arbeitstage werden automatisch korrekt berechnet.",
+      "question": "Sind deutsche Feiertage enthalten?"
+    },
+    {
+      "answer": "Absolut! Wir helfen Ihnen, Ihre vorhandenen Urlaubsdaten zu importieren. Kontaktieren Sie uns für Unterstützung.",
+      "question": "Kann ich von Excel zu ZeitPal migrieren?"
+    }
+  ],
   "faqSubtitle": "Häufig gestellte Fragen zu ZeitPal",
-  "pricingLabel": "Preise",
-  "pricingSubtitle": "Einfache, transparente Preise",
-  "featuresLabel": "Funktionen",
-  "featuresSubtitle": "Alle Funktionen im Überblick",
-  "aboutLabel": "Über uns",
-  "aboutSubtitle": "Lernen Sie das Team hinter ZeitPal kennen",
-  "contact": "Kontakt",
-  "contactSubtitle": "Wir freuen uns von Ihnen zu hören",
-  "demo": "Demo",
-  "demoSubtitle": "Sehen Sie ZeitPal in Aktion",
-  "customers": "Kunden",
-  "customersSubtitle": "Was unsere Kunden sagen",
-  "product": "Produkt",
-  "legal": "Rechtliches",
-  "solutions": "Lösungen",
-  "company": "Unternehmen",
-  "getStarted": "Erste Schritte",
-  "termsOfService": "Nutzungsbedingungen",
-  "termsOfServiceDescription": "Unsere Geschäftsbedingungen",
-  "cookiePolicy": "Cookie-Richtlinie",
-  "cookiePolicyDescription": "Unsere Cookie-Richtlinie und wie wir sie verwenden",
-  "privacyPolicy": "Datenschutzerklärung",
-  "privacyPolicyDescription": "Unsere Datenschutzerklärung",
-  "imprint": "Impressum",
-
-  "hero": {
-    "pill": "Jetzt kostenlos starten",
-    "title": "Urlaubsverwaltung, die einfach funktioniert",
-    "subtitle": "ZeitPal macht Urlaubsplanung, Krankmeldungen und Abwesenheitsmanagement zum Kinderspiel. Kostenlos für kleine Teams.",
-    "cta": "Kostenlos starten",
-    "ctaSecondary": "Demo ansehen"
+  "features": {
+    "approvals": {
+      "description": "Flexible Genehmigungsketten für verschiedene Abwesenheitstypen.",
+      "title": "Genehmigungsworkflows"
+    },
+    "balances": {
+      "description": "Automatische Berechnung von verbleibenden Tagen, Übertrag und anteiliger Berechnung.",
+      "title": "Urlaubssalden"
+    },
+    "germanLaw": {
+      "description": "Konform mit BUrlG, einschließlich bundeslandspezifischer Feiertage.",
+      "title": "Deutsches Arbeitsrecht"
+    },
+    "integrations": {
+      "description": "Verbinden Sie ZeitPal mit Slack, Google Calendar und mehr.",
+      "title": "Integrationen"
+    },
+    "leaveManagement": {
+      "description": "Reichen Sie Urlaubsanträge in Sekunden ein. Genehmigungen erfolgen mit einem Klick.",
+      "title": "Urlaubsanträge"
+    },
+    "metaDescription": "Entdecken Sie alle ZeitPal-Funktionen: Urlaubsanträge, Team-Kalender, Krankmeldungsverfolgung, automatische Genehmigungen und mehr.",
+    "metaTitle": "Funktionen | ZeitPal Urlaubsverwaltung",
+    "mobile": {
+      "description": "Verwalten Sie Urlaub unterwegs mit unserer mobilen Web-App.",
+      "title": "Mobile App"
+    },
+    "notifications": {
+      "description": "E-Mail- und Slack-Benachrichtigungen für Anträge und Genehmigungen.",
+      "title": "Benachrichtigungen"
+    },
+    "reports": {
+      "description": "Detaillierte Berichte über Abwesenheiten, Krankenquoten und mehr.",
+      "title": "Berichte & Analysen"
+    },
+    "sickLeave": {
+      "description": "Digitale Krankmeldung mit automatischen Erinnerungen für Atteste.",
+      "title": "Krankmeldung"
+    },
+    "subtitle": "Von Urlaubsanträgen bis zur Teamplanung - ZeitPal hat alles.",
+    "teamCalendar": {
+      "description": "Sehen Sie auf einen Blick, wer wann abwesend ist. Vermeiden Sie Planungskonflikte.",
+      "title": "Team-Kalender"
+    },
+    "title": "Alles, was Sie für die Urlaubsverwaltung benötigen"
   },
-
+  "featuresLabel": "Funktionen",
+  "featuresSubtitle": "Alle Funktionen auf einen Blick",
+  "footer": {
+    "absenceManagement": "Abwesenheitsverwaltung",
+    "company": "Unternehmen",
+    "compare": "Vergleichen",
+    "description": "ZeitPal ist die einfache Lösung für Urlaubsverwaltung und Abwesenheitsverfolgung. Made in Germany, DSGVO-konform.",
+    "forSMEs": "Für KMU",
+    "forStartups": "Für Startups",
+    "leaveManagement": "Urlaubsverwaltung",
+    "legal": "Rechtliches",
+    "product": "Produkt",
+    "solutions": "Lösungen"
+  },
+  "footerDescription": "ZeitPal ist die einfache Lösung für Urlaubsverwaltung und Abwesenheitsverfolgung. Made in Germany, GDPR-konform.",
+  "getStarted": "Jetzt starten",
+  "hero": {
+    "cta": "Kostenlos starten",
+    "ctaSecondary": "Demo ansehen",
+    "pill": "Kostenlos starten",
+    "subtitle": "ZeitPal macht Urlaubsplanung, Krankmeldungen und Abwesenheitsverwaltung mühelos. Kostenlos für kleine Teams.",
+    "title": "Urlaubsverwaltung, die einfach funktioniert"
+  },
+  "imprint": "Impressum",
+  "legal": "Rechtliches",
+  "liveUpdates": {
+    "heading": "Bleiben Sie informiert – in Echtzeit",
+    "item1": "Urlaubsantrag genehmigt",
+    "item2": "Sarah K. - Urlaub 23.-27. Dezember",
+    "item3": "Erinnerung: Teambesprechung morgen",
+    "item4": "Krankmeldung erhalten",
+    "subheading": "Erhalten Sie sofortige Benachrichtigungen über Urlaubsanträge, Genehmigungen und Teamänderungen.",
+    "time1": "Gerade eben",
+    "time2": "vor 2 Minuten",
+    "time3": "vor 5 Minuten",
+    "time4": "vor 10 Minuten"
+  },
   "pricing": {
-    "metaTitle": "Preise | ZeitPal - Kostenlose Urlaubsverwaltung",
-    "metaDescription": "ZeitPal ist kostenlos für Teams bis 20 Personen. Keine Kreditkarte erforderlich. Transparente Preise für größere Teams.",
-    "title": "Einfache, transparente Preise",
-    "subtitle": "Kostenlos für kleine und mittlere Teams. Zahlen Sie erst ab 21 Mitarbeitern.",
-    "freeForever": "Kostenlos bis 20 Mitarbeiter",
-    "noCreditCard": "Keine Kreditkarte erforderlich",
-    "noHiddenFees": "Keine versteckten Kosten",
-    "mostPopular": "Am beliebtesten",
-    "perUser": "pro Nutzer/Monat",
-    "getStarted": "Kostenlos starten",
-    "contactSales": "Vertrieb kontaktieren",
     "compare": "Pläne vergleichen",
-
+    "contactSales": "Vertrieb kontaktieren",
+    "enterprise": {
+      "description": "Für große Organisationen mit 100+ Mitarbeitern",
+      "features": [
+        "Alles aus dem Team-Plan",
+        "Unbegrenzte Benutzer",
+        "SSO/SAML",
+        "API-Zugriff",
+        "Dedizierter Account Manager",
+        "SLA-Garantie",
+        "On-Premise-Option",
+        "Benutzerdefinierte Integrationen"
+      ],
+      "name": "Enterprise",
+      "price": "Individuell"
+    },
+    "freeForever": "Kostenlos bis zu 20 Mitarbeiter",
+    "getStarted": "Kostenlos starten",
+    "metaDescription": "ZeitPal ist kostenlos für Teams bis zu 20 Personen. Keine Kreditkarte erforderlich. Transparente Preisgestaltung für größere Teams.",
+    "metaTitle": "Preisgestaltung | ZeitPal - Kostenlose Urlaubsverwaltung",
+    "mostPopular": "Am beliebtesten",
+    "noCreditCard": "Keine Kreditkarte erforderlich",
+    "noHiddenFees": "Keine versteckten Gebühren",
+    "perUser": "pro Benutzer/Monat",
     "starter": {
-      "name": "Kostenlos",
-      "price": "0",
-      "description": "Perfekt für Teams bis 20 Mitarbeiter",
+      "description": "Perfekt für Teams mit bis zu 20 Mitarbeitern",
       "features": [
         "Bis zu 20 Benutzer",
         "Urlaubsanträge & Genehmigungen",
-        "Teamkalender",
-        "Krankmeldungen",
+        "Team-Kalender",
+        "Krankmeldungsverfolgung",
         "E-Mail-Benachrichtigungen",
         "Mehrere Teams",
-        "Urlaubskontingente",
-        "DSGVO-konform"
-      ]
+        "Urlaubssalden",
+        "GDPR-konform"
+      ],
+      "name": "Kostenlos",
+      "price": "0"
     },
+    "subtitle": "Kostenlos für kleine und mittlere Teams. Zahlen Sie nur, wenn Sie über 20 Mitarbeiter hinauswachsen.",
     "team": {
-      "name": "Team",
-      "price": "3,99",
-      "description": "Für Unternehmen ab 21 Mitarbeitern",
+      "description": "Für wachsende Unternehmen mit 21+ Mitarbeitern",
       "features": [
-        "Alles aus Kostenlos",
+        "Alles aus dem kostenlosen Plan",
         "21-100 Benutzer",
         "Erweiterte Berichte & Analysen",
         "Slack-Integration",
-        "Google Calendar Sync",
+        "Google Calendar-Synchronisierung",
         "Prioritäts-E-Mail-Support",
-        "Individuelle Abwesenheitsarten"
-      ]
+        "Benutzerdefinierte Urlaubstypen"
+      ],
+      "name": "Team",
+      "price": "3,99"
     },
-    "enterprise": {
-      "name": "Enterprise",
-      "price": "Individuell",
-      "description": "Für große Unternehmen ab 100 Mitarbeitern",
-      "features": [
-        "Alles aus Team",
-        "Unbegrenzte Benutzer",
-        "SSO/SAML",
-        "API-Zugang",
-        "Dedizierter Account Manager",
-        "SLA-Garantie",
-        "On-Premise Option",
-        "Individuelle Integrationen"
-      ]
-    }
+    "title": "Einfache, transparente Preisgestaltung"
   },
-
-  "features": {
-    "metaTitle": "Funktionen | ZeitPal Urlaubsverwaltung",
-    "metaDescription": "Entdecken Sie alle Funktionen von ZeitPal: Urlaubsanträge, Teamkalender, Krankmeldungen, automatische Genehmigungen und mehr.",
-    "title": "Alles, was Sie für Ihre Urlaubsverwaltung brauchen",
-    "subtitle": "Von Urlaubsanträgen bis zur Teamplanung - ZeitPal hat alles.",
-
-    "leaveManagement": {
-      "title": "Urlaubsanträge",
-      "description": "Stellen Sie Urlaubsanträge in Sekunden. Genehmigungen erfolgen mit einem Klick."
-    },
-    "teamCalendar": {
-      "title": "Teamkalender",
-      "description": "Sehen Sie auf einen Blick, wer wann abwesend ist. Vermeiden Sie Überschneidungen."
-    },
-    "sickLeave": {
-      "title": "Krankmeldungen",
-      "description": "Digitale Krankmeldungen mit automatischer AU-Erinnerung nach 3 Tagen."
-    },
-    "approvals": {
-      "title": "Genehmigungsworkflows",
-      "description": "Flexible Genehmigungsketten für verschiedene Abwesenheitsarten."
-    },
-    "balances": {
-      "title": "Urlaubskontingente",
-      "description": "Automatische Berechnung von Resturlaub, Übertrag und Pro-rata."
-    },
-    "reports": {
-      "title": "Berichte & Analysen",
-      "description": "Detaillierte Berichte zu Abwesenheiten, Krankenstand und mehr."
-    },
-    "notifications": {
-      "title": "Benachrichtigungen",
-      "description": "E-Mail und Slack Benachrichtigungen für Anträge und Genehmigungen."
-    },
-    "mobile": {
-      "title": "Mobile App",
-      "description": "Verwalten Sie Urlaub unterwegs mit unserer mobilen Web-App."
-    },
-    "integrations": {
-      "title": "Integrationen",
-      "description": "Verbinden Sie ZeitPal mit Slack, Google Calendar und mehr."
-    },
-    "germanLaw": {
-      "title": "Deutsches Arbeitsrecht",
-      "description": "Konform mit BUrlG, inklusive Feiertage nach Bundesland."
-    }
+  "pricingLabel": "Preisgestaltung",
+  "pricingSubtitle": "Einfache, transparente Preisgestaltung",
+  "privacyPolicy": "Datenschutzrichtlinie",
+  "privacyPolicyContent": {
+    "intro": "Der Schutz Ihrer personenbezogenen Daten ist uns wichtig. Diese Datenschutzerklärung informiert Sie darüber, wie wir Ihre Daten erfassen, verarbeiten und schützen.",
+    "lastUpdated": "Zuletzt aktualisiert: {{date}}",
+    "sections": [
+      {
+        "content": "Verantwortlicher im Sinne der DSGVO ist der Betreiber von ZeitPal. Kontaktdaten finden Sie in unserem Impressum.",
+        "title": "1. Verantwortlicher"
+      },
+      {
+        "content": "Wir erfassen personenbezogene Daten, wenn Sie sich bei ZeitPal registrieren, unsere Dienste nutzen oder uns kontaktieren. Dies umfasst: Name, E-Mail-Adresse, Unternehmensdaten, Urlaubsanträge und Abwesenheitsdaten.",
+        "title": "2. Erfassung und Verarbeitung personenbezogener Daten"
+      },
+      {
+        "content": "Wir verarbeiten Ihre Daten, um unsere Dienste bereitzustellen, Ihr Benutzerkonto zu verwalten, mit Ihnen zu kommunizieren, unsere Dienste zu verbessern und gesetzliche Verpflichtungen zu erfüllen.",
+        "title": "3. Zwecke der Datenverarbeitung"
+      },
+      {
+        "content": "Die Verarbeitung basiert auf Art. 6 Abs. 1 Buchst. b DSGVO (Vertragserfüllung), Art. 6 Abs. 1 Buchst. a DSGVO (Einwilligung), Art. 6 Abs. 1 Buchst. c DSGVO (gesetzliche Verpflichtung) oder Art. 6 Abs. 1 Buchst. f DSGVO (berechtigte Interessen).",
+        "title": "4. Rechtsgrundlage"
+      },
+      {
+        "content": "Wir geben Ihre Daten nur weiter, wenn dies für die Vertragserfüllung erforderlich ist, Sie zugestimmt haben oder dies gesetzlich vorgeschrieben ist. Unsere Hosting-Anbieter werden sorgfältig ausgewählt und sind vertraglich verpflichtet, die DSGVO einzuhalten.",
+        "title": "5. Datenweitergabe an Dritte"
+      },
+      {
+        "content": "Ihre Daten werden auf Servern in Deutschland gespeichert. Wir speichern Ihre Daten nur so lange, wie dies für die jeweiligen Zwecke erforderlich ist oder wie gesetzliche Aufbewahrungspflichten dies vorsehen.",
+        "title": "6. Datenspeicherung und Löschung"
+      },
+      {
+        "content": "Sie haben das Recht auf Zugang zu Ihren gespeicherten Daten, Berichtigung ungenauer Daten, Löschung Ihrer Daten, Einschränkung der Verarbeitung, Datenportabilität und das Recht, der Verarbeitung zu widersprechen. Sie können auch eine Beschwerde bei einer Aufsichtsbehörde einreichen.",
+        "title": "7. Ihre Rechte"
+      },
+      {
+        "content": "Wir implementieren technische und organisatorische Sicherheitsmaßnahmen, um Ihre Daten vor versehentlicher oder vorsätzlicher Manipulation, Verlust, Zerstörung oder Zugriff durch unbefugte Personen zu schützen. Diese umfassen SSL-Verschlüsselung, regelmäßige Sicherheitsupdates und Zugriffskontrolle.",
+        "title": "8. Datensicherheit"
+      },
+      {
+        "content": "Wir verwenden Cookies, um unsere Website benutzerfreundlich zu gestalten. Details finden Sie in unserer Cookie-Richtlinie.",
+        "title": "9. Cookies"
+      },
+      {
+        "content": "Wir behalten uns das Recht vor, diese Datenschutzerklärung nach Bedarf anzupassen, um Änderungen der gesetzlichen Anforderungen oder Änderungen unserer Dienste oder Datenverarbeitung widerzuspiegeln.",
+        "title": "10. Änderungen der Datenschutzerklärung"
+      },
+      {
+        "content": "Wenn Sie Fragen zum Datenschutz haben, kontaktieren Sie uns bitte über unser Kontaktformular oder per E-Mail.",
+        "title": "11. Kontakt"
+      }
+    ]
   },
-
-  "trust": {
-    "gdprCompliant": "DSGVO-konform",
-    "madeInGermany": "Made in Germany",
-    "sslEncrypted": "SSL-verschlüsselt",
-    "germanServers": "Deutsche Server",
-    "noHiddenCosts": "Keine versteckten Kosten"
-  },
-
-  "cta": {
-    "startFree": "Kostenlos starten",
-    "watchDemo": "Demo ansehen",
-    "learnMore": "Mehr erfahren",
-    "getStarted": "Jetzt starten",
-    "bookDemo": "Demo buchen",
-    "tryFree": "Kostenlos testen",
-    "signUp": "Registrieren"
-  },
-
-  "stats": {
-    "heading": "ZeitPal in Zahlen",
-    "daysManaged": "Urlaubstage verwaltet",
-    "teams": "Zufriedene Teams",
-    "rating": "Durchschnittliche Bewertung",
-    "uptime": "Verfügbarkeit"
-  },
-
-  "liveUpdates": {
-    "heading": "Alles im Blick - in Echtzeit",
-    "subheading": "Erhalten Sie sofortige Benachrichtigungen über Urlaubsanträge, Genehmigungen und Teamänderungen.",
-    "item1": "Urlaubsantrag genehmigt",
-    "time1": "Gerade eben",
-    "item2": "Sarah K. - Urlaub 23.-27. Dez",
-    "time2": "Vor 2 Minuten",
-    "item3": "Erinnerung: Team-Meeting morgen",
-    "time3": "Vor 5 Minuten",
-    "item4": "Krankmeldung eingegangen",
-    "time4": "Vor 10 Minuten"
-  },
-
-  "testimonials": {
-    "heading": "Das sagen unsere Kunden",
-    "subheading": "Über 500 Teams vertrauen auf ZeitPal",
-
-    "1": {
-      "quote": "Seit wir ZeitPal nutzen, spare ich jeden Monat mindestens 5 Stunden Verwaltungsaufwand. Endlich keine Excel-Listen mehr!",
-      "author": "Sarah M.",
-      "role": "HR-Managerin",
-      "company": "TechStart GmbH, Berlin"
-    },
-    "2": {
-      "quote": "Die Einführung war in weniger als einer Stunde erledigt. Unser Team von 12 Mitarbeitern nutzt ZeitPal jetzt täglich - und es ist kostenlos!",
-      "author": "Michael K.",
-      "role": "Geschäftsführer",
-      "company": "Kreativ Agentur Nord"
-    },
-    "3": {
-      "quote": "Urlaubsanträge genehmige ich jetzt mit einem Klick auf dem Handy. Meine Mitarbeiter lieben die Transparenz im Teamkalender.",
-      "author": "Julia B.",
-      "role": "Teamleiterin",
-      "company": "Consulting Plus AG"
-    },
-    "4": {
-      "quote": "Als remote-first Unternehmen war die Abwesenheitsverwaltung ein Alptraum. ZeitPal hat das komplett gelöst.",
-      "author": "Thomas W.",
-      "role": "Operations Director",
-      "company": "GlobalTech Solutions"
-    }
-  },
-
+  "privacyPolicyDescription": "Unsere Datenschutzrichtlinie und wie wir Ihre Daten verwenden",
+  "product": "Produkt",
+  "sendMessage": "Nachricht senden",
   "seo": {
-    "urlaubsverwaltung": {
-      "metaTitle": "Urlaubsverwaltung Software | ZeitPal - Kostenlos starten",
-      "metaDescription": "Digitale Urlaubsverwaltung für deutsche Unternehmen. DSGVO-konform, einfach zu bedienen, kostenlos für kleine Teams. Jetzt testen!",
-      "h1": "Urlaubsverwaltung Software für moderne Teams",
-      "subtitle": "Verabschieden Sie sich von Excel-Chaos und E-Mail-Ketten. ZeitPal automatisiert Ihre komplette Urlaubsverwaltung."
-    },
     "abwesenheitsmanagement": {
-      "metaTitle": "Abwesenheitsmanagement Software | ZeitPal",
-      "metaDescription": "Professionelles Abwesenheitsmanagement: Urlaub, Krankheit, Homeoffice - alles an einem Ort. Kostenlos für kleine Teams.",
-      "h1": "Digitales Abwesenheitsmanagement",
-      "subtitle": "Behalten Sie den Überblick über alle Abwesenheiten Ihres Teams. Automatisch, transparent und DSGVO-konform."
-    },
-    "urlaubsplaner": {
-      "metaTitle": "Online Urlaubsplaner | ZeitPal - Kostenlos",
-      "metaDescription": "Planen Sie Urlaub online mit dem Teamkalender. Vermeiden Sie Konflikte, behalten Sie den Überblick. Kostenlos für Teams bis 20 Mitarbeiter.",
-      "h1": "Online Urlaubsplaner für Teams",
-      "subtitle": "Planen Sie den Urlaub Ihres Teams zentral und vermeiden Sie Engpässe. Mit Kalenderansicht und automatischen Benachrichtigungen."
-    },
-    "krankmeldungDigital": {
-      "metaTitle": "Digitale Krankmeldung | ZeitPal",
-      "metaDescription": "Krankmeldungen digital erfassen und verwalten. Automatische AU-Erinnerung, DSGVO-konform. Jetzt kostenlos testen.",
-      "h1": "Digitale Krankmeldung für Ihr Unternehmen",
-      "subtitle": "Erfassen Sie Krankmeldungen digital. Automatische Erinnerung an Arbeitsunfähigkeitsbescheinigung nach 3 Tagen."
+      "h1": "Digitale Abwesenheitsverwaltung",
+      "metaDescription": "Professionelle Abwesenheitsverwaltung: Urlaub, Krankheit, Homeoffice – alles an einem Ort. Kostenlos für kleine Teams.",
+      "metaTitle": "Abwesenheitsverwaltungssoftware | ZeitPal",
+      "subtitle": "Behalten Sie alle Abwesenheiten Ihres Teams im Blick. Automatisch, transparent und DSGVO-konform."
     },
     "hrSoftware": {
-      "metaTitle": "HR Software für deutsche Unternehmen | ZeitPal",
-      "metaDescription": "Moderne HR Software für Urlaubsverwaltung und Abwesenheitsmanagement. DSGVO-konform, Made in Germany. Kostenlos starten.",
-      "h1": "HR Software für deutsche Unternehmen",
+      "h1": "HR-Software für deutsche Unternehmen",
+      "metaDescription": "Moderne HR-Software für Urlaubsverwaltung und Abwesenheitsverfolgung. DSGVO-konform, Made in Germany. Kostenlos starten.",
+      "metaTitle": "HR-Software für deutsche Unternehmen | ZeitPal",
       "subtitle": "ZeitPal wurde speziell für den deutschen Markt entwickelt. Konform mit deutschem Arbeitsrecht und DSGVO."
+    },
+    "krankmeldungDigital": {
+      "h1": "Digitale Krankmeldung für Ihr Unternehmen",
+      "metaDescription": "Erfassen und verwalten Sie Krankmeldungen digital. Automatische Zeugniserinnerungen, DSGVO-konform. Jetzt kostenlos testen.",
+      "metaTitle": "Digitale Krankmeldung | ZeitPal",
+      "subtitle": "Erfassen Sie Krankmeldungen digital. Automatische Erinnerung für ärztliche Zeugnisse nach 3 Tagen."
+    },
+    "urlaubsplaner": {
+      "h1": "Online-Urlaubsplaner für Teams",
+      "metaDescription": "Planen Sie Urlaube online mit dem Team-Kalender. Vermeiden Sie Konflikte, bleiben Sie informiert. Kostenlos für Teams bis 20 Mitarbeiter.",
+      "metaTitle": "Online-Urlaubsplaner | ZeitPal - Kostenlos",
+      "subtitle": "Planen Sie den Urlaub Ihres Teams zentral und vermeiden Sie Engpässe. Mit Kalenderansicht und automatischen Benachrichtigungen."
+    },
+    "urlaubsverwaltung": {
+      "h1": "Urlaubsverwaltungssoftware für moderne Teams",
+      "metaDescription": "Digitale Urlaubsverwaltung für deutsche Unternehmen. DSGVO-konform, benutzerfreundlich, kostenlos für kleine Teams. Jetzt testen!",
+      "metaTitle": "Urlaubsverwaltungssoftware | ZeitPal - Kostenlos starten",
+      "subtitle": "Verabschieden Sie sich von Excel-Chaos und E-Mail-Ketten. ZeitPal automatisiert Ihre gesamte Urlaubsverwaltung."
     }
   },
-
-  "useCases": {
-    "startups": {
-      "metaTitle": "Urlaubsverwaltung für Startups | ZeitPal",
-      "metaDescription": "Kostenlose Urlaubsverwaltung für Startups bis 20 Mitarbeiter. Schnell eingerichtet, einfach zu bedienen. Jetzt starten.",
-      "h1": "Urlaubsverwaltung für Startups",
-      "subtitle": "Konzentrieren Sie sich auf Ihr Wachstum - wir kümmern uns um die Urlaubsverwaltung. Kostenlos für kleine Teams."
-    },
-    "mittelstand": {
-      "metaTitle": "Abwesenheitsmanagement für den Mittelstand | ZeitPal",
-      "metaDescription": "Professionelles Abwesenheitsmanagement für mittelständische Unternehmen. Skalierbar, sicher, deutschem Recht entsprechend.",
-      "h1": "Abwesenheitsmanagement für den Mittelstand",
-      "subtitle": "Professionelle Urlaubsverwaltung, die mit Ihrem Unternehmen wächst. Mehrere Teams, erweiterte Berichte, Integrationen."
-    }
+  "site": {
+    "description": "ZeitPal macht Urlaubsplanung, Krankmeldungen und Abwesenheitsverwaltung mühelos. GDPR-konform, Made in Germany. Kostenlos für kleine Teams.",
+    "title": "ZeitPal - Urlaubsverwaltung, die einfach funktioniert"
   },
-
-  "faqItems": [
+  "solutions": "Lösungen",
+  "stats": {
+    "daysManaged": "Verwaltete Urlaubstage",
+    "heading": "ZeitPal in Zahlen",
+    "rating": "Durchschnittliche Bewertung",
+    "teams": "Zufriedene Teams",
+    "uptime": "Verfügbarkeit"
+  },
+  "termsOfService": "Nutzungsbedingungen",
+  "termsOfServiceContent": {
+    "intro": "Willkommen bei ZeitPal. Durch die Nutzung unserer Dienste stimmen Sie diesen Nutzungsbedingungen zu.",
+    "lastUpdated": "Zuletzt aktualisiert: {{date}}",
+    "sections": [
+      {
+        "content": "Diese Nutzungsbedingungen gelten für alle Nutzer der ZeitPal-Plattform. Durch Registrierung und Nutzung unserer Dienste akzeptieren Sie diese Bedingungen vollständig.",
+        "title": "1. Geltungsbereich"
+      },
+      {
+        "content": "ZeitPal bietet cloudbasierte Software zur Verwaltung von Urlaubsanträgen, Abwesenheiten und Team-Kalendern. Der Umfang der Funktionen hängt vom gewählten Plan ab.",
+        "title": "2. Leistungsbeschreibung"
+      },
+      {
+        "content": "Eine Registrierung ist erforderlich, um ZeitPal zu nutzen. Sie sind verpflichtet, genaue Informationen bereitzustellen und Ihre Anmeldedaten vertraulich zu behandeln. Sie sind verantwortlich für alle Aktivitäten, die unter Ihrem Konto stattfinden.",
+        "title": "3. Registrierung und Benutzerkonto"
+      },
+      {
+        "content": "ZeitPal ist kostenlos für Teams mit bis zu 20 Mitgliedern. Für größere Teams gelten unsere bezahlten Pläne gemäß der aktuellen Preisgestaltung auf unserer Website.",
+        "title": "4. Kostenlose Nutzung und bezahlte Pläne"
+      },
+      {
+        "content": "Sie erklären sich einverstanden, ZeitPal nicht für rechtswidrige Zwecke zu nutzen, keine schädlichen Inhalte hochzuladen und die Rechte Dritter zu respektieren. Das Weitergeben von Anmeldedaten an unbefugte Dritte ist untersagt.",
+        "title": "5. Nutzerpflichten"
+      },
+      {
+        "content": "Der Schutz Ihrer Daten ist uns wichtig. Details zur Verarbeitung personenbezogener Daten finden Sie in unserer Datenschutzerklärung.",
+        "title": "6. Datenschutz"
+      },
+      {
+        "content": "Wir bemühen uns, eine hohe Verfügbarkeit unserer Dienste zu gewährleisten, können aber keine 100%ige Verfügbarkeit garantieren. Wartungsarbeiten werden wenn möglich im Voraus angekündigt.",
+        "title": "7. Verfügbarkeit"
+      },
+      {
+        "content": "ZeitPal haftet nur für Schäden, die durch vorsätzliches oder grob fahrlässiges Verhalten verursacht werden. Die Haftung für leichte Fahrlässigkeit ist ausgeschlossen, soweit dies gesetzlich zulässig ist. Dies gilt nicht für Schäden aus Verletzung von Leben, Körper oder Gesundheit.",
+        "title": "8. Haftungsbeschränkung"
+      },
+      {
+        "content": "Sie können Ihr Konto jederzeit kündigen. Bei bezahlten Plänen gilt die vereinbarte Kündigungsfrist. Nach der Kündigung werden Ihre Daten gemäß unserer Datenschutzerklärung gelöscht.",
+        "title": "9. Kündigung"
+      },
+      {
+        "content": "Wir behalten uns das Recht vor, diese Nutzungsbedingungen zu ändern. Sie werden per E-Mail über wesentliche Änderungen benachrichtigt. Die weitere Nutzung nach Inkrafttreten der Änderungen gilt als Akzeptanz.",
+        "title": "10. Änderungen der Nutzungsbedingungen"
+      },
+      {
+        "content": "Es gilt deutsches Recht, ausgenommen das UN-Übereinkommen über Verträge über den internationalen Warenkauf. Gerichtsstand für alle Streitigkeiten ist, soweit gesetzlich zulässig, der Sitz des Betreibers.",
+        "title": "11. Anwendbares Recht und Gerichtsstand"
+      },
+      {
+        "content": "Wenn Sie Fragen zu diesen Nutzungsbedingungen haben, kontaktieren Sie uns bitte über unser Kontaktformular oder per E-Mail.",
+        "title": "12. Kontakt"
+      }
+    ]
+  },
+  "termsOfServiceDescription": "Unsere Geschäftsbedingungen",
+  "testimonials": [
+    null,
     {
-      "question": "Ist ZeitPal wirklich kostenlos?",
-      "answer": "Ja! ZeitPal ist komplett kostenlos für Teams bis 20 Mitarbeiter. Keine Kreditkarte erforderlich, keine versteckten Kosten. Sie zahlen erst, wenn Ihr Team über 20 Mitarbeiter wächst."
+      "author": "Sarah M.",
+      "company": "TechStart GmbH, Berlin",
+      "quote": "Seit ich ZeitPal nutze, spare ich mindestens 5 Stunden Verwaltungsarbeit pro Monat. Endlich keine Excel-Tabellen mehr!",
+      "role": "HR-Manager"
     },
     {
-      "question": "Wie lange dauert die Einrichtung?",
-      "answer": "Die meisten Teams sind in unter 15 Minuten startklar. Registrieren, Team einladen, loslegen."
+      "author": "Michael K.",
+      "company": "Kreativ Agentur Nord",
+      "quote": "Die Einrichtung dauerte weniger als eine Stunde. Unser Team von 12 Personen nutzt ZeitPal täglich – und es ist völlig kostenlos!",
+      "role": "Geschäftsführer"
     },
     {
-      "question": "Ist ZeitPal DSGVO-konform?",
-      "answer": "Ja, ZeitPal ist vollständig DSGVO-konform. Ihre Daten werden auf deutschen Servern gespeichert und wir verarbeiten nur die notwendigen Daten."
+      "author": "Julia B.",
+      "company": "Consulting Plus AG",
+      "quote": "Ich genehmige Urlaubsanträge jetzt mit einem Tap auf meinem Handy. Mein Team liebt die Transparenz des gemeinsamen Kalenders.",
+      "role": "Teamleiter"
     },
     {
-      "question": "Welche Abwesenheitsarten werden unterstützt?",
-      "answer": "Urlaub, Krankheit, Kindkrank, Elternzeit, Mutterschutz, Sonderurlaub, Überstundenabbau, Weiterbildung und unbezahlter Urlaub."
-    },
-    {
-      "question": "Werden deutsche Feiertage berücksichtigt?",
-      "answer": "Ja, ZeitPal kennt alle deutschen Feiertage nach Bundesland. Die Arbeitstage werden automatisch korrekt berechnet."
-    },
-    {
-      "question": "Kann ich von Excel zu ZeitPal wechseln?",
-      "answer": "Absolut! Wir helfen Ihnen beim Import Ihrer bestehenden Urlaubsdaten. Kontaktieren Sie uns für Unterstützung."
+      "author": "Thomas W.",
+      "company": "GlobalTech Solutions",
+      "quote": "Als Remote-First-Unternehmen war die Abwesenheitsverwaltung ein Albtraum. ZeitPal hat das Problem vollständig gelöst.",
+      "role": "Operations Director"
     }
   ],
-
-  "footer": {
-    "description": "ZeitPal ist die einfache Lösung für Urlaubsverwaltung und Abwesenheitsmanagement. Made in Germany, DSGVO-konform.",
-    "product": "Produkt",
-    "solutions": "Lösungen",
-    "company": "Unternehmen",
-    "legal": "Rechtliches",
-    "leaveManagement": "Urlaubsverwaltung",
-    "absenceManagement": "Abwesenheitsmanagement",
-    "forStartups": "Für Startups",
-    "forSMEs": "Für Mittelstand"
+  "trust": {
+    "gdprCompliant": "DSGVO-konform",
+    "germanServers": "EU-Server",
+    "madeInGermany": "Made in Germany",
+    "noHiddenCosts": "Keine versteckten Kosten",
+    "sslEncrypted": "SSL-verschlüsselt"
   },
-
-  "ctaSection": {
-    "heading": "Bereit, Ihre Urlaubsverwaltung zu vereinfachen?",
-    "subheading": "Starten Sie kostenlos in weniger als 5 Minuten. Keine Kreditkarte erforderlich.",
-    "startFree": "Kostenlos starten"
-  },
-
-  "about": {
-    "mission": {
-      "title": "Unsere Mission",
-      "description": "Wir glauben, dass Urlaubsverwaltung nicht kompliziert sein muss. ZeitPal wurde entwickelt, um HR-Teams und Mitarbeitern das Leben leichter zu machen - mit einer intuitiven, DSGVO-konformen Lösung, die einfach funktioniert."
+  "useCases": {
+    "mittelstand": {
+      "h1": "Abwesenheitsverwaltung für KMU",
+      "metaDescription": "Professionelle Abwesenheitsverwaltung für mittelständische Unternehmen. Skalierbar, sicher, deutsches Recht konform.",
+      "metaTitle": "Abwesenheitsverwaltung für KMU | ZeitPal",
+      "subtitle": "Professionelle Urlaubsverwaltung, die mit Ihrem Unternehmen wächst. Mehrere Teams, erweiterte Berichte, Integrationen."
     },
-    "story": {
-      "title": "Unsere Geschichte",
-      "paragraph1": "ZeitPal entstand aus eigener Erfahrung: Als wachsendes Team hatten wir genug von Excel-Tabellen, verlorenen E-Mails und dem ständigen Hin und Her bei Urlaubsanträgen. Wir wussten, dass es besser gehen muss.",
-      "paragraph2": "Heute hilft ZeitPal Hunderten von Teams in Deutschland, ihre Abwesenheiten effizient zu verwalten. Unser Fokus liegt auf Einfachheit, Datenschutz und den spezifischen Anforderungen des deutschen Arbeitsmarktes."
-    },
-    "values": {
-      "title": "Unsere Werte",
-      "privacy": {
-        "title": "Datenschutz zuerst",
-        "description": "DSGVO-Konformität ist keine Option, sondern Standard. Ihre Daten bleiben in Deutschland."
-      },
-      "simplicity": {
-        "title": "Einfachheit",
-        "description": "Keine Schulungen nötig. ZeitPal ist so intuitiv, dass Ihr Team sofort loslegen kann."
-      },
-      "transparency": {
-        "title": "Transparenz",
-        "description": "Klare Preise, ehrliche Kommunikation. Keine versteckten Kosten oder Überraschungen."
-      },
-      "community": {
-        "title": "Kundenorientierung",
-        "description": "Wir entwickeln ZeitPal basierend auf dem Feedback unserer Nutzer weiter."
-      }
-    },
-    "cta": {
-      "title": "Bereit loszulegen?",
-      "description": "Schließen Sie sich Hunderten von Teams an, die ihre Urlaubsverwaltung mit ZeitPal vereinfacht haben."
+    "startups": {
+      "h1": "Urlaubsverwaltung für Startups",
+      "metaDescription": "Kostenlose Urlaubsverwaltung für Startups bis 20 Mitarbeiter. Schnelle Einrichtung, einfach zu bedienen. Jetzt starten.",
+      "metaTitle": "Urlaubsverwaltung für Startups | ZeitPal",
+      "subtitle": "Konzentrieren Sie sich auf Wachstum - wir kümmern uns um die Urlaubsverwaltung. Kostenlos für kleine Teams."
     }
-  },
-
-  "contact": {
-    "location": "Standort",
-    "responseTime": "Antwortzeit",
-    "responseTimeValue": "Innerhalb von 24 Stunden",
-    "faqTitle": "Häufige Fragen?",
-    "faqDescription": "Vielleicht finden Sie die Antwort bereits in unseren FAQ."
-  },
-
-  "contactHeading": "Kontaktieren Sie uns",
-  "contactSubheading": "Haben Sie Fragen? Wir helfen Ihnen gerne.",
-  "contactName": "Ihr Name",
-  "contactEmail": "Ihre E-Mail",
-  "contactMessage": "Ihre Nachricht",
-  "sendMessage": "Nachricht senden",
-  "contactSuccess": "Ihre Nachricht wurde erfolgreich gesendet",
-  "contactError": "Ein Fehler ist aufgetreten",
-  "contactSuccessDescription": "Wir haben Ihre Nachricht erhalten und melden uns in Kürze bei Ihnen.",
-  "contactErrorDescription": "Bitte versuchen Sie es später erneut.",
-  "contactFaq": "Haben Sie weitere Fragen? Kontaktieren Sie uns",
-
-  "footerDescription": "ZeitPal ist die einfache Lösung für Urlaubsverwaltung und Abwesenheitsmanagement. Made in Germany, DSGVO-konform.",
-  "copyright": "© {{year}} {{product}}. Alle Rechte vorbehalten."
+  }
 }

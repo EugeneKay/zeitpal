@@ -59,6 +59,7 @@ interface FlattenedTranslations {
 
 /**
  * Flatten nested JSON object into dot-notation keys
+ * Handles arrays with index notation (e.g., "pros.0", "faqItems.0.question")
  */
 function flattenObject(
   obj: Record<string, unknown>,
@@ -69,7 +70,20 @@ function flattenObject(
   for (const [key, value] of Object.entries(obj)) {
     const newKey = prefix ? `${prefix}.${key}` : key;
 
-    if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
+    if (Array.isArray(value)) {
+      // Handle arrays - flatten each element with index
+      value.forEach((item, index) => {
+        const arrayKey = `${newKey}.${index}`;
+        if (typeof item === 'string') {
+          result[arrayKey] = item;
+        } else if (typeof item === 'object' && item !== null) {
+          Object.assign(
+            result,
+            flattenObject(item as Record<string, unknown>, arrayKey),
+          );
+        }
+      });
+    } else if (typeof value === 'object' && value !== null) {
       Object.assign(
         result,
         flattenObject(value as Record<string, unknown>, newKey),
@@ -84,23 +98,33 @@ function flattenObject(
 
 /**
  * Unflatten dot-notation keys back into nested object
+ * Handles array indices (e.g., "pros.0" -> pros[0])
  */
 function unflattenObject(flat: FlattenedTranslations): Record<string, unknown> {
   const result: Record<string, unknown> = {};
 
-  for (const [key, value] of Object.entries(flat)) {
+  // Sort keys to ensure array indices are processed in order
+  const sortedKeys = Object.keys(flat).sort();
+
+  for (const key of sortedKeys) {
+    const value = flat[key];
     const parts = key.split('.');
     let current: Record<string, unknown> = result;
 
     for (let i = 0; i < parts.length - 1; i++) {
       const part = parts[i]!;
+      const nextPart = parts[i + 1]!;
+      const isNextIndex = /^\d+$/.test(nextPart);
+
       if (!(part in current)) {
-        current[part] = {};
+        // Check if the next part is an array index
+        current[part] = isNextIndex ? [] : {};
       }
       current = current[part] as Record<string, unknown>;
     }
 
-    current[parts[parts.length - 1]!] = value;
+    const lastPart = parts[parts.length - 1]!;
+    current[lastPart] = value;
   }
 
   return result;

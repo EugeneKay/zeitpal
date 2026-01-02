@@ -1,360 +1,1141 @@
 {
-  "site": {
-    "title": "ZeitPal - Gestion de Vacaciones que Simplemente Funciona",
-    "description": "ZeitPal facilita la planificacion de vacaciones, bajas medicas y gestion de ausencias. Cumple con GDPR, Hecho en Alemania. Gratis para equipos pequenos."
+  "about": {
+    "cta": {
+      "description": "Únete a cientos de equipos que han simplificado su gestión de permisos con ZeitPal.",
+      "title": "¿Listo para comenzar?"
+    },
+    "mission": {
+      "description": "Creemos que la gestión de permisos no debería ser complicada. ZeitPal fue construido para facilitar la vida de los equipos de RRHH y empleados - con una solución intuitiva, compatible con GDPR, que simplemente funciona.",
+      "title": "Nuestra Misión"
+    },
+    "story": {
+      "paragraph1": "ZeitPal nació de nuestra propia experiencia: Como equipo en crecimiento, estábamos cansados de hojas de cálculo de Excel, correos electrónicos perdidos, y el constante ir y venir en solicitudes de permisos. Sabíamos que tenía que haber una mejor manera.",
+      "paragraph2": "Hoy, ZeitPal ayuda a cientos de equipos en Alemania a gestionar sus ausencias de manera eficiente. Nos enfocamos en la simplicidad, la privacidad de datos, y los requisitos específicos del mercado alemán.",
+      "title": "Nuestra Historia"
+    },
+    "values": {
+      "community": {
+        "description": "Continuamos desarrollando ZeitPal basándonos en la retroalimentación de nuestros usuarios.",
+        "title": "Enfoque en el Cliente"
+      },
+      "privacy": {
+        "description": "El cumplimiento de GDPR no es opcional - es estándar. Tus datos permanecen en Alemania.",
+        "title": "Privacidad Primero"
+      },
+      "simplicity": {
+        "description": "Sin capacitación requerida. ZeitPal es tan intuitivo que tu equipo puede comenzar de inmediato.",
+        "title": "Simplicidad"
+      },
+      "title": "Nuestros Valores",
+      "transparency": {
+        "description": "Precios claros, comunicación honesta. Sin costos ocultos ni sorpresas.",
+        "title": "Transparencia"
+      }
+    }
   },
-
+  "aboutLabel": "Acerca de",
+  "aboutSubtitle": "Conoce al equipo detrás de ZeitPal",
   "blog": "Blog",
   "blogSubtitle": "Noticias y actualizaciones sobre la plataforma",
-  "documentation": "Documentacion",
-  "documentationSubtitle": "Tutoriales y guias para comenzar",
-  "faq": "FAQ",
-  "faqSubtitle": "Preguntas frecuentes sobre ZeitPal",
-  "pricingLabel": "Precios",
-  "pricingSubtitle": "Precios simples y transparentes",
-  "featuresLabel": "Caracteristicas",
-  "featuresSubtitle": "Todas las caracteristicas de un vistazo",
-  "about": "Nosotros",
-  "aboutSubtitle": "Conoce al equipo detras de ZeitPal",
-  "contact": "Contacto",
-  "contactSubtitle": "Nos encantaria saber de ti",
-  "demo": "Demo",
-  "demoSubtitle": "Ve ZeitPal en accion",
+  "company": "Empresa",
+  "compare": {
+    "competitors": {
+      "absence-io": {
+        "cons": [
+          "Sin nivel gratuito (solo prueba de 14 días)",
+          "Menos características que el nivel gratuito de ZeitPal",
+          "Sin características específicas de la ley laboral alemana",
+          "Costo adicional para características avanzadas",
+          "Soporte principalmente en inglés"
+        ],
+        "faqItems": [
+          {
+            "answer": "absence.io solo ofrece una prueba gratuita de 14 días, no un nivel gratuito permanente. ZeitPal es gratuito para equipos de hasta 20 empleados sin límite de tiempo.",
+            "question": "¿Tiene absence.io una versión gratuita?"
+          },
+          {
+            "answer": "absence.io tiene aplicaciones nativas para iOS y Android, mientras que ZeitPal ofrece una aplicación web responsiva que funciona en todos los dispositivos. Ambas proporcionan buenas experiencias móviles.",
+            "question": "¿Cuál tiene mejores aplicaciones móviles: absence.io o ZeitPal?"
+          }
+        ],
+        "features": {
+          "approvals": "Flujos de aprobación personalizables",
+          "integrations": "Slack, Google Calendar, Personio, BambooHR",
+          "leaveManagement": "Sistema completo de solicitud y aprobación de permisos",
+          "mobileApp": "Aplicaciones nativas para iOS y Android",
+          "reporting": "Reportes y análisis de ausencias",
+          "sickLeave": "Seguimiento de licencia por enfermedad con notificaciones",
+          "teamCalendar": "Calendario de ausencias con vista del equipo"
+        },
+        "founded": "2014",
+        "gdprCompliance": "absence.io cumple completamente con GDPR con datos almacenados en centros de datos de la UE. Tienen un oficial de protección de datos dedicado y ofrecen características para cumplimiento de GDPR incluyendo exportación y eliminación de datos.",
+        "headquarters": "Múnich, Alemania",
+        "name": "absence.io",
+        "overview": "absence.io es una plataforma dedicada a la gestión de ausencias fundada en Múnich en 2014. A diferencia de las plataformas de RRHH todo en uno, absence.io se enfoca específicamente en hacer que el seguimiento de ausencias sea simple y eficiente. Sirven a miles de empresas en todo el mundo con una interfaz limpia y fácil de usar.\n\nLa plataforma es conocida por su simplicidad y facilidad de uso. Está diseñada para configurarse rápidamente y requiere capacitación mínima para los miembros del equipo.",
+        "pricing": {
+          "freeOption": "false",
+          "pricingModel": "Por usuario por mes, facturación anual",
+          "startingPrice": "€2.50 por usuario/mes",
+          "summary": "absence.io ofrece una prueba gratuita de 14 días pero sin nivel gratuito permanente. Los planes pagos comienzan en €2.50 por usuario por mes. Descuentos por volumen disponibles para equipos más grandes."
+        },
+        "pros": [
+          "Solución de gestión de ausencias limpia y enfocada",
+          "Aplicaciones móviles nativas para iOS y Android",
+          "Buena integración con otras herramientas de RRHH",
+          "Configuración rápida y fácil de usar",
+          "Cumple con GDPR con alojamiento de datos en la UE"
+        ],
+        "support": "absence.io proporciona soporte por correo electrónico y un centro de ayuda extenso. Los tiempos de respuesta son generalmente dentro de 24 horas. Soporte premium disponible para clientes empresariales.",
+        "tagline": "Plataforma dedicada a la gestión de ausencias",
+        "targetAudience": "absence.io está diseñado para empresas de todos los tamaños que desean una solución de gestión de ausencias enfocada. Es particularmente popular entre empresas que han superado las hojas de cálculo pero no necesitan una plataforma de RRHH completa.",
+        "verdict": "absence.io es una opción sólida para empresas que desean una herramienta dedicada de gestión de ausencias. Sin embargo, la falta de un nivel gratuito hace que ZeitPal sea más atractivo para equipos pequeños. ZeitPal también ofrece mejor soporte de la ley laboral alemana. Elige absence.io por sus aplicaciones móviles nativas, elige ZeitPal por uso gratuito y cumplimiento alemán.",
+        "website": "absence.io"
+      },
+      "absentify": {
+        "cons": [
+          "Requiere Microsoft Teams para ser útil",
+          "Características independientes limitadas",
+          "Empresa más nueva con base de clientes más pequeña",
+          "Menos completo que soluciones de RRHH completas",
+          "Soporte de derecho laboral alemán poco claro"
+        ],
+        "faqItems": [
+          {
+            "answer": "Aunque absentify tiene una interfaz web, su valor principal es la integración con Teams. Sin Teams, ZeitPal ofrece una experiencia independiente más completa.",
+            "question": "¿Necesito Microsoft Teams para absentify?"
+          },
+          {
+            "answer": "Ambos ofrecen niveles gratuitos. Para equipos pequeños, el nivel gratuito de ZeitPal (hasta 20 usuarios) puede ser más generoso. Para planes pagos, ambos tienen precios similares alrededor de €2-4 por usuario por mes.",
+            "question": "¿Es absentify más barato que ZeitPal?"
+          }
+        ],
+        "features": {
+          "approvals": "Flujos de aprobación en Teams",
+          "integrations": "Microsoft Teams, Outlook, Microsoft 365",
+          "leaveManagement": "Solicitudes de permiso dentro de Microsoft Teams",
+          "mobileApp": "Funciona a través de la aplicación móvil de Teams",
+          "reporting": "Reportes básicos de ausencias",
+          "sickLeave": "Seguimiento de licencia por enfermedad y notificaciones",
+          "teamCalendar": "Calendario de ausencias integrado con Outlook"
+        },
+        "founded": "2020",
+        "gdprCompliance": "absentify cumple con GDPR como empresa austriaca. Utilizan infraestructura de Microsoft Azure para almacenamiento y procesamiento de datos.",
+        "headquarters": "Austria",
+        "name": "absentify",
+        "overview": "absentify es una herramienta austriaca de gestión de permisos diseñada específicamente para Microsoft Teams. Fundada en 2020, se ha enfocado en proporcionar una experiencia de gestión de ausencias sin interrupciones dentro del ecosistema de Teams.\n\nLa plataforma ofrece una integración estrecha con Microsoft 365, permitiendo que los empleados gestionen permisos sin salir de su entorno familiar de Teams.",
+        "pricing": {
+          "freeOption": "true",
+          "pricingModel": "Por usuario por mes",
+          "startingPrice": "Gratuito / €2 por usuario",
+          "summary": "absentify ofrece un nivel gratuito limitado. Los planes pagos comienzan en €2 por usuario por mes. Precios transparentes sin costos ocultos."
+        },
+        "pros": [
+          "Excelente integración con Microsoft Teams",
+          "Empresa austriaca, enfoque europeo",
+          "Nivel gratuito disponible",
+          "Configuración fácil dentro de Teams",
+          "Integración con calendario de Outlook"
+        ],
+        "support": "absentify proporciona soporte por correo electrónico y documentación. Al ser una empresa más pequeña, los recursos de soporte son más limitados pero receptivos.",
+        "tagline": "Gestión de permisos para Microsoft Teams",
+        "targetAudience": "absentify está diseñado para empresas que utilizan Microsoft Teams como herramienta de comunicación principal. Ideal para organizaciones que desean gestión de permisos integrada en su ecosistema Microsoft 365.",
+        "verdict": "absentify es una excelente opción para organizaciones centradas en Teams que desean gestión de permisos integrada. Sin embargo, para empresas alemanas que necesitan gestión de permisos independiente con cumplimiento específico de derecho laboral, ZeitPal ofrece una solución más completa. Elige absentify para integración con Microsoft Teams, elige ZeitPal para gestión de permisos alemana independiente.",
+        "website": "absentify.com"
+      },
+      "breathehr": {
+        "cons": [
+          "Enfocado en el Reino Unido, no ideal para empresas alemanas",
+          "No hay nivel gratuito disponible",
+          "Integraciones limitadas",
+          "Características básicas en comparación con alternativas",
+          "La experiencia móvil es solo basada en web"
+        ],
+        "faqItems": [
+          {
+            "answer": "Aunque es posible, Breathe HR está diseñado para la legislación laboral del Reino Unido. Las empresas alemanas estarían mejor servidas por ZeitPal, que está construido específicamente para requisitos alemanes.",
+            "question": "¿Pueden las empresas alemanas usar Breathe HR?"
+          },
+          {
+            "answer": "Breathe HR está disponible principalmente en inglés. ZeitPal ofrece soporte completo en idioma alemán y está diseñado para el mercado alemán.",
+            "question": "¿Está Breathe HR disponible en alemán?"
+          }
+        ],
+        "features": {
+          "approvals": "Flujos de aprobación del gerente",
+          "integrations": "Integraciones limitadas, API disponible",
+          "leaveManagement": "Gestión de vacaciones y ausencias",
+          "mobileApp": "Aplicación web receptiva para móvil",
+          "reporting": "Reportes y análisis básicos de HR",
+          "sickLeave": "Seguimiento de enfermedad con Factor Bradford",
+          "teamCalendar": "Vista de calendario de la empresa"
+        },
+        "founded": "2012",
+        "gdprCompliance": "Breathe HR cumple con GDPR con centros de datos en el Reino Unido. Proporcionan características estándar de protección de datos para empresas del Reino Unido.",
+        "headquarters": "Reino Unido",
+        "name": "Breathe HR",
+        "overview": "Breathe HR es un software de HR basado en el Reino Unido diseñado específicamente para pequeñas y medianas empresas. Fundada en 2012, han construido una reputación por la gestión de HR simple y asequible que no requiere experiencia en HR para usar.\n\nLa plataforma ofrece una variedad de herramientas de HR incluyendo gestión de ausencias, almacenamiento de documentos, gestión del desempeño y reclutamiento. Su enfoque es la simplicidad y facilidad de uso para PYMEs.",
+        "pricing": {
+          "freeOption": "false",
+          "pricingModel": "Tarifa fija + precios por usuario",
+          "startingPrice": "£13/mes (hasta 10 usuarios)",
+          "summary": "El precio de Breathe HR comienza en £13 por mes para hasta 10 empleados, luego se aplica precios por usuario. No hay nivel gratuito disponible."
+        },
+        "pros": [
+          "Simple y fácil de usar",
+          "Diseñado para PYMEs del Reino Unido",
+          "Asequible para equipos pequeños",
+          "No se requiere experiencia en HR",
+          "Buen soporte de la legislación laboral del Reino Unido"
+        ],
+        "support": "Breathe HR ofrece soporte por teléfono y correo electrónico con equipo basado en el Reino Unido. Tienen un centro de ayuda y proporcionan soporte de incorporación.",
+        "tagline": "Software de HR simple para PYMEs del Reino Unido",
+        "targetAudience": "Breathe HR está diseñado para PYMEs del Reino Unido con 1-250 empleados que buscan software de HR simple. Es particularmente popular entre empresas sin equipos de HR dedicados.",
+        "verdict": "Breathe HR es una opción sólida para PYMEs del Reino Unido que desean software de HR simple. Sin embargo, para empresas alemanas, ZeitPal es claramente la mejor opción con su soporte de legislación laboral alemana, enfoque en GDPR y nivel gratuito. Elige Breathe para empresas del Reino Unido, elige ZeitPal para empresas alemanas.",
+        "website": "breathehr.com"
+      },
+      "calamari": {
+        "cons": [
+          "Sin nivel gratuito (solo prueba de 14 días)",
+          "Requiere pagar por módulos por separado",
+          "No está diseñado específicamente para el mercado alemán",
+          "Empresa polaca con soporte limitado en alemán",
+          "La interfaz puede parecer anticuada"
+        ],
+        "faqItems": [
+          {
+            "answer": "Sí, Calamari ofrece gestión de ausencias como módulo separado. Sin embargo, sin el nivel gratuito, ZeitPal puede ser más rentable para equipos pequeños.",
+            "question": "¿Puedo usar solo la gestión de ausencias en Calamari?"
+          },
+          {
+            "answer": "Calamari admite días festivos públicos pero puede no tener días festivos específicos de estados alemanes completos. ZeitPal ofrece soporte completo de leyes laborales alemanas incluyendo todos los días festivos estatales.",
+            "question": "¿Calamari admite días festivos alemanes?"
+          }
+        ],
+        "features": {
+          "approvals": "Flujos de aprobación multinivel",
+          "integrations": "Slack, Microsoft Teams, Google Calendar, Jira",
+          "leaveManagement": "Sistema completo de solicitud y aprobación de ausencias",
+          "mobileApp": "Aplicaciones nativas para iOS y Android",
+          "reporting": "Análisis de tiempo y asistencia",
+          "sickLeave": "Seguimiento de licencia por enfermedad con notificaciones",
+          "teamCalendar": "Calendario de equipo con vista de asistencia"
+        },
+        "founded": "2014",
+        "gdprCompliance": "Calamari cumple con GDPR con datos almacenados en centros de datos de la UE. Proporcionan características estándar de protección de datos y acuerdos de DPA.",
+        "headquarters": "Polonia",
+        "name": "Calamari",
+        "overview": "Calamari es una plataforma de software de HR enfocada en seguimiento de tiempo, asistencia y gestión de ausencias. Fundada en Polonia en 2014, han construido una fuerte presencia en Europa con sus herramientas integrales de gestión de personal.\n\nLa plataforma combina funcionalidad de registro de entrada/salida con gestión de ausencias, lo que la hace adecuada para empresas que necesitan tanto seguimiento de tiempo como gestión de ausencias en una sola herramienta.",
+        "pricing": {
+          "freeOption": "false",
+          "pricingModel": "Por usuario por mes, basado en módulos",
+          "startingPrice": "$2 por usuario/mes",
+          "summary": "Calamari ofrece precios separados para los módulos de Gestión de Ausencias y Registro de Entrada/Salida. La Gestión de Ausencias comienza en $2 por usuario por mes. Prueba gratuita de 14 días disponible."
+        },
+        "pros": [
+          "Seguimiento de tiempo y gestión de ausencias combinados",
+          "Aplicaciones móviles nativas con función de registro",
+          "Buena integración con Microsoft Teams",
+          "Precios asequibles",
+          "Cumple con GDPR"
+        ],
+        "support": "Calamari ofrece soporte por correo electrónico y chat durante el horario comercial. Tienen un centro de ayuda con documentación. Soporte principalmente en inglés.",
+        "tagline": "Software de HR con tiempo y asistencia",
+        "targetAudience": "Calamari está diseñado para empresas que necesitan tanto seguimiento de tiempo como gestión de ausencias. Es popular entre empresas que tienen trabajadores por turnos o necesitan seguimiento de asistencia junto con gestión de ausencias.",
+        "verdict": "Calamari es una buena opción si necesita seguimiento de tiempo y gestión de ausencias combinados. Sin embargo, para empresas alemanas enfocadas principalmente en gestión de ausencias, ZeitPal ofrece una mejor solución con su nivel gratuito y soporte de leyes laborales alemanas. Elija Calamari para necesidades de seguimiento de tiempo, elija ZeitPal para gestión de ausencias enfocada.",
+        "website": "calamari.io"
+      },
+      "clockodo": {
+        "cons": [
+          "No hay nivel gratuito disponible",
+          "Principalmente una herramienta de seguimiento de tiempo",
+          "La gestión de ausencias es una característica secundaria",
+          "Más costoso que herramientas de permisos dedicadas",
+          "Puede ser complejo si no necesitas seguimiento de tiempo"
+        ],
+        "faqItems": [
+          {
+            "answer": "Si necesitas seguimiento de tiempo basado en proyectos para horas facturables, elige Clockodo. Si principalmente necesitas gestión de permisos y ausencias, elige ZeitPal. ZeitPal también es gratuito para hasta 20 empleados.",
+            "question": "¿Debo usar Clockodo o ZeitPal?"
+          },
+          {
+            "answer": "Sí, Clockodo ofrece integración DATEV para nómina alemana. ZeitPal se enfoca en gestión de permisos en lugar de integración de nómina.",
+            "question": "¿Se integra Clockodo con nómina alemana?"
+          }
+        ],
+        "features": {
+          "approvals": "Aprobación del gerente para ausencias",
+          "integrations": "DATEV, herramientas de gestión de proyectos",
+          "leaveManagement": "Gestión de ausencias como parte del seguimiento de tiempo",
+          "mobileApp": "Aplicaciones nativas para iOS y Android",
+          "reporting": "Informes de tiempo y ausencias, exportación DATEV",
+          "sickLeave": "Registro de licencia por enfermedad con seguimiento de tiempo",
+          "teamCalendar": "Calendario de descripción general de ausencias"
+        },
+        "founded": "2011",
+        "gdprCompliance": "Clockodo es una empresa alemana con cumplimiento GDPR completo. Los datos se almacenan en servidores alemanes y ofrecen integración DATEV para requisitos contables alemanes.",
+        "headquarters": "Alemania",
+        "name": "Clockodo",
+        "overview": "Clockodo es un software alemán de seguimiento de tiempo fundado en 2011. Aunque es principalmente conocido por el seguimiento de tiempo basado en proyectos, también ofrece características de gestión de ausencias. La plataforma es popular entre agencias, consultorías y empresas de servicios que necesitan rastrear horas facturables.\n\nClockodo combina seguimiento de tiempo con gestión de ausencias e ofrece integración con DATEV para procesamiento de nómina alemana.",
+        "pricing": {
+          "freeOption": "false",
+          "pricingModel": "Por usuario al mes",
+          "startingPrice": "€6.50 por usuario/mes",
+          "summary": "El precio de Clockodo se basa en usuarios activos. Los planes comienzan en €6.50 por usuario al mes. Ofrecen una prueba gratuita de 14 días pero sin nivel gratuito permanente."
+        },
+        "pros": [
+          "Empresa alemana con integración DATEV",
+          "Características sólidas de seguimiento de tiempo",
+          "Cumplimiento GDPR con servidores alemanes",
+          "Bueno para agencias y empresas de servicios",
+          "Aplicaciones móviles nativas"
+        ],
+        "support": "Clockodo proporciona soporte en idioma alemán por correo electrónico y teléfono. Tienen un centro de ayuda completo y ofrecen incorporación personal.",
+        "tagline": "Software alemán de seguimiento de tiempo",
+        "targetAudience": "Clockodo está diseñado para empresas de servicios alemanas, agencias y consultorías que necesitan seguimiento de tiempo basado en proyectos junto con gestión de ausencias. Mejor adaptado para empresas con horas facturables.",
+        "verdict": "Clockodo es una excelente opción para empresas de servicios alemanas que necesitan seguimiento de tiempo basado en proyectos con gestión de ausencias. Sin embargo, si tu necesidad principal es gestión de permisos sin seguimiento de tiempo, ZeitPal ofrece una solución más enfocada y rentable con nivel gratuito. Elige Clockodo para seguimiento de tiempo, elige ZeitPal para gestión de permisos.",
+        "website": "clockodo.com"
+      },
+      "edays": {
+        "cons": [
+          "Sin nivel gratuito o planes para pequeñas empresas",
+          "Enfocado principalmente en el Reino Unido, menos cumplimiento alemán",
+          "Configuración e implementación compleja",
+          "Precios no transparentes",
+          "Puede ser excesivo para PYMEs"
+        ],
+        "faqItems": [
+          {
+            "answer": "edays está diseñado para empresas y puede ser demasiado complejo y costoso para pequeñas empresas. ZeitPal es una mejor opción para equipos de menos de 50 empleados.",
+            "question": "¿Es edays adecuado para pequeñas empresas?"
+          },
+          {
+            "answer": "edays soporta múltiples países pero está principalmente enfocado en el Reino Unido. ZeitPal está específicamente diseñado para los requisitos de la legislación laboral alemana.",
+            "question": "¿Soporta edays la legislación laboral alemana?"
+          }
+        ],
+        "features": {
+          "approvals": "Flujos de aprobación complejos y delegación",
+          "integrations": "Sistemas de HR, nómina, SSO",
+          "leaveManagement": "Sistema de gestión de ausencias de nivel empresarial",
+          "mobileApp": "Aplicación móvil disponible",
+          "reporting": "Análisis avanzados e informes personalizados",
+          "sickLeave": "Seguimiento de licencia por enfermedad con Factor Bradford",
+          "teamCalendar": "Calendarios multiequipo con vista global"
+        },
+        "founded": "2007",
+        "gdprCompliance": "edays cumple con GDPR con centros de datos en el Reino Unido y la UE. Ofrecen características sólidas de protección de datos adecuadas para requisitos empresariales.",
+        "headquarters": "Reino Unido",
+        "name": "edays",
+        "overview": "edays es una plataforma de gestión de ausencias basada en el Reino Unido fundada en 2007. Se especializan en gestión de ausencias a nivel empresarial con enfoque en cumplimiento normativo, análisis y gestión de personal global.\n\nLa plataforma es conocida por sus capacidades integrales de informes y su capacidad para manejar políticas de ausencia complejas para grandes organizaciones con múltiples ubicaciones y tipos de empleados.",
+        "pricing": {
+          "freeOption": "false",
+          "pricingModel": "Presupuesto personalizado, precios empresariales",
+          "startingPrice": "~£2-5 por usuario/mes",
+          "summary": "edays utiliza precios empresariales personalizados. Espere pagar £2-5 por usuario por mes dependiendo del tamaño de la empresa y las características requeridas. No hay nivel gratuito disponible."
+        },
+        "pros": [
+          "Características y confiabilidad de nivel empresarial",
+          "Análisis e informes sólidos",
+          "Factor Bradford para gestión de licencia por enfermedad",
+          "Soporte de personal global",
+          "Empresa establecida desde 2007"
+        ],
+        "support": "edays proporciona gestores de cuenta dedicados para clientes empresariales, soporte por correo electrónico y teléfono, y recursos de capacitación completos.",
+        "tagline": "Gestión de ausencias empresarial",
+        "targetAudience": "edays está diseñado para empresas medianas a grandes (100+ empleados) que necesitan gestión de ausencias sofisticada con características sólidas de análisis y cumplimiento normativo. Mejor para empresas del Reino Unido y globales.",
+        "verdict": "edays es una excelente opción para grandes empresas que necesitan gestión sofisticada de ausencias. Sin embargo, para PYMEs alemanas, ZeitPal ofrece una solución más adecuada con su nivel gratuito, enfoque en la legislación laboral alemana y configuración más simple. Elige edays para necesidades empresariales, elige ZeitPal para la simplicidad de PYMEs.",
+        "website": "e-days.com"
+      },
+      "factorial": {
+        "cons": [
+          "Nivel gratuito muy limitado en funcionalidades",
+          "Menos enfocado en los requisitos del mercado alemán",
+          "Puede ser complejo para gestión simple de ausencias",
+          "Precios más altos que ZeitPal para funcionalidades similares",
+          "Soporte principalmente en inglés y español"
+        ],
+        "faqItems": [
+          {
+            "answer": "Factorial soporta múltiples idiomas incluyendo alemán. Sin embargo, su enfoque principal está en mercados hispanohablantes e ingleses, mientras que ZeitPal está específicamente construido para empresas alemanas.",
+            "question": "¿Está Factorial disponible en alemán?"
+          },
+          {
+            "answer": "Para empresas alemanas de hasta 20 empleados, ZeitPal es probablemente la mejor opción debido a su nivel gratuito, soporte de ley laboral alemana y enfoque centrado en GDPR. Factorial es mejor si necesitas una plataforma de HR completa.",
+            "question": "¿Cuál es mejor para una pequeña empresa alemana?"
+          }
+        ],
+        "features": {
+          "approvals": "Flujos de aprobación multinivel",
+          "integrations": "Integraciones con Slack, Google, Microsoft y nómina",
+          "leaveManagement": "Gestión completa de permisos con políticas personalizadas",
+          "mobileApp": "Aplicaciones nativas para iOS y Android",
+          "reporting": "Análisis de RRHH y paneles personalizados",
+          "sickLeave": "Seguimiento de licencia por enfermedad con gestión de documentos",
+          "teamCalendar": "Calendario del equipo con visibilidad de ausencias"
+        },
+        "founded": "2016",
+        "gdprCompliance": "Factorial cumple con GDPR con centros de datos en la UE. Ofrecen funcionalidades estándar de protección de datos y controles de privacidad. Sin embargo, no se enfocan específicamente en los requisitos de protección de datos alemanes.",
+        "headquarters": "Barcelona, España",
+        "name": "Factorial",
+        "overview": "Factorial es una plataforma moderna de RRHH fundada en Barcelona en 2016. Ha crecido rápidamente para servir a más de 60,000 empresas en todo el mundo. Factorial ofrece un conjunto completo de herramientas de RRHH incluyendo seguimiento de tiempo, gestión de ausencias, gestión de documentos y evaluaciones de desempeño.\n\nLa plataforma es conocida por su interfaz moderna y diseño fácil de usar. Es particularmente popular entre startups y empresas en crecimiento que buscan una solución de RRHH escalable.",
+        "pricing": {
+          "freeOption": "true",
+          "pricingModel": "Por empleado por mes, niveles basados en funcionalidades",
+          "startingPrice": "~€4-6 por empleado/mes",
+          "summary": "Factorial ofrece un nivel gratuito limitado para equipos muy pequeños. Los planes pagos comienzan alrededor de €4-6 por empleado por mes dependiendo de las características. Precios personalizados para empresas."
+        },
+        "pros": [
+          "Interfaz moderna y fácil de usar",
+          "Funcionalidades integrales de HR más allá de la gestión de ausencias",
+          "Aplicaciones móviles nativas",
+          "Buen ecosistema de integraciones",
+          "Nivel gratuito limitado disponible"
+        ],
+        "support": "Factorial proporciona soporte por chat y correo electrónico. Tienen un centro de ayuda con documentación y tutoriales en video. Soporte disponible en inglés, español y otros idiomas europeos.",
+        "tagline": "Plataforma moderna de RRHH para PYMEs",
+        "targetAudience": "Factorial está diseñado para PYMEs y startups que buscan una plataforma de HR moderna y escalable. Es particularmente popular en España y América Latina, pero tiene una fuerte presencia en toda Europa. Mejor para empresas que desean más que solo gestión de ausencias.",
+        "verdict": "Factorial es una opción sólida para empresas que desean una plataforma de HR integral y moderna. Sin embargo, para empresas alemanas enfocadas específicamente en gestión de ausencias, ZeitPal ofrece mejor valor con su nivel gratuito generoso y cumplimiento de la ley laboral alemana. Elige Factorial para suite de HR completa, elige ZeitPal para gestión de ausencias enfocada en Alemania.",
+        "website": "factorialhr.com"
+      },
+      "leapsome": {
+        "cons": [
+          "La gestión de ausencias no es el enfoque",
+          "No hay nivel gratuito disponible",
+          "Puede ser costoso solo para gestión de permisos",
+          "Mejor adaptado para empresas más grandes",
+          "El tiempo libre es un complemento, no una característica principal"
+        ],
+        "faqItems": [
+          {
+            "answer": "Aunque es posible, la fortaleza de Leapsome está en la gestión del desempeño. Para gestión dedicada de permisos, ZeitPal ofrece una solución más enfocada y rentable.",
+            "question": "¿Puedo usar Leapsome solo para gestión de permisos?"
+          },
+          {
+            "answer": "Sí, Leapsome es una empresa con sede en Berlín. Sin embargo, su enfoque es la gestión del desempeño global en lugar de la gestión de permisos específica de Alemania como ZeitPal.",
+            "question": "¿Es Leapsome alemana?"
+          }
+        ],
+        "features": {
+          "approvals": "Aprobación del gerente para tiempo libre",
+          "integrations": "HRIS, Slack, MS Teams, Google, BambooHR",
+          "leaveManagement": "Seguimiento básico de tiempo libre (no es el enfoque principal)",
+          "mobileApp": "Aplicaciones nativas para iOS y Android",
+          "reporting": "Análisis de personas enfocado en el desempeño",
+          "sickLeave": "Disponible como parte del seguimiento de tiempo",
+          "teamCalendar": "Vista de disponibilidad del equipo"
+        },
+        "founded": "2016",
+        "gdprCompliance": "Leapsome es una empresa alemana con cumplimiento GDPR sólido. Los datos se almacenan en centros de datos de la UE y proporcionan características completas de protección de datos.",
+        "headquarters": "Berlín, Alemania",
+        "name": "Leapsome",
+        "overview": "Leapsome es una plataforma de habilitación de personas basada en Berlín fundada en 2016. A diferencia del software de HR tradicional, Leapsome se enfoca en gestión del desempeño, compromiso de empleados, OKRs y aprendizaje. Aunque ofrecen seguimiento de tiempo, la gestión de ausencias no es su enfoque principal.\n\nLa plataforma es conocida por su enfoque moderno de la gestión de personas y es popular entre empresas tecnológicas y startups que buscan construir culturas de desempeño sólidas.",
+        "pricing": {
+          "freeOption": "false",
+          "pricingModel": "Por usuario al mes, basado en módulos",
+          "startingPrice": "~€6+ por usuario/mes",
+          "summary": "Leapsome utiliza precios modulares. Espera €6-15 por usuario al mes dependiendo de los módulos seleccionados. El seguimiento de tiempo es un módulo adicional."
+        },
+        "pros": [
+          "Empresa alemana, cumplimiento GDPR sólido",
+          "Excelentes características de gestión del desempeño",
+          "Interfaz moderna y bien diseñada",
+          "Seguimiento fuerte de OKR y objetivos",
+          "Buen ecosistema de integraciones"
+        ],
+        "support": "Leapsome proporciona gerentes de éxito del cliente dedicados, soporte por correo electrónico y documentación completa. Incluye soporte de capacitación e incorporación.",
+        "tagline": "Plataforma de habilitación de personas",
+        "targetAudience": "Leapsome está diseñado para empresas enfocadas en construir culturas de alto rendimiento con énfasis en objetivos, retroalimentación y desarrollo. Ideal para empresas tecnológicas y startups que priorizan el desarrollo de personas sobre HR administrativo.",
+        "verdict": "Leapsome es una excelente opción para empresas que priorizan la gestión del desempeño y el desarrollo de personas. Sin embargo, para gestión dedicada de permisos, ZeitPal es la mejor opción con sus características enfocadas y nivel gratuito. Elige Leapsome para cultura de desempeño, elige ZeitPal para gestión de permisos.",
+        "website": "leapsome.com"
+      },
+      "personio": {
+        "cons": [
+          "No hay nivel gratuito disponible",
+          "Puede ser complejo para necesidades simples de gestión de permisos",
+          "Los precios requieren contacto con ventas",
+          "Puede ser excesivo para equipos pequeños",
+          "Tiempo de implementación largo para la plataforma completa"
+        ],
+        "faqItems": [
+          {
+            "answer": "Personio ofrece características de RRHH más completas, pero ZeitPal está específicamente diseñado para la gestión de permisos con una interfaz más simple y nivel gratuito para equipos pequeños. Si solo necesita gestión de permisos, ZeitPal es más rentable.",
+            "question": "¿Es Personio mejor que ZeitPal para la gestión de permisos?"
+          },
+          {
+            "answer": "Sí, puede exportar sus datos de ausencia de Personio e importarlos en ZeitPal. Nuestro equipo de soporte puede ayudar con el proceso de migración.",
+            "question": "¿Puedo migrar de Personio a ZeitPal?"
+          },
+          {
+            "answer": "No, Personio no ofrece un nivel gratuito. ZeitPal es gratuito para equipos de hasta 20 empleados.",
+            "question": "¿Personio tiene una versión gratuita?"
+          }
+        ],
+        "features": {
+          "approvals": "Flujos de aprobación multinivel",
+          "integrations": "Más de 200 integraciones incluyendo Slack, MS Teams y sistemas de nómina",
+          "leaveManagement": "Gestión completa de ausencias con flujos de aprobación",
+          "mobileApp": "Aplicaciones nativas para iOS y Android",
+          "reporting": "Análisis de RRHH integral e informes personalizados",
+          "sickLeave": "Seguimiento de permiso por enfermedad con carga de documentos",
+          "teamCalendar": "Calendario de ausencias del equipo integrado con datos HR"
+        },
+        "founded": "2015",
+        "gdprCompliance": "Personio cumple completamente con GDPR con datos almacenados en centros de datos de la UE. Como empresa alemana, tienen una sólida experiencia en requisitos europeos de protección de datos. Ofrecen características como políticas de retención de datos, controles de acceso y registros de auditoría.",
+        "headquarters": "Múnich, Alemania",
+        "name": "Personio",
+        "overview": "Personio es una plataforma integral de software HR fundada en Múnich en 2015. Ha crecido para convertirse en una de las principales empresas de tecnología HR de Europa, sirviendo a más de 10,000 clientes. Personio ofrece un conjunto completo de herramientas HR incluyendo reclutamiento, incorporación, seguimiento de tiempo, nómina y, por supuesto, gestión de ausencias.\n\nAunque Personio es una excelente opción para empresas que buscan una solución HR todo en uno, su naturaleza integral significa que puede ser más de lo que los equipos más pequeños necesitan. La plataforma está diseñada para empresas listas para centralizar todos sus procesos HR en un solo lugar.",
+        "pricing": {
+          "freeOption": "false",
+          "pricingModel": "Presupuesto personalizado, precios basados en módulos",
+          "startingPrice": "~€3-8 por empleado/mes",
+          "summary": "Personio utiliza precios personalizados según el tamaño de la empresa y los módulos requeridos. Espere pagar €3-8 por empleado por mes para Core HR, con costos adicionales para módulos extra. No hay nivel gratuito disponible."
+        },
+        "pros": [
+          "Plataforma integral de RRHH todo en uno",
+          "Cumplimiento sólido de GDPR y enfoque alemán",
+          "Excelente ecosistema de integraciones",
+          "Aplicaciones móviles nativas",
+          "Empresa establecida con soporte sólido"
+        ],
+        "support": "Personio ofrece soporte por correo electrónico y teléfono con agentes de habla alemana. Los clientes empresariales obtienen gestores de cuenta dedicados. También proporcionan un centro de ayuda extenso y seminarios web regulares para capacitación.",
+        "tagline": "Plataforma HR todo en uno desde Múnich",
+        "targetAudience": "Personio es ideal para empresas medianas (50-2000 empleados) que buscan consolidar todos los procesos de RRHH en una plataforma. Es particularmente adecuado para empresas alemanas que necesitan software de RRHH integral con características sólidas de cumplimiento normativo. Sin embargo, para equipos enfocados principalmente en gestión de permisos, Personio puede ofrecer más funcionalidad de la necesaria.",
+        "verdict": "Personio es una excelente opción si necesita una plataforma integral de RRHH que vaya más allá de la gestión de permisos. Sin embargo, si su necesidad principal es un seguimiento simple y asequible de permisos, ZeitPal ofrece una solución más enfocada con un nivel gratuito para equipos pequeños. Elija Personio para una suite completa de RRHH, elija ZeitPal para una gestión de permisos directa.",
+        "website": "personio.de"
+      },
+      "personizer": {
+        "cons": [
+          "Nivel gratuito limitado a 5 usuarios (vs 20 de ZeitPal)",
+          "Menos integraciones que plataformas más grandes",
+          "Menos características que soluciones empresariales",
+          "Opciones de personalización limitadas",
+          "Empresa más pequeña con menos recursos de soporte"
+        ],
+        "faqItems": [
+          {
+            "answer": "Ambas son soluciones alemanas que cumplen con GDPR. Personizer combina seguimiento de tiempo con gestión de ausencias, mientras que ZeitPal se enfoca específicamente en gestión de permisos. ZeitPal ofrece un nivel gratuito para hasta 20 usuarios, en comparación con el límite de 5 usuarios de Personizer.",
+            "question": "¿Cuál es la diferencia entre Personizer y ZeitPal?"
+          },
+          {
+            "answer": "Para equipos de hasta 20 empleados, ZeitPal es completamente gratuito. El nivel gratuito de Personizer se limita a 5 usuarios. Para planes pagos, ambos tienen precios similares alrededor de €2-4 por usuario por mes.",
+            "question": "¿Cuál es más barato, Personizer o ZeitPal?"
+          }
+        ],
+        "features": {
+          "approvals": "Flujos de aprobación del gerente",
+          "integrations": "Integraciones limitadas, API disponible",
+          "leaveManagement": "Solicitudes de permiso con flujos de aprobación",
+          "mobileApp": "Aplicación web responsiva para móvil",
+          "reporting": "Informes básicos de ausencias y exportaciones",
+          "sickLeave": "Seguimiento de licencia por enfermedad y notificaciones",
+          "teamCalendar": "Calendario de ausencias del equipo"
+        },
+        "founded": "2015",
+        "gdprCompliance": "Personizer cumple completamente con GDPR con datos almacenados en servidores certificados ISO en la UE. Como empresa alemana, priorizan la protección de datos y ofrecen medidas de seguridad sólidas.",
+        "headquarters": "Alemania",
+        "name": "Personizer",
+        "overview": "Personizer es una herramienta de RRHH basada en la nube alemana enfocada en seguimiento de tiempo y gestión de ausencias para pequeñas y medianas empresas. Fundada en 2015, han construido una reputación de cumplimiento de GDPR y facilidad de uso.\n\nPersonizer combina el seguimiento de tiempo con la gestión de ausencias, lo que la convierte en una buena opción para empresas que necesitan ambas funcionalidades. Su enfoque en el mercado alemán significa un fuerte cumplimiento de las leyes laborales locales.",
+        "pricing": {
+          "freeOption": "true",
+          "pricingModel": "Por usuario por mes",
+          "startingPrice": "Gratuito / ~€2 por usuario",
+          "summary": "Personizer ofrece un nivel gratuito para hasta 5 usuarios. Los planes pagos comienzan alrededor de €2 por usuario por mes. Precios transparentes sin costos ocultos."
+        },
+        "pros": [
+          "Empresa alemana con cumplimiento sólido de GDPR",
+          "Nivel gratuito disponible para equipos pequeños",
+          "Seguimiento de tiempo combinado y gestión de ausencias",
+          "Interfaz fácil de usar",
+          "Precios asequibles"
+        ],
+        "support": "Personizer ofrece soporte por correo electrónico en alemán e inglés. Proporcionan un centro de ayuda y documentación para soporte de autoservicio.",
+        "tagline": "Seguimiento de tiempo y gestión de ausencias alemana",
+        "targetAudience": "Personizer está diseñado para pequeñas y medianas empresas alemanas que necesitan seguimiento de tiempo combinado y gestión de ausencias. Es particularmente adecuado para equipos que desean software simple y compatible con GDPR sin complejidad empresarial.",
+        "verdict": "Personizer y ZeitPal son ambas opciones sólidas para empresas alemanas. Las principales diferencias son: ZeitPal ofrece un nivel gratuito más generoso (20 usuarios vs 5), mientras que Personizer incluye seguimiento de tiempo. Si el seguimiento de tiempo es importante, considera Personizer. Para gestión pura de permisos con una mejor oferta gratuita, ZeitPal es la mejor opción.",
+        "website": "personizer.com"
+      },
+      "vacation-tracker": {
+        "cons": [
+          "Requiere Slack o Teams para ser útil",
+          "Funcionalidades independientes limitadas",
+          "No diseñado específicamente para el mercado alemán",
+          "Reportes menos integrales",
+          "Sin funcionalidades específicas de ley laboral alemana"
+        ],
+        "faqItems": [
+          {
+            "answer": "Aunque Vacation Tracker tiene una interfaz web, su valor principal es la integración con Slack/Teams. Sin estas herramientas, ZeitPal ofrece una experiencia independiente más integral.",
+            "question": "¿Necesito Slack o Teams para usar Vacation Tracker?"
+          },
+          {
+            "answer": "Para equipos de más de 20 empleados, Vacation Tracker a $1/usuario puede ser más barato que ZeitPal a €3,99/usuario. Sin embargo, para equipos de menos de 20, ZeitPal es completamente gratuito.",
+            "question": "¿Es Vacation Tracker más barato que ZeitPal?"
+          }
+        ],
+        "features": {
+          "approvals": "Flujos de aprobación a través de mensajes de Slack/Teams",
+          "integrations": "Slack, Microsoft Teams, Google Calendar, Outlook",
+          "leaveManagement": "Solicitudes de ausencia directamente en Slack o Teams",
+          "mobileApp": "Funciona a través de aplicaciones móviles de Slack/Teams",
+          "reporting": "Reportes de ausencias y seguimiento de saldo",
+          "sickLeave": "Seguimiento de días de enfermedad con notificaciones",
+          "teamCalendar": "Vista de calendario integrada con Slack/Teams"
+        },
+        "founded": "2018",
+        "gdprCompliance": "Vacation Tracker cumple con GDPR y ofrece acuerdos de procesamiento de datos. Sin embargo, los datos pueden almacenarse fuera de la UE dependiendo de la configuración. No se enfoca específicamente en requisitos de cumplimiento alemán.",
+        "headquarters": "Bosnia y Herzegovina",
+        "name": "Vacation Tracker",
+        "overview": "Vacation Tracker es una herramienta de seguimiento de ausencias diseñada específicamente para equipos que usan Slack o Microsoft Teams. Fundada en 2018, se han enfocado en hacer que la gestión de ausencias sea fluida dentro de las herramientas de comunicación que los equipos ya utilizan.\n\nLa plataforma es conocida por su integración estrecha con Slack y Teams, permitiendo a los empleados solicitar y gestionar ausencias sin salir de su aplicación de chat.",
+        "pricing": {
+          "freeOption": "true",
+          "pricingModel": "Por usuario por mes",
+          "startingPrice": "$1 por usuario/mes",
+          "summary": "Vacation Tracker ofrece un nivel gratuito con funcionalidades limitadas. Los planes pagos comienzan en $1 por usuario por mes, lo que lo convierte en una de las opciones más asequibles."
+        },
+        "pros": [
+          "Excelente integración con Slack y Teams",
+          "Precios muy asequibles",
+          "Nivel gratuito disponible",
+          "Configuración fácil dentro de herramientas existentes",
+          "Excelente para equipos remotos"
+        ],
+        "support": "Vacation Tracker proporciona soporte por correo electrónico y un centro de ayuda. Siendo una empresa más pequeña, los recursos de soporte son más limitados que alternativas empresariales.",
+        "tagline": "Seguimiento de ausencias para Slack y Teams",
+        "targetAudience": "Vacation Tracker es ideal para equipos remotos y empresas que usan intensivamente Slack o Microsoft Teams para comunicación. Es particularmente popular entre startups tecnológicas y equipos distribuidos que desean gestión de ausencias integrada en su flujo de trabajo.",
+        "verdict": "Vacation Tracker es excelente para equipos que viven en Slack o Teams y desean mínima fricción para solicitudes de ausencia. Sin embargo, si eres una empresa alemana que necesita gestión de ausencias independiente con cumplimiento de ley laboral alemana, ZeitPal es la mejor opción. Elige Vacation Tracker para integración con Slack/Teams, elige ZeitPal para cumplimiento alemán y uso independiente.",
+        "website": "vacationtracker.io"
+      }
+    },
+    "cons": "Desventajas",
+    "ctaButton": "Comenzar Gratis",
+    "ctaSubtitle": "Comienza gratis hoy - sin tarjeta de crédito requerida. La configuración toma menos de 15 minutos.",
+    "ctaTitle": "¿Listo para probar ZeitPal?",
+    "featureLabels": {
+      "approvals": "Flujos de Aprobación",
+      "integrations": "Integraciones",
+      "leaveManagement": "Gestión de Permisos",
+      "mobileApp": "Aplicación Móvil",
+      "reporting": "Reportes y Análisis",
+      "sickLeave": "Permiso por Enfermedad",
+      "teamCalendar": "Calendario del Equipo"
+    },
+    "heroSubtitle": "Encuentre la mejor solución de gestión de permisos para su equipo. Una comparación honesta de características, precios y experiencia del usuario.",
+    "heroTitle": "ZeitPal vs {{competitor}}",
+    "index": {
+      "ctaButton": "Comenzar Gratis",
+      "ctaSubtitle": "Comienza gratis hoy - sin tarjeta de crédito requerida.",
+      "ctaTitle": "¿Listo para simplificar tu gestión de permisos?",
+      "description": "Elegir el software de gestión de permisos correcto es una decisión importante. Hemos creado comparaciones honestas y detalladas con las alternativas más populares para ayudarte a tomar una decisión informada.",
+      "metaDescription": "Compara ZeitPal con soluciones populares de gestión de permisos. Encuentra la mejor alternativa para tu equipo con comparaciones detalladas de características.",
+      "metaTitle": "Alternativas y Comparaciones de ZeitPal | Software de Gestión de Permisos",
+      "subtitle": "Descubre cómo ZeitPal se compara con otras soluciones de gestión de permisos",
+      "title": "Comparaciones de ZeitPal"
+    },
+    "metaDescription": "Compare ZeitPal con {{competitor}}. Vea qué software de gestión de permisos es mejor para su equipo. Comparación de características, precios y reseña honesta.",
+    "metaTitle": "ZeitPal vs {{competitor}} - Comparación de Gestión de Permisos",
+    "no": "No",
+    "pricingLabels": {
+      "freeOption": "Plan Gratuito",
+      "pricingModel": "Modelo de Precios",
+      "startingPrice": "Precio Inicial"
+    },
+    "pros": "Ventajas",
+    "quickSummary": "Resumen Rápido",
+    "sections": {
+      "compliance": "GDPR y Cumplimiento Normativo",
+      "faq": "Preguntas Frecuentes",
+      "features": "Comparación de Características",
+      "integrations": "Integraciones",
+      "overview": "Descripción General de la Empresa",
+      "pricing": "Comparación de Precios",
+      "prosAndCons": "Ventajas y Desventajas",
+      "support": "Atención al Cliente",
+      "targetAudience": "Público Objetivo",
+      "verdict": "Nuestro Veredicto"
+    },
+    "viewPricing": "Ver Precios",
+    "yes": "Sí",
+    "zeitpal": {
+      "features": {
+        "approvals": "Cadenas de aprobación flexibles, aprobaciones multinivel, delegación",
+        "integrations": "Slack, Google Calendar, Microsoft 365 (próximamente)",
+        "leaveManagement": "Sistema completo de solicitud y aprobación de permisos con aprobaciones de un clic",
+        "mobileApp": "Aplicación web responsiva, funciona en cualquier dispositivo",
+        "reporting": "Reportes de ausencias, análisis de tasa de enfermedad, vista general de saldo de permisos",
+        "sickLeave": "Permiso por enfermedad digital con recordatorios automáticos de certificado después de 3 días",
+        "teamCalendar": "Calendario compartido del equipo con vista general de ausencias y detección de conflictos"
+      },
+      "pricing": {
+        "pricingModel": "Por usuario por mes, facturación anual disponible",
+        "startingPrice": "Gratuito / €3,99 por usuario",
+        "summary": "ZeitPal ofrece un plan gratuito generoso para equipos pequeños, con planes pagos asequibles para empresas en crecimiento. Sin costos ocultos, precios transparentes."
+      }
+    },
+    "zeitpalAdvantages": [
+      "Gratuito para equipos de hasta 20 empleados",
+      "Hecho en Alemania, cumple con RGPD",
+      "Configuración en menos de 15 minutos",
+      "Soporte de la ley laboral alemana"
+    ]
+  },
+  "contact": {
+    "faqDescription": "Podrías encontrar la respuesta en nuestras Preguntas Frecuentes.",
+    "faqTitle": "¿Tienes Preguntas?",
+    "location": "Ubicación",
+    "responseTime": "Tiempo de Respuesta",
+    "responseTimeValue": "Dentro de 24 horas"
+  },
+  "contactEmail": "Tu Correo Electrónico",
+  "contactError": "Ocurrió un error",
+  "contactErrorDescription": "Por favor, intenta más tarde.",
+  "contactFaq": "¿Más preguntas? Contáctanos",
+  "contactHeading": "Contáctanos",
+  "contactMessage": "Tu Mensaje",
+  "contactName": "Tu Nombre",
+  "contactSubheading": "¿Tienes preguntas? Estamos felices de ayudarte.",
+  "contactSubtitle": "Nos encantaría saber de ti",
+  "contactSuccess": "Tu mensaje ha sido enviado exitosamente",
+  "contactSuccessDescription": "Hemos recibido tu mensaje y nos pondremos en contacto pronto.",
+  "cookiePolicy": "Política de Cookies",
+  "cookiePolicyContent": {
+    "intro": "Esta Política de Cookies explica cómo ZeitPal utiliza cookies y tecnologías similares cuando visita nuestro sitio web.",
+    "lastUpdated": "Última actualización: {{date}}",
+    "sections": [
+      {
+        "content": "Las cookies son pequeños archivos de texto que se almacenan en su dispositivo cuando visita un sitio web. Permiten que el sitio web reconozca su dispositivo y almacene diversa información.",
+        "title": "1. ¿Qué Son las Cookies?"
+      },
+      {
+        "content": "Utilizamos diferentes tipos de cookies:",
+        "title": "2. ¿Qué Cookies Utilizamos?"
+      },
+      {
+        "content": "Estas cookies son esenciales para las funciones básicas del sitio web. Permiten la navegación, el inicio de sesión y el acceso a áreas seguras. Sin estas cookies, el sitio web no puede funcionar correctamente.",
+        "title": "2.1 Cookies Necesarias"
+      },
+      {
+        "content": "Estas cookies permiten funciones mejoradas como guardar sus preferencias de idioma o recordar sus datos de inicio de sesión. Mejoran la experiencia del usuario.",
+        "title": "2.2 Cookies Funcionales"
+      },
+      {
+        "content": "Estas cookies nos permiten entender cómo los visitantes utilizan nuestro sitio web. Los datos recopilados son anonimizados y nos ayudan a mejorar nuestro sitio web.",
+        "title": "2.3 Cookies de Análisis"
+      },
+      {
+        "content": "Puede ajustar sus preferencias de cookies en cualquier momento a través de la configuración de cookies en el pie de página de nuestro sitio web. También puede bloquear o eliminar cookies en la configuración de su navegador. Tenga en cuenta que deshabilitar ciertas cookies puede afectar la funcionalidad del sitio web.",
+        "title": "3. Gestión de Configuración de Cookies"
+      },
+      {
+        "content": "La duración del almacenamiento varía según el tipo de cookie. Las cookies de sesión se eliminan cuando cierra su navegador. Las cookies persistentes permanecen en su dispositivo durante un período especificado o hasta que las elimine.",
+        "title": "4. Duración del Almacenamiento"
+      },
+      {
+        "content": "En algunos casos, utilizamos cookies de terceros de confianza. Estas cookies están sujetas a las políticas de privacidad de los respectivos proveedores.",
+        "title": "5. Cookies de Terceros"
+      },
+      {
+        "content": "Podemos actualizar esta Política de Cookies de vez en cuando para reflejar cambios en nuestras prácticas o por otras razones operativas, legales o normativas.",
+        "title": "6. Actualizaciones de Esta Política"
+      },
+      {
+        "content": "Si tiene preguntas sobre nuestro uso de cookies, contáctenos a través de nuestro formulario de contacto o por correo electrónico.",
+        "title": "7. Contacto"
+      }
+    ]
+  },
+  "cookiePolicyDescription": "Nuestra política de cookies y cómo las utilizamos",
+  "copyright": "© {{year}} {{product}}. Todos los Derechos Reservados.",
+  "cta": {
+    "bookDemo": "Reservar una demostración",
+    "getStarted": "Empezar",
+    "learnMore": "Más información",
+    "signUp": "Registrarse",
+    "startFree": "Comenzar gratis",
+    "tryFree": "Probar gratis",
+    "watchDemo": "Ver demostración"
+  },
+  "ctaSection": {
+    "heading": "¿Listo para simplificar tu gestión de permisos?",
+    "startFree": "Comienza Gratis",
+    "subheading": "Comienza gratis en menos de 5 minutos. Sin tarjeta de crédito requerida."
+  },
   "customers": "Clientes",
   "customersSubtitle": "Lo que dicen nuestros clientes",
-  "product": "Producto",
-  "legal": "Legal",
-  "solutions": "Soluciones",
-  "company": "Empresa",
-  "getStarted": "Comenzar",
-  "termsOfService": "Terminos de Servicio",
-  "termsOfServiceDescription": "Nuestros terminos y condiciones",
-  "cookiePolicy": "Politica de Cookies",
-  "cookiePolicyDescription": "Nuestra politica de cookies",
-  "privacyPolicy": "Politica de Privacidad",
-  "privacyPolicyDescription": "Nuestra politica de privacidad",
-  "imprint": "Aviso Legal",
-
-  "hero": {
-    "pill": "Comienza Gratis",
-    "title": "Gestion de vacaciones que simplemente funciona",
-    "subtitle": "ZeitPal facilita la planificacion de vacaciones, bajas medicas y gestion de ausencias. Gratis para equipos pequenos.",
-    "cta": "Comenzar Gratis",
-    "ctaSecondary": "Ver Demo"
+  "demo": "Demo",
+  "demoSubtitle": "Ve ZeitPal en acción",
+  "documentation": "Documentación",
+  "documentationSubtitle": "Tutoriales y guías para comenzar",
+  "faq": "FAQ",
+  "faqItems": [
+    {
+      "answer": "¡Sí! ZeitPal es completamente gratuito para equipos de hasta 20 empleados. Sin tarjeta de crédito requerida, sin costos ocultos. Solo pagas cuando creces más allá de 20 miembros del equipo.",
+      "question": "¿ZeitPal es realmente gratuito?"
+    },
+    {
+      "answer": "La mayoría de los equipos están funcionando en menos de 15 minutos. Regístrate, invita a tu equipo, y listo.",
+      "question": "¿Cuánto tiempo toma la configuración?"
+    },
+    {
+      "answer": "Sí, ZeitPal cumple completamente con GDPR. Tus datos se almacenan en servidores alemanes y solo procesamos datos necesarios.",
+      "question": "¿ZeitPal cumple con GDPR?"
+    },
+    {
+      "answer": "Vacaciones, baja por enfermedad, baja por enfermedad del hijo, permiso parental, permiso de maternidad, permiso especial, compensación de horas extras, capacitación, y permiso sin sueldo.",
+      "question": "¿Qué tipos de ausencias se admiten?"
+    },
+    {
+      "answer": "Sí, ZeitPal conoce todos los días festivos alemanes por estado. Los días laborales se calculan automáticamente correctamente.",
+      "question": "¿Se incluyen los días festivos alemanes?"
+    },
+    {
+      "answer": "¡Absolutamente! Te ayudamos a importar tus datos de permisos existentes. Contáctanos para soporte.",
+      "question": "¿Puedo migrar desde Excel a ZeitPal?"
+    }
+  ],
+  "faqSubtitle": "Preguntas frecuentes sobre ZeitPal",
+  "features": {
+    "approvals": {
+      "description": "Cadenas de aprobación flexibles para diferentes tipos de ausencia.",
+      "title": "Flujos de Aprobación"
+    },
+    "balances": {
+      "description": "Cálculo automático de permiso restante, acumulación y prorrateo.",
+      "title": "Saldos de Permiso"
+    },
+    "germanLaw": {
+      "description": "Cumple con BUrlG, incluidos días festivos específicos por estado.",
+      "title": "Derecho Laboral Alemán"
+    },
+    "integrations": {
+      "description": "Conecta ZeitPal con Slack, Google Calendar y más.",
+      "title": "Integraciones"
+    },
+    "leaveManagement": {
+      "description": "Envía solicitudes de permiso en segundos. Las aprobaciones se realizan con un clic.",
+      "title": "Solicitudes de Permiso"
+    },
+    "metaDescription": "Descubre todas las características de ZeitPal: solicitudes de permiso, calendario del equipo, seguimiento de licencia por enfermedad, aprobaciones automáticas y más.",
+    "metaTitle": "Características | Gestión de Permisos ZeitPal",
+    "mobile": {
+      "description": "Gestiona permisos sobre la marcha con nuestra aplicación web móvil.",
+      "title": "Aplicación Móvil"
+    },
+    "notifications": {
+      "description": "Notificaciones por correo electrónico y Slack para solicitudes y aprobaciones.",
+      "title": "Notificaciones"
+    },
+    "reports": {
+      "description": "Reportes detallados sobre ausencias, tasas de enfermedad y más.",
+      "title": "Reportes y Análisis"
+    },
+    "sickLeave": {
+      "description": "Reporte digital de licencia por enfermedad con recordatorios automáticos de certificados.",
+      "title": "Licencia por Enfermedad"
+    },
+    "subtitle": "Desde solicitudes de permiso hasta planificación de equipos - ZeitPal lo tiene todo.",
+    "teamCalendar": {
+      "description": "Ve de un vistazo quién está fuera y cuándo. Evita conflictos de programación.",
+      "title": "Calendario del Equipo"
+    },
+    "title": "Todo lo que necesitas para la gestión de permisos"
   },
-
+  "featuresLabel": "Características",
+  "featuresSubtitle": "Todas las características de un vistazo",
+  "footer": {
+    "absenceManagement": "Gestión de Ausencias",
+    "company": "Empresa",
+    "compare": "Comparar",
+    "description": "ZeitPal es la solución simple para gestión de permisos y seguimiento de ausencias. Hecho en Alemania, cumplimiento GDPR.",
+    "forSMEs": "Para PYMEs",
+    "forStartups": "Para Startups",
+    "leaveManagement": "Gestión de Permisos",
+    "legal": "Legal",
+    "product": "Producto",
+    "solutions": "Soluciones"
+  },
+  "footerDescription": "ZeitPal es la solución simple para la gestión de permisos y seguimiento de ausencias. Hecho en Alemania, cumple con GDPR.",
+  "getStarted": "Comenzar",
+  "hero": {
+    "cta": "Comenzar Gratis",
+    "ctaSecondary": "Ver Demo",
+    "pill": "Comenzar Gratis",
+    "subtitle": "ZeitPal hace que la planificación de vacaciones, permisos por enfermedad y gestión de ausencias sea sencilla. Gratuito para equipos pequeños.",
+    "title": "Gestión de permisos que simplemente funciona"
+  },
+  "imprint": "Aviso Legal",
+  "legal": "Legal",
+  "liveUpdates": {
+    "heading": "Mantente informado - en tiempo real",
+    "item1": "Solicitud de permiso aprobada",
+    "item2": "Sarah K. - Vacaciones 23-27 de diciembre",
+    "item3": "Recordatorio: Reunión del equipo mañana",
+    "item4": "Notificación de permiso por enfermedad recibida",
+    "subheading": "Recibe notificaciones instantáneas sobre solicitudes de permiso, aprobaciones y cambios en el equipo.",
+    "time1": "Justo ahora",
+    "time2": "Hace 2 minutos",
+    "time3": "Hace 5 minutos",
+    "time4": "Hace 10 minutos"
+  },
   "pricing": {
-    "metaTitle": "Precios | ZeitPal - Gestion de Vacaciones Gratuita",
-    "metaDescription": "ZeitPal es gratis para equipos de hasta 20 personas. Sin tarjeta de credito. Precios transparentes para equipos mas grandes.",
-    "title": "Precios simples y transparentes",
-    "subtitle": "Gratis para equipos pequenos y medianos. Solo paga cuando crezcas mas de 20 empleados.",
-    "freeForever": "Gratis hasta 20 empleados",
-    "noCreditCard": "Sin tarjeta de credito",
-    "noHiddenFees": "Sin costos ocultos",
-    "mostPopular": "Mas popular",
-    "perUser": "por usuario/mes",
-    "getStarted": "Comenzar Gratis",
-    "contactSales": "Contactar Ventas",
     "compare": "Comparar planes",
-
-    "starter": {
-      "name": "Gratis",
-      "price": "0",
-      "description": "Perfecto para equipos de hasta 20 empleados",
-      "features": [
-        "Hasta 20 usuarios",
-        "Solicitudes y aprobaciones",
-        "Calendario del equipo",
-        "Seguimiento de bajas",
-        "Notificaciones por email",
-        "Multiples equipos",
-        "Balance de vacaciones",
-        "Cumple con GDPR"
-      ]
-    },
-    "team": {
-      "name": "Equipo",
-      "price": "3.99",
-      "description": "Para empresas con 21+ empleados",
-      "features": [
-        "Todo en Gratis",
-        "21-100 usuarios",
-        "Informes avanzados",
-        "Integracion Slack",
-        "Sincronizacion Google Calendar",
-        "Soporte prioritario",
-        "Tipos de ausencia personalizados"
-      ]
-    },
+    "contactSales": "Contactar Ventas",
     "enterprise": {
-      "name": "Empresa",
-      "price": "Personalizado",
       "description": "Para grandes organizaciones con 100+ empleados",
       "features": [
-        "Todo en Equipo",
+        "Todo lo de Team",
         "Usuarios ilimitados",
         "SSO/SAML",
         "Acceso API",
-        "Gerente de cuenta dedicado",
-        "Garantia SLA",
-        "Opcion on-premise",
+        "Gestor de cuenta dedicado",
+        "Garantía SLA",
+        "Opción local",
         "Integraciones personalizadas"
-      ]
-    }
+      ],
+      "name": "Enterprise",
+      "price": "Personalizado"
+    },
+    "freeForever": "Gratuito hasta 20 empleados",
+    "getStarted": "Comenzar Gratis",
+    "metaDescription": "ZeitPal es gratuito para equipos de hasta 20 personas. Sin tarjeta de crédito requerida. Precios transparentes para equipos más grandes.",
+    "metaTitle": "Precios | ZeitPal - Gestión de Permisos Gratuita",
+    "mostPopular": "Más popular",
+    "noCreditCard": "Sin tarjeta de crédito requerida",
+    "noHiddenFees": "Sin cargos ocultos",
+    "perUser": "por usuario/mes",
+    "starter": {
+      "description": "Perfecto para equipos de hasta 20 empleados",
+      "features": [
+        "Hasta 20 usuarios",
+        "Solicitudes de permiso y aprobaciones",
+        "Calendario del equipo",
+        "Seguimiento de licencia por enfermedad",
+        "Notificaciones por correo electrónico",
+        "Múltiples equipos",
+        "Saldos de permiso",
+        "Cumplimiento GDPR"
+      ],
+      "name": "Gratuito",
+      "price": "0"
+    },
+    "subtitle": "Gratuito para equipos pequeños y medianos. Solo paga cuando crezcas más allá de 20 empleados.",
+    "team": {
+      "description": "Para empresas en crecimiento con 21+ empleados",
+      "features": [
+        "Todo lo de Starter",
+        "21-100 usuarios",
+        "Reportes y análisis avanzados",
+        "Integración con Slack",
+        "Sincronización con Google Calendar",
+        "Soporte por correo electrónico prioritario",
+        "Tipos de permiso personalizados"
+      ],
+      "name": "Team",
+      "price": "3.99"
+    },
+    "title": "Precios simples y transparentes"
   },
-
-  "features": {
-    "metaTitle": "Caracteristicas | ZeitPal Gestion de Vacaciones",
-    "metaDescription": "Descubre todas las caracteristicas de ZeitPal: solicitudes de vacaciones, calendario de equipo, seguimiento de bajas y mas.",
-    "title": "Todo lo que necesitas para gestionar vacaciones",
-    "subtitle": "Desde solicitudes de vacaciones hasta planificacion de equipo - ZeitPal lo tiene todo.",
-
-    "leaveManagement": {
-      "title": "Solicitudes de Vacaciones",
-      "description": "Envia solicitudes de vacaciones en segundos. Aprobaciones con un clic."
-    },
-    "teamCalendar": {
-      "title": "Calendario del Equipo",
-      "description": "Ve de un vistazo quien esta ausente y cuando. Evita conflictos."
-    },
-    "sickLeave": {
-      "title": "Bajas Medicas",
-      "description": "Reporte digital de bajas con recordatorios automaticos."
-    },
-    "approvals": {
-      "title": "Flujos de Aprobacion",
-      "description": "Cadenas de aprobacion flexibles para diferentes tipos de ausencia."
-    },
-    "balances": {
-      "title": "Balance de Vacaciones",
-      "description": "Calculo automatico de dias restantes, arrastre y prorrateo."
-    },
-    "reports": {
-      "title": "Informes y Analiticas",
-      "description": "Informes detallados sobre ausencias, tasas de baja y mas."
-    },
-    "notifications": {
-      "title": "Notificaciones",
-      "description": "Notificaciones por email y Slack para solicitudes y aprobaciones."
-    },
-    "mobile": {
-      "title": "App Movil",
-      "description": "Gestiona vacaciones en movimiento con nuestra app web movil."
-    },
-    "integrations": {
-      "title": "Integraciones",
-      "description": "Conecta ZeitPal con Slack, Google Calendar y mas."
-    },
-    "germanLaw": {
-      "title": "Legislacion Alemana",
-      "description": "Cumple con BUrlG, incluyendo festivos por estado."
-    }
+  "pricingLabel": "Precios",
+  "pricingSubtitle": "Precios simples y transparentes",
+  "privacyPolicy": "Política de Privacidad",
+  "privacyPolicyContent": {
+    "intro": "Proteger tus datos personales es importante para nosotros. Esta Política de Privacidad te informa sobre cómo recopilamos, procesamos y protegemos tus datos.",
+    "lastUpdated": "Última actualización: {{date}}",
+    "sections": [
+      {
+        "content": "El responsable del tratamiento de datos conforme al GDPR es el operador de ZeitPal. Los datos de contacto se encuentran en nuestro Aviso Legal.",
+        "title": "1. Responsable del Tratamiento de Datos"
+      },
+      {
+        "content": "Recopilamos datos personales cuando se registra en ZeitPal, utiliza nuestros servicios o se comunica con nosotros. Esto incluye: nombre, dirección de correo electrónico, datos de la empresa, solicitudes de permiso y datos de ausencias.",
+        "title": "2. Recopilación y Procesamiento de Datos Personales"
+      },
+      {
+        "content": "Procesamos sus datos para proporcionar nuestros servicios, gestionar su cuenta de usuario, comunicarnos con usted, mejorar nuestros servicios y cumplir con obligaciones legales.",
+        "title": "3. Propósitos del Tratamiento de Datos"
+      },
+      {
+        "content": "El tratamiento se basa en el Art. 6(1)(b) RGPD (ejecución del contrato), Art. 6(1)(a) RGPD (consentimiento), Art. 6(1)(c) RGPD (obligación legal) o Art. 6(1)(f) RGPD (intereses legítimos).",
+        "title": "4. Base Legal"
+      },
+      {
+        "content": "Solo compartimos sus datos cuando es necesario para la ejecución del contrato, cuando ha dado su consentimiento o cuando es legalmente requerido. Nuestros proveedores de alojamiento están cuidadosamente seleccionados y obligados contractualmente a cumplir con el RGPD.",
+        "title": "5. Compartición de Datos con Terceros"
+      },
+      {
+        "content": "Sus datos se almacenan en servidores en Alemania. Solo almacenamos sus datos durante el tiempo necesario para los respectivos propósitos o según lo requerido por obligaciones legales de retención.",
+        "title": "6. Almacenamiento y Eliminación de Datos"
+      },
+      {
+        "content": "Tiene derecho a acceder a sus datos almacenados, rectificación de datos inexactos, eliminación de sus datos, restricción del tratamiento, portabilidad de datos y derecho a oponerse al tratamiento. También puede presentar una reclamación ante una autoridad supervisora.",
+        "title": "7. Sus Derechos"
+      },
+      {
+        "content": "Implementamos medidas de seguridad técnicas y organizativas para proteger sus datos contra manipulación accidental o intencional, pérdida, destrucción o acceso por personas no autorizadas. Estas incluyen encriptación SSL, actualizaciones de seguridad regulares y controles de acceso.",
+        "title": "8. Seguridad de Datos"
+      },
+      {
+        "content": "Utilizamos cookies para hacer nuestro sitio web fácil de usar. Los detalles se encuentran en nuestra Política de Cookies.",
+        "title": "9. Cookies"
+      },
+      {
+        "content": "Nos reservamos el derecho de adaptar esta Política de Privacidad según sea necesario para reflejar cambios en los requisitos legales o cambios en nuestros servicios o tratamiento de datos.",
+        "title": "10. Cambios en la Política de Privacidad"
+      },
+      {
+        "content": "Si tiene preguntas sobre protección de datos, contáctenos a través de nuestro formulario de contacto o por correo electrónico.",
+        "title": "11. Contacto"
+      }
+    ]
   },
-
-  "trust": {
-    "gdprCompliant": "Cumple con GDPR",
-    "madeInGermany": "Hecho en Alemania",
-    "sslEncrypted": "Encriptado SSL",
-    "germanServers": "Servidores UE",
-    "noHiddenCosts": "Sin Costos Ocultos"
-  },
-
-  "cta": {
-    "startFree": "Comenzar Gratis",
-    "watchDemo": "Ver Demo",
-    "learnMore": "Saber Mas",
-    "getStarted": "Comenzar",
-    "bookDemo": "Reservar Demo",
-    "tryFree": "Probar Gratis",
-    "signUp": "Registrarse"
-  },
-
-  "stats": {
-    "heading": "ZeitPal en numeros",
-    "daysManaged": "Dias de vacaciones gestionados",
-    "teams": "Equipos felices",
-    "rating": "Calificacion promedio",
-    "uptime": "Tiempo de actividad"
-  },
-
-  "testimonials": {
-    "heading": "Lo que dicen nuestros clientes",
-    "subheading": "Mas de 500 equipos confian en ZeitPal",
-
-    "1": {
-      "quote": "Desde que usamos ZeitPal, ahorro al menos 5 horas de trabajo administrativo cada mes. Por fin sin hojas de calculo!",
-      "author": "Sarah M.",
-      "role": "Gerente de RRHH",
-      "company": "TechStart GmbH, Berlin"
-    },
-    "2": {
-      "quote": "La configuracion tomo menos de una hora. Nuestro equipo de 12 ahora usa ZeitPal diariamente - y es completamente gratis!",
-      "author": "Michael K.",
-      "role": "Director General",
-      "company": "Kreativ Agentur Nord"
-    },
-    "3": {
-      "quote": "Ahora apruebo solicitudes de vacaciones con un toque en mi telefono. Mi equipo adora la transparencia del calendario compartido.",
-      "author": "Julia B.",
-      "role": "Lider de Equipo",
-      "company": "Consulting Plus AG"
-    },
-    "4": {
-      "quote": "Como empresa remota, la gestion de ausencias era una pesadilla. ZeitPal lo resolvio completamente.",
-      "author": "Thomas W.",
-      "role": "Director de Operaciones",
-      "company": "GlobalTech Solutions"
-    }
-  },
-
+  "privacyPolicyDescription": "Nuestra política de privacidad y cómo utilizamos tus datos",
+  "product": "Producto",
+  "sendMessage": "Enviar Mensaje",
   "seo": {
-    "urlaubsverwaltung": {
-      "metaTitle": "Software de Gestion de Vacaciones | ZeitPal - Comienza Gratis",
-      "metaDescription": "Gestion digital de vacaciones para empresas. Cumple con GDPR, facil de usar, gratis para equipos pequenos. Pruebalo ahora!",
-      "h1": "Software de Gestion de Vacaciones para Equipos Modernos",
-      "subtitle": "Di adios al caos de Excel y cadenas de emails. ZeitPal automatiza toda tu gestion de vacaciones."
-    },
     "abwesenheitsmanagement": {
-      "metaTitle": "Software de Gestion de Ausencias | ZeitPal",
-      "metaDescription": "Gestion profesional de ausencias: vacaciones, bajas, teletrabajo - todo en un lugar. Gratis para equipos pequenos.",
-      "h1": "Gestion Digital de Ausencias",
-      "subtitle": "Mantente al tanto de todas las ausencias de tu equipo. Automatico, transparente y cumple con GDPR."
-    },
-    "urlaubsplaner": {
-      "metaTitle": "Planificador de Vacaciones Online | ZeitPal - Gratis",
-      "metaDescription": "Planifica vacaciones online con el calendario de equipo. Evita conflictos, mantente informado. Gratis para equipos de hasta 20 empleados.",
-      "h1": "Planificador de Vacaciones Online para Equipos",
-      "subtitle": "Planifica las vacaciones de tu equipo de forma centralizada y evita cuellos de botella. Con vista de calendario y notificaciones automaticas."
-    },
-    "krankmeldungDigital": {
-      "metaTitle": "Baja Medica Digital | ZeitPal",
-      "metaDescription": "Registra y gestiona bajas medicas digitalmente. Recordatorios automaticos de certificados, cumple con GDPR. Prueba gratis ahora.",
-      "h1": "Baja Medica Digital para tu Empresa",
-      "subtitle": "Registra bajas medicas digitalmente. Recordatorio automatico de certificado medico despues de 3 dias."
+      "h1": "Gestión digital de ausencias",
+      "metaDescription": "Gestión profesional de ausencias: vacaciones, permiso por enfermedad, trabajo desde casa - todo en un solo lugar. Gratis para equipos pequeños.",
+      "metaTitle": "Software de gestión de ausencias | ZeitPal",
+      "subtitle": "Mantén un registro de todas las ausencias de tu equipo. Automático, transparente y conforme a GDPR."
     },
     "hrSoftware": {
-      "metaTitle": "Software de RRHH para Empresas | ZeitPal",
-      "metaDescription": "Software moderno de RRHH para gestion de vacaciones y seguimiento de ausencias. Cumple con GDPR, Hecho en Alemania. Comienza gratis.",
-      "h1": "Software de RRHH para Empresas",
-      "subtitle": "ZeitPal fue construido especificamente para el mercado. Cumple con la legislacion laboral y GDPR."
+      "h1": "Software de RRHH para Empresas Alemanas",
+      "metaDescription": "Software de RRHH moderno para gestión de permisos y seguimiento de ausencias. Cumplimiento GDPR, Hecho en Alemania. Comienza gratis.",
+      "metaTitle": "Software de RRHH para Empresas Alemanas | ZeitPal",
+      "subtitle": "ZeitPal fue construido específicamente para el mercado alemán. Cumple con la ley laboral alemana y GDPR."
+    },
+    "krankmeldungDigital": {
+      "h1": "Baja por Enfermedad Digital para tu Empresa",
+      "metaDescription": "Registra y gestiona bajas por enfermedad digitalmente. Recordatorios automáticos de certificados, cumplimiento GDPR. Prueba gratis ahora.",
+      "metaTitle": "Baja por Enfermedad Digital | ZeitPal",
+      "subtitle": "Registra bajas por enfermedad digitalmente. Recordatorio automático de certificados médicos después de 3 días."
+    },
+    "urlaubsplaner": {
+      "h1": "Planificador de vacaciones en línea para equipos",
+      "metaDescription": "Planifica vacaciones en línea con el calendario del equipo. Evita conflictos, mantente informado. Gratis para equipos de hasta 20 empleados.",
+      "metaTitle": "Planificador de vacaciones en línea | ZeitPal - Gratis",
+      "subtitle": "Planifica las vacaciones de tu equipo de forma centralizada y evita cuellos de botella. Con vista de calendario y notificaciones automáticas."
+    },
+    "urlaubsverwaltung": {
+      "h1": "Software de gestión de permisos para equipos modernos",
+      "metaDescription": "Gestión digital de permisos para empresas alemanas. Cumple con GDPR, fácil de usar, gratis para equipos pequeños. ¡Pruébalo ahora!",
+      "metaTitle": "Software de gestión de permisos | ZeitPal - Comenzar gratis",
+      "subtitle": "Despídete del caos de Excel y las cadenas de correos electrónicos. ZeitPal automatiza toda tu gestión de permisos."
     }
   },
-
-  "useCases": {
-    "startups": {
-      "metaTitle": "Gestion de Vacaciones para Startups | ZeitPal",
-      "metaDescription": "Gestion de vacaciones gratuita para startups de hasta 20 empleados. Configuracion rapida, facil de usar. Comienza ahora.",
-      "h1": "Gestion de Vacaciones para Startups",
-      "subtitle": "Concentrate en el crecimiento - nosotros nos encargamos de la gestion de vacaciones. Gratis para equipos pequenos."
-    },
-    "mittelstand": {
-      "metaTitle": "Gestion de Ausencias para PYMEs | ZeitPal",
-      "metaDescription": "Gestion profesional de ausencias para medianas empresas. Escalable, seguro, conforme a la ley.",
-      "h1": "Gestion de Ausencias para PYMEs",
-      "subtitle": "Gestion profesional de vacaciones que crece con tu empresa. Multiples equipos, informes avanzados, integraciones."
-    }
+  "site": {
+    "description": "ZeitPal hace que la planificación de vacaciones, permisos por enfermedad y gestión de ausencias sea sencilla. Cumple con GDPR, Hecho en Alemania. Gratuito para equipos pequeños.",
+    "title": "ZeitPal - Gestión de Permisos que Simplemente Funciona"
   },
-
-  "faqItems": [
+  "solutions": "Soluciones",
+  "stats": {
+    "daysManaged": "Días de permiso gestionados",
+    "heading": "ZeitPal en números",
+    "rating": "Calificación promedio",
+    "teams": "Equipos satisfechos",
+    "uptime": "Disponibilidad"
+  },
+  "termsOfService": "Términos de Servicio",
+  "termsOfServiceContent": {
+    "intro": "Bienvenido a ZeitPal. Al utilizar nuestros servicios, aceptas estos Términos de Servicio.",
+    "lastUpdated": "Última actualización: {{date}}",
+    "sections": [
+      {
+        "content": "Estos Términos de Servicio se aplican a todos los usuarios de la plataforma ZeitPal. Al registrarte y utilizar nuestros servicios, aceptas estos términos en su totalidad.",
+        "title": "1. Alcance"
+      },
+      {
+        "content": "ZeitPal proporciona software basado en la nube para gestionar solicitudes de permisos, ausencias y calendarios de equipo. El alcance de las funciones depende del plan seleccionado.",
+        "title": "2. Descripción del Servicio"
+      },
+      {
+        "content": "El registro es obligatorio para usar ZeitPal. Estás obligado a proporcionar información precisa y mantener tus credenciales de acceso confidenciales. Eres responsable de todas las actividades que ocurran en tu cuenta.",
+        "title": "3. Registro y Cuenta de Usuario"
+      },
+      {
+        "content": "ZeitPal es gratuito para equipos de hasta 20 miembros. Para equipos más grandes, se aplican nuestros planes pagos según los precios actuales en nuestro sitio web.",
+        "title": "4. Uso Gratuito y Planes Pagos"
+      },
+      {
+        "content": "Aceptas no usar ZeitPal para propósitos ilegales, no cargar contenido dañino y respetar los derechos de terceros. Está prohibido compartir credenciales de acceso con terceros no autorizados.",
+        "title": "5. Obligaciones del Usuario"
+      },
+      {
+        "content": "Proteger tus datos es importante para nosotros. Los detalles sobre el procesamiento de datos personales se encuentran en nuestra Política de Privacidad.",
+        "title": "6. Protección de Datos"
+      },
+      {
+        "content": "Nos esforzamos por mantener una alta disponibilidad de nuestros servicios, pero no podemos garantizar un tiempo de actividad del 100%. Los trabajos de mantenimiento se anunciarán con anticipación cuando sea posible.",
+        "title": "7. Disponibilidad"
+      },
+      {
+        "content": "ZeitPal solo es responsable de los daños causados por conducta intencional o negligencia grave. La responsabilidad por negligencia leve se excluye en la medida permitida por la ley. Esto no se aplica a los daños derivados de lesiones a la vida, el cuerpo o la salud.",
+        "title": "8. Limitación de Responsabilidad"
+      },
+      {
+        "content": "Puedes terminar tu cuenta en cualquier momento. Para planes pagos, se aplica el período de notificación acordado. Después de la terminación, tus datos se eliminarán de conformidad con nuestra Política de Privacidad.",
+        "title": "9. Terminación"
+      },
+      {
+        "content": "Nos reservamos el derecho de modificar estos Términos de Servicio. Se te notificará de cambios materiales por correo electrónico. El uso continuado después de que los cambios entren en vigor constituye aceptación.",
+        "title": "10. Cambios en los Términos de Servicio"
+      },
+      {
+        "content": "Se aplica la ley alemana, excluyendo la Convención de las Naciones Unidas sobre Contratos de Compraventa Internacional de Mercaderías. El lugar de jurisdicción para todas las disputas es, en la medida permitida por la ley, la sede registrada del operador.",
+        "title": "11. Ley Aplicable y Jurisdicción"
+      },
+      {
+        "content": "Si tienes preguntas sobre estos Términos de Servicio, contáctanos a través de nuestro formulario de contacto o por correo electrónico.",
+        "title": "12. Contacto"
+      }
+    ]
+  },
+  "termsOfServiceDescription": "Nuestros términos y condiciones",
+  "testimonials": [
+    null,
     {
-      "question": "Es ZeitPal realmente gratis?",
-      "answer": "Si! ZeitPal es completamente gratis para equipos de hasta 20 empleados. Sin tarjeta de credito, sin costos ocultos. Solo pagas cuando creces mas de 20 miembros."
+      "author": "Sarah M.",
+      "company": "TechStart GmbH, Berlin",
+      "quote": "Desde que uso ZeitPal, ahorro al menos 5 horas de trabajo administrativo cada mes. ¡Finalmente sin más hojas de cálculo de Excel!",
+      "role": "Gerente de Recursos Humanos"
     },
     {
-      "question": "Cuanto tiempo toma la configuracion?",
-      "answer": "La mayoria de equipos estan listos en menos de 15 minutos. Registrate, invita a tu equipo y listo."
+      "author": "Michael K.",
+      "company": "Kreativ Agentur Nord",
+      "quote": "La configuración tomó menos de una hora. Nuestro equipo de 12 personas ahora usa ZeitPal diariamente, ¡y es completamente gratis!",
+      "role": "Director General"
     },
     {
-      "question": "Cumple ZeitPal con GDPR?",
-      "answer": "Si, ZeitPal cumple totalmente con GDPR. Tus datos se almacenan en servidores alemanes y solo procesamos datos necesarios."
+      "author": "Julia B.",
+      "company": "Consulting Plus AG",
+      "quote": "Ahora apruebo solicitudes de permiso con un toque en mi teléfono. A mi equipo le encanta la transparencia del calendario compartido.",
+      "role": "Líder de Equipo"
     },
     {
-      "question": "Que tipos de ausencia se soportan?",
-      "answer": "Vacaciones, baja por enfermedad, baja por hijo enfermo, permiso parental, maternidad, permiso especial, compensacion de horas extra, formacion y permiso no remunerado."
-    },
-    {
-      "question": "Se incluyen los festivos alemanes?",
-      "answer": "Si, ZeitPal conoce todos los festivos alemanes por estado. Los dias laborables se calculan automaticamente correctamente."
-    },
-    {
-      "question": "Puedo migrar de Excel a ZeitPal?",
-      "answer": "Absolutamente! Te ayudamos a importar tus datos de vacaciones existentes. Contactanos para soporte."
+      "author": "Thomas W.",
+      "company": "GlobalTech Solutions",
+      "quote": "Como empresa con trabajo remoto, la gestión de ausencias era una pesadilla. ZeitPal lo resolvió completamente.",
+      "role": "Director de Operaciones"
     }
   ],
-
-  "footer": {
-    "description": "ZeitPal es la solucion simple para gestion de vacaciones y seguimiento de ausencias. Hecho en Alemania, cumple con GDPR.",
-    "product": "Producto",
-    "solutions": "Soluciones",
-    "company": "Empresa",
-    "legal": "Legal",
-    "leaveManagement": "Gestion de Vacaciones",
-    "absenceManagement": "Gestion de Ausencias",
-    "forStartups": "Para Startups",
-    "forSMEs": "Para PYMEs"
+  "trust": {
+    "gdprCompliant": "Cumple con GDPR",
+    "germanServers": "Servidores en la UE",
+    "madeInGermany": "Hecho en Alemania",
+    "noHiddenCosts": "Sin costos ocultos",
+    "sslEncrypted": "Encriptado con SSL"
   },
-
-  "ctaSection": {
-    "heading": "Listo para simplificar tu gestion de vacaciones?",
-    "subheading": "Comienza gratis en menos de 5 minutos. Sin tarjeta de credito.",
-    "startFree": "Comenzar Gratis"
-  },
-
-  "about": {
-    "mission": {
-      "title": "Nuestra Mision",
-      "description": "Creemos que la gestion de vacaciones no deberia ser complicada. ZeitPal fue creado para facilitar la vida de equipos de RRHH y empleados - con una solucion intuitiva que cumple con GDPR y simplemente funciona."
+  "useCases": {
+    "mittelstand": {
+      "h1": "Gestión de Ausencias para PYMEs",
+      "metaDescription": "Gestión profesional de ausencias para empresas medianas. Escalable, seguro, cumplimiento de la ley alemana.",
+      "metaTitle": "Gestión de Ausencias para PYMEs | ZeitPal",
+      "subtitle": "Gestión profesional de permisos que crece con tu empresa. Múltiples equipos, reportes avanzados, integraciones."
     },
-    "story": {
-      "title": "Nuestra Historia",
-      "paragraph1": "ZeitPal nacio de nuestra propia experiencia: Como equipo en crecimiento, estabamos cansados de hojas de calculo, emails perdidos y el constante ir y venir en solicitudes de vacaciones. Sabiamos que habia una mejor manera.",
-      "paragraph2": "Hoy, ZeitPal ayuda a cientos de equipos a gestionar sus ausencias eficientemente. Nos enfocamos en simplicidad, privacidad de datos y los requisitos especificos del mercado."
-    },
-    "values": {
-      "title": "Nuestros Valores",
-      "privacy": {
-        "title": "Privacidad Primero",
-        "description": "El cumplimiento de GDPR no es opcional - es estandar. Tus datos se quedan en Alemania."
-      },
-      "simplicity": {
-        "title": "Simplicidad",
-        "description": "Sin capacitacion requerida. ZeitPal es tan intuitivo que tu equipo puede comenzar de inmediato."
-      },
-      "transparency": {
-        "title": "Transparencia",
-        "description": "Precios claros, comunicacion honesta. Sin costos ocultos ni sorpresas."
-      },
-      "community": {
-        "title": "Enfoque al Cliente",
-        "description": "Continuamos desarrollando ZeitPal basandonos en los comentarios de nuestros usuarios."
-      }
-    },
-    "cta": {
-      "title": "Listo para comenzar?",
-      "description": "Unete a cientos de equipos que han simplificado su gestion de vacaciones con ZeitPal."
+    "startups": {
+      "h1": "Gestión de Permisos para Startups",
+      "metaDescription": "Gestión de permisos gratuita para startups de hasta 20 empleados. Configuración rápida, fácil de usar. Comienza ahora.",
+      "metaTitle": "Gestión de Permisos para Startups | ZeitPal",
+      "subtitle": "Enfócate en el crecimiento - nosotros nos encargamos de la gestión de permisos. Gratis para equipos pequeños."
     }
-  },
-
-  "contact": {
-    "location": "Ubicacion",
-    "responseTime": "Tiempo de Respuesta",
-    "responseTimeValue": "Dentro de 24 horas",
-    "faqTitle": "Tienes Preguntas?",
-    "faqDescription": "Podrias encontrar la respuesta en nuestras FAQ."
-  },
-
-  "contactHeading": "Contactanos",
-  "contactSubheading": "Tienes preguntas? Estamos felices de ayudar.",
-  "contactName": "Tu Nombre",
-  "contactEmail": "Tu Email",
-  "contactMessage": "Tu Mensaje",
-  "sendMessage": "Enviar Mensaje",
-  "contactSuccess": "Tu mensaje ha sido enviado exitosamente",
-  "contactError": "Ocurrio un error",
-  "contactSuccessDescription": "Hemos recibido tu mensaje y nos pondremos en contacto pronto.",
-  "contactErrorDescription": "Por favor intenta de nuevo mas tarde.",
-  "contactFaq": "Tienes mas preguntas? Contactanos",
-
-  "footerDescription": "ZeitPal es la solucion simple para gestion de vacaciones y seguimiento de ausencias. Hecho en Alemania, cumple con GDPR.",
-  "copyright": "(c) {{year}} {{product}}. Todos los Derechos Reservados."
+  }
 }
