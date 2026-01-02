@@ -2,6 +2,7 @@ import { Footer } from '@kit/ui/marketing';
 import { Trans } from '@kit/ui/trans';
 
 import { AppLogo } from '~/components/app-logo';
+import { LocalizedLink } from '~/components/localized-link';
 import appConfig from '~/config/app.config';
 
 export function SiteFooter() {
@@ -9,6 +10,7 @@ export function SiteFooter() {
     <Footer
       logo={<AppLogo className="w-[85px] md:w-[95px]" />}
       description={<Trans i18nKey="marketing:footerDescription" />}
+      LinkComponent={LocalizedLink}
       copyright={
         <Trans
           i18nKey="marketing:copyright"
@@ -74,7 +76,7 @@ export function SiteFooter() {
             },
             {
               href: '/contact',
-              label: <Trans i18nKey="marketing:contact" />,
+              label: <Trans i18nKey="marketing:contactLabel" />,
             },
           ],
         },

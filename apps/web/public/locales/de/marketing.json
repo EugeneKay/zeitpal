@@ -685,6 +685,7 @@
     "responseTime": "Antwortzeit",
     "responseTimeValue": "Innerhalb von 24 Stunden"
   },
+  "contactLabel": "Kontakt",
   "contactEmail": "Ihre E-Mail",
   "contactError": "Ein Fehler ist aufgetreten",
   "contactErrorDescription": "Bitte versuchen Sie es später erneut.",

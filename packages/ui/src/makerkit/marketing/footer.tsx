@@ -8,11 +8,22 @@ interface FooterSection {
   }>;
 }
 
+type LinkComponentType = React.ComponentType<{
+  href: string;
+  children: React.ReactNode;
+  className?: string;
+}>;
+
 interface FooterProps extends React.HTMLAttributes<HTMLElement> {
   logo: React.ReactNode;
   description: React.ReactNode;
   copyright: React.ReactNode;
   sections: FooterSection[];
+  /**
+   * Custom Link component for localized routing.
+   * If not provided, uses a regular anchor tag.
+   */
+  LinkComponent?: LinkComponentType;
 }
 
 export const Footer: React.FC<FooterProps> = ({
@@ -21,6 +32,7 @@ export const Footer: React.FC<FooterProps> = ({
   description,
   copyright,
   sections,
+  LinkComponent,
   ...props
 }) => {
   return (
@@ -59,7 +71,11 @@ export const Footer: React.FC<FooterProps> = ({
 
                   <FooterSectionList>
                     {section.links.map((link, linkIndex) => (
-                      <FooterLink key={linkIndex} href={link.href}>
+                      <FooterLink
+                        key={linkIndex}
+                        href={link.href}
+                        LinkComponent={LinkComponent}
+                      >
                         {link.label}
                       </FooterLink>
                     ))}
@@ -89,10 +105,18 @@ function FooterSectionList(props: React.PropsWithChildren) {
 function FooterLink({
   href,
   children,
-}: React.PropsWithChildren<{ href: string }>) {
+  LinkComponent,
+}: React.PropsWithChildren<{
+  href: string;
+  LinkComponent?: LinkComponentType;
+}>) {
   return (
     <li className="text-muted-foreground text-sm tracking-tight hover:underline [&>a]:transition-colors">
-      <a href={href}>{children}</a>
+      {LinkComponent ? (
+        <LinkComponent href={href}>{children}</LinkComponent>
+      ) : (
+        <a href={href}>{children}</a>
+      )}
     </li>
   );
 }
